@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="">
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="a commit for conflict resolve">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_17_PM_[Default_Changelist]/logo_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_17_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_17_PM__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_23_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_23_PM__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/friends_final.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/logo_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/ma-account-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Client/assets/icons/friends_final.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Client/assets/icons/logo_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Client/assets/icons/ma-account-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Client/assets/icons/plus.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/SignupPhoneNumberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/SignupPhoneNumberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/SignupProfilePicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/SignupProfilePicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/Signing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/Signing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignUpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignupPhoneNumberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignupPhoneNumberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignupProfilePicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignupProfilePicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +38,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2BdELWlV2chBfnvri1gILQ2AjOS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,14 +49,34 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="G:/javafx-sdk-18.0.1/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Client/src/main/resources/assets/icons" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.ServerRun">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\DISCORD_GUI\GUI_Discord_Final\GUI_DISCORD_LAST\Client\src\main\resources\assets\icons" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ClientStarter">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClientStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="starter.ClientStarter" />
       <module name="Client" />
@@ -60,13 +92,11 @@
       </method>
     </configuration>
     <configuration name="ServerRun" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="temurin-18" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="server.ServerRun" />
       <module name="Server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="server.model.other.*" />
+          <option name="PATTERN" value="server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -80,8 +110,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerRun" />
         <item itemvalue="Application.ClientStarter" />
+        <item itemvalue="Application.ServerRun" />
       </list>
     </recent_temporary>
   </component>
@@ -102,6 +132,21 @@
       <workItem from="1657274790651" duration="1006000" />
       <workItem from="1657284354657" duration="2975000" />
     </task>
+    <task id="LOCAL-00001" summary="a commit for conflict resolve">
+      <created>1657278273255</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657278273255</updated>
+    </task>
+    <task id="LOCAL-00002" summary="a commit for conflict resolve">
+      <created>1657278289625</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657278289625</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,5 +162,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="a commit for conflict resolve" />
+    <option name="LAST_COMMIT_MESSAGE" value="a commit for conflict resolve" />
   </component>
 </project>
