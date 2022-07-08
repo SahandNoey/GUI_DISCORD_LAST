@@ -47,10 +47,12 @@ public class SignUpController {
 
     @FXML
     void nextClicked(MouseEvent event) throws IOException{
-        if(usernameTxtFld.getText() != null && passwordTxtFld.getText() != null && emailTxtFld.getText() != null) {
-            if(!usernameTxtFld.getText().equals("") && !passwordTxtFld.getText().equals("") && !emailTxtFld.getText().equals("")) {
-
-                if(Client.checkUserSignUp(usernameTxtFld.getText(), passwordTxtFld.getText(), emailTxtFld.getText())){
+        if(usernameTxtFld.getText() != null && passwordTxtFld.getText() != null && passwordTxtFldCnf.getText() != null && emailTxtFld.getText() != null) {
+            if(!usernameTxtFld.getText().equals("") && !passwordTxtFld.getText().equals("") && !passwordTxtFldCnf.getText().equals("") && !emailTxtFld.getText().equals("")) {
+                if(!passwordTxtFld.getText().equals(passwordTxtFldCnf.getText())){
+                    rejected();
+                }
+                else if(Client.checkUserSignUp(usernameTxtFld.getText(), passwordTxtFld.getText(), emailTxtFld.getText())){
                     accepted();
                 }
                 else {

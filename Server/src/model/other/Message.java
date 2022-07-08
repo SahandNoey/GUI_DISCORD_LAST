@@ -1,7 +1,5 @@
 package model.other;
 
-import server.Date;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashMap;
