@@ -128,7 +128,7 @@ public class ClientIn{
 
     public static void saveProfilePic(Message m){
         try {
-            File f = new File("profilePics\\" + m.getMessage().split(":::")[1] + ".jpg");
+            File f = new File("Client\\profilePics\\" + m.getMessage().split(":::")[1] + ".jpg");
             FileInputStream fl = new FileInputStream(f);
         }catch (FileNotFoundException e) {
             try {
