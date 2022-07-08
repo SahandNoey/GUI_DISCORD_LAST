@@ -26,7 +26,6 @@ public class InteractionWithUser {
             try {
                 return (Message) fIn.readObject();
             } catch (Exception e) {
-                e.printStackTrace();
                 System.out.println("someone left.");
                 u.stopThread();
             }

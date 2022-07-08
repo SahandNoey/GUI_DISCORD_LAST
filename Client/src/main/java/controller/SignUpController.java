@@ -49,6 +49,7 @@ public class SignUpController {
     void nextClicked(MouseEvent event) throws IOException{
         if(usernameTxtFld.getText() != null && passwordTxtFld.getText() != null && emailTxtFld.getText() != null) {
             if(!usernameTxtFld.getText().equals("") && !passwordTxtFld.getText().equals("") && !emailTxtFld.getText().equals("")) {
+
                 if(Client.checkUserSignUp(usernameTxtFld.getText(), passwordTxtFld.getText(), emailTxtFld.getText())){
                     accepted();
                 }

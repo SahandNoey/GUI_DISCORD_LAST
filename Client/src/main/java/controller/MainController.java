@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import model.client.Client;
 import model.client.ClientIn;
 import javafx.fxml.FXML;
@@ -20,6 +22,8 @@ public class MainController implements Initializable {
 
     @FXML
     private ImageView profilePicInMenu;
+    @FXML
+    private Circle profilePicCircle;
 
     @FXML
     void friendRequestsButtonClicked(MouseEvent event) {
@@ -69,11 +73,11 @@ public class MainController implements Initializable {
     }
 
     public void setProfilePic(String fileName){
-        profilePicInMenu.setImage(new Image("file:Client\\profilePics\\" + fileName + ".jpg"));
+        profilePicCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + fileName + ".jpg")));
     }
 
     public void defaultProfilePic(){
-        profilePicInMenu.setImage(new Image("file:profilePics\\default.jpg"));
+        profilePicCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\default.jpg")));
     }
 
 }

@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/InteractionWithUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/InteractionWithUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +95,7 @@
       <workItem from="1657271580309" duration="1765000" />
       <workItem from="1657273378838" duration="476000" />
       <workItem from="1657274218571" duration="32000" />
+      <workItem from="1657274334928" duration="400000" />
     </task>
     <servers />
   </component>
