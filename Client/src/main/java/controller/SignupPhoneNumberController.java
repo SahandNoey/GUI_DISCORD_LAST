@@ -53,6 +53,7 @@ public class SignupPhoneNumberController {
     void skipClicked(MouseEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signupProfilePick.fxml"));
         Parent root = loader.load();
+        Client.skip();
         Client.changeScene(new Scene(root));
     }
 

@@ -22,6 +22,7 @@ public class Signing {
         }
     }
 
+    //send 1 for okay and error text for error
     public static void signUp(Server server, Member member, User u, Message m) throws IOException, ClassNotFoundException {
         boolean flag = false;
         String[] objcts = m.getMessage().split(":::");
@@ -39,7 +40,7 @@ public class Signing {
             server.addNewMember(member);
             flag = true;
         } catch (Exception e) {
-            InteractionWithUser.write(new Message("%%!getCheckUserSignUpResult:0"), u);
+            InteractionWithUser.write(new Message("%%!getCheckUserSignUpResult:" + e.getMessage()), u);
         }
         if (flag) {
             while (true) {

@@ -112,15 +112,10 @@ public class Client {
         });
     }
 
-    public static boolean checkUserSignUp(String username, String password, String email) {
+    public static String checkUserSignUp(String username, String password, String email) {
         cOut.sendCommand("checkUserSignUp:::" + username + ":::" + password + ":::" + email);
         String s = cIn.getMessage().getMessage();
-        if(Integer.parseInt(s.split(":")[1]) == 1){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return s.split(":")[1];
     }
 
     public static boolean checkUserPhoneNumber(String phonenumber) {

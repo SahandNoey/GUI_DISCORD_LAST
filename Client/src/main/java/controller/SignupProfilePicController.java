@@ -37,13 +37,32 @@ public class SignupProfilePicController {
     }
 
     @FXML
-    void doneClicked(MouseEvent event) {
+    void doneClicked(MouseEvent event) throws IOException {
+        if(pathToPicTxtFld.getText() != null) {
+            if(!pathToPicTxtFld.getText().equals("")) {
+                if(Client.checkUserProfilePic(pathToPicTxtFld.getText())){
+                    profilePicAccepted();
+                }
+                else{
+                    profilePicNotAccepted();
+                }
+            }
+        }
+    }
 
+    public void profilePicAccepted() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signIn.fxml"));
+        Parent root = loader.load();
+        Client.changeScene(new Scene(root));
+    }
+    public void profilePicNotAccepted(){
+        invalidCredentialsTxtFld.setOpacity(1);
     }
 
     @FXML
     void skipClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signIn.fxml"));
+        Client.skip();
         Parent root = loader.load();
         Client.changeScene(new Scene(root));
     }

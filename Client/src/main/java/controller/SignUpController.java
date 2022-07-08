@@ -46,17 +46,18 @@ public class SignUpController {
     }
 
     @FXML
-    void nextClicked(MouseEvent event) throws IOException{
-        if(usernameTxtFld.getText() != null && passwordTxtFld.getText() != null && passwordTxtFldCnf.getText() != null && emailTxtFld.getText() != null) {
-            if(!usernameTxtFld.getText().equals("") && !passwordTxtFld.getText().equals("") && !passwordTxtFldCnf.getText().equals("") && !emailTxtFld.getText().equals("")) {
-                if(!passwordTxtFld.getText().equals(passwordTxtFldCnf.getText())){
-                    rejected();
-                }
-                else if(Client.checkUserSignUp(usernameTxtFld.getText(), passwordTxtFld.getText(), emailTxtFld.getText())){
-                    accepted();
-                }
-                else {
-                    rejected();
+    void nextClicked(MouseEvent event) throws IOException {
+        if (usernameTxtFld.getText() != null && passwordTxtFld.getText() != null && passwordTxtFldCnf.getText() != null && emailTxtFld.getText() != null) {
+            if (!usernameTxtFld.getText().equals("") && !passwordTxtFld.getText().equals("") && !passwordTxtFldCnf.getText().equals("") && !emailTxtFld.getText().equals("")) {
+                if (!passwordTxtFld.getText().equals(passwordTxtFldCnf.getText())) {
+                    rejected("Passwords don't match.");
+                } else {
+                    String res = Client.checkUserSignUp(usernameTxtFld.getText(), passwordTxtFld.getText(), emailTxtFld.getText());
+                    if (res.equals("1")) {
+                        accepted();
+                    } else {
+                        rejected(res);
+                    }
                 }
             }
         }
@@ -67,7 +68,8 @@ public class SignUpController {
         Parent root = loader.load();
         Client.changeScene(new Scene(root));
     }
-    public void rejected(){
+    public void rejected(String error){
+        invalidCredentialsTxtFld.setText(error);
         invalidCredentialsTxtFld.setVisible(true);
     }
 
