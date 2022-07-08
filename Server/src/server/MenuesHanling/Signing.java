@@ -10,10 +10,10 @@ public class Signing {
 
     public static void signIn(Server server, Member member, User u, Message m) throws IOException, ClassNotFoundException {
         String[] objcts = m.getMessage().split(":::");
-        String username = objcts[1];
+        String email = objcts[1];
         String password = objcts[2];
-        if (server.isValidMember(username, password)) {
-            member = server.logIn(u, username);
+        if (server.isValidMember(email, password)) {
+            member = server.logIn(u, email);
             u.setMember(member);
             member.setOnline();
             InteractionWithUser.write(new Message("%%!getCheckUserSignInResult:1"), u);

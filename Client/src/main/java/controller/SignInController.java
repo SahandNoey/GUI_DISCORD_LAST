@@ -15,7 +15,7 @@ import java.io.IOException;
 public class SignInController {
 
     @FXML
-    private TextField usernameTxtFld;
+    private TextField EmailTxtFld;
 
     @FXML
     private TextField passwordTxtFld;
@@ -38,9 +38,9 @@ public class SignInController {
 
     @FXML
     void signInButtonClicked(MouseEvent event) throws IOException {
-        if(usernameTxtFld.getText() != null && passwordTxtFld.getText() != null) {
-            if(!usernameTxtFld.getText().equals("") && !passwordTxtFld.getText().equals("")) {
-                if(Client.checkUserSignIn(usernameTxtFld.getText(), passwordTxtFld.getText())){
+        if(EmailTxtFld.getText() != null && passwordTxtFld.getText() != null) {
+            if(!EmailTxtFld.getText().equals("") && !passwordTxtFld.getText().equals("")) {
+                if(Client.checkUserSignIn(EmailTxtFld.getText(), passwordTxtFld.getText())){
                     signInAccepted();
                 }
                 else {

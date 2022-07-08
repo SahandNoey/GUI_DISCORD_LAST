@@ -101,10 +101,10 @@ public class Server {
         members.add(m);
         f.saveMembers(members);
     }
-    public Member logIn(User c, String username) {
+    public Member logIn(User c, String email) {
         users.add(c);
         for(Member m : members){
-            if(m.getUsername().equals(username)){
+            if(m.getEmail().equals(email)){
                 return m;
             }
         }
@@ -112,9 +112,9 @@ public class Server {
     }
 
 
-    public boolean isValidMember(String username, String password){
+    public boolean isValidMember(String email, String password){
         for(Member m : members){
-            if(m.getUsername().equals(username) && m.getPassword().equals(password)){
+            if(m.getEmail().equals(email) && m.getPassword().equals(password)){
                 return true;
             }
         }

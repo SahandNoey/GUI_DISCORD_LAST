@@ -91,8 +91,8 @@ public class Client {
 
 
 
-    public static boolean checkUserSignIn(String username, String password) {
-        cOut.sendCommand("checkUserSignIn:::" + username + ":::" + password);
+    public static boolean checkUserSignIn(String email, String password) {
+        cOut.sendCommand("checkUserSignIn:::" + email + ":::" + password);
         String s = cIn.getMessage().getMessage();
         if(Integer.parseInt(s.split(":")[1]) == 1){
             return true;
