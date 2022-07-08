@@ -1,0 +1,212 @@
+Index: Client/src/main/resources/fxml/mainMenu.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.geometry.Insets?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.HBox?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<HBox maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"400.0\" prefWidth=\"600.0\" xmlns=\"http://javafx.com/javafx/18\" xmlns:fx=\"http://javafx.com/fxml/1\">\r\n   <children>\r\n      <VBox prefHeight=\"400.0\" prefWidth=\"214.0\">\r\n         <children>\r\n            <ImageView fx:id=\"profilePicInMenu\" fitHeight=\"119.0\" fitWidth=\"133.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n               <VBox.margin>\r\n                  <Insets left=\"40.0\" />\r\n               </VBox.margin>\r\n            </ImageView>\r\n            <Label alignment=\"CENTER\" onMouseClicked=\"#friendsButtonClicked\" prefHeight=\"106.0\" prefWidth=\"214.0\" text=\"Friends\" textAlignment=\"CENTER\">\r\n               <font>\r\n                  <Font size=\"30.0\" />\r\n               </font>\r\n               <VBox.margin>\r\n                  <Insets />\r\n               </VBox.margin>\r\n            </Label>\r\n            <Label layoutX=\"10.0\" layoutY=\"10.0\" onMouseClicked=\"#friendRequestsButtonClicked\" prefHeight=\"46.0\" prefWidth=\"216.0\" text=\"Friend Requests\">\r\n               <font>\r\n                  <Font size=\"30.0\" />\r\n               </font>\r\n               <VBox.margin>\r\n                  <Insets />\r\n               </VBox.margin>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" onMouseClicked=\"#serversButtonClicked\" prefHeight=\"46.0\" prefWidth=\"214.0\" text=\"Servers\" textAlignment=\"CENTER\">\r\n               <font>\r\n                  <Font size=\"30.0\" />\r\n               </font>\r\n               <VBox.margin>\r\n                  <Insets />\r\n               </VBox.margin>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"102.0\" onMouseClicked=\"#profileButtonClicked\" prefHeight=\"46.0\" prefWidth=\"218.0\" text=\"Profile\" textAlignment=\"CENTER\">\r\n               <font>\r\n                  <Font size=\"30.0\" />\r\n               </font>\r\n               <VBox.margin>\r\n                  <Insets />\r\n               </VBox.margin>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"148.0\" onMouseClicked=\"#settingButtonClicked\" prefHeight=\"46.0\" prefWidth=\"230.0\" text=\"Setting\" textAlignment=\"CENTER\">\r\n               <font>\r\n                  <Font size=\"30.0\" />\r\n               </font>\r\n               <VBox.margin>\r\n                  <Insets />\r\n               </VBox.margin>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"196.0\" onMouseClicked=\"#logoutButtonClicked\" prefHeight=\"46.0\" prefWidth=\"230.0\" text=\"Log out\" textAlignment=\"CENTER\">\r\n               <font>\r\n                  <Font size=\"30.0\" />\r\n               </font>\r\n            </Label>\r\n         </children>\r\n      </VBox>\r\n   </children>\r\n</HBox>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Client/src/main/resources/fxml/mainMenu.fxml b/Client/src/main/resources/fxml/mainMenu.fxml
+--- a/Client/src/main/resources/fxml/mainMenu.fxml	(revision ab67461002de3d7172f62ed1c4cc749d96dc28bb)
++++ b/Client/src/main/resources/fxml/mainMenu.fxml	(date 1657274308674)
+@@ -1,67 +1,32 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+ <?import javafx.geometry.Insets?>
+-<?import javafx.scene.control.Label?>
++<?import javafx.scene.image.Image?>
+ <?import javafx.scene.image.ImageView?>
+ <?import javafx.scene.layout.HBox?>
++<?import javafx.scene.layout.Pane?>
+ <?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+ 
+-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
++
++<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+-      <VBox prefHeight="400.0" prefWidth="214.0">
++      <VBox alignment="TOP_CENTER" prefHeight="630.0" prefWidth="81.0" style="-fx-background-color: #202225;">
+          <children>
+-            <ImageView fx:id="profilePicInMenu" fitHeight="119.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true">
+-               <VBox.margin>
+-                  <Insets left="40.0" />
+-               </VBox.margin>
+-            </ImageView>
+-            <Label alignment="CENTER" onMouseClicked="#friendsButtonClicked" prefHeight="106.0" prefWidth="214.0" text="Friends" textAlignment="CENTER">
+-               <font>
+-                  <Font size="30.0" />
+-               </font>
+-               <VBox.margin>
+-                  <Insets />
+-               </VBox.margin>
+-            </Label>
+-            <Label layoutX="10.0" layoutY="10.0" onMouseClicked="#friendRequestsButtonClicked" prefHeight="46.0" prefWidth="216.0" text="Friend Requests">
+-               <font>
+-                  <Font size="30.0" />
+-               </font>
+-               <VBox.margin>
+-                  <Insets />
+-               </VBox.margin>
+-            </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#serversButtonClicked" prefHeight="46.0" prefWidth="214.0" text="Servers" textAlignment="CENTER">
+-               <font>
+-                  <Font size="30.0" />
+-               </font>
+-               <VBox.margin>
+-                  <Insets />
+-               </VBox.margin>
+-            </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="102.0" onMouseClicked="#profileButtonClicked" prefHeight="46.0" prefWidth="218.0" text="Profile" textAlignment="CENTER">
+-               <font>
+-                  <Font size="30.0" />
+-               </font>
+-               <VBox.margin>
+-                  <Insets />
+-               </VBox.margin>
+-            </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="148.0" onMouseClicked="#settingButtonClicked" prefHeight="46.0" prefWidth="230.0" text="Setting" textAlignment="CENTER">
+-               <font>
+-                  <Font size="30.0" />
+-               </font>
+-               <VBox.margin>
+-                  <Insets />
+-               </VBox.margin>
+-            </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="196.0" onMouseClicked="#logoutButtonClicked" prefHeight="46.0" prefWidth="230.0" text="Log out" textAlignment="CENTER">
+-               <font>
+-                  <Font size="30.0" />
+-               </font>
+-            </Label>
++            <Pane prefHeight="75.0" prefWidth="78.0" style="-fx-background-color: #2f3136;">
++               <children>
++                  <ImageView fitHeight="49.0" fitWidth="50.0" layoutX="10.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
++                     <image>
++                        <Image url="@../assets/icons/logo_white.png" />
++                     </image>
++                  </ImageView>
++               </children>
++            </Pane>
+          </children>
++         <padding>
++            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
++         </padding>
+       </VBox>
++      <VBox alignment="TOP_CENTER" prefHeight="630.0" prefWidth="276.0" style="-fx-background-color: #2f3136;" />
++      <VBox alignment="TOP_CENTER" prefHeight="630.0" prefWidth="852.0" style="-fx-background-color: #40444b;" />
+    </children>
+ </HBox>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9\" name=\"Default Changelist\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/Server/Server.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.gitignore\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/lib.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/libraries/lib.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/vcs.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/assets/background/login_img.jpeg\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/assets/gifs/circles-menu-1.gif\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/assets/gifs/connecting.gif\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/assets/gifs/loading-icon-transparent-background-12.gif\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/assets/icons/Ander.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/assets/icons/discord-logo.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/assets/icons/phone.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/controller/FriendsController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/controller/FriendsController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/controller/MainController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/controller/MainController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/controller/SignInController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/controller/SignInController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/controller/SignUpController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/controller/SignUpController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/controller/SignupPhoneNumberController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/controller/SignupPhoneNumberController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/controller/SignupProfilePicController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/controller/SignupProfilePicController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/fxml/connecting.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/fxml/friendsMenu.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/fxml/signUp.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/fxml/signupPhoneConfirm.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/fxml/signupProfilePick.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/client/Client$1$1.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/client/Client$1$1.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/client/Client$1.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/client/Client$1.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/client/Client$2.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/client/Client$2.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/client/Client.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/client/Client.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientOut.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/client/ClientOut.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/other/Date.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/other/Date.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/model/other/Message.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/model/other/Message.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Client/starter/ClientStarter.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Client/starter/ClientStarter.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2BdELWlV2chBfnvri1gILQ2AjOS\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/Server\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.lookFeel\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.ServerRun\">\r\n    <configuration name=\"ClientStarter\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"starter.ClientStarter\" />\r\n      <module name=\"Client\" />\r\n      <option name=\"VM_PARAMETERS\" value=\"--module-path $PROJECT_DIR$/../../../&quot;JavaFX primary file&quot;/javaFx/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"starter.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ServerRun\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"server.ServerRun\" />\r\n      <module name=\"Server\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"server.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.ClientStarter\" />\r\n      <item itemvalue=\"Application.ServerRun\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.ServerRun\" />\r\n        <item itemvalue=\"Application.ClientStarter\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1657227516916</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1657227516916</updated>\r\n      <workItem from=\"1657227518040\" duration=\"968000\" />\r\n      <workItem from=\"1657259603019\" duration=\"188000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ab67461002de3d7172f62ed1c4cc749d96dc28bb)
++++ b/.idea/workspace.xml	(date 1657277242223)
+@@ -2,44 +2,9 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/background/login_img.jpeg" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/gifs/circles-menu-1.gif" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/gifs/connecting.gif" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/gifs/loading-icon-transparent-background-12.gif" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/icons/Ander.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/icons/discord-logo.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/icons/phone.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignUpController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignupPhoneNumberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignupPhoneNumberController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignupProfilePicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignupProfilePicController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/connecting.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/friendsMenu.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signUp.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signupPhoneConfirm.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signupProfilePick.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client$1$1.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client$1.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client$2.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientOut.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/other/Date.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/other/Date.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/other/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/other/Message.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Client/starter/ClientStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/starter/ClientStarter.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/logo_white.png" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -48,9 +13,9 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="ProjectId" id="2BdELWlV2chBfnvri1gILQ2AjOS" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -61,14 +26,22 @@
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="aspect.path.notification.shown" value="true" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Server" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$/Client/src/main/resources/assets/icons" />
++    <property name="node.js.detected.package.tslint" value="true" />
++    <property name="node.js.path.for.package.tslint" value="project" />
++    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+     <property name="nodejs_package_manager_path" value="npm" />
+     <property name="project.structure.last.edited" value="Modules" />
+     <property name="project.structure.proportion" value="0.15" />
+     <property name="project.structure.side.proportion" value="0.2" />
+-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
++    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
++  </component>
++  <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="D:\DISCORD_GUI\GUI_Discord_Final\GUI_DISCORD_LAST\Client\src\main\resources\assets\icons" />
++    </key>
+   </component>
+-  <component name="RunManager" selected="Application.ServerRun">
++  <component name="RunManager" selected="Application.ClientStarter">
+     <configuration name="ClientStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="starter.ClientStarter" />
+       <module name="Client" />
+@@ -102,8 +75,8 @@
+     </list>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.ClientStarter" />
+         <item itemvalue="Application.ServerRun" />
+-        <item itemvalue="Application.ClientStarter" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -117,6 +90,9 @@
+       <updated>1657227516916</updated>
+       <workItem from="1657227518040" duration="968000" />
+       <workItem from="1657259603019" duration="188000" />
++      <workItem from="1657259820110" duration="328000" />
++      <workItem from="1657260167727" duration="1060000" />
++      <workItem from="1657269013012" duration="4274000" />
+     </task>
+     <servers />
+   </component>
