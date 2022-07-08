@@ -1,6 +1,6 @@
 package server.MenuesHanling;
 
-import server.Message;
+import model.other.Message;
 import server.User;
 
 import java.io.IOException;
@@ -26,6 +26,7 @@ public class InteractionWithUser {
             try {
                 return (Message) fIn.readObject();
             } catch (Exception e) {
+                e.printStackTrace();
                 System.out.println("someone left.");
                 u.stopThread();
             }

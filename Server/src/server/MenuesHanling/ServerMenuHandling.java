@@ -5,6 +5,7 @@ import server.ServerChat.Channel;
 import server.ServerChat.Serverr;
 import server.ServerChat.TextChannel;
 import server.ServerChat.VoiceChannel;
+import model.other.Message;
 
 import java.io.IOException;
 import java.util.ArrayList;

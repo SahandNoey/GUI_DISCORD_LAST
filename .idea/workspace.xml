@@ -2,44 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/background/login_img.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/gifs/circles-menu-1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/gifs/connecting.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/gifs/loading-icon-transparent-background-12.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/icons/Ander.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/icons/discord-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/assets/icons/phone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_1_32_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_1_32_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/profilePics/parsa801.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/FriendHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/FriendHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/InChatFuncs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/InChatFuncs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/InteractionWithUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/InteractionWithUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/Menues.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/Menues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ServerMenuHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ServerMenuHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/SettingHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/SettingHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ShowLists.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ShowLists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/Signing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/Signing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/model/other/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignUpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignupPhoneNumberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignupPhoneNumberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignupProfilePicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignupProfilePicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/connecting.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/friendsMenu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signUp.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signupPhoneConfirm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signupProfilePick.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientOut.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/other/Date.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/other/Date.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/other/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/other/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/starter/ClientStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/starter/ClientStarter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/Chat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/Date.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/Date.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/FileHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/FileHandling.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/Member.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/FriendHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/FriendHandling.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/InChatFuncs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/InChatFuncs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/InteractionWithUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/InteractionWithUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/Menues.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/Menues.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/ServerMenuHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/ServerMenuHandling.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/SettingHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/SettingHandling.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/ShowLists.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/ShowLists.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/Signing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/Signing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/Server$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/Server$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ServerChat/Channel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ServerChat/Channel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ServerChat/Naghsh.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ServerChat/Naghsh.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ServerChat/Serverr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ServerChat/Serverr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ServerChat/TextChannel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ServerChat/TextChannel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ServerChat/VoiceChannel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ServerChat/VoiceChannel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ServerRun.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ServerRun.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/User$allMenues.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/User$allMenues.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/Validation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/Validation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/emailAlreadyExistsException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/emailAlreadyExistsException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/invalidEmailFormatException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/invalidEmailFormatException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/invalidPasswordFormatException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/invalidPasswordFormatException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/invalidPhoneFormatException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/invalidPhoneFormatException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/invalidUsernameFormatException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/invalidUsernameFormatException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/phoneAlreadyExistsException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/phoneAlreadyExistsException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/usernameAlreadyExistsException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/usernameAlreadyExistsException.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +65,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2BdELWlV2chBfnvri1gILQ2AjOS" />
   <component name="ProjectViewState">
@@ -61,18 +80,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Server" />
+    <property name="last_opened_file_path" value="G:/javafx-sdk-18.0.1/lib" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.ServerRun">
+  <component name="RunManager" selected="Application.ClientStarter">
     <configuration name="ClientStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="starter.ClientStarter" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../../&quot;JavaFX primary file&quot;/javaFx/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path G:\javafx-sdk-18.0.1\lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="starter.*" />
@@ -84,11 +103,13 @@
       </method>
     </configuration>
     <configuration name="ServerRun" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="server.ServerRun" />
       <module name="Server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="server.*" />
+          <option name="PATTERN" value="server.model.other.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -102,8 +123,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerRun" />
         <item itemvalue="Application.ClientStarter" />
+        <item itemvalue="Application.ServerRun" />
       </list>
     </recent_temporary>
   </component>
@@ -117,6 +138,8 @@
       <updated>1657227516916</updated>
       <workItem from="1657227518040" duration="968000" />
       <workItem from="1657259603019" duration="188000" />
+      <workItem from="1657271580309" duration="1765000" />
+      <workItem from="1657273378838" duration="476000" />
     </task>
     <servers />
   </component>
@@ -133,6 +156,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

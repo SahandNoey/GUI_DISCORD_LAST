@@ -69,7 +69,7 @@ public class MainController implements Initializable {
     }
 
     public void setProfilePic(String fileName){
-        profilePicInMenu.setImage(new Image("file:profilePics\\" + fileName + ".jpg"));
+        profilePicInMenu.setImage(new Image("file:Client\\profilePics\\" + fileName + ".jpg"));
     }
 
     public void defaultProfilePic(){

@@ -1,6 +1,6 @@
 package server.MenuesHanling;
 
-import server.Message;
+import model.other.Message;
 import server.User;
 import server.ValidationPackage.Validation;
 import server.ValidationPackage.invalidPasswordFormatException;

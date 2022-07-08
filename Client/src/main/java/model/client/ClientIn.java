@@ -134,13 +134,14 @@ public class ClientIn{
             try {
                 String fileName = m.getMessage().split(":::")[1] + ".jpg";
                 byte[] temp = m.getContent();
-                File f = new File("profilePics\\" + fileName);
+                File f = new File("Client\\profilePics\\" + fileName);
+                f.createNewFile();
                 FileOutputStream fO = new FileOutputStream(f);
                 fO.write(temp);
                 fO.flush();
                 fO.close();
-            } catch (IOException ee) {
-                e.printStackTrace();
+            } catch (Exception ee) {
+                ee.printStackTrace();
             }
         }
     }

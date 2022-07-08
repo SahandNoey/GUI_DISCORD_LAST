@@ -1,6 +1,7 @@
 package server;
 
 import server.MenuesHanling.InteractionWithUser;
+import model.other.Message;
 
 import java.io.IOException;
 import java.io.Serializable;

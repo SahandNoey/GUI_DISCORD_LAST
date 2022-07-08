@@ -1,7 +1,7 @@
 package server.MenuesHanling;
 
 import server.Chat;
-import server.Message;
+import model.other.Message;
 import server.ServerChat.Channel;
 import server.ServerChat.Serverr;
 import server.ServerChat.TextChannel;
