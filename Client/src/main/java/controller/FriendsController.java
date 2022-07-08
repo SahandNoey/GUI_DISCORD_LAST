@@ -8,8 +8,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import model.other.MemberInfo;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FriendsController implements Initializable{
@@ -43,13 +45,13 @@ public class FriendsController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String[] names = Client.getFriendsForFriendsMenu();
-        for (String name : names){
-            mainVbox.getChildren().add(new HBox(new Text(name)));
+        ArrayList<MemberInfo> infos = Client.getFriendsForFriendsMenu();
+        for (MemberInfo info : infos){
+            mainVbox.getChildren().add(new HBox(new Text(info.getUserNameWithToken())));
         }
-        names = Client.getFriendRequestForFriendsMenu();
-        for (String name : names){
-            mainVbox.getChildren().add(new HBox(new Text(name)));
+        infos = Client.getFriendRequestForFriendsMenu();
+        for (MemberInfo info : infos){
+            mainVbox.getChildren().add(new HBox(new Text(info.getUserNameWithToken())));
         }
     }
 

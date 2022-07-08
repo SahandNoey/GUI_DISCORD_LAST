@@ -2,15 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="a commit for conflict resolve">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/model/other/MemberInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/ValidationPackage/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/ValidationPackage/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/Member.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +71,7 @@
       <recent name="D:\DISCORD_GUI\GUI_Discord_Final\GUI_DISCORD_LAST\Client\src\main\resources\assets\icons" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerRun">
+  <component name="RunManager" selected="Application.ClientStarter">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -92,8 +118,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerRun" />
         <item itemvalue="Application.ClientStarter" />
+        <item itemvalue="Application.ServerRun" />
       </list>
     </recent_temporary>
   </component>
@@ -115,6 +141,8 @@
       <workItem from="1657284354657" duration="2975000" />
       <workItem from="1657288608471" duration="34000" />
       <workItem from="1657288828122" duration="393000" />
+      <workItem from="1657289451167" duration="3916000" />
+      <workItem from="1657294207638" duration="322000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>

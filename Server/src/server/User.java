@@ -69,6 +69,20 @@ public class User implements Runnable {
         else if(m.getMessage().equals("getFriendsNamesForFriendsMenu")){
             InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsNamesToAnString()), this);
         }
+        else if(m.getMessage().startsWith("getProfilePicNameOf:::")){
+            int token = Integer.parseInt(m.getMessage().split(":::")[1].split("#")[1]);
+            Member member = Server.getMemberWithToken(token);
+            if(member.getPic() != null) {
+                InteractionWithUser.write(new Message(member.getToken() + "_" + member.getPicNum() + ".jpg"), this);
+            }
+            else {
+                InteractionWithUser.write(new Message("0"), this);
+            }
+        }
+
+        else if(m.getMessage().equals("myMemberInfo")){
+            InteractionWithUser.write(new Message(member.getUsername() + "#" + member.getToken() + ":::" + member.getStatus()), this);
+        }
 
         //get a member profile objects
         else if(m.getMessage().startsWith("getMemberProfile")){
@@ -86,7 +100,7 @@ public class User implements Runnable {
             FriendHandling.sendFriendRequest(m.getMessage().split(":::")[1],this);
         }
         else if(m.getMessage().startsWith("getFriendRequestForFriendsMenu")){
-            InteractionWithUser.write(new Message("%%!friendsRequestsForFriendsMenu:::" + member.convertFriendsRequestsToAnString()), this);
+            InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsRequestsToAnString()), this);
         }
 
     }

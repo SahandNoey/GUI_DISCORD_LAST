@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import model.other.MemberInfo;
 import model.other.Message;
 
 import java.io.IOException;
@@ -62,22 +63,15 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Message m = Client.requestProfilePic();
-        if(m.getContent() != null){
-            ClientIn.saveProfilePic(m);
-            setProfilePic(m.getMessage().split(":::")[1]);
-        }
-        else{
-            defaultProfilePic();
-        }
+        MemberInfo me = Client.getMyMemberInfo();
+        Client.downloadProfilePicIfDontHave(me.getPhotoName());
+        setProfilePic(me.getPhotoName());
+
     }
 
     public void setProfilePic(String fileName){
-        profilePicCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + fileName + ".jpg")));
+        profilePicCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + fileName)));
     }
 
-    public void defaultProfilePic(){
-        profilePicCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\default.jpg")));
-    }
 
 }

@@ -1,6 +1,7 @@
 package model.client;
 
 
+import model.other.MemberInfo;
 import model.other.Message;
 
 import java.io.*;
@@ -11,7 +12,7 @@ public class ClientIn{
 
     private Socket socket;
     ObjectOutputStream fOut;
-    ObjectInputStream fIn;
+    static ObjectInputStream fIn;
     ClientOut cOut;
     Scanner scanner = new Scanner(System.in);
 
@@ -21,7 +22,7 @@ public class ClientIn{
         fIn = in;
     }
 
-    public Message getMessage() {
+    public static Message getMessage() {
         try {
             Message m = (Message) fIn.readObject();
             return m;
@@ -126,15 +127,16 @@ public class ClientIn{
         }).start();
     }
 
-    public static void saveProfilePic(Message m){
+    public static void saveProfilePic(String picName){
         try {
-            File f = new File("Client\\profilePics\\" + m.getMessage().split(":::")[1] + ".jpg");
+            File f = new File("Client\\profilePics\\" + picName);
             FileInputStream fl = new FileInputStream(f);
         }catch (FileNotFoundException e) {
             try {
-                String fileName = m.getMessage().split(":::")[1] + ".jpg";
+                Message m = Client.requestProfilePic();
+                String fileName = picName;
                 byte[] temp = m.getContent();
-                File f = new File("Client\\profilePics\\" + fileName);
+                File f = new File("Client\\profilePics\\" + picName);
                 f.createNewFile();
                 FileOutputStream fO = new FileOutputStream(f);
                 fO.write(temp);

@@ -12,8 +12,12 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.ConnectException;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 import java.util.concurrent.TimeUnit;
 
+import model.other.MemberInfo;
 import model.other.Message;
 
 
@@ -155,32 +159,47 @@ public class Client {
         Message m = cIn.getMessage();
         return m;
     }
-    public static String[] getFriendsForFriendsMenu(){
-        cOut.sendCommand("getFriendsNamesForFriendsMenu");
-        Message m = cIn.getMessage();
-        String[] temp = m.getMessage().split(":::");
-        if(temp.length > 1) {
-            String[] names = temp[1].split(",");
-            return names;
-        }
-        else {
-            String[] names = new String[0];
-            return names;
-        }
+
+    public static void downloadProfilePicIfDontHave(String picName){
+        ClientIn.saveProfilePic(picName);
     }
 
-    public static String[] getFriendRequestForFriendsMenu(){
+    public static ArrayList<MemberInfo> getFriendsForFriendsMenu() {
+        cOut.sendCommand("getFriendsNamesForFriendsMenu");
+        Message m = cIn.getMessage();
+        ArrayList<MemberInfo> res = new ArrayList<>();
+        String[] temp = m.getMessage().split(":::");
+        ArrayList<String> informations;
+        if (temp.length > 1) {
+            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            for (String information : informations) {
+                String name = information.split("-")[0];
+                String status = information.split("-")[1];
+                String profilePicName = getProfilePicNameOf(name);
+                res.add(new MemberInfo(name, status, profilePicName));
+                Client.downloadProfilePicIfDontHave(profilePicName);
+            }
+        }
+        return res;
+    }
+
+    public static ArrayList<MemberInfo> getFriendRequestForFriendsMenu() {
         cOut.sendCommand("getFriendRequestForFriendsMenu");
         Message m = cIn.getMessage();
+        ArrayList<MemberInfo> res = new ArrayList<>();
         String[] temp = m.getMessage().split(":::");
-        if(temp.length > 1) {
-            String[] names = temp[1].split(",");
-            return names;
+        ArrayList<String> informations;
+        if (temp.length > 1) {
+            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            for (String information : informations) {
+                String name = information.split("-")[0];
+                String status = information.split("-")[1];
+                String profilePicName = getProfilePicNameOf(name);
+                res.add(new MemberInfo(name, status, profilePicName));
+                Client.downloadProfilePicIfDontHave(profilePicName);
+            }
         }
-        else {
-            String[] names = new String[0];
-            return names;
-        }
+        return res;
     }
 
     public static String checkIfCanSendFriendRequestTo(String name){
@@ -188,4 +207,23 @@ public class Client {
         Message m = cIn.getMessage();
         return m.getMessage();
     }
+
+    public static String getProfilePicNameOf(String nameWithToken){
+        cOut.sendCommand("getProfilePicNameOf:::" + nameWithToken);
+        String res = cIn.getMessage().getMessage();
+        if(res.equals("0")){
+            return null;
+        }
+        else{
+            return res;
+        }
+    }
+
+    public static MemberInfo getMyMemberInfo(){
+        cOut.sendCommand("myMemberInfo");
+        String[] s = cIn.getMessage().getMessage().split(":::");
+        String picName = getProfilePicNameOf(s[0]);
+        return new MemberInfo(s[0], s[1], picName);
+    }
+
 }

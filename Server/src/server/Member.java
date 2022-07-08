@@ -262,24 +262,24 @@ public class Member implements Serializable {
          Server.saveMembers();
      }
 
-     public String convertFriendsNamesToAnString(){
+    public String convertFriendsNamesToAnString(){
         StringBuilder str = new StringBuilder();
         for (int token : friendsTokens){
             Member m = Server.getMemberWithToken(token);
-            str.append(m.getUsername()).append("#").append(m.getToken()).append(",");
+            str.append(m.getUsername()).append("#").append(m.getToken()).append("-").append(m.getStatus()).append(",");
         }
         if(str.length() > 0) {
             str.deleteCharAt(str.length() - 1);
         }
         return str.toString();
-     }
+    }
 
 
     public String convertFriendsRequestsToAnString(){
         StringBuilder str = new StringBuilder();
         for (int token : friendRequestsTokens){
             Member m = Server.getMemberWithToken(token);
-            str.append(m.getUsername()).append("#").append(m.getToken()).append(",");
+            str.append(m.getUsername()).append("#").append(m.getToken()).append("-").append(m.getStatus()).append(",");
         }
         if(str.length() > 0) {
             str.deleteCharAt(str.length() - 1);
