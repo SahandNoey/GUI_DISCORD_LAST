@@ -11,11 +11,6 @@ public class Validation {
         if(userName == null){
             throw new invalidUsernameFormatException();
         }
-        for(Member m : allMembers){
-            if(userName.equals(m.getUsername())){
-                throw new usernameAlreadyExistsException();
-            }
-        }
         if(userName.length() < 6){
             throw new invalidUsernameFormatException();
         }
