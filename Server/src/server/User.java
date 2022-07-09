@@ -120,6 +120,10 @@ public class User implements Runnable {
         else if(m.getMessage().startsWith("changeEmail:::")){
             emailChange(m.getMessage().split(":::")[1]);
         }
+        //check phone number format and change it if it's valid. return "1" if there is no problem and return error message if there is a problem
+        else if(m.getMessage().startsWith("changePhoneNumber:::")){
+            phoneChange(m.getMessage().split(":::")[1]);
+        }
     }
 
 
@@ -155,6 +159,16 @@ public class User implements Runnable {
         try{
             Validation.emailValidation(email, server.getMembers());
             member.setEmail(email);
+            InteractionWithUser.write(new Message("1"), this);
+        } catch (Exception e) {
+            InteractionWithUser.write(new Message(e.getMessage()),  this);
+        }
+    }
+
+    public void phoneChange(String phone) throws IOException {
+        try{
+            Validation.emailValidation(phone, server.getMembers());
+            member.setPhoneNumber(phone);
             InteractionWithUser.write(new Message("1"), this);
         } catch (Exception e) {
             InteractionWithUser.write(new Message(e.getMessage()),  this);

@@ -279,4 +279,17 @@ public class Client {
         return res;
     }
 
+    //check if the given phone number is valid. return "1" if there is no problem and return error message if there is a problem
+    public static String changePhoneNumber(String email){
+        if(email == null){
+            return "phone number can't be null.";
+        }
+        if(email.equals("")){
+            return "phone number can't be null.";
+        }
+        cOut.sendCommand("changePhoneNumber:::" + email);
+        String res = cIn.getMessage().getMessage();
+        return res;
+    }
+
 }
