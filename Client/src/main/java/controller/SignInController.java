@@ -67,7 +67,6 @@ public class SignInController implements Initializable {
     public void goToMain() throws IOException {
         Client.mainController = new MainController();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
-        loader.setController(Client.mainController);
         Parent root = loader.load();
         Client.changeScene(new Scene(root));
     }

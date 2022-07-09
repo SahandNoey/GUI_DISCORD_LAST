@@ -1,76 +1,127 @@
 package controller;
 
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
-import model.client.Client;
-import model.client.ClientIn;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Accordion;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
-import model.other.MemberInfo;
-import model.other.Message;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class MainController implements Initializable {
+public class MainController {
 
     @FXML
-    private ImageView profilePicInMenu;
-    @FXML
-    private Circle profilePicCircle;
+    private VBox serversVBox;
 
     @FXML
-    void friendRequestsButtonClicked(MouseEvent event) {
+    private Pane homeBtn;
+
+    @FXML
+    private Pane addServerBtn;
+
+    @FXML
+    private VBox accountAndDMVBox;
+
+    @FXML
+    private Accordion dmAccordion;
+
+    @FXML
+    private TitledPane dmTitlePane;
+
+    @FXML
+    private AnchorPane dmAnchorPane;
+
+    @FXML
+    private VBox msgAndSettingsVBox;
+
+    @FXML
+    private Button changeAvatarBtn;
+
+    @FXML
+    private CheckBox emailShowCheckBox;
+
+    @FXML
+    private Button phoneNumberEditBtn;
+
+    @FXML
+    void addServerClicked(MouseEvent event) {
 
     }
 
     @FXML
-    void friendsButtonClicked(MouseEvent event) throws IOException {
-        Client.friendsController = new FriendsController();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("friendsMenu.fxml"));
-        FriendsController friendsController = new FriendsController();
-        loader.setController(friendsController);
-        Parent root = loader.load();
-        Client.changeScene(new Scene(root));
-    }
-
-    @FXML
-    void logoutButtonClicked(MouseEvent event) {
+    void changeAvatarBtnClicked(MouseEvent event) {
 
     }
 
     @FXML
-    void profileButtonClicked(MouseEvent event) {
+    void changePasswordBtnClicked(MouseEvent event) {
 
     }
 
     @FXML
-    void serversButtonClicked(MouseEvent event) {
+    void dmAccordionClicked(MouseEvent event) {
 
     }
 
     @FXML
-    void settingButtonClicked(MouseEvent event) {
+    void emailEditClicked(MouseEvent event) {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        MemberInfo me = Client.getMyMemberInfo();
-        Client.downloadProfilePicIfDontHave(me.getPhotoName());
-        setProfilePic(me.getPhotoName());
+    @FXML
+    void friendsClicked(MouseEvent event) {
+
     }
 
-    public void setProfilePic(String fileName){
-        profilePicCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + fileName)));
+    @FXML
+    void homeBtnClicked(MouseEvent event) {
+
     }
 
+    @FXML
+    void logOutBtnClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void myAccountClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void phoneNumberEditClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void usernameEditClicked(MouseEvent event) {
+
+    }
+
+//    @Override
+////    public void initialize(URL url, ResourceBundle resourceBundle) {
+////
+////        MemberInfo me = Client.getMyMemberInfo();
+////        Client.downloadProfilePicIfDontHave(me.getPhotoName());
+//////        setProfilePic(me.getPhotoName());
+////    }
+
+    //    @FXML
+//    void friendsButtonClicked(MouseEvent event) throws IOException {
+//        Client.friendsController = new FriendsController();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("friendsMenu.fxml"));
+//        FriendsController friendsController = new FriendsController();
+//        loader.setController(friendsController);
+//        Parent root = loader.load();
+//        Client.changeScene(new Scene(root));
+//    }
+
+
+//
+//    public void setProfilePic(String fileName){
+//        profilePicCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + fileName)));
+//    }
 
 }
