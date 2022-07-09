@@ -250,20 +250,33 @@ public class Client {
     }
 
 
-    //check if the given password is valid
-    public static boolean checkPasswordFormat(String password){
+    //check if the given password is valid and change it if its valid.
+    public static boolean changePassword(String password){
         if(password == null){
             return false;
         }
         if(password.equals("")){
             return false;
         }
-        cOut.sendCommand("checkPasswordFormat:::" + password);
+        cOut.sendCommand("changePassword:::" + password);
         String res = cIn.getMessage().getMessage();
         if(res.equals("1")){
             return true;
         }
         return false;
+    }
+
+    //check if the given email is valid. return "1" if there is no problem and return error message if there is a problem
+    public static String changeEmail(String email){
+        if(email == null){
+            return "email can't be null.";
+        }
+        if(email.equals("")){
+            return "email can't be null.";
+        }
+        cOut.sendCommand("changeEmail:::" + email);
+        String res = cIn.getMessage().getMessage();
+        return res;
     }
 
 }

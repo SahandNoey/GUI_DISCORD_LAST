@@ -112,13 +112,17 @@ public class User implements Runnable {
         else if(m.getMessage().startsWith("getFriendRequestForFriendsMenu")){
             InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsRequestsToAnString()), this);
         }
-        //check password format . return "1" if there is no problem and return error message if there is a problem
-        else if(m.getMessage().startsWith("checkPasswordFormat:::")){
-            passwordCheck(m.getMessage().split(":::")[1]);
+        //check password format and change it if it's valid. return "1" if there is no problem and return "0" if there is a problem
+        else if(m.getMessage().startsWith("changePassword:::")){
+            passwordChange(m.getMessage().split(":::")[1]);
+        }
+        //check email format and change it if it's valid. return "1" if there is no problem and return error message if there is a problem
+        else if(m.getMessage().startsWith("changeEmail:::")){
+            emailChange(m.getMessage().split(":::")[1]);
         }
     }
 
-    //check if user can send friend request to
+
     public void requestProfilePic(Message m) throws IOException {
         String name = m.getMessage().split(":::")[1];
         Member member;
@@ -136,12 +140,24 @@ public class User implements Runnable {
         }
     }
 
-    public void passwordCheck(String password) throws IOException {
+    public void passwordChange(String password) throws IOException {
         try{
             Validation.passValidation(password);
+            member.setPassword(password);
             InteractionWithUser.write(new Message("1"), this);
         } catch (Exception e) {
             InteractionWithUser.write(new Message("0"),  this);
+        }
+    }
+
+
+    public void emailChange(String email) throws IOException {
+        try{
+            Validation.emailValidation(email, server.getMembers());
+            member.setEmail(email);
+            InteractionWithUser.write(new Message("1"), this);
+        } catch (Exception e) {
+            InteractionWithUser.write(new Message(e.getMessage()),  this);
         }
     }
 

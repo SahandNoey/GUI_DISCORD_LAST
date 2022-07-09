@@ -274,6 +274,9 @@ public class Member implements Serializable {
         return str.toString();
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String convertFriendsRequestsToAnString(){
         StringBuilder str = new StringBuilder();
