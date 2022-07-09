@@ -4,6 +4,8 @@ import server.MenuesHanling.FriendHandling;
 import server.MenuesHanling.InteractionWithUser;
 import server.MenuesHanling.Signing;
 import model.other.Message;
+import server.ValidationPackage.Validation;
+import server.ValidationPackage.invalidPasswordFormatException;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -65,10 +67,12 @@ public class User implements Runnable {
             requestProfilePic(m);
         }
 
-        //get user friends names
+        //get user friends names and status
         else if(m.getMessage().equals("getFriendsNamesForFriendsMenu")){
             InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsNamesToAnString()), this);
         }
+
+        //get profile pic of a member based of user token and number of profile changes
         else if(m.getMessage().startsWith("getProfilePicNameOf:::")){
             int token = Integer.parseInt(m.getMessage().split(":::")[1].split("#")[1]);
             Member member = Server.getMemberWithToken(token);
@@ -80,6 +84,7 @@ public class User implements Runnable {
             }
         }
 
+        //get self profile
         else if(m.getMessage().equals("myMemberInfo")){
             InteractionWithUser.write(new Message(member.getUsername() + "#" + member.getToken() + ":::" + member.getStatus() + ":::" + member.getEmail() + ":::" + member.getPassword() + member.getPhoneNumbetString()), this);
         }
@@ -88,23 +93,32 @@ public class User implements Runnable {
         else if(m.getMessage().startsWith("getMemberProfile")){
             getMemberProfile(m);
         }
+
+        //check for user sign in
         else if (m.getMessage().startsWith("checkUserSignIn")) {
             Member member = new Member(null, null, null);
             Signing.signIn(server,member,this,m);
         }
+        //check for user sign up
         else if (m.getMessage().startsWith("checkUserSignUp")) {
             Member member = new Member(null, null, null);
             Signing.signUp(server,member,this, m);
         }
+        //check if there is no problem of sending friend request
         else if(m.getMessage().startsWith("checkIfCanSendFriendRequestTo:::")){
             FriendHandling.sendFriendRequest(m.getMessage().split(":::")[1],this);
         }
+        //get user friend requests names and status
         else if(m.getMessage().startsWith("getFriendRequestForFriendsMenu")){
             InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsRequestsToAnString()), this);
         }
-
+        //check password format . return "1" if there is no problem and return error message if there is a problem
+        else if(m.getMessage().startsWith("checkPasswordFormat:::")){
+            passwordCheck(m.getMessage().split(":::")[1]);
+        }
     }
 
+    //check if user can send friend request to
     public void requestProfilePic(Message m) throws IOException {
         String name = m.getMessage().split(":::")[1];
         Member member;
@@ -119,6 +133,15 @@ public class User implements Runnable {
         }
         else {
             InteractionWithUser.write(new Message("%%!profilePic:::" + getUserName(),getUserName()),this);
+        }
+    }
+
+    public void passwordCheck(String password) throws IOException {
+        try{
+            Validation.passValidation(password);
+            InteractionWithUser.write(new Message("1"), this);
+        } catch (Exception e) {
+            InteractionWithUser.write(new Message("0"),  this);
         }
     }
 

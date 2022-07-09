@@ -94,7 +94,7 @@ public class Client {
     }
 
 
-
+    //check if there is a member with this email and password
     public static boolean checkUserSignIn(String email, String password) {
         cOut.sendCommand("checkUserSignIn:::" + email + ":::" + password);
         String s = cIn.getMessage().getMessage();
@@ -106,6 +106,7 @@ public class Client {
         }
     }
 
+    //change the scene
     public static void changeScene(Scene scene) {
         Platform.runLater(new Runnable() {
             @Override
@@ -116,12 +117,14 @@ public class Client {
         });
     }
 
+    //check if user can sign up with this informations
     public static String checkUserSignUp(String username, String password, String email) {
         cOut.sendCommand("checkUserSignUp:::" + username + ":::" + password + ":::" + email);
         String s = cIn.getMessage().getMessage();
         return s.split(":")[1];
     }
 
+    //check if the phone number is valid
     public static boolean checkUserPhoneNumber(String phonenumber) {
         cOut.sendCommand("checkUserPhoneNumber:::" + phonenumber);
         String s = cIn.getMessage().getMessage();
@@ -133,10 +136,12 @@ public class Client {
         }
     }
 
+    //skip if server is waiting for a message but we want to skip.
     public static void skip() {
         cOut.sendCommand("skip");
     }
 
+    //check if the profile pic path is valid
     public static boolean checkUserProfilePic(String path) {
         if (!path.endsWith("jpg")) {
             return false;
@@ -154,16 +159,19 @@ public class Client {
         }
     }
 
+    //request profile pic of member and return a message containing content
     public static Message requestProfilePic(){
         cOut.sendCommand("requestProfilePic:::me");
         Message m = cIn.getMessage();
         return m;
     }
 
+    //dwonload Profile pic of a member if its not in profilePics folder
     public static void downloadProfilePicIfDontHave(String picName){
         ClientIn.saveProfilePic(picName);
     }
 
+    //return name and token and status and profile pic name of friends of the member
     public static ArrayList<MemberInfo> getFriendsForFriendsMenu() {
         cOut.sendCommand("getFriendsNamesForFriendsMenu");
         Message m = cIn.getMessage();
@@ -183,6 +191,7 @@ public class Client {
         return res;
     }
 
+    //return name and token and status and profile pic name of friend requests of the member
     public static ArrayList<MemberInfo> getFriendRequestForFriendsMenu() {
         cOut.sendCommand("getFriendRequestForFriendsMenu");
         Message m = cIn.getMessage();
@@ -202,12 +211,14 @@ public class Client {
         return res;
     }
 
+    //check if user can send friend request to given name with token string . return "yes" if there is no problem and return error message if there is a problem
     public static String checkIfCanSendFriendRequestTo(String name){
         cOut.sendCommand("checkIfCanSendFriendRequestTo:::" + name);
         Message m = cIn.getMessage();
         return m.getMessage();
     }
 
+    //get profile pic of a member based of user token and number of profile changes
     public static String getProfilePicNameOf(String nameWithToken){
         cOut.sendCommand("getProfilePicNameOf:::" + nameWithToken);
         String res = cIn.getMessage().getMessage();
@@ -219,6 +230,7 @@ public class Client {
         }
     }
 
+    //get self profile
     public static MemberInfo getMyMemberInfo(){
         cOut.sendCommand("myMemberInfo");
         String[] s = cIn.getMessage().getMessage().split(":::");
@@ -227,14 +239,31 @@ public class Client {
         String email = s[2];
         String password = s[3];
         String phoneNumber = s[4];
-        String picName = getProfilePicNameOf(s[0]);
-        MemberInfo memberInfo = new MemberInfo(s[0], s[1], picName);
+        String picName = getProfilePicNameOf(nameWithToken);
+        MemberInfo memberInfo = new MemberInfo(nameWithToken, status, picName);
         memberInfo.setEmail(email);
         memberInfo.setPassword(password);
         if(!phoneNumber.equals("null")){
             memberInfo.setPhoneNumber(phoneNumber);
         }
         return memberInfo;
+    }
+
+
+    //check if the given password is valid
+    public static boolean checkPasswordFormat(String password){
+        if(password == null){
+            return false;
+        }
+        if(password.equals("")){
+            return false;
+        }
+        cOut.sendCommand("checkPasswordFormat:::" + password);
+        String res = cIn.getMessage().getMessage();
+        if(res.equals("1")){
+            return true;
+        }
+        return false;
     }
 
 }
