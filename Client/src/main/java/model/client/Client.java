@@ -305,4 +305,9 @@ public class Client {
         return res;
     }
 
+    //change status
+    public static void changeStatus(String status){
+        cOut.sendCommand("changeStatus:::" + status);
+    }
+
 }
