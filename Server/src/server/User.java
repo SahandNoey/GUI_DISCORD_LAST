@@ -112,13 +112,11 @@ public class User implements Runnable {
 
         //check for user sign in
         else if (m.getMessage().startsWith("checkUserSignIn")) {
-            Member member = new Member(null, null, null);
-            Signing.signIn(server,member,this,m);
+            Signing.signIn(server,this,m);
         }
         //check for user sign up
         else if (m.getMessage().startsWith("checkUserSignUp")) {
-            Member member = new Member(null, null, null);
-            Signing.signUp(server,member,this, m);
+            Signing.signUp(server,this, m);
         }
         //check if there is no problem of sending friend request. if there is no problem send friend request and return "yes".
         else if(m.getMessage().startsWith("checkIfCanSendFriendRequestTo:::")){

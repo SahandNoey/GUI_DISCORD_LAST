@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
@@ -107,14 +108,10 @@
                            <children>
                               <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-radius: 100; -fx-background-color: #202225;">
                                  <children>
-                                    <ImageView fitHeight="131.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../assets/icons/Ander.png" />
-                                       </image>
-                                    </ImageView>
+                                    <Circle fx:id="profilePhotoCircle" layoutX="83.0" layoutY="83.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
                                  </children>
                               </Pane>
-                              <Label text="My name#0000" textFill="WHITE">
+                              <Label fx:id="userNameText" text="My name#0000" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="26.0" />
                                  </font>
@@ -150,7 +147,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="10.0" layoutY="10.0" text="myusername#0000" textFill="WHITE">
+                                          <Label fx:id="userNameText2" layoutX="10.0" layoutY="10.0" text="myusername#0000" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
@@ -178,7 +175,7 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="10.0" layoutY="10.0" text="*********@gmail.com" textFill="WHITE">
+                                                <Label fx:id="emailText" layoutX="10.0" layoutY="10.0" text="*********@gmail.com" textFill="WHITE">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -188,7 +185,7 @@
                                                 <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                              </padding>
                                           </VBox>
-                                          <CheckBox fx:id="emailShowCheckBox" mnemonicParsing="false" />
+                                          <CheckBox fx:id="emailShowCheckBox" mnemonicParsing="false" onAction="#emailShowCheckBoxClicked" text="Show Email" textFill="WHITE" />
                                        </children>
                                        <padding>
                                           <Insets left="15.0" right="15.0" />
@@ -210,7 +207,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="10.0" layoutY="10.0" text="+981234567890" textFill="WHITE">
+                                          <Label fx:id="phoneNumberText" layoutX="10.0" layoutY="10.0" text="+981234567890" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>

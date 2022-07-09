@@ -1,16 +1,27 @@
 package controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TitledPane;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
+import model.client.Client;
+import model.other.MemberInfo;
 
-public class MainController {
+import javax.swing.text.html.ImageView;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MainController implements Initializable {
+
+    MemberInfo me;
 
     @FXML
     private VBox serversVBox;
@@ -44,6 +55,21 @@ public class MainController {
 
     @FXML
     private Button phoneNumberEditBtn;
+    
+    @FXML
+    private Circle profilePhotoCircle;
+
+    @FXML
+    private Label userNameText;
+
+    @FXML
+    private Label userNameText2;
+
+    @FXML
+    private Label phoneNumberText;
+
+    @FXML
+    private Label emailText;
 
     @FXML
     void addServerClicked(MouseEvent event) {
@@ -100,13 +126,44 @@ public class MainController {
 
     }
 
-//    @Override
-////    public void initialize(URL url, ResourceBundle resourceBundle) {
-////
-////        MemberInfo me = Client.getMyMemberInfo();
-////        Client.downloadProfilePicIfDontHave(me.getPhotoName());
-//////        setProfilePic(me.getPhotoName());
-////    }
+    @FXML
+    void emailShowCheckBoxClicked(ActionEvent event){
+        if(emailShowCheckBox.isSelected()){
+            emailText.setText(me.getEmail());
+        }
+        else {
+            String temp = me.getEmail().split("@")[0];
+            StringBuilder temp2 = new StringBuilder();
+            for(int i = 0; i < temp.length(); i++){
+                temp2.append("*");
+            }
+            temp2.append(me.getEmail().split("@")[1]);
+            emailText.setText(temp2.toString());
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        me = Client.getMyMemberInfo();
+        Client.downloadProfilePicIfDontHave(me.getPhotoName());
+        setProfilePic(me.getPhotoName());
+        userNameText.setText(me.getUserNameWithToken());
+        userNameText2.setText(me.getUserNameWithToken());
+        String temp = me.getEmail().split("@")[0];
+        StringBuilder temp2 = new StringBuilder();
+        for(int i = 0; i < temp.length(); i++){
+            temp2.append("*");
+        }
+        temp2.append(me.getEmail().split("@")[1]);
+        emailText.setText(temp2.toString());
+        if(me.getPhoneNumber() != null){
+            phoneNumberText.setText(me.getPhoneNumber());
+        }
+        else{
+            phoneNumberText.setText("");
+        }
+
+    }
 
     //    @FXML
 //    void friendsButtonClicked(MouseEvent event) throws IOException {
@@ -120,8 +177,8 @@ public class MainController {
 
 
 //
-//    public void setProfilePic(String fileName){
-//        profilePicCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + fileName)));
-//    }
+    public void setProfilePic(String fileName){
+        profilePhotoCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + fileName)));
+    }
 
 }

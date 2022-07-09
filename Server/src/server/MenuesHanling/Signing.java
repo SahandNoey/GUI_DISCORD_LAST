@@ -8,12 +8,12 @@ import java.io.IOException;
 
 public class Signing {
 
-    public static void signIn(Server server, Member member, User u, Message m) throws IOException, ClassNotFoundException {
+    public static void signIn(Server server, User u, Message m) throws IOException, ClassNotFoundException {
         String[] objcts = m.getMessage().split(":::");
         String email = objcts[1];
         String password = objcts[2];
         if (server.isValidMember(email, password)) {
-            member = server.logIn(u, email);
+            Member member = server.logIn(u, email);
             u.setMember(member);
             member.setOnline();
             InteractionWithUser.write(new Message("%%!getCheckUserSignInResult:1"), u);
@@ -23,12 +23,13 @@ public class Signing {
     }
 
     //send 1 for okay and error text for error
-    public static void signUp(Server server, Member member, User u, Message m) throws IOException, ClassNotFoundException {
+    public static void signUp(Server server, User u, Message m) throws IOException, ClassNotFoundException {
         boolean flag = false;
         String[] objcts = m.getMessage().split(":::");
         String username = objcts[1];
         String password = objcts[2];
         String email = objcts[3];
+        Member member = null;
         try {
             Validation.usernameValidation(username);
             Validation.emailValidation(email, server.getMembers());

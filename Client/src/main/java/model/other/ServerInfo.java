@@ -12,4 +12,5 @@ public class ServerInfo {
     public void setPicName(String picName) {
         this.picName = picName;
     }
+
 }
