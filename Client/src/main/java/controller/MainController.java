@@ -66,7 +66,6 @@ public class MainController implements Initializable {
         MemberInfo me = Client.getMyMemberInfo();
         Client.downloadProfilePicIfDontHave(me.getPhotoName());
         setProfilePic(me.getPhotoName());
-
     }
 
     public void setProfilePic(String fileName){

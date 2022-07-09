@@ -222,8 +222,19 @@ public class Client {
     public static MemberInfo getMyMemberInfo(){
         cOut.sendCommand("myMemberInfo");
         String[] s = cIn.getMessage().getMessage().split(":::");
+        String nameWithToken = s[0];
+        String status = s[1];
+        String email = s[2];
+        String password = s[3];
+        String phoneNumber = s[4];
         String picName = getProfilePicNameOf(s[0]);
-        return new MemberInfo(s[0], s[1], picName);
+        MemberInfo memberInfo = new MemberInfo(s[0], s[1], picName);
+        memberInfo.setEmail(email);
+        memberInfo.setPassword(password);
+        if(!phoneNumber.equals("null")){
+            memberInfo.setPhoneNumber(phoneNumber);
+        }
+        return memberInfo;
     }
 
 }

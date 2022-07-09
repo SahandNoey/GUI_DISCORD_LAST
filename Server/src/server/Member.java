@@ -288,4 +288,11 @@ public class Member implements Serializable {
     }
 
 
+    public String getPhoneNumbetString(){
+        if(phoneNumber == null){
+            return "null";
+        }
+        return phoneNumber;
+    }
+
 }

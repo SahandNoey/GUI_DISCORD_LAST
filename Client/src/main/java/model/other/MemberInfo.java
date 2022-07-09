@@ -4,6 +4,9 @@ public class MemberInfo {
     private String userNameWithToken;
     private String status;
     private String photoName;
+    private String email;
+    private String password;
+    private String phoneNumber;
 
     public MemberInfo(String userNameWithToken, String status, String photoName){
         this.userNameWithToken =  userNameWithToken;
@@ -24,5 +27,17 @@ public class MemberInfo {
 
     public String getUserNameWithToken() {
         return userNameWithToken;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

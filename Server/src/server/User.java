@@ -81,7 +81,7 @@ public class User implements Runnable {
         }
 
         else if(m.getMessage().equals("myMemberInfo")){
-            InteractionWithUser.write(new Message(member.getUsername() + "#" + member.getToken() + ":::" + member.getStatus()), this);
+            InteractionWithUser.write(new Message(member.getUsername() + "#" + member.getToken() + ":::" + member.getStatus() + ":::" + member.getEmail() + ":::" + member.getPassword() + member.getPhoneNumbetString()), this);
         }
 
         //get a member profile objects
@@ -161,4 +161,5 @@ public class User implements Runnable {
     public Server getServer() {
         return server;
     }
+
 }
