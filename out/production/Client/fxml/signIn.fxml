@@ -2,7 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -62,7 +64,16 @@
                   <VBox layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="184.0" spacing="4.0">
                      <children>
                         <TextField fx:id="EmailTxtFld" />
-                        <TextField fx:id="passwordTxtFld" layoutX="10.0" layoutY="10.0" />
+                        <AnchorPane prefHeight="27.0" prefWidth="146.0">
+                           <children>
+                              <PasswordField fx:id="passwordPassFld" />
+                              <TextField fx:id="passwordTxtFld" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="7.0" />
+                           </VBox.margin>
+                        </AnchorPane>
+                        <CheckBox fx:id="showPassCheckBox" mnemonicParsing="false" text="Show Password" textFill="WHITE" />
                      </children>
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />

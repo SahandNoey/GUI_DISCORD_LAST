@@ -2,23 +2,29 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import model.client.Client;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SignInController {
+public class SignInController implements Initializable {
 
     @FXML
     private TextField EmailTxtFld;
 
     @FXML
+    private CheckBox showPassCheckBox;
+
+    @FXML
     private TextField passwordTxtFld;
+    @FXML
+    private PasswordField passwordPassFld;
 
     @FXML
     private Button signInBtn;
@@ -67,6 +73,14 @@ public class SignInController {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        passwordTxtFld.managedProperty().bind(showPassCheckBox.selectedProperty());
+        passwordTxtFld.visibleProperty().bind(showPassCheckBox.selectedProperty());
 
+        passwordPassFld.managedProperty().bind(showPassCheckBox.selectedProperty().not());
+        passwordPassFld.visibleProperty().bind(showPassCheckBox.selectedProperty().not());
 
+        passwordTxtFld.textProperty().bindBidirectional(passwordPassFld.textProperty());
+    }
 }

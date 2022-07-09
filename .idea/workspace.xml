@@ -3,11 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="a commit for conflict resolve">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/other/MemberInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/other/MemberInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/signIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +131,8 @@
       <workItem from="1657294704685" duration="142000" />
       <workItem from="1657351173696" duration="56000" />
       <workItem from="1657352732883" duration="55000" />
-      <workItem from="1657353045570" duration="596000" />
+      <workItem from="1657353045570" duration="699000" />
+      <workItem from="1657353849832" duration="1069000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
