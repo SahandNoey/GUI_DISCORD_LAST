@@ -110,6 +110,7 @@ public class FriendHandling {
                 if (!u.getMember().isInFriendRequest(m.getToken())) {
                     if (!m.haveFriendRequestFrom(u.getMember().getToken())) {
                         m.addFriendRequest(u.getMember());
+                        u.getMember().addSentFriendRequest(token);
                     }
                     InteractionWithUser.write(new Message("yes"), u);
                 } else {

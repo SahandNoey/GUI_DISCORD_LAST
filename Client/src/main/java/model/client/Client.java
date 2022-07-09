@@ -211,6 +211,46 @@ public class Client {
         return res;
     }
 
+    //return name and token and status and profile pic name of sent friend requests of the member
+    public static ArrayList<MemberInfo> getSentFriendRequestForFriendsMenu() {
+        cOut.sendCommand("getSentFriendRequestForFriendsMenu");
+        Message m = cIn.getMessage();
+        ArrayList<MemberInfo> res = new ArrayList<>();
+        String[] temp = m.getMessage().split(":::");
+        ArrayList<String> informations;
+        if (temp.length > 1) {
+            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            for (String information : informations) {
+                String name = information.split("-")[0];
+                String status = information.split("-")[1];
+                String profilePicName = getProfilePicNameOf(name);
+                res.add(new MemberInfo(name, status, profilePicName));
+                Client.downloadProfilePicIfDontHave(profilePicName);
+            }
+        }
+        return res;
+    }
+
+    //return name and token and status and profile pic name of blocks of the member
+    public static ArrayList<MemberInfo> getBlocksForFriendsMenu() {
+        cOut.sendCommand("getBlocksForFriendsMenu");
+        Message m = cIn.getMessage();
+        ArrayList<MemberInfo> res = new ArrayList<>();
+        String[] temp = m.getMessage().split(":::");
+        ArrayList<String> informations;
+        if (temp.length > 1) {
+            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            for (String information : informations) {
+                String name = information.split("-")[0];
+                String status = information.split("-")[1];
+                String profilePicName = getProfilePicNameOf(name);
+                res.add(new MemberInfo(name, status, profilePicName));
+                Client.downloadProfilePicIfDontHave(profilePicName);
+            }
+        }
+        return res;
+    }
+
     //check if user can send friend request to given name with token string . return "yes" if there is no problem and return error message if there is a problem
     public static String checkIfCanSendFriendRequestTo(String name){
         cOut.sendCommand("checkIfCanSendFriendRequestTo:::" + name);
