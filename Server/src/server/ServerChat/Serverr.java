@@ -16,10 +16,12 @@ public class Serverr implements Serializable {
     private HashMap<String, Naghsh> adminsNames;
     private ArrayList<String> members;
     private ArrayList<Channel> channels;
+    private byte[] pic;
+    private int picNum;
 
     private static final long serialVersionUID = 70020330;
 
-    public Serverr(String name ,String ownerName){
+    public Serverr(String name ,String ownerName) throws IOException {
         id = a;
         a++;
         this.name = name;
@@ -28,6 +30,14 @@ public class Serverr implements Serializable {
         this.members = new ArrayList<>();
         this.channels = new ArrayList<>();
         adminsNames.put(ownerName, new Naghsh("Owner",true,true,true,true,true,true,true,true));
+        picNum = 0;
+        Server.saveServers();
+    }
+
+    public void setPic(byte[] pic) throws IOException {
+        this.pic = pic;
+        picNum++;
+        Server.saveServers();
     }
 
     public static void setA(int n){
@@ -145,5 +155,13 @@ public class Serverr implements Serializable {
         }
         Server.saveServers();
         member.deleteServerr(this);
+    }
+
+    public byte[] getPic() {
+        return pic;
+    }
+
+    public int getPicNum() {
+        return picNum;
     }
 }

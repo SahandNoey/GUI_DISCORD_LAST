@@ -4,6 +4,7 @@ import server.MenuesHanling.FriendHandling;
 import server.MenuesHanling.InteractionWithUser;
 import server.MenuesHanling.Signing;
 import model.other.Message;
+import server.ServerChat.Serverr;
 import server.ValidationPackage.Validation;
 import server.ValidationPackage.invalidPasswordFormatException;
 
@@ -66,6 +67,9 @@ public class User implements Runnable {
         if(m.getMessage().startsWith("requestProfilePic:::")){
             requestProfilePic(m);
         }
+        else if(m.getMessage().startsWith("requestServerPic:::")){
+            requestServerPic(m);
+        }
 
         //get user friends names and status
         else if(m.getMessage().equals("getFriendsNamesForFriendsMenu")){
@@ -84,9 +88,21 @@ public class User implements Runnable {
             }
         }
 
+        //get Server pic of a server based of server id and number of profile changes
+        else if(m.getMessage().startsWith("getServerPicNameOf:::")){
+            int id = Integer.parseInt(m.getMessage().split(":::")[1]);
+            Serverr serverr = member.getServerrWithId(id);
+            if(serverr.getPic() != null) {
+                InteractionWithUser.write(new Message(serverr.getId() + "_" + serverr.getPicNum() + ".jpg"), this);
+            }
+            else {
+                InteractionWithUser.write(new Message("0"), this);
+            }
+        }
+
         //get self profile
         else if(m.getMessage().equals("myMemberInfo")){
-            InteractionWithUser.write(new Message(member.getUsername() + "#" + member.getToken() + ":::" + member.getStatus() + ":::" + member.getEmail() + ":::" + member.getPassword() + member.getPhoneNumbetString()), this);
+            InteractionWithUser.write(new Message(member.getUsername() + "#" + member.getToken() + ":::" + member.getStatus() + ":::" + member.getEmail() + ":::" + member.getPassword() + ":::" + member.getPhoneNumbetString()), this);
         }
 
         //get a member profile objects
@@ -111,6 +127,10 @@ public class User implements Runnable {
         //get user friend requests names and status
         else if(m.getMessage().startsWith("getFriendRequestForFriendsMenu")){
             InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsRequestsToAnString()), this);
+        }
+        //get user servers name and pic name
+        else if(m.getMessage().startsWith("getServersForMainMenu")){
+            InteractionWithUser.write(new Message("%%!serversForMainMenu:::" + member.convertServersToAnString()), this);
         }
         //get user sent friend requests names and status
         else if(m.getMessage().startsWith("getSentFriendRequestForFriendsMenu")){
@@ -148,10 +168,10 @@ public class User implements Runnable {
 
 
     public void requestProfilePic(Message m) throws IOException {
-        String name = m.getMessage().split(":::")[1];
+        String token = m.getMessage().split(":::")[1];
         Member member;
-        if(!name.equals("me")){
-            member = server.getMember(name);
+        if(!token.equals("me")){
+            member = server.getMemberWithToken(Integer.parseInt(token));
         }
         else{
             member = this.member;
@@ -163,6 +183,19 @@ public class User implements Runnable {
             InteractionWithUser.write(new Message("%%!profilePic:::" + getUserName(),getUserName()),this);
         }
     }
+
+
+    public void requestServerPic(Message m) throws IOException {
+        String id = m.getMessage().split(":::")[1];
+        Serverr serverr = Server.getServerrWithId(Integer.parseInt(id));
+        if(serverr.getPic() != null){
+            InteractionWithUser.write(new Message(serverr.getPic(), "%%!ServerPic:::" + serverr.getName() + serverr.getPicNum()),this);
+        }
+        else {
+            InteractionWithUser.write(new Message("%%!ServerPic:::" + serverr.getName(),serverr.getName()),this);
+        }
+    }
+
 
     public void passwordChange(String password) throws IOException {
         try{

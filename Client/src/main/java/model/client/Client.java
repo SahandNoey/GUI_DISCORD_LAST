@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 import model.other.MemberInfo;
 import model.other.Message;
+import model.other.ServerInfo;
 
 
 public class Client {
@@ -159,16 +160,27 @@ public class Client {
         }
     }
 
-    //request profile pic of member and return a message containing content
-    public static Message requestProfilePic(){
-        cOut.sendCommand("requestProfilePic:::me");
+    //request profile pic of a member and return a message containing content
+    public static Message requestProfilePicOf(String token){
+        cOut.sendCommand("requestProfilePic:::" + token);
         Message m = cIn.getMessage();
         return m;
     }
 
+    public static Message requestServerPicOf(String id){
+        cOut.sendCommand("requestServerPic:::" + id);
+        Message m = cIn.getMessage();
+        return m;
+    }
+
+
     //dwonload Profile pic of a member if its not in profilePics folder
     public static void downloadProfilePicIfDontHave(String picName){
         ClientIn.saveProfilePic(picName);
+    }
+    //dwonload Server pic of a server if its not in serverPics folder
+    public static void downloadServerPicIfDontHave(String picName){
+        ClientIn.saveServerPic(picName);
     }
 
     //return name and token and status and profile pic name of friends of the member
@@ -353,6 +365,37 @@ public class Client {
     //change profile pic. return true if path is valid
     public static boolean changeProfilePic(String photoPath){
         return setUserProfilePic(photoPath);
+    }
+
+    public static ArrayList<ServerInfo> getServersForMainMenu(){
+        cOut.sendCommand("getServersForMainMenu");
+        Message m = cIn.getMessage();
+        ArrayList<ServerInfo> res = new ArrayList<>();
+        String[] temp = m.getMessage().split(":::");
+        ArrayList<String> informations;
+        if (temp.length > 1) {
+            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            for (String information : informations) {
+                String name = information.split("#")[0];
+                int id = Integer.parseInt(information.split("#")[1]);
+                String picName = getServerPicNameOf(id);
+                res.add(new ServerInfo(name, picName));
+                Client.downloadServerPicIfDontHave(picName);
+            }
+        }
+        return res;
+    }
+
+    //get profile pic of a member based of user token and number of profile changes
+    public static String getServerPicNameOf(int id){
+        cOut.sendCommand("getServerPicNameOf:::" + id);
+        String res = cIn.getMessage().getMessage();
+        if(res.equals("0")){
+            return null;
+        }
+        else{
+            return res;
+        }
     }
 
 }

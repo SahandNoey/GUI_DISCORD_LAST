@@ -133,10 +133,31 @@ public class ClientIn{
             FileInputStream fl = new FileInputStream(f);
         }catch (FileNotFoundException e) {
             try {
-                Message m = Client.requestProfilePic();
+                Message m = Client.requestProfilePicOf(picName.split("_")[0]);
                 String fileName = picName;
                 byte[] temp = m.getContent();
                 File f = new File("Client\\profilePics\\" + picName);
+                f.createNewFile();
+                FileOutputStream fO = new FileOutputStream(f);
+                fO.write(temp);
+                fO.flush();
+                fO.close();
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+        }
+    }
+
+    public static void saveServerPic(String picName){
+        try {
+            File f = new File("Client\\serverPics\\" + picName);
+            FileInputStream fl = new FileInputStream(f);
+        }catch (FileNotFoundException e) {
+            try {
+                Message m = Client.requestServerPicOf(picName.split("_")[0]);
+                String fileName = picName;
+                byte[] temp = m.getContent();
+                File f = new File("Client\\serverPics\\" + picName);
                 f.createNewFile();
                 FileOutputStream fO = new FileOutputStream(f);
                 fO.write(temp);

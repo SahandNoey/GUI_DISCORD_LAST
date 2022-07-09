@@ -55,8 +55,8 @@ public class Member implements Serializable {
 
     public void setPic(byte[] pic) throws IOException {
         this.pic = pic;
-        Server.saveMembers();
         picNum++;
+        Server.saveMembers();
     }
 
     public byte[] getPic(){
@@ -278,12 +278,14 @@ public class Member implements Serializable {
         return str.toString();
     }
 
-    public void setUsername(String username) {
+    public void setUsername(String username) throws IOException {
         this.username = username;
+        Server.saveMembers();
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws IOException {
         this.email = email;
+        Server.saveMembers();
     }
 
     public String convertFriendsRequestsToAnString(){
@@ -329,8 +331,31 @@ public class Member implements Serializable {
         return phoneNumber;
     }
 
-    public void addSentFriendRequest(int token){
+    public void addSentFriendRequest(int token) throws IOException {
         sentFriendRequestsToken.add(token);
+        Server.saveMembers();
+    }
+
+
+
+    public String convertServersToAnString(){
+        StringBuilder str = new StringBuilder();
+        for (Serverr serverr : servers){
+            str.append(serverr.getName()).append("#").append(serverr.getId()).append(",");
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        return str.toString();
+    }
+
+    public Serverr getServerrWithId(int id){
+        for(Serverr serverr : servers){
+            if(serverr.getId() == id){
+                return serverr;
+            }
+        }
+        return null;
     }
 
 }

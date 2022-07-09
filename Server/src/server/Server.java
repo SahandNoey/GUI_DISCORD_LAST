@@ -121,6 +121,15 @@ public class Server {
         return false;
     }
 
+    public static Serverr getServerrWithId(int id){
+        for(Serverr serverr : servers){
+            if(serverr.getId() == id){
+                return serverr;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Member> getMembers() {
         return members;
     }
