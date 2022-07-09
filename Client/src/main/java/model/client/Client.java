@@ -141,8 +141,8 @@ public class Client {
         cOut.sendCommand("skip");
     }
 
-    //check if the profile pic path is valid
-    public static boolean checkUserProfilePic(String path) {
+    //check if the profile pic path is valid. if it's valid change user profile pic.
+    public static boolean setUserProfilePic(String path) {
         if (!path.endsWith("jpg")) {
             return false;
         }
@@ -308,6 +308,11 @@ public class Client {
     //change status
     public static void changeStatus(String status){
         cOut.sendCommand("changeStatus:::" + status);
+    }
+
+    //change profile pic. return true if path is valid
+    public static boolean changeProfilePic(String photoPath){
+        return setUserProfilePic(photoPath);
     }
 
 }

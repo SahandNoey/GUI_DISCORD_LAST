@@ -132,6 +132,10 @@ public class User implements Runnable {
         else if(m.getMessage().startsWith("changeStatus:::")){
             statusChange(m.getMessage().split(":::")[1]);
         }
+        //change profile pic
+        else if (m.getMessage().equals("profilepic")) {
+            member.setPic(m.getContent());
+        }
     }
 
 
