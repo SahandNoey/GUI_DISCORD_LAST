@@ -151,9 +151,9 @@
                   </HBox>
                   <VBox alignment="CENTER" style="-fx-background-color: #202225; -fx-background-radius: 10;">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" style="-fx-background-radius: 10;">
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-radius: 10;">
                            <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                            <children>
                               <Pane layoutX="15.0" layoutY="246.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" prefWidth="829.0" style="-fx-background-color: #2f3136; -fx-background-radius: 10;">
@@ -176,6 +176,7 @@
                                     <Button fx:id="sendReqAddFrndBtn" layoutX="697.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#sendRequestToAddFriendClicked" style="-fx-background-color: #5865F2;" text="Send Request" />
                                  </children>
                               </Pane>
+                              <Label text="Request sent successfully!" textFill="#58f287" />
                            </children>
                         </VBox>
                      </children>
