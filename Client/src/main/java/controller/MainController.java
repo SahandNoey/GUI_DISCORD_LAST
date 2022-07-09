@@ -72,6 +72,15 @@ public class MainController implements Initializable {
     private Label emailText;
 
     @FXML
+    private Label statusLabel;
+
+    @FXML
+    private Pane statusPane;
+
+    @FXML
+    private Label changeStatusBtn;
+
+    @FXML
     void addServerClicked(MouseEvent event) {
 
     }
@@ -164,7 +173,17 @@ public class MainController implements Initializable {
         }
 
     }
+    void changeStatusClicked(MouseEvent event) {
 
+    }
+
+//    @Override
+////    public void initialize(URL url, ResourceBundle resourceBundle) {
+////
+////        MemberInfo me = Client.getMyMemberInfo();
+////        Client.downloadProfilePicIfDontHave(me.getPhotoName());
+//////        setProfilePic(me.getPhotoName());
+////    }
     //    @FXML
 //    void friendsButtonClicked(MouseEvent event) throws IOException {
 //        Client.friendsController = new FriendsController();

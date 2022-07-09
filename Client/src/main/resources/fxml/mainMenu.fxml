@@ -111,11 +111,43 @@
                                     <Circle fx:id="profilePhotoCircle" layoutX="83.0" layoutY="83.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
                                  </children>
                               </Pane>
+<<<<<<< HEAD
                               <Label fx:id="userNameText" text="My name#0000" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="26.0" />
                                  </font>
                               </Label>
+=======
+                              <VBox alignment="CENTER" spacing="5.0">
+                                 <children>
+                                    <Label text="My name#0000" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" prefHeight="43.0" prefWidth="200.0" spacing="40.0">
+                                       <children>
+                                          <Label text="Status :" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="statusLabel" text="Online" textFill="#58f287">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Pane fx:id="statusPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: #58f287; -fx-background-radius: 100;" />
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="changeStatusBtn" onMouseClicked="#changeStatusClicked" text="Change" textFill="#5865f2">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+>>>>>>> 58052889bda6305f52f88aa9c2159235200cab5c
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
