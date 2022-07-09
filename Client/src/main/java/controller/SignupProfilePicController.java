@@ -40,7 +40,7 @@ public class SignupProfilePicController {
     void doneClicked(MouseEvent event) throws IOException {
         if(pathToPicTxtFld.getText() != null) {
             if(!pathToPicTxtFld.getText().equals("")) {
-                if(Client.checkUserProfilePic(pathToPicTxtFld.getText())){
+                if(Client.setUserProfilePic(pathToPicTxtFld.getText())){
                     profilePicAccepted();
                 }
                 else{

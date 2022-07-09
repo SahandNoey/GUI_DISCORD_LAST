@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="main menu created">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_1_32_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_1_32_AM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_17_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_17_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_23_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_23_PM__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="a commit for conflict resolve">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/profilePics/2_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/profilePics/parsa800.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/SignupPhoneNumberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/SignupPhoneNumberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/FriendHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/FriendHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/Signing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/Signing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignupPhoneNumberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignupPhoneNumberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignupProfilePicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignupProfilePicController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/Member.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/FriendHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/FriendHandling.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/Signing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/Signing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/User$allMenues.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/User$allMenues.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/Validation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ValidationPackage/Validation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +37,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -60,11 +68,24 @@
       <recent name="D:\DISCORD_GUI\GUI_Discord_Final\GUI_DISCORD_LAST\Client\src\main\resources\assets\icons" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientStarter">
+  <component name="RunManager" selected="Application.ServerRun">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClientStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="starter.ClientStarter" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../../&quot;JavaFX primary file&quot;/javaFx/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path G:\javafx-sdk-18.0.1\lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="starter.*" />
@@ -88,25 +109,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.ClientStarter" />
       <item itemvalue="Application.ServerRun" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientStarter" />
         <item itemvalue="Application.ServerRun" />
+        <item itemvalue="Application.ClientStarter" />
       </list>
     </recent_temporary>
   </component>
@@ -135,8 +145,9 @@
       <workItem from="1657352732883" duration="55000" />
       <workItem from="1657353045570" duration="699000" />
       <workItem from="1657353849832" duration="1069000" />
-      <workItem from="1657359906919" duration="3243000" />
-      <workItem from="1657372575337" duration="4873000" />
+      <workItem from="1657359906919" duration="3278000" />
+      <workItem from="1657372966481" duration="2480000" />
+      <workItem from="1657375752837" duration="682000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
@@ -152,14 +163,7 @@
       <option name="project" value="LOCAL" />
       <updated>1657278289625</updated>
     </task>
-    <task id="LOCAL-00003" summary="main menu created">
-      <created>1657285006096</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1657285006097</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,11 +179,9 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a commit for conflict resolve" />
-    <MESSAGE value="main menu created" />
-    <option name="LAST_COMMIT_MESSAGE" value="main menu created" />
+    <option name="LAST_COMMIT_MESSAGE" value="a commit for conflict resolve" />
   </component>
 </project>

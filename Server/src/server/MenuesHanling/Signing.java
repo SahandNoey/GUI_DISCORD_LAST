@@ -33,12 +33,12 @@ public class Signing {
             Validation.usernameValidation(username);
             Validation.emailValidation(email, server.getMembers());
             Validation.passValidation(password);
-            InteractionWithUser.write(new Message("%%!getCheckUserSignUpResult:1"), u);
             member = new Member(username, password, email);
             u.setMember(member);
             member.setOnline();
             server.addNewMember(member);
             flag = true;
+            InteractionWithUser.write(new Message("%%!getCheckUserSignUpResult:1"), u);
         } catch (Exception e) {
             InteractionWithUser.write(new Message("%%!getCheckUserSignUpResult:" + e.getMessage()), u);
         }

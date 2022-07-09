@@ -20,6 +20,7 @@ public class Member implements Serializable {
     private String phoneNumber;
     private String status;
     private ArrayList<Integer> friendRequestsTokens;
+    private ArrayList<Integer> sentFriendRequestsToken;
     private ArrayList<Integer> blocksTokens;
     transient private ArrayList<Serverr> servers;
     private ArrayList<Integer> serversIDs;
@@ -28,6 +29,7 @@ public class Member implements Serializable {
     private int token;
     transient private static int a = 1;
     private int picNum = 0;
+    private ArrayList<Integer> blockedBy;
 
     public Member(String username, String password, String email){
         token = a;
@@ -43,6 +45,8 @@ public class Member implements Serializable {
         chatsId = new HashMap<>();
         status = "online";
         isOnline = false;
+        sentFriendRequestsToken = new ArrayList<>();
+        blockedBy = new ArrayList<>();
     }
 
     public static void setA(int n){
@@ -294,12 +298,39 @@ public class Member implements Serializable {
         return str.toString();
     }
 
+    public String convertSentFriendsRequestsToAnString(){
+        StringBuilder str = new StringBuilder();
+        for (int token : sentFriendRequestsToken){
+            Member m = Server.getMemberWithToken(token);
+            str.append(m.getUsername()).append("#").append(m.getToken()).append("-").append(m.getStatus()).append(",");
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        return str.toString();
+    }
+
+    public String convertBlocksToAnString(){
+        StringBuilder str = new StringBuilder();
+        for (int token : blocksTokens){
+            Member m = Server.getMemberWithToken(token);
+            str.append(m.getUsername()).append("#").append(m.getToken()).append("-").append(m.getStatus()).append(",");
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        return str.toString();
+    }
 
     public String getPhoneNumbetString(){
         if(phoneNumber == null){
             return "null";
         }
         return phoneNumber;
+    }
+
+    public void addSentFriendRequest(int token){
+        sentFriendRequestsToken.add(token);
     }
 
 }

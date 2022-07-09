@@ -141,8 +141,8 @@ public class Client {
         cOut.sendCommand("skip");
     }
 
-    //check if the profile pic path is valid
-    public static boolean checkUserProfilePic(String path) {
+    //check if the profile pic path is valid. if it's valid change user profile pic.
+    public static boolean setUserProfilePic(String path) {
         if (!path.endsWith("jpg")) {
             return false;
         }
@@ -194,6 +194,46 @@ public class Client {
     //return name and token and status and profile pic name of friend requests of the member
     public static ArrayList<MemberInfo> getFriendRequestForFriendsMenu() {
         cOut.sendCommand("getFriendRequestForFriendsMenu");
+        Message m = cIn.getMessage();
+        ArrayList<MemberInfo> res = new ArrayList<>();
+        String[] temp = m.getMessage().split(":::");
+        ArrayList<String> informations;
+        if (temp.length > 1) {
+            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            for (String information : informations) {
+                String name = information.split("-")[0];
+                String status = information.split("-")[1];
+                String profilePicName = getProfilePicNameOf(name);
+                res.add(new MemberInfo(name, status, profilePicName));
+                Client.downloadProfilePicIfDontHave(profilePicName);
+            }
+        }
+        return res;
+    }
+
+    //return name and token and status and profile pic name of sent friend requests of the member
+    public static ArrayList<MemberInfo> getSentFriendRequestForFriendsMenu() {
+        cOut.sendCommand("getSentFriendRequestForFriendsMenu");
+        Message m = cIn.getMessage();
+        ArrayList<MemberInfo> res = new ArrayList<>();
+        String[] temp = m.getMessage().split(":::");
+        ArrayList<String> informations;
+        if (temp.length > 1) {
+            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            for (String information : informations) {
+                String name = information.split("-")[0];
+                String status = information.split("-")[1];
+                String profilePicName = getProfilePicNameOf(name);
+                res.add(new MemberInfo(name, status, profilePicName));
+                Client.downloadProfilePicIfDontHave(profilePicName);
+            }
+        }
+        return res;
+    }
+
+    //return name and token and status and profile pic name of blocks of the member
+    public static ArrayList<MemberInfo> getBlocksForFriendsMenu() {
+        cOut.sendCommand("getBlocksForFriendsMenu");
         Message m = cIn.getMessage();
         ArrayList<MemberInfo> res = new ArrayList<>();
         String[] temp = m.getMessage().split(":::");
@@ -308,6 +348,11 @@ public class Client {
     //change status
     public static void changeStatus(String status){
         cOut.sendCommand("changeStatus:::" + status);
+    }
+
+    //change profile pic. return true if path is valid
+    public static boolean changeProfilePic(String photoPath){
+        return setUserProfilePic(photoPath);
     }
 
 }

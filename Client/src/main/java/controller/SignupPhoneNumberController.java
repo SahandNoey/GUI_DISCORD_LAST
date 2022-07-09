@@ -40,8 +40,7 @@ public class SignupPhoneNumberController {
 
     @FXML
     void nextClicked(MouseEvent event) throws IOException{
-        Pattern pattern = Pattern.compile("[+]\\d{12}$");
-        if (phoneNumberTxtFld.getText().matches(pattern.pattern())){
+        if(Client.checkUserPhoneNumber(phoneNumberTxtFld.getText())){
             accepted();
         }
         else {

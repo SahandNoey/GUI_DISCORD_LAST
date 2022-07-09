@@ -104,13 +104,21 @@ public class User implements Runnable {
             Member member = new Member(null, null, null);
             Signing.signUp(server,member,this, m);
         }
-        //check if there is no problem of sending friend request
+        //check if there is no problem of sending friend request. if there is no problem send friend request and return "yes".
         else if(m.getMessage().startsWith("checkIfCanSendFriendRequestTo:::")){
             FriendHandling.sendFriendRequest(m.getMessage().split(":::")[1],this);
         }
         //get user friend requests names and status
         else if(m.getMessage().startsWith("getFriendRequestForFriendsMenu")){
             InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsRequestsToAnString()), this);
+        }
+        //get user sent friend requests names and status
+        else if(m.getMessage().startsWith("getSentFriendRequestForFriendsMenu")){
+            InteractionWithUser.write(new Message("%%!sentFriendsRequestsNamesForFriendsMenu:::" + member.convertSentFriendsRequestsToAnString()), this);
+        }
+        //get user blocks names and status
+        else if(m.getMessage().startsWith("getBlocksForFriendsMenu")){
+            InteractionWithUser.write(new Message("%%!blocksForFriendsMenu:::" + member.convertBlocksToAnString()), this);
         }
         //check password format and change it if it's valid. return "1" if there is no problem and return "0" if there is a problem
         else if(m.getMessage().startsWith("changePassword:::")){
@@ -131,6 +139,10 @@ public class User implements Runnable {
         //change status
         else if(m.getMessage().startsWith("changeStatus:::")){
             statusChange(m.getMessage().split(":::")[1]);
+        }
+        //change profile pic
+        else if (m.getMessage().equals("profilepic")) {
+            member.setPic(m.getContent());
         }
     }
 
