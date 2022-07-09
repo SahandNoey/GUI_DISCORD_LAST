@@ -124,6 +124,10 @@ public class User implements Runnable {
         else if(m.getMessage().startsWith("changePhoneNumber:::")){
             phoneChange(m.getMessage().split(":::")[1]);
         }
+        //check phone number format and change it if it's valid. return "1" if there is no problem and return error message if there is a problem
+        else if(m.getMessage().startsWith("changeUsername:::")){
+            usernameChange(m.getMessage().split(":::")[1]);
+        }
     }
 
 
@@ -174,6 +178,17 @@ public class User implements Runnable {
             InteractionWithUser.write(new Message(e.getMessage()),  this);
         }
     }
+
+    public void usernameChange(String username) throws IOException {
+        try{
+            Validation.usernameValidation(username);
+            member.setUsername(username);
+            InteractionWithUser.write(new Message("1"), this);
+        } catch (Exception e) {
+            InteractionWithUser.write(new Message(e.getMessage()),  this);
+        }
+    }
+
 
     public void getMemberProfile(Message m) throws IOException {
         String name = m.getMessage().split(":::")[1];

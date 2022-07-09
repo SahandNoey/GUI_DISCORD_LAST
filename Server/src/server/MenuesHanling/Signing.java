@@ -30,7 +30,7 @@ public class Signing {
         String password = objcts[2];
         String email = objcts[3];
         try {
-            Validation.usernameValidation(username, server.getMembers());
+            Validation.usernameValidation(username);
             Validation.emailValidation(email, server.getMembers());
             Validation.passValidation(password);
             InteractionWithUser.write(new Message("%%!getCheckUserSignUpResult:1"), u);

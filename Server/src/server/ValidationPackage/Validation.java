@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Validation {
 
-    public static void usernameValidation(String userName, ArrayList<Member> allMembers) throws invalidUsernameFormatException, usernameAlreadyExistsException {
+    public static void usernameValidation(String userName) throws invalidUsernameFormatException, usernameAlreadyExistsException {
         if(userName == null){
             throw new invalidUsernameFormatException();
         }
