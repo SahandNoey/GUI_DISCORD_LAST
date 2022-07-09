@@ -1,10 +1,7 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TitledPane;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -44,6 +41,15 @@ public class MainController {
 
     @FXML
     private Button phoneNumberEditBtn;
+
+    @FXML
+    private Label statusLabel;
+
+    @FXML
+    private Pane statusPane;
+
+    @FXML
+    private Label changeStatusBtn;
 
     @FXML
     void addServerClicked(MouseEvent event) {
@@ -97,6 +103,11 @@ public class MainController {
 
     @FXML
     void usernameEditClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void changeStatusClicked(MouseEvent event) {
 
     }
 
