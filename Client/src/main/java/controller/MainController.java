@@ -122,7 +122,7 @@ public class MainController {
     //    @FXML
 //    void friendsButtonClicked(MouseEvent event) throws IOException {
 //        Client.friendsController = new FriendsController();
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("friendsMenu.fxml"));
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("addFriendspage.fxml"));
 //        FriendsController friendsController = new FriendsController();
 //        loader.setController(friendsController);
 //        Parent root = loader.load();

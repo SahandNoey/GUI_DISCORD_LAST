@@ -59,6 +59,21 @@ public class FriendsController {
     private Button sendReqAddFrndBtn;
 
     @FXML
+    private Pane friend1Pane;
+
+    @FXML
+    private Pane friend1StautsPane;
+
+    @FXML
+    private Label friend1NameLabel;
+
+    @FXML
+    private Label friend1StatusLabel;
+
+    @FXML
+    private Button friend1SendMsgBtn;
+
+    @FXML
     void addFriendClicked(MouseEvent event) {
 
     }
@@ -110,6 +125,11 @@ public class FriendsController {
 
     @FXML
     void sendRequestToAddFriendClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void sendMessageInFriendsListClicked(MouseEvent event) {
 
     }
 
