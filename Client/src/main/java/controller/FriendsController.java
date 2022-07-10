@@ -1,11 +1,14 @@
 package controller;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -186,6 +189,12 @@ public class FriendsController implements Initializable {
                     sendFriendRequestResultTxt.setTextFill(Color.GREEN);
                     sendFriendRequestResultTxt.setOpacity(1);
                 } else {
+                    if(res.equals("invalid username")){
+                        Alert a = new Alert(Alert.AlertType.INFORMATION);
+                        a.setTitle("FRIEND REQUEST FAILED");
+                        a.setContentText("Hm,that dont work. check username.");
+                        a.show();
+                    }
                     sendFriendRequestResultTxt.setText(res);
                     sendFriendRequestResultTxt.setTextFill(Color.RED);
                     sendFriendRequestResultTxt.setOpacity(1);
