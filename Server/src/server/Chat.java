@@ -10,7 +10,7 @@ import java.util.HashSet;
 
 public class Chat implements Serializable {
     transient private ArrayList<Member> members;
-    private ArrayList<String> membersNames;
+    private ArrayList<Integer> membersTokens;
     private ArrayList<Message> messages;
     transient private HashSet<User> inChat;
     private int id;
@@ -25,9 +25,9 @@ public class Chat implements Serializable {
     //constructor for private chat
     public Chat(ArrayList<Member> members){
         this.members = members;
-        membersNames = new ArrayList<>();
+        membersTokens = new ArrayList<>();
         for(Member m : members){
-            membersNames.add(m.getUsername());
+            membersTokens.add(m.getToken());
         }
         messages = new ArrayList<>();
         inChat = new HashSet<>();
@@ -38,14 +38,14 @@ public class Chat implements Serializable {
     }
 
     public void addMember(Member member) throws IOException {
-        membersNames.add(member.getUsername());
+        membersTokens.add(member.getToken());
         this.members.add(member);
         Server.saveChats();
     }
 
     //constructor for channels chat
     public Chat(String firstMessage){
-        this.membersNames = new ArrayList<>();
+        this.membersTokens = new ArrayList<>();
         this.members = new ArrayList<>();
         this.messages = new ArrayList<>();
         this.inChat = new HashSet<>();
@@ -66,7 +66,7 @@ public class Chat implements Serializable {
         messages.add(m);
         if (m.getContent() == null) {
             for (User temp : inChat) {
-                InteractionWithUser.write(new Message(m.getAuthor() + " : " + m.getMessage()), temp);
+                InteractionWithUser.write(m, temp);
             }
         }
         Server.saveChats();
@@ -75,7 +75,7 @@ public class Chat implements Serializable {
     public void addNewFile(Message message) throws IOException {
         files.add(message);
         for(User temp : inChat){
-            InteractionWithUser.write(new Message(message.getAuthor() + " : sent file : " + message.getMessage()), temp);
+            InteractionWithUser.write(new Message(message.getAuthorToken() + " : sent file : " + message.getMessage()), temp);
         }
         Server.saveChats();
     }
@@ -88,12 +88,12 @@ public class Chat implements Serializable {
     }
 
     public void addWelcomeMessage(String name) throws IOException {
-        messages.add(new Message("new member (" + name + ") joined.\n" + firstMessage, "server"));
+        messages.add(new Message("new member (" + name + ") joined.\n" + firstMessage));
         Server.saveChats();
     }
 
-    public ArrayList<String> getMembersNames() {
-        return membersNames;
+    public ArrayList<Integer> getMembersTokens() {
+        return membersTokens;
     }
     public String showFiles(){
         int i = 1;
@@ -121,24 +121,22 @@ public class Chat implements Serializable {
     }
 
     public void newInChatMember(User u) throws IOException {
-        if(membersNames.contains(u.getUserName()) && !inChat.contains(u)){
+        if(membersTokens.contains(u.getMember().getToken()) && !inChat.contains(u)){
             inChat.add(u);
             if(messages.size() <= 15) {
                 for (Message message : messages) {
-                    InteractionWithUser.write(new Message(message.getAuthor() + " : " + message.getMessage() + "        " + message.reactionsToString()), u);
+                    InteractionWithUser.write(message, u);
                 }
             }
             else{
                 for(int i = 0; i < 15; i++){
                     Message temp = messages.get(messages.size() - 15 + i);
-                    InteractionWithUser.write(new Message(temp.getAuthor() + " : " + temp.getMessage() + "        " + temp.reactionsToString()), u);
+                    InteractionWithUser.write(temp, u);
                 }
             }
         }
-        for (Member m : isTyping){
-            InteractionWithUser.write(new Message(m.getUsername() + " is not typing anymore."), u);
-        }
     }
+
     public void removeInChatMember(User u){
         inChat.remove(u);
     }
@@ -155,18 +153,15 @@ public class Chat implements Serializable {
         members = new ArrayList<>();
         inChat = new HashSet<>();
         isTyping = new ArrayList<>();
-        for(String member : membersNames){
+        for(int token : membersTokens){
             for(Member m : allMembers){
-                if(m.getUsername().equals(member)){
-                    this.members.add(m);
-                    break;
-                }
+                this.members.add(Server.getMemberWithToken(token));
             }
         }
     }
 
-    public void setMembersNames(ArrayList<String> membersNames) {
-        this.membersNames = membersNames;
+    public void setMembersTokens(ArrayList<Integer> membersTokens) {
+        this.membersTokens = membersTokens;
     }
 
     public ArrayList<Message> getMessages() {

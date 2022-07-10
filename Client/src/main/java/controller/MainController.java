@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,6 +34,7 @@ import starter.ClientStarter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -352,6 +354,34 @@ public class MainController implements Initializable {
             root.setSpacing(15);
             root.setAlignment(Pos.CENTER_LEFT);
 
+            root.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    int id = Integer.parseInt(information.getUserNameWithToken().split("#")[1]);
+                    MemberInfo me = Client.getMyMemberInfo();
+                    MemberInfo friend = Client.getInfoOfToken(id);
+                    HashMap<Integer,String > temp = new HashMap<>();
+                    temp.put(Integer.parseInt(me.getUserNameWithToken().split("#")[1]), me.getUserNameWithToken().split("#")[0]);
+                    temp.put(Integer.parseInt(friend.getUserNameWithToken().split("#")[1]), friend.getUserNameWithToken().split("#")[0]);
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendDM.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    DMController controller = loader.getController();
+                    controller.completeTokenToName(temp, me, friend);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Client.gotoDMWith(controller, id);
+                        }
+                    });
+                    Client.changeScene(new Scene(root));
+                }
+            });
             accountAndDMVBox.getChildren().add(root);
         }
     }

@@ -39,11 +39,11 @@ public class InteractionWithUser {
         return null;
     }
 
-    public static Message read(User u, String author) throws IOException, ClassNotFoundException {
+    public static Message read(User u, int authorToken) throws IOException, ClassNotFoundException {
         ObjectInputStream fIn = u.getfIn();
         if (!u.getSocket().isClosed() && u.getSocket().isConnected()) {
             try {
-                return new Message(((Message) fIn.readObject()).getMessage(), author);
+                return new Message(((Message) fIn.readObject()).getMessage(), authorToken);
             } catch (Exception e) {
                 System.out.println("someone left.");
                 if(u.getMember() != null) {

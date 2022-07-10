@@ -11,7 +11,7 @@ import java.net.Socket;
 public class ClientOut{
 
     private Socket socket;
-    private ObjectOutputStream fOut;
+    private static ObjectOutputStream fOut;
     private ObjectInputStream fIn;
 
     public ClientOut(Socket socket,ObjectInputStream in, ObjectOutputStream out) throws IOException {
@@ -21,7 +21,7 @@ public class ClientOut{
     }
 
 
-    public void sendCommand(String command){
+    public static void sendCommand(String command){
         try {
             fOut.writeObject(new Message(command));
         } catch (IOException e) {

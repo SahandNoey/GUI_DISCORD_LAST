@@ -39,7 +39,7 @@ public class User implements Runnable {
         catch (Exception ignored){
 
         }
-        thread.stop();
+//        thread.stop();
     }
 
     public Thread getThread() {
@@ -110,6 +110,12 @@ public class User implements Runnable {
             InteractionWithUser.write(new Message(member.getUsername() + "#" + member.getToken() + ":::" + member.getStatus() + ":::" + member.getEmail() + ":::" + member.getPassword() + ":::" + member.getPhoneNumbetString()), this);
         }
 
+        //get a member profile
+        else if(m.getMessage().startsWith("memberInfo")){
+            Member member = Server.getMemberWithToken(Integer.parseInt(m.getMessage().split(":::")[1]));
+            InteractionWithUser.write(new Message(member.getUsername() + "#" + member.getToken() + ":::" + member.getStatus() + ":::" + member.getEmail() + ":::" + member.getPassword() + ":::" + member.getPhoneNumbetString()), this);
+        }
+
         //get a member profile objects
         else if(m.getMessage().startsWith("getMemberProfile")){
             getMemberProfile(m);
@@ -135,6 +141,10 @@ public class User implements Runnable {
         //get user friend requests names and status
         else if(m.getMessage().startsWith("getFriendRequestForFriendsMenu")){
             InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsRequestsToAnString()), this);
+        }
+        //go to chat with someone
+        else if(m.getMessage().startsWith("goToChatWith:::")){
+            goToDMWith(m.getMessage().split(":::")[1]);
         }
         //get user servers name and pic name
         else if(m.getMessage().startsWith("getServersForMainMenu")){
@@ -188,7 +198,7 @@ public class User implements Runnable {
             InteractionWithUser.write(new Message(member.getPic(), "%%!profilePic:::" + getUserName() + getMember().getPicNum()),this);
         }
         else {
-            InteractionWithUser.write(new Message("%%!profilePic:::" + getUserName(),getUserName()),this);
+            InteractionWithUser.write(new Message("%%!profilePic:::" + getUserName(),getMember().getToken()),this);
         }
     }
 
@@ -200,7 +210,7 @@ public class User implements Runnable {
             InteractionWithUser.write(new Message(serverr.getPic(), "%%!ServerPic:::" + serverr.getName() + serverr.getPicNum()),this);
         }
         else {
-            InteractionWithUser.write(new Message("%%!ServerPic:::" + serverr.getName(),serverr.getName()),this);
+            InteractionWithUser.write(new Message("%%!ServerPic:::" + serverr.getName(),serverr.getId()),this);
         }
     }
 
@@ -248,6 +258,11 @@ public class User implements Runnable {
 
     public void statusChange(String status) throws IOException {
         member.setStatus(status);
+    }
+
+    public void goToDMWith(String token) throws IOException, ClassNotFoundException {
+        int id = Integer.parseInt(token);
+        FriendHandling.privateChat(id, this);
     }
 
 

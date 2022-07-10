@@ -130,9 +130,9 @@ public class ServerMenuHandling {
                 break;
             case 10 :
                 if(serverr.getOwnerName().equals(u.getUserName())) {
-                    ArrayList<String> membersNames = serverr.getMembers();
-                    for(String memberName : membersNames){
-                        u.getServer().getMember(memberName).deleteServerr(serverr);
+                    ArrayList<Integer> membersTokens = serverr.getMembersTokens();
+                    for(Integer memberToken : membersTokens){
+                        Server.getMemberWithToken(memberToken).deleteServerr(serverr);
                     }
                     u.getServer().getServers().remove(serverr);
                 }
@@ -178,7 +178,7 @@ public class ServerMenuHandling {
         if (choice == n + 1) {
             return adminsMenu(u, serverr);
         }
-        Member member = u.getServer().getMember(serverr.getMemberWithIndex(choice - 1));
+        Member member = Server.getMemberWithToken(serverr.getMemberTokenWithIndex(choice - 1));
         serverr.deleteMember(member);
         return User.allMenues.MAIN;
     }
@@ -191,7 +191,7 @@ public class ServerMenuHandling {
         if (choice == n + 1) {
             return adminsMenu(u, serverr);
         }
-        Member member = u.getServer().getMember(serverr.getMemberWithIndex(choice - 1));
+        Member member = Server.getMemberWithToken(serverr.getMemberTokenWithIndex(choice - 1));
 
 
         InteractionWithUser.write(new Message(serverr.channelsToString()), u);
@@ -225,7 +225,7 @@ public class ServerMenuHandling {
         if (choice == n + 1) {
             return adminsMenu(u, serverr);
         }
-        Member member = u.getServer().getMember(serverr.getMemberWithIndex(choice - 1));
+        Member member = Server.getMemberWithToken(serverr.getMemberTokenWithIndex(choice - 1));
         InteractionWithUser.write(new Message("add to or remove from ban list\n1.add\n2.remove\n3.back : "),u);
         choice = InteractionWithUser.getChoice(1,3,"",u.getfOut(), u.getfIn(),u);
         if(choice == 3){
@@ -260,7 +260,7 @@ public class ServerMenuHandling {
         if (choice == n) {
             return chosenServerrMenu(u, serverr);
         }
-        Member member = u.getServer().getMember(serverr.getMemberWithIndex(choice - 1));
+        Member member = Server.getMemberWithToken(serverr.getMemberTokenWithIndex(choice - 1));
         InteractionWithUser.write(new Message(member.profile() + "\n1.back"), u);
         choice = InteractionWithUser.getChoice(1, 1, "", u.getfOut(), u.getfIn(), u);
         if (choice == 1) {
@@ -285,7 +285,7 @@ public class ServerMenuHandling {
                 case 1:
                     if(!target.isInLimitedList(u.getUserName())) {
                     target.isTyping(u);
-                    target.addNewMessage(InteractionWithUser.read(u, u.getUserName()));
+                    target.addNewMessage(InteractionWithUser.read(u, u.getMember().getToken()));
                     target.endTyping(u);
                     }
                     else {
@@ -336,13 +336,13 @@ public class ServerMenuHandling {
 
     public static User.allMenues addNewMemberToServerr(User u, Serverr serverr) throws IOException, ClassNotFoundException {
         InteractionWithUser.write(new Message("enter user username"), u);
-        String username = InteractionWithUser.read(u).getMessage();
-        Member m = u.getServer().getMember(username);
+        Integer token = Integer.parseInt(InteractionWithUser.read(u).getMessage());
+        Member m = Server.getMemberWithToken(token);
         if (m != null) {
             if (m.equals(u.getMember())) {
                 InteractionWithUser.write(new Message("yot cant add yourself to server."), u);
             } else {
-                if (serverr.isInServerr(username)) {
+                if (serverr.isInServerr(token)) {
                     InteractionWithUser.write(new Message("this user is in this server."), u);
                 } else {
                     serverr.addMember(m);
@@ -358,8 +358,8 @@ public class ServerMenuHandling {
 
     public static User.allMenues addNewAdmin(User u, Serverr serverr) throws IOException, ClassNotFoundException {
         InteractionWithUser.write(new Message("enter user username"), u);
-        String username = InteractionWithUser.read(u).getMessage();
-        if (serverr.isInServerr(username)) {
+        Integer token = Integer.parseInt(InteractionWithUser.read(u).getMessage());
+        if (serverr.isInServerr(token)) {
             InteractionWithUser.write(new Message("name of this acessibility:"), u);
             String naghshName = InteractionWithUser.read(u).getMessage();
             boolean createChannel = false, deleteChannel = false, deleteMembers = false, limitMembers = false, banMembers = false, changeName = false, checkHistory = false, pinMessage = false;
@@ -405,7 +405,7 @@ public class ServerMenuHandling {
             if (choice == 1) {
                 pinMessage = true;
             }
-            serverr.addAdmin(username,naghshName,createChannel,deleteChannel,deleteMembers,limitMembers,banMembers,changeName,checkHistory,pinMessage);
+            serverr.addAdmin(Server.getMemberWithToken(token).getUsername(),naghshName,createChannel,deleteChannel,deleteMembers,limitMembers,banMembers,changeName,checkHistory,pinMessage);
 
         } else {
             InteractionWithUser.write(new Message("there is no user with this username in this serverr."), u);

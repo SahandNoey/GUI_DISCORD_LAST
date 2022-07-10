@@ -65,7 +65,7 @@ public class ShowLists {
         int i = 1,choice;
         if(messages.size() <= 15) {
             for (Message message : messages) {
-                InteractionWithUser.write(new Message("" + i + "." + message.getAuthor() + " : " + message.getMessage()),u);
+                InteractionWithUser.write(new Message("" + i + "." + message.getAuthorToken() + " : " + message.getMessage()),u);
                 i++;
             }
             InteractionWithUser.write(new Message("" + i +".back"),u);
@@ -78,7 +78,7 @@ public class ShowLists {
         else{
             for(int j = 0; j < 15; j++){
                 Message temp = messages.get(messages.size() - 15 + j);
-                InteractionWithUser.write(new Message("" + i + "." + temp.getAuthor() + " : " + temp.getMessage()), u);
+                InteractionWithUser.write(new Message("" + i + "." + temp.getAuthorToken() + " : " + temp.getMessage()), u);
                 i++;
             }
             InteractionWithUser.write(new Message("" + i +".back"),u);

@@ -80,7 +80,7 @@ public class Server {
         for (Serverr serverr : servers){
             for(Channel channel : serverr.getChannels()){
                 if(channel instanceof TextChannel){
-                    ((TextChannel)channel).getChat().setMembersNames(serverr.getMembers());
+                    ((TextChannel)channel).getChat().setMembersTokens(serverr.getMembersTokens());
                     channel.initialize(members);
                 }
                 channel.setServerr(serverr);

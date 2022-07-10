@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Message implements Serializable {
     private String message;
-    private String author;
+    private int authorToken;
     private Date date;
     private HashMap<String, String> reactionMemberNames;
     private byte[] content;
@@ -19,22 +19,22 @@ public class Message implements Serializable {
     }
 
 
-    public Message(String message,String author){
+    public Message(String message,int authorToken){
         this.message = message;
         this.date = new Date(LocalDateTime.now());
-        this.author = author;
+        this.authorToken = authorToken;
         reactionMemberNames = new HashMap<>();
     }
 
-    public Message(byte[] content, String message, String author){
+    public Message(byte[] content, String message, int authorToken){
         this.content = content;
         this.message = message;
-        this.author = author;
+        this.authorToken = authorToken;
     }
     public Message(byte[] content, String message){
         this.content = content;
         this.message = message;
-        this.author = author;
+        this.authorToken = 0;
     }
 
 
@@ -50,8 +50,8 @@ public class Message implements Serializable {
         return date;
     }
 
-    public String getAuthor() {
-        return author;
+    public int getAuthorToken() {
+        return authorToken;
     }
 
     public void react(String usename, String reaction){

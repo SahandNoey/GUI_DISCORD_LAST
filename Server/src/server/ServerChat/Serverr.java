@@ -14,7 +14,7 @@ public class Serverr implements Serializable {
     private String name;
     private String ownerName;
     private HashMap<String, Naghsh> adminsNames;
-    private ArrayList<String> members;
+    private ArrayList<Integer> membersTokens;
     private ArrayList<Channel> channels;
     private byte[] pic;
     private int picNum;
@@ -27,7 +27,7 @@ public class Serverr implements Serializable {
         this.name = name;
         this.ownerName = ownerName;
         this.adminsNames = new HashMap<>();
-        this.members = new ArrayList<>();
+        this.membersTokens = new ArrayList<>();
         this.channels = new ArrayList<>();
         adminsNames.put(ownerName, new Naghsh("Owner",true,true,true,true,true,true,true,true));
         picNum = 0;
@@ -59,15 +59,15 @@ public class Serverr implements Serializable {
     public String membersToString(Server server){
         StringBuilder str = new StringBuilder("");
         int i = 1;
-        for(String member : members){
-            str.append("\n").append(i).append(".").append(member).append("   ").append(server.getMember(member).getStatus());
+        for(Integer member : membersTokens){
+            str.append("\n").append(i).append(".").append(member).append("   ").append(Server.getMemberWithToken(member).getStatus());
             i++;
         }
         return str.toString();
     }
 
     public int membersSize(){
-        return members.size();
+        return membersTokens.size();
     }
 
     public String channelsToString(){
@@ -84,8 +84,8 @@ public class Serverr implements Serializable {
         return channels.size();
     }
 
-    public String getMemberWithIndex(int n){
-        return members.get(n);
+    public int getMemberTokenWithIndex(int n){
+        return membersTokens.get(n);
     }
 
     public Channel getChannelWithIndex(int n){
@@ -101,15 +101,15 @@ public class Serverr implements Serializable {
         Server.saveServers();
     }
 
-    public  boolean isInServerr(String name){
-        if(members.contains(name)){
+    public  boolean isInServerr(Integer token){
+        if(membersTokens.contains(token)){
             return true;
         }
         return false;
     }
 
     public void addMember(Member member) throws IOException {
-        members.add(member.getUsername());
+        membersTokens.add(member.getToken());
         member.addServerr(this);
         for(Channel channel : channels){
             channel.addMember(member);
@@ -118,8 +118,8 @@ public class Serverr implements Serializable {
         Server.saveServers();
     }
 
-    public ArrayList<String> getMembers() {
-        return members;
+    public ArrayList<Integer> getMembersTokens() {
+        return membersTokens;
     }
 
     public void addAdmin(String username,String name,boolean createChannel, boolean deleteChannel, boolean deleteMember,boolean limitMembers, boolean banMembers,boolean changeName, boolean historyChecking,boolean pinMessage) throws IOException {
@@ -147,7 +147,7 @@ public class Serverr implements Serializable {
     }
 
     public void deleteMember(Member member) throws IOException {
-        members.remove(member.getUsername());
+        membersTokens.remove(member.getToken());
         for(Channel channel : channels){
             if(channel instanceof TextChannel){
                 ((TextChannel) channel).deleteMember(member);

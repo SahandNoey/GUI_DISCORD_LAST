@@ -47,7 +47,7 @@ public class InChatFuncs {
         if(m.getMessage().equals("#cancel")){
             return ;
         }
-        InteractionWithUser.write(new Message("%%!getFile:::" + path + ":::" + m.getMessage(),u.getUserName()),u);
+        InteractionWithUser.write(new Message("%%!getFile:::" + path + ":::" + m.getMessage(),u.getMember().getToken()),u);
         m = InteractionWithUser.read(u);
         if(m.getMessage().equals("%%!not found")){
             return;
@@ -61,7 +61,7 @@ public class InChatFuncs {
         if(choice == target.filesSize() + 1){
             return;
         }
-        InteractionWithUser.write(new Message(target.getFileWithIndex(choice - 1),"%%!" + target.getFileNameIndex(choice - 1), u.getUserName()),u);
+        InteractionWithUser.write(new Message(target.getFileWithIndex(choice - 1),"%%!" + target.getFileNameIndex(choice - 1), u.getMember().getToken()),u);
     }
 
     public static User.allMenues pinMessage(User u, Serverr serverr) throws IOException, ClassNotFoundException {

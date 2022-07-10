@@ -1,5 +1,6 @@
 package model.client;
 
+import controller.DMController;
 import controller.FriendsController;
 import controller.SignInController;
 import controller.MainController;
@@ -328,6 +329,30 @@ public class Client {
         return memberInfo;
     }
 
+    //get a member profile
+    public static MemberInfo getInfoOfToken(int token){
+        cOut.sendCommand("memberInfo:::" + token);
+        String[] s = cIn.getMessage().getMessage().split(":::");
+        String nameWithToken = s[0];
+        String status = s[1];
+        String email = s[2];
+        String password = s[3];
+        String phoneNumber = s[4];
+        String picName = getProfilePicNameOf(nameWithToken);
+        MemberInfo memberInfo = new MemberInfo(nameWithToken, status, picName);
+        memberInfo.setEmail(email);
+        memberInfo.setPassword(password);
+        if(picName != null) {
+            Client.downloadProfilePicIfDontHave(picName);
+        }
+        if(!phoneNumber.equals("null")){
+            memberInfo.setPhoneNumber(phoneNumber);
+        }
+        return memberInfo;
+    }
+
+
+
 
     //check if the given password is valid and change it if its valid.
     public static boolean changePassword(String password){
@@ -424,6 +449,11 @@ public class Client {
         else{
             return res;
         }
+    }
+
+    public static void gotoDMWith(DMController dmController, int token){
+        cOut.sendCommand("goToChatWith:::" + token);
+        cIn.gotoDM(dmController);
     }
 
 

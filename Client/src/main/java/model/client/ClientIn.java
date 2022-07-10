@@ -1,6 +1,7 @@
 package model.client;
 
 
+import controller.DMController;
 import model.other.MemberInfo;
 import model.other.Message;
 
@@ -65,7 +66,7 @@ public class ClientIn{
                     FileInputStream fl = new FileInputStream(f);
                     byte[] content = new byte[(int) f.length()];
                     content = fl.readAllBytes();
-                    fOut.writeObject(new Message(content, fileName, m.getAuthor()));
+                    fOut.writeObject(new Message(content, fileName, m.getAuthorToken()));
                     fOut.flush();
                 }catch (FileNotFoundException e){
                     System.out.println("this file not found.");
@@ -91,7 +92,7 @@ public class ClientIn{
                     FileInputStream fl = new FileInputStream(f);
                     byte[] content = new byte[(int) f.length()];
                     content = fl.readAllBytes();
-                    fOut.writeObject(new Message(content, "profilepic", m.getAuthor()));
+                    fOut.writeObject(new Message(content, "profilepic", m.getAuthorToken()));
                     fOut.flush();
                 }catch (FileNotFoundException e){
                     System.out.println("this file not found.");
@@ -185,6 +186,17 @@ public class ClientIn{
                 }
             }
         }).start();
+    }
+
+    public static void gotoDM(DMController dmController){
+        while(true){
+            Message m = getMessage();
+            if(m.getMessage().equals("%%!getOut")){
+                return;
+            }
+            dmController.addMessage(m);
+
+        }
     }
 
 

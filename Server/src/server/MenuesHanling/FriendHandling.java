@@ -8,25 +8,27 @@ import java.util.ArrayList;
 
 public class FriendHandling {
 
-    public static User.allMenues privateChat(Member friend, User u) throws IOException, ClassNotFoundException {
+    public static void privateChat(int friendToken, User u) throws IOException, ClassNotFoundException {
 
-        if (friend.isBlocked(u.getMember().getToken())) {
-            InteractionWithUser.write(new Message("this user has blocked you."), u);
-            return User.allMenues.FRIENDS;
-        }
-        if (u.getMember().isBlocked(friend.getToken())) {
-            InteractionWithUser.write(new Message("you have blocked this user."), u);
-            return User.allMenues.FRIENDS;
-        }
+//        if (friend.isBlocked(u.getMember().getToken())) {
+//            InteractionWithUser.write(new Message("this user has blocked you."), u);
+//            return User.allMenues.FRIENDS;
+//        }
+//        if (u.getMember().isBlocked(friend.getToken())) {
+//            InteractionWithUser.write(new Message("you have blocked this user."), u);
+//            return User.allMenues.FRIENDS;
+//        }
 
-        ArrayList<Chat> chats = u.getServer().getChats();
-        ArrayList<Member> mms = new ArrayList<>();
-        mms.add(u.getMember());
-        mms.add(friend);
+//        ArrayList<Chat> chats = u.getServer().getChats();
+
         Chat target = null;
+        Member friend = Server.getMemberWithToken(friendToken);
         if (u.getMember().isInMembersOfChat(friend.getToken())) {
             target = u.getMember().getChatWithName(friend.getToken(), u.getServer().getChats());
         } else {
+            ArrayList<Member> mms = new ArrayList<>();
+            mms.add(u.getMember());
+            mms.add(friend);
             target = new Chat(mms);
             u.getServer().addNewChat(target);
             u.getMember().addChatId(friend.getToken(), target.getId());
@@ -34,34 +36,40 @@ public class FriendHandling {
         }
         target.newInChatMember(u);
         while (true) {
-            switch (InChatFuncs.getInChatChoice(target, u)) {
-                case 1:
-                    target.isTyping(u);
-                    target.addNewMessage(InteractionWithUser.read(u, u.getUserName()));
-                    target.endTyping(u);
-                    break;
-                case 2:
-                    InChatFuncs.reactToAMessageIn(u,target.getMessages());
-                    break;
-                case 3 :
-                    Message temp = target.getPinnedMessage();
-                    if(temp == null){
-                        InteractionWithUser.write(new Message("there is no pinned message."),u);
-                    }
-                    else{
-                        InteractionWithUser.write(temp, u);
-                    }
-                    break;
-                case 4 :
-                    InChatFuncs.sendFile(u,target);
-                    break;
-                case 5 :
-                    InChatFuncs.downloadFile(u,target);
-                    break;
-                case 6:
-                    target.removeInChatMember(u);
-                    return User.allMenues.FRIENDS;
+            Message m = InteractionWithUser.read(u);
+            if(m.getMessage().equals("%%!getOutOfChat")){
+                InteractionWithUser.write(new Message("getOut"), u);
+                return ;
             }
+            target.addNewMessage(new Message(m.getMessage(), u.getMember().getToken()));
+//            switch (InChatFuncs.getInChatChoice(target, u)) {
+//                case 1:
+//                    target.isTyping(u);
+//                    target.addNewMessage(InteractionWithUser.read(u, u.getUserName()));
+//                    target.endTyping(u);
+//                    break;
+//                case 2:
+//                    InChatFuncs.reactToAMessageIn(u,target.getMessages());
+//                    break;
+//                case 3 :
+//                    Message temp = target.getPinnedMessage();
+//                    if(temp == null){
+//                        InteractionWithUser.write(new Message("there is no pinned message."),u);
+//                    }
+//                    else{
+//                        InteractionWithUser.write(temp, u);
+//                    }
+//                    break;
+//                case 4 :
+//                    InChatFuncs.sendFile(u,target);
+//                    break;
+//                case 5 :
+//                    InChatFuncs.downloadFile(u,target);
+//                    break;
+//                case 6:
+//                    target.removeInChatMember(u);
+//                    return User.allMenues.FRIENDS;
+//            }
         }
     }
 

@@ -18,7 +18,7 @@ public class Menues {
                 InteractionWithUser.write(new Message(u.getMember().getPic(), "%%!profilePic:::" + u.getUserName()),u);
             }
             else {
-                InteractionWithUser.write(new Message("%%!profilePic:::" + u.getUserName(),u.getUserName()),u);
+                InteractionWithUser.write(new Message("%%!profilePic:::" + u.getUserName(),u.getMember().getToken()),u);
             }
         }
         int choice = 0;
@@ -59,7 +59,7 @@ public class Menues {
     }
     public static void downloadPPic(User u, Member member) throws IOException {
         if(member.getPic() != null) {
-            InteractionWithUser.write(new Message(member.getPic(), "%%!downloadPic:::" + member.getUsername(), "nobody"),u);
+            InteractionWithUser.write(new Message(member.getPic(), "%%!downloadPic:::" + member.getUsername() ),u);
         }
         else {
             InteractionWithUser.write(new Message("this user doesnt have profile picture."),u);
@@ -79,7 +79,7 @@ public class Menues {
                 downloadPPic(u, friend);
                 return friendsMenu(u);
             case 2 :
-                FriendHandling.privateChat(friend, u);
+                FriendHandling.privateChat(friend.getToken(), u);
                 return friendsMenu(u);
             case 3 :
                 FriendHandling.blockUnblock(friend, u);
