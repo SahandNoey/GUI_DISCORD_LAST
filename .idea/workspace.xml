@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="createChannelPopup.fxml created and ServerAndChannelController updated">
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="kickGiveRoleInfoPopup.fxml and its controller updated">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/infoPopup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/kickPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/kickGiveRoleInfoPopup.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657479693503</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="kickGiveRoleInfoPopup.fxml and its controller updated">
+      <created>1657483279140</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657483279140</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +222,7 @@
     <MESSAGE value="friendsListPage.fxml changed , friendOptionsPopup.fxml created , mainMenu.fxml merged and updated , selectFriendPopup.fxml created" />
     <MESSAGE value="dm part updated and pane and image view replaced with circle for profile photos" />
     <MESSAGE value="serverSettings.fxml and kickPopup.fxml created" />
-    <option name="LAST_COMMIT_MESSAGE" value="serverSettings.fxml and kickPopup.fxml created" />
+    <MESSAGE value="kickGiveRoleInfoPopup.fxml and its controller updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="kickGiveRoleInfoPopup.fxml and its controller updated" />
   </component>
 </project>

@@ -15,6 +15,21 @@ import javafx.scene.shape.Circle;
 public class ServerAndChannelController {
 
     @FXML
+    private Label infoUsernameLabel;
+
+    @FXML
+    private Circle infoStatusCircle;
+
+    @FXML
+    private Label infoStatusLabel;
+
+    @FXML
+    private Label infoStatusContentLabel;
+
+    @FXML
+    private Label infoRoleLabel;
+
+    @FXML
     private VBox serversVBox;
 
     @FXML
@@ -200,6 +215,11 @@ public class ServerAndChannelController {
 
     @FXML
     void onInfoClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void infoCloseBtnClicked(MouseEvent event) {
 
     }
 
