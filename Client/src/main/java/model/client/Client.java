@@ -189,15 +189,16 @@ public class Client {
         Message m = cIn.getMessage();
         ArrayList<MemberInfo> res = new ArrayList<>();
         String[] temp = m.getMessage().split(":::");
-        ArrayList<String> informations;
         if (temp.length > 1) {
-            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            String[] informations = temp[1].split(",");
             for (String information : informations) {
                 String name = information.split("-")[0];
                 String status = information.split("-")[1];
                 String profilePicName = getProfilePicNameOf(name);
                 res.add(new MemberInfo(name, status, profilePicName));
-                Client.downloadProfilePicIfDontHave(profilePicName);
+                if(profilePicName != null) {
+                    Client.downloadProfilePicIfDontHave(profilePicName);
+                }
             }
         }
         return res;
@@ -209,15 +210,16 @@ public class Client {
         Message m = cIn.getMessage();
         ArrayList<MemberInfo> res = new ArrayList<>();
         String[] temp = m.getMessage().split(":::");
-        ArrayList<String> informations;
         if (temp.length > 1) {
-            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            String[] informations = temp[1].split(",");
             for (String information : informations) {
                 String name = information.split("-")[0];
                 String status = information.split("-")[1];
                 String profilePicName = getProfilePicNameOf(name);
                 res.add(new MemberInfo(name, status, profilePicName));
-                Client.downloadProfilePicIfDontHave(profilePicName);
+                if(profilePicName != null) {
+                    Client.downloadProfilePicIfDontHave(profilePicName);
+                }
             }
         }
         return res;
@@ -229,15 +231,16 @@ public class Client {
         Message m = cIn.getMessage();
         ArrayList<MemberInfo> res = new ArrayList<>();
         String[] temp = m.getMessage().split(":::");
-        ArrayList<String> informations;
         if (temp.length > 1) {
-            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            String[] informations = temp[1].split(",");
             for (String information : informations) {
                 String name = information.split("-")[0];
                 String status = information.split("-")[1];
                 String profilePicName = getProfilePicNameOf(name);
                 res.add(new MemberInfo(name, status, profilePicName));
-                Client.downloadProfilePicIfDontHave(profilePicName);
+                if(profilePicName != null) {
+                    Client.downloadProfilePicIfDontHave(profilePicName);
+                }
             }
         }
         return res;
@@ -249,15 +252,16 @@ public class Client {
         Message m = cIn.getMessage();
         ArrayList<MemberInfo> res = new ArrayList<>();
         String[] temp = m.getMessage().split(":::");
-        ArrayList<String> informations;
         if (temp.length > 1) {
-            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            String[] informations = temp[1].split(",");
             for (String information : informations) {
                 String name = information.split("-")[0];
                 String status = information.split("-")[1];
                 String profilePicName = getProfilePicNameOf(name);
                 res.add(new MemberInfo(name, status, profilePicName));
-                Client.downloadProfilePicIfDontHave(profilePicName);
+                if(profilePicName != null) {
+                    Client.downloadProfilePicIfDontHave(profilePicName);
+                }
             }
         }
         return res;
@@ -295,6 +299,9 @@ public class Client {
         MemberInfo memberInfo = new MemberInfo(nameWithToken, status, picName);
         memberInfo.setEmail(email);
         memberInfo.setPassword(password);
+        if(picName != null) {
+            Client.downloadProfilePicIfDontHave(picName);
+        }
         if(!phoneNumber.equals("null")){
             memberInfo.setPhoneNumber(phoneNumber);
         }
@@ -372,15 +379,16 @@ public class Client {
         Message m = cIn.getMessage();
         ArrayList<ServerInfo> res = new ArrayList<>();
         String[] temp = m.getMessage().split(":::");
-        ArrayList<String> informations;
         if (temp.length > 1) {
-            informations = (ArrayList<String>) Arrays.stream(temp[1].split(",")).toList();
+            String[] informations = temp[1].split(",");
             for (String information : informations) {
                 String name = information.split("#")[0];
                 int id = Integer.parseInt(information.split("#")[1]);
                 String picName = getServerPicNameOf(id);
                 res.add(new ServerInfo(name, picName));
-                Client.downloadServerPicIfDontHave(picName);
+                if(picName != null) {
+                    Client.downloadProfilePicIfDontHave(picName);
+                }
             }
         }
         return res;

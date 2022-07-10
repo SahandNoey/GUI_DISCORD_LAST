@@ -70,6 +70,7 @@ public class Server {
         servers = f.getServers();
         chats = f.getChats();
         for(Member m : members){
+            m.setOffline();
             m.addServers(servers);
             Member.setA(members.get(members.size() -  1).getToken() + 1);
         }

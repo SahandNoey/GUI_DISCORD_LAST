@@ -15,6 +15,7 @@ public class InteractionWithUser {
                 fOut.writeObject(message);
             } catch (Exception e) {
                 System.out.println("someone left.");
+                u.getMember().setOffline();
                 u.stopThread();
             }
         }
@@ -27,6 +28,7 @@ public class InteractionWithUser {
                 return (Message) fIn.readObject();
             } catch (Exception e) {
                 System.out.println("someone left.");
+                u.getMember().setOffline();
                 u.stopThread();
             }
         }
@@ -40,6 +42,7 @@ public class InteractionWithUser {
                 return new Message(((Message) fIn.readObject()).getMessage(), author);
             } catch (Exception e) {
                 System.out.println("someone left.");
+                u.getMember().setOffline();
                 u.stopThread();
             }
         }

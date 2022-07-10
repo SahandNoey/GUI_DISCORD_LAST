@@ -33,7 +33,6 @@ public class Member implements Serializable {
 
     public Member(String username, String password, String email){
         token = a;
-        System.out.println(a);
         a++;
         this.password = password;
         this.username = username;

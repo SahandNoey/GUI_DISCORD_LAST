@@ -2,23 +2,35 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import model.client.Client;
+import model.other.MemberInfo;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class FriendsController {
+public class FriendsController implements Initializable {
 
     @FXML
     private VBox serversVBox;
@@ -101,6 +113,9 @@ public class FriendsController {
 
     @FXML
     private Label sendFriendRequestResultTxt;
+
+    @FXML
+    private VBox friendsListVBox;
 
     @FXML
     void addDMBtnClicked(MouseEvent event) {
@@ -197,44 +212,94 @@ public class FriendsController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ArrayList<MemberInfo> informations = Client.getFriendsForFriendsMenu();
+        showFriendsInFriendsList(informations);
+        informations = Client.getFriendRequestForFriendsMenu();
+        showFriendsInFriendsList(informations);
+        informations = Client.getSentFriendRequestForFriendsMenu();
+        showFriendsInFriendsList(informations);
 
-    //    @FXML
-//    VBox mainVbox;
-//    @FXML
-//    TextField addFriendTextField;
-//    @FXML
-//    Text resultText;
-//
-//
-//    @FXML
-//    public void addFriendButtonClicked(){
-//        if(addFriendTextField.getText() != null){
-//            if(!addFriendTextField.getText().equals("")){
-//                String res = Client.checkIfCanSendFriendRequestTo(addFriendTextField.getText());
-//                if(res.equals("yes")){
-//                    resultText.setText("friend request sent.");
-//                    resultText.setFill(Color.GREEN);
-//                    resultText.setOpacity(1);
-//                }
-//                else{
-//                    resultText.setText(res);
-//                    resultText.setFill(Color.RED);
-//                    resultText.setOpacity(1);
-//                }
-//            }
-//        }
-//    }
-//
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        ArrayList<MemberInfo> infos = Client.getFriendsForFriendsMenu();
-//        for (MemberInfo info : infos){
-//            mainVbox.getChildren().add(new HBox(new Text(info.getUserNameWithToken())));
-//        }
-//        infos = Client.getFriendRequestForFriendsMenu();
-//        for (MemberInfo info : infos){
-//            mainVbox.getChildren().add(new HBox(new Text(info.getUserNameWithToken())));
-//        }
-//    }
+    }
+
+
+    public void showFriendsInFriendsList(ArrayList<MemberInfo> informations){
+        for (MemberInfo information : informations){
+            String name = information.getUserNameWithToken();
+            String status = information.getStatus();
+            Image profilePic = new Image("file:Client\\profilePics\\" + information.getPhotoName());
+            Image statusPic = new Image("file:Client\\files\\statuspics\\" + status + ".png");
+            Pane root;
+
+
+            //root childs
+            HBox hBox1;
+            Button btn1 = new Button("Send Message");
+            btn1.setStyle("-fx-background-color :  #5865F2;");
+            btn1.setTextFill(Color.BLACK);
+            btn1.setLayoutY(26);
+            btn1.setLayoutX(638);
+            btn1.setMnemonicParsing(false);
+            btn1.setStyle("-fx-background-color: #5865F2;");
+            ImageView imageView1 = new ImageView(new Image("file:Client\\src\\main\\resources\\assets\\icons\\threeDots.png"));
+            imageView1.setFitHeight(30);
+            imageView1.setFitWidth(30);
+            imageView1.setLayoutX(775);
+            imageView1.setLayoutY(26);
+            imageView1.setPickOnBounds(true);
+            imageView1.setPreserveRatio(true);
+
+            //hbox1 childs
+            Pane pane1;
+            VBox vbox1;
+
+            //pane1 childs
+            Circle profilePicCircle = new Circle();
+            Circle statusCircle = new Circle();
+            profilePicCircle.setFill(new ImagePattern(profilePic));
+            statusCircle.setFill(new ImagePattern(statusPic));
+            profilePicCircle.setLayoutX(33);
+            profilePicCircle.setLayoutY(32);
+            profilePicCircle.setRadius(30);
+            profilePicCircle.setStroke(Color.BLACK);
+            profilePicCircle.setStrokeType(StrokeType.INSIDE);
+            statusCircle.setLayoutX(53);
+            statusCircle.setLayoutY(52);
+            statusCircle.setRadius(10);
+            statusCircle.setStroke(Color.BLACK);
+            statusCircle.setStrokeType(StrokeType.INSIDE);
+
+            //vbox1 childs
+            Label nameLabel = new Label(name);
+            Label statusLabel = new Label(status);
+            nameLabel.setFont(new Font("System Bold", 18));
+            nameLabel.setTextFill(Color.WHITE);
+            statusLabel.setFont(new Font("System Italic" , 14));
+            statusLabel.setLayoutX(10);
+            statusLabel.setLayoutY(10);
+            statusLabel.setTextFill(Color.web("#58f287"));
+            //done
+            vbox1 = new VBox(nameLabel, statusLabel);
+            vbox1.setAlignment(Pos.CENTER);
+            pane1 = new Pane(profilePicCircle, statusCircle);
+            pane1.setStyle("-fx-background-radius: 100;");
+            hBox1 = new HBox(pane1, vbox1);
+            hBox1.setAlignment(Pos.CENTER);
+            hBox1.setLayoutX(14);
+            hBox1.setLayoutY(3);
+            hBox1.setSpacing(30);
+            root = new Pane(hBox1, btn1,  imageView1);
+            root.setLayoutX(15);
+            root.setLayoutY(246);
+            root.setPrefHeight(82);
+            root.setPrefWidth(829);
+            root.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+            root.setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+            root.setStyle("-fx-background-color: #2f3136; -fx-background-radius: 10;");
+            friendsListVBox.getChildren().add(root);
+        }
+
+    }
 
 }
