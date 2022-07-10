@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="dm part updated and pane and image view replaced with circle for profile photos">
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="addServerPopup.fxml added and MainController updated">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/channelText.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/channelVoice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/guildDropdownMenu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/guildServerSettings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/invitePeople.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/serverMainPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/other/ServerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/other/ServerInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +43,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../New folder/Client/src/main/resources/fxml/mainMenu.fxml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Client/src/main/resources/assets/icons" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -61,23 +61,10 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.ClientStarter">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClientStarter" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="starter.ClientStarter" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path G:\javafx-sdk-18.0.1\lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../../&quot;JavaFX primary file&quot;/javaFx/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="starter.*" />
@@ -97,6 +84,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,8 +142,7 @@
       <workItem from="1657375752837" duration="682000" />
       <workItem from="1657425356530" duration="1925000" />
       <workItem from="1657432683033" duration="9360000" />
-      <workItem from="1657451677512" duration="2553000" />
-      <workItem from="1657456393651" duration="5210000" />
+      <workItem from="1657451677512" duration="5894000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
@@ -187,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657441113225</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="addServerPopup.fxml added and MainController updated">
+      <created>1657455864245</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657455864245</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +209,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a commit for conflict resolve" />
@@ -210,6 +217,7 @@
     <MESSAGE value="friendsListPage.fxml created" />
     <MESSAGE value="friendsListPage.fxml changed , friendOptionsPopup.fxml created , mainMenu.fxml merged and updated , selectFriendPopup.fxml created" />
     <MESSAGE value="dm part updated and pane and image view replaced with circle for profile photos" />
-    <option name="LAST_COMMIT_MESSAGE" value="dm part updated and pane and image view replaced with circle for profile photos" />
+    <MESSAGE value="addServerPopup.fxml added and MainController updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="addServerPopup.fxml added and MainController updated" />
   </component>
 </project>
