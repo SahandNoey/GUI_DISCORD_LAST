@@ -40,6 +40,12 @@ public class ServerAndChannelController {
     private HBox dmEachFriendHBox1;
 
     @FXML
+    private Circle serverImgCircleInSettings;
+
+    @FXML
+    private TextField newServerNameInSettings;
+
+    @FXML
     private VBox msgAndSettingsVBox;
 
     @FXML
@@ -140,6 +146,26 @@ public class ServerAndChannelController {
 
     @FXML
     void onMemberClicked(MouseEvent event){
+
+    }
+
+    @FXML
+    void onKickClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onCancelInSettingsClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onDoneInSettingsClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onUploadImgInSettingsClicked(MouseEvent event) {
 
     }
 
