@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -99,6 +100,10 @@ public class MainController implements Initializable {
     void dmAccordionClicked(MouseEvent event) {
 
     }
+    @FXML
+    void changeStatusClicked(MouseEvent event){
+
+    }
 
     @FXML
     void emailEditClicked(MouseEvent event) {
@@ -150,14 +155,26 @@ public class MainController implements Initializable {
             emailText.setText(temp2.toString());
         }
     }
+    @FXML
+    void onDMFriendClicked(MouseEvent event){
+
+    }
+
+    @FXML
+    void  addDMBtnClicked(MouseEvent event){
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         me = Client.getMyMemberInfo();
+        //set profile pic
         Client.downloadProfilePicIfDontHave(me.getPhotoName());
         setProfilePic(me.getPhotoName());
+        //set username
         userNameText.setText(me.getUserNameWithToken());
         userNameText2.setText(me.getUserNameWithToken());
+        //set email
         String temp = me.getEmail().split("@")[0];
         StringBuilder temp2 = new StringBuilder();
         for(int i = 0; i < temp.length(); i++){
@@ -165,37 +182,31 @@ public class MainController implements Initializable {
         }
         temp2.append(me.getEmail().split("@")[1]);
         emailText.setText(temp2.toString());
+        //set phone number
         if(me.getPhoneNumber() != null){
             phoneNumberText.setText(me.getPhoneNumber());
         }
         else{
             phoneNumberText.setText("");
         }
+        //set status
+        if(me.getStatus().equals("Idle")){
+            statusLabel.setText("Idle");
+            statusLabel.setTextFill(Color.YELLOW);
+        }
+        else if(me.getStatus().equals("Invisible")){
+            statusLabel.setText("Invisible");
+            statusLabel.setTextFill(Color.GRAY);
+        }
+        else if(me.getStatus().equals("Do Not Disturb")){
+            statusLabel.setText("Do Not Disturb");
+            statusLabel.setTextFill(Color.RED);
+        }
 
     }
-    void changeStatusClicked(MouseEvent event) {
-
-    }
-
-//    @Override
-////    public void initialize(URL url, ResourceBundle resourceBundle) {
-////
-////        MemberInfo me = Client.getMyMemberInfo();
-////        Client.downloadProfilePicIfDontHave(me.getPhotoName());
-//////        setProfilePic(me.getPhotoName());
-////    }
-    //    @FXML
-//    void friendsButtonClicked(MouseEvent event) throws IOException {
-//        Client.friendsController = new FriendsController();
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("addFriendspage.fxml"));
-//        FriendsController friendsController = new FriendsController();
-//        loader.setController(friendsController);
-//        Parent root = loader.load();
-//        Client.changeScene(new Scene(root));
-//    }
 
 
-//
+
     public void setProfilePic(String fileName){
         profilePhotoCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + fileName)));
     }
