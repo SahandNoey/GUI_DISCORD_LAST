@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="serverSettings.fxml and kickPopup.fxml created">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/createChannelPopup.fxml" afterDir="false" />
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="createChannelPopup.fxml created and ServerAndChannelController updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/serverMainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/serverMainPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/serverSettings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/serverSettings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/kickPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/kickGiveRoleInfoPopup.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

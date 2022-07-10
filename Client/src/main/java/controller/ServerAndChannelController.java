@@ -105,6 +105,15 @@ public class ServerAndChannelController {
     private TextField channelNameTxtFld;
 
     @FXML
+    private Pane kickBtnPopup;
+
+    @FXML
+    private Pane giveRoleBtnPopup;
+
+    @FXML
+    private Pane infoBtnPopup;
+
+    @FXML
     void addServerClicked(MouseEvent event) {
 
     }
@@ -181,6 +190,16 @@ public class ServerAndChannelController {
 
     @FXML
     void createChannelBtnInPopupClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onGiveRoleClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onInfoClicked(MouseEvent event) {
 
     }
 
