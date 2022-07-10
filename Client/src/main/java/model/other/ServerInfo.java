@@ -20,6 +20,9 @@ public class ServerInfo {
     }
 
     public String getPicName() {
-        return picName;
+        if(picName != null) {
+            return picName;
+        }
+        return "default.jpg";
     }
 }

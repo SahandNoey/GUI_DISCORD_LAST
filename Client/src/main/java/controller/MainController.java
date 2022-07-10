@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -256,6 +257,10 @@ public class MainController implements Initializable {
         //servers
         showServersInMainMenuList(Client.getServersForMainMenu());
 
+        //Direct messages
+        showDMsInMainMenuList(Client.getFriendsWithDMForFriendsMenu());
+
+
     }
     @FXML
     void usernameEditClicked(MouseEvent event) {
@@ -306,4 +311,51 @@ public class MainController implements Initializable {
 
     }
 
+    public void showDMsInMainMenuList(ArrayList<MemberInfo> informations){
+        for (MemberInfo information : informations){
+            String name = information.getUserNameWithToken();
+            String status = information.getStatus();
+            Image profilePic = new Image("file:Client\\profilePics\\" + information.getPhotoName());
+            Image statusPic = new Image("file:Client\\files\\statuspics\\" + status + ".png");
+
+            HBox root;
+
+            //root childs
+            Pane pane1;
+            Label nameLabel = new Label(name);
+            nameLabel.setTextFill(Color.WHITE);
+            nameLabel.setFont(new Font("System Bold", 16));
+
+            //pane1 childs
+            Circle profilePicCircle = new Circle();
+            profilePicCircle.setFill(new ImagePattern(profilePic));
+            profilePicCircle.setLayoutX(25);
+            profilePicCircle.setLayoutY(25);
+            profilePicCircle.setRadius(24);
+            profilePicCircle.setStroke(Color.BLACK);
+            profilePicCircle.setStrokeType(StrokeType.INSIDE);
+
+            Circle statusPicCircle = new Circle();
+            statusPicCircle.setFill(new ImagePattern(statusPic));
+            statusPicCircle.setLayoutX(42);
+            statusPicCircle.setLayoutY(43);
+            statusPicCircle.setRadius(7);
+            profilePicCircle.setStroke(Color.BLACK);
+            profilePicCircle.setStrokeType(StrokeType.INSIDE);
+
+            //done
+            pane1 = new Pane(profilePicCircle, statusPicCircle);
+            pane1.setStyle("-fx-background-color: #202225; -fx-background-radius: 100;");
+            root = new HBox(pane1, nameLabel);
+            root.setStyle("-fx-background-color: #202225;");
+            root.setPadding(new Insets(10,10,10,10));
+            root.setSpacing(15);
+            root.setAlignment(Pos.CENTER_LEFT);
+
+            accountAndDMVBox.getChildren().add(root);
+        }
+    }
+
 }
+
+

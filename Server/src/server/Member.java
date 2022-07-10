@@ -278,6 +278,18 @@ public class Member implements Serializable {
         return str.toString();
     }
 
+    public String convertFriendsWithDMToAnString(){
+        StringBuilder str = new StringBuilder();
+        for (int token : chatsId.keySet()){
+            Member m = Server.getMemberWithToken(token);
+            str.append(m.getUsername()).append("#").append(m.getToken()).append("-").append(m.getStatus()).append(",");
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        return str.toString();
+    }
+
     public void setUsername(String username) throws IOException {
         this.username = username;
         Server.saveMembers();

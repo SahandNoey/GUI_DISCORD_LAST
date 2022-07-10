@@ -204,6 +204,26 @@ public class Client {
         return res;
     }
 
+    public static ArrayList<MemberInfo> getFriendsWithDMForFriendsMenu() {
+        cOut.sendCommand("getFriendsWithDMForFriendsMenu");
+        Message m = cIn.getMessage();
+        ArrayList<MemberInfo> res = new ArrayList<>();
+        String[] temp = m.getMessage().split(":::");
+        if (temp.length > 1) {
+            String[] informations = temp[1].split(",");
+            for (String information : informations) {
+                String name = information.split("-")[0];
+                String status = information.split("-")[1];
+                String profilePicName = getProfilePicNameOf(name);
+                res.add(new MemberInfo(name, status, profilePicName));
+                if(profilePicName != null) {
+                    Client.downloadProfilePicIfDontHave(profilePicName);
+                }
+            }
+        }
+        return res;
+    }
+
     //return name and token and status and profile pic name of friend requests of the member
     public static ArrayList<MemberInfo> getFriendRequestForFriendsMenu() {
         cOut.sendCommand("getFriendRequestForFriendsMenu");

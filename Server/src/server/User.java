@@ -76,6 +76,11 @@ public class User implements Runnable {
             InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsNamesToAnString()), this);
         }
 
+        //get user friends names and status which have direct message
+        else if(m.getMessage().equals("getFriendsWithDMForFriendsMenu")){
+            InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsWithDMToAnString()), this);
+        }
+
         //get profile pic of a member based of user token and number of profile changes
         else if(m.getMessage().startsWith("getProfilePicNameOf:::")){
             int token = Integer.parseInt(m.getMessage().split(":::")[1].split("#")[1]);
