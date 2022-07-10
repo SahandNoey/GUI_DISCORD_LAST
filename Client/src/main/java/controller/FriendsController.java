@@ -214,12 +214,14 @@ public class FriendsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ArrayList<MemberInfo> informations = Client.getFriendsForFriendsMenu();
-        showFriendsInFriendsList(informations);
-        informations = Client.getFriendRequestForFriendsMenu();
-        showFriendsInFriendsList(informations);
-        informations = Client.getSentFriendRequestForFriendsMenu();
-        showFriendsInFriendsList(informations);
+        if(friendsListVBox != null) {
+            ArrayList<MemberInfo> informations = Client.getFriendsForFriendsMenu();
+            showFriendsInFriendsList(informations);
+            informations = Client.getFriendRequestForFriendsMenu();
+            showFriendsInFriendsList(informations);
+            informations = Client.getSentFriendRequestForFriendsMenu();
+            showFriendsInFriendsList(informations);
+        }
 
     }
 

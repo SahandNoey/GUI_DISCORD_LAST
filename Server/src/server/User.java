@@ -120,7 +120,12 @@ public class User implements Runnable {
         }
         //check if there is no problem of sending friend request. if there is no problem send friend request and return "yes".
         else if(m.getMessage().startsWith("checkIfCanSendFriendRequestTo:::")){
-            FriendHandling.sendFriendRequest(m.getMessage().split(":::")[1],this);
+            try {
+                FriendHandling.sendFriendRequest(m.getMessage().split(":::")[1], this);
+            }
+            catch(Exception e){
+                InteractionWithUser.write(new Message("invalid format"), this);
+            }
         }
         //get user friend requests names and status
         else if(m.getMessage().startsWith("getFriendRequestForFriendsMenu")){

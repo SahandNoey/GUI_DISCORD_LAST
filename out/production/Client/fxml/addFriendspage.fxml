@@ -196,11 +196,11 @@
                                           </Label>
                                        </children>
                                     </VBox>
-                                    <TextField fx:id="addFriendusernameTxtFld" layoutX="306.0" layoutY="17.0" prefHeight="49.0" prefWidth="375.0" promptText="Enter a username#0000" style="-fx-background-color: #202225;" />
+                                    <TextField fx:id="addFriendusernameTxtFld" layoutX="306.0" layoutY="17.0" prefHeight="49.0" prefWidth="375.0" promptText="Enter a username#0000" style="-fx-background-color: #202225; -fx-text-fill: #ffffff;" />
                                     <Button fx:id="sendReqAddFrndBtn" layoutX="697.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#sendRequestToAddFriendClicked" style="-fx-background-color: #5865F2;" text="Send Request" />
                                  </children>
                               </Pane>
-                              <Label fx:id="sendFriendRequestResultTxt" text="Request sent successfully!" textFill="#58f287" />
+                              <Label fx:id="sendFriendRequestResultTxt" opacity="0.0" text="Request sent successfully!" textFill="#58f287" />
                            </children>
                         </VBox>
                      </children>
