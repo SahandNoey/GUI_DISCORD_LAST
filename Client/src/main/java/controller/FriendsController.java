@@ -150,8 +150,10 @@ public class FriendsController implements Initializable {
     }
 
     @FXML
-    void homeBtnClicked(MouseEvent event) {
-
+    void homeBtnClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
+        Parent root = loader.load();
+        Client.changeScene(new Scene(root));
     }
 
     @FXML

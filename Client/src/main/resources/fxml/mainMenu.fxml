@@ -12,17 +12,13 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
       <VBox fx:id="serversVBox" alignment="TOP_CENTER" prefHeight="630.0" prefWidth="81.0" spacing="10.0" style="-fx-background-color: #202225;">
          <children>
             <Pane fx:id="homeBtn" onMouseClicked="#homeBtnClicked" prefHeight="75.0" prefWidth="78.0" style="-fx-background-color: #2f3136; -fx-background-radius: 100;">
                <children>
-                  <ImageView fitHeight="49.0" fitWidth="50.0" layoutX="10.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/icons/logo_white.png" />
-                     </image>
-                  </ImageView>
+                  <Circle fx:id="homeButtonCircle" layoutX="34.0" layoutY="38.0" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </Pane>
             <Pane fx:id="addServerBtn" layoutX="15.0" layoutY="100.0" onMouseClicked="#addServerClicked" prefHeight="75.0" prefWidth="78.0" style="-fx-background-color: #2f3136; -fx-background-radius: 100;">

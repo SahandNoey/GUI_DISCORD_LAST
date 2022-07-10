@@ -1,6 +1,9 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -9,6 +12,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import model.client.Client;
+
+import java.io.IOException;
 
 public class DMController {
 
@@ -102,8 +108,10 @@ public class DMController {
     }
 
     @FXML
-    void homeBtnClicked(MouseEvent event) {
-
+    void homeBtnClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
+        Parent root = loader.load();
+        Client.changeScene(new Scene(root));
     }
 
     @FXML

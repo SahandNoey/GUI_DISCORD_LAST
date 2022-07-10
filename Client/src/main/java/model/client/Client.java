@@ -385,7 +385,7 @@ public class Client {
                 String name = information.split("#")[0];
                 int id = Integer.parseInt(information.split("#")[1]);
                 String picName = getServerPicNameOf(id);
-                res.add(new ServerInfo(name, picName));
+                res.add(new ServerInfo(name, picName, id));
                 if(picName != null) {
                     Client.downloadProfilePicIfDontHave(picName);
                 }
@@ -405,5 +405,6 @@ public class Client {
             return res;
         }
     }
+
 
 }
