@@ -2,7 +2,9 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -37,9 +39,6 @@ public class ServerAndChannelController {
     private Label channelName;
 
     @FXML
-    private HBox dmEachFriendHBox1;
-
-    @FXML
     private Circle serverImgCircleInSettings;
 
     @FXML
@@ -47,9 +46,6 @@ public class ServerAndChannelController {
 
     @FXML
     private VBox msgAndSettingsVBox;
-
-    @FXML
-    private HBox dmEachFriendHBox2;
 
     @FXML
     private ImageView onTopChannelTypeImgView;
@@ -97,7 +93,16 @@ public class ServerAndChannelController {
     private Label eachMemberOfChannelNameLabel;
 
     @FXML
-    private HBox dmEachFriendHBox21111;
+    private RadioButton textChannelRadioBtn;
+
+    @FXML
+    private ToggleGroup group;
+
+    @FXML
+    private RadioButton voiceChannelRadioBtn;
+
+    @FXML
+    private TextField channelNameTxtFld;
 
     @FXML
     void addServerClicked(MouseEvent event) {
@@ -166,6 +171,16 @@ public class ServerAndChannelController {
 
     @FXML
     void onUploadImgInSettingsClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void cancelBtnInCreateChannelPopupClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void createChannelBtnInPopupClicked(MouseEvent event) {
 
     }
 
