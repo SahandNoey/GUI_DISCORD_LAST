@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="606.0" prefWidth="539.0" spacing="20.0" style="-fx-background-color: #2f3136;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InviteFriendPopupController">
+   <children>
+      <Label text="Invite friends to channel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <TextField fx:id="friendSearchTxtField" prefHeight="31.0" prefWidth="438.0" promptText="Enter your friend's name." style="-fx-background-color: #202225;" />
+            <Button mnemonicParsing="false" onMouseClicked="#searchFriendClicked" style="-fx-background-color: #5865F2;" text="Go" />
+         </children>
+      </HBox>
+      <Pane prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: #202225;" />
+      <ScrollPane hbarPolicy="NEVER" style="-fx-background-color: #202225;">
+         <content>
+            <VBox fx:id="friendsVBox" prefHeight="427.0" prefWidth="487.0" spacing="3.0" style="-fx-background-color: #202225;">
+               <children>
+                  <Pane fx:id="eachFriendPane" prefWidth="483.0" style="-fx-background-color: #2f3136;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="8.0" spacing="10.0">
+                           <children>
+                              <Circle fx:id="eachFriendCircle" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Label fx:id="eachFriendName" text="Friend name" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Button layoutX="415.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#sendBtnClicked" style="-fx-background-color: #58f287;" text="Send" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Pane>
+               </children>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+</VBox>
