@@ -1,16 +1,14 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 
 public class DMController {
 
@@ -27,13 +25,19 @@ public class DMController {
     private VBox accountAndDMVBox;
 
     @FXML
-    private Accordion dmAccordion;
+    private ImageView addDMBtn;
 
     @FXML
-    private TitledPane dmTitlePane;
+    private HBox dmEachFriendHBox;
 
     @FXML
-    private AnchorPane dmAnchorPane;
+    private Circle dmEachFriendCircle;
+
+    @FXML
+    private Circle dmEachFriendStatusCircle;
+
+    @FXML
+    private Label dmEachFriendNameLabel;
 
     @FXML
     private VBox msgAndSettingsVBox;
@@ -42,13 +46,16 @@ public class DMController {
     private Pane friend1Pane;
 
     @FXML
-    private Pane friend1StautsPane;
+    private Circle dmMsgImageCircle;
 
     @FXML
-    private Label friend1NameLabel;
+    private Circle dmFriendStatusCircle;
 
     @FXML
-    private Label friend1StatusLabel;
+    private Label friendNameLabel;
+
+    @FXML
+    private Label friendStatusLabel;
 
     @FXML
     private VBox dmMessagesVBox;
@@ -60,10 +67,7 @@ public class DMController {
     private HBox msgHBox;
 
     @FXML
-    private Pane msgImagePane;
-
-    @FXML
-    private ImageView msgImageView;
+    private Circle msgImageCircle;
 
     @FXML
     private Label msgTxtField;
@@ -78,12 +82,12 @@ public class DMController {
     private ImageView dmSendBtn;
 
     @FXML
-    void addServerClicked(MouseEvent event) {
+    void addDMBtnClicked(MouseEvent event) {
 
     }
 
     @FXML
-    void dmAccordionClicked(MouseEvent event) {
+    void addServerClicked(MouseEvent event) {
 
     }
 
@@ -104,6 +108,11 @@ public class DMController {
 
     @FXML
     void myAccountClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onDMFriendClicked(MouseEvent event) {
 
     }
 

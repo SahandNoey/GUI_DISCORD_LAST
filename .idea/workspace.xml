@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="friendDM.fxml created">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/plus2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/threeDots.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendOptionsPopup.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/selectFriendPopup.fxml" afterDir="false" />
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="friendsListPage.fxml changed , friendOptionsPopup.fxml created , mainMenu.fxml merged and updated , selectFriendPopup.fxml created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/addFriendspage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/addFriendspage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendDM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendDM.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendsListPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendsListPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +134,7 @@
       <workItem from="1657372966481" duration="2480000" />
       <workItem from="1657375752837" duration="682000" />
       <workItem from="1657425356530" duration="1925000" />
-      <workItem from="1657432683033" duration="6011000" />
+      <workItem from="1657432683033" duration="7920000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
@@ -167,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657392299895</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="friendsListPage.fxml changed , friendOptionsPopup.fxml created , mainMenu.fxml merged and updated , selectFriendPopup.fxml created">
+      <created>1657439204892</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657439204892</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +193,7 @@
     <MESSAGE value="a commit for conflict resolve" />
     <MESSAGE value="mainMenu.fxml updated and friendsMenu.fxml created" />
     <MESSAGE value="friendsListPage.fxml created" />
-    <option name="LAST_COMMIT_MESSAGE" value="friendsListPage.fxml created" />
+    <MESSAGE value="friendsListPage.fxml changed , friendOptionsPopup.fxml created , mainMenu.fxml merged and updated , selectFriendPopup.fxml created" />
+    <option name="LAST_COMMIT_MESSAGE" value="friendsListPage.fxml changed , friendOptionsPopup.fxml created , mainMenu.fxml merged and updated , selectFriendPopup.fxml created" />
   </component>
 </project>
