@@ -64,7 +64,7 @@ public class ServerAndChannelController {
     private Label channelMsgTextField;
 
     @FXML
-    private TextField adminBroadcastTxtFld;
+    private TextField channelSendMsgTxtFld;
 
     @FXML
     private TextField searchMemberTxtFld;
@@ -99,7 +99,7 @@ public class ServerAndChannelController {
     }
 
     @FXML
-    void adminBroadCastMsgClicked(MouseEvent event) {
+    void channelSendMsgClicked(MouseEvent event) {
 
     }
 
@@ -135,6 +135,11 @@ public class ServerAndChannelController {
 
     @FXML
     void serverSettingsClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onMemberClicked(MouseEvent event){
 
     }
 
