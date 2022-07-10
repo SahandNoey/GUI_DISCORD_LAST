@@ -31,6 +31,12 @@ public class MainController implements Initializable {
     private MemberInfo me;
 
     @FXML
+    private Pane uploadServerImgPane;
+
+    @FXML
+    private TextField serverNameTxtFld;
+
+    @FXML
     private TextField selectFriendTxtFld;
 
     @FXML
@@ -171,6 +177,21 @@ public class MainController implements Initializable {
 
     @FXML
     void  addDMBtnClicked(MouseEvent event){
+
+    }
+
+    @FXML
+    void backBtnClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void createBtnClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void uploadServerImageClicked(MouseEvent event) {
 
     }
 
