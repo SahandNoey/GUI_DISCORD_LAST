@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="serverMainPage.fxml and ServerAndChannelController created">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/controller/InviteFriendPopupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/inviteFriendsPopup.fxml" afterDir="false" />
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="inviteFriendsPopup.fxml created and serverMainPage.fxml updated">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/specialInvitationMsg.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/addFriendspage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/addFriendspage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/serverMainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/serverMainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +14,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -140,7 +137,7 @@
       <workItem from="1657375752837" duration="682000" />
       <workItem from="1657425356530" duration="1925000" />
       <workItem from="1657432683033" duration="9360000" />
-      <workItem from="1657451677512" duration="9895000" />
+      <workItem from="1657451677512" duration="11187000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
@@ -198,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657463084283</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="inviteFriendsPopup.fxml created and serverMainPage.fxml updated">
+      <created>1657471981668</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657471981668</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +228,7 @@
     <MESSAGE value="dm part updated and pane and image view replaced with circle for profile photos" />
     <MESSAGE value="addServerPopup.fxml added and MainController updated" />
     <MESSAGE value="serverMainPage.fxml and ServerAndChannelController created" />
-    <option name="LAST_COMMIT_MESSAGE" value="serverMainPage.fxml and ServerAndChannelController created" />
+    <MESSAGE value="inviteFriendsPopup.fxml created and serverMainPage.fxml updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="inviteFriendsPopup.fxml created and serverMainPage.fxml updated" />
   </component>
 </project>

@@ -88,6 +88,31 @@ public class DMController {
     private ImageView dmSendBtn;
 
     @FXML
+    private Pane specialInviteMsgPane;
+
+    @FXML
+    private HBox specialInviteMsgHBox;
+
+    @FXML
+    private Circle specialInviteMsgImageCircle;
+
+    @FXML
+    private Label specialInviteMsgTxtField;
+
+    @FXML
+    private Label inviteServerNameTxtFld;
+
+    @FXML
+    void acceptBtnClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void declineBtnClicked(MouseEvent event) {
+
+    }
+
+    @FXML
     void addDMBtnClicked(MouseEvent event) {
 
     }
