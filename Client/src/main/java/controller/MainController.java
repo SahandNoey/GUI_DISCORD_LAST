@@ -3,26 +3,34 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
 import model.client.Client;
 import model.other.MemberInfo;
 
-import javax.swing.text.html.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    MemberInfo me;
+    private MemberInfo me;
+
+    @FXML
+    private TextField selectFriendTxtFld;
+
+    @FXML
+    private Button selectBtn;
 
     @FXML
     private VBox serversVBox;
@@ -37,26 +45,23 @@ public class MainController implements Initializable {
     private VBox accountAndDMVBox;
 
     @FXML
-    private Accordion dmAccordion;
+    private ImageView addDMBtn;
 
     @FXML
-    private TitledPane dmTitlePane;
+    private HBox dmEachFriendHBox;
 
     @FXML
-    private AnchorPane dmAnchorPane;
+    private Circle dmEachFriendCircle;
+
+    @FXML
+    private Circle dmEachFriendStatusCircle;
+
+    @FXML
+    private Label dmEachFriendNameLabel;
 
     @FXML
     private VBox msgAndSettingsVBox;
 
-    @FXML
-    private Button changeAvatarBtn;
-
-    @FXML
-    private CheckBox emailShowCheckBox;
-
-    @FXML
-    private Button phoneNumberEditBtn;
-    
     @FXML
     private Circle profilePhotoCircle;
 
@@ -64,22 +69,49 @@ public class MainController implements Initializable {
     private Label userNameText;
 
     @FXML
-    private Label userNameText2;
+    private Label statusLabel;
 
     @FXML
-    private Label phoneNumberText;
+    private Circle myStatusCircle;
+
+    @FXML
+    private Label changeStatusBtn;
+
+    @FXML
+    private Button changeAvatarBtn;
+
+    @FXML
+    private Label userNameText2;
 
     @FXML
     private Label emailText;
 
     @FXML
-    private Label statusLabel;
+    private CheckBox emailShowCheckBox;
 
     @FXML
-    private Pane statusPane;
+    private Label phoneNumberText;
 
     @FXML
-    private Label changeStatusBtn;
+    private Button phoneNumberEditBtn;
+
+    @FXML
+    void emailShowCheckBoxClicked(ActionEvent event){
+        if(emailShowCheckBox.isSelected()){
+            emailText.setText(me.getEmail());
+        }
+        else {
+            String temp = me.getEmail().split("@")[0];
+            StringBuilder temp2 = new StringBuilder();
+            for(int i = 0; i < temp.length(); i++){
+                temp2.append("*");
+            }
+            temp2.append(me.getEmail().split("@")[1]);
+            emailText.setText(temp2.toString());
+        }
+    }
+
+
 
     @FXML
     void addServerClicked(MouseEvent event) {
@@ -93,15 +125,6 @@ public class MainController implements Initializable {
 
     @FXML
     void changePasswordBtnClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void dmAccordionClicked(MouseEvent event) {
-
-    }
-    @FXML
-    void changeStatusClicked(MouseEvent event){
 
     }
 
@@ -135,26 +158,6 @@ public class MainController implements Initializable {
 
     }
 
-    @FXML
-    void usernameEditClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void emailShowCheckBoxClicked(ActionEvent event){
-        if(emailShowCheckBox.isSelected()){
-            emailText.setText(me.getEmail());
-        }
-        else {
-            String temp = me.getEmail().split("@")[0];
-            StringBuilder temp2 = new StringBuilder();
-            for(int i = 0; i < temp.length(); i++){
-                temp2.append("*");
-            }
-            temp2.append(me.getEmail().split("@")[1]);
-            emailText.setText(temp2.toString());
-        }
-    }
     @FXML
     void onDMFriendClicked(MouseEvent event){
 
@@ -204,8 +207,19 @@ public class MainController implements Initializable {
         }
 
     }
+    @FXML
+    void usernameEditClicked(MouseEvent event) {
 
+    }
+    @FXML
+    void changeStatusClicked(MouseEvent event){
 
+    }
+
+    @FXML
+    void selectBtnClicked(MouseEvent event) {
+
+    }
 
     public void setProfilePic(String fileName){
         profilePhotoCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + fileName)));

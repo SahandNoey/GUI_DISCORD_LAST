@@ -1,15 +1,15 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 
 public class FriendsController {
 
@@ -26,13 +26,19 @@ public class FriendsController {
     private VBox accountAndDMVBox;
 
     @FXML
-    private Accordion dmAccordion;
+    private ImageView addDMBtn;
 
     @FXML
-    private TitledPane dmTitlePane;
+    private HBox dmEachFriendHBox;
 
     @FXML
-    private AnchorPane dmAnchorPane;
+    private Circle dmEachFriendCircle;
+
+    @FXML
+    private Circle dmEachFriendStatusCircle;
+
+    @FXML
+    private Label dmEachFriendNameLabel;
 
     @FXML
     private VBox msgAndSettingsVBox;
@@ -53,25 +59,43 @@ public class FriendsController {
     private Label addFriendBtn;
 
     @FXML
+    private Pane friend1Pane;
+
+    @FXML
+    private Circle friendImageCircle;
+
+    @FXML
+    private Circle friendStautsCircle;
+
+    @FXML
+    private Label friendNameLabel;
+
+    @FXML
+    private Label friendStatusLabel;
+
+    @FXML
+    private Button friend1SendMsgBtn;
+
+    @FXML
+    private ImageView threeDotsForFriend;
+
+
+    @FXML
+    private Label removeFriendBtn;
+
+    @FXML
+    private Label blockFriendBtn;
+
+    @FXML
     private TextField addFriendusernameTxtFld;
 
     @FXML
     private Button sendReqAddFrndBtn;
 
     @FXML
-    private Pane friend1Pane;
+    void addDMBtnClicked(MouseEvent event) {
 
-    @FXML
-    private Pane friend1StautsPane;
-
-    @FXML
-    private Label friend1NameLabel;
-
-    @FXML
-    private Label friend1StatusLabel;
-
-    @FXML
-    private Button friend1SendMsgBtn;
+    }
 
     @FXML
     void addFriendClicked(MouseEvent event) {
@@ -94,11 +118,6 @@ public class FriendsController {
     }
 
     @FXML
-    void dmAccordionClicked(MouseEvent event) {
-
-    }
-
-    @FXML
     void friendsClicked(MouseEvent event) {
 
     }
@@ -110,6 +129,11 @@ public class FriendsController {
 
     @FXML
     void myAccountClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onDMFriendClicked(MouseEvent event) {
 
     }
 
@@ -129,11 +153,27 @@ public class FriendsController {
     }
 
     @FXML
+    void blockFriendClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void removeFriendClicked(MouseEvent event) {
+
+    }
+
+    @FXML
     void sendMessageInFriendsListClicked(MouseEvent event) {
 
     }
 
-//    @FXML
+    @FXML
+    void onFriendThreeDotsClicked(MouseEvent event) {
+
+    }
+
+
+    //    @FXML
 //    VBox mainVbox;
 //    @FXML
 //    TextField addFriendTextField;

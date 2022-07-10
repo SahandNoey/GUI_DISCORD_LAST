@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="250.0" style="-fx-background-color: #202225; -fx-border-color: #202225;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FriendsController">
+   <children>
+      <Label fx:id="removeFriendBtn" onMouseClicked="#removeFriendClicked" prefHeight="88.0" prefWidth="285.0" text="Remove Friend" textFill="#ed4245">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="blockFriendBtn" layoutX="16.0" layoutY="54.0" onMouseClicked="#blockFriendClicked" prefHeight="88.0" prefWidth="285.0" text="Block" textFill="#ed4245">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </Label>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>
