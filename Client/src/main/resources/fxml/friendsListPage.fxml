@@ -188,7 +188,12 @@
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
                                     </HBox>
-                                    <Button fx:id="friend1SendMsgBtn" layoutX="678.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#sendMessageInFriendsListClicked" style="-fx-background-color: #5865F2;" text="Send Message" />
+                                    <Button fx:id="friend1SendMsgBtn" layoutX="638.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#sendMessageInFriendsListClicked" style="-fx-background-color: #5865F2;" text="Send Message" />
+                                    <ImageView fx:id="threeDotsForFriend" fitHeight="30.0" fitWidth="30.0" layoutX="775.0" layoutY="26.0" onMouseClicked="#onFriendThreeDotsClicked" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/icons/threeDots.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </Pane>
                            </children>

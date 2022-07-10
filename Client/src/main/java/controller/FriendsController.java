@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -74,6 +75,15 @@ public class FriendsController {
     private Button friend1SendMsgBtn;
 
     @FXML
+    private ImageView threeDotsForFriend;
+
+    @FXML
+    private Label removeFriendBtn;
+
+    @FXML
+    private Label blockFriendBtn;
+
+    @FXML
     void addFriendClicked(MouseEvent event) {
 
     }
@@ -130,6 +140,22 @@ public class FriendsController {
 
     @FXML
     void sendMessageInFriendsListClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onFriendThreeDotsClicked(MouseEvent event) {
+
+    }
+
+
+    @FXML
+    void blockFriendClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void removeFriendClicked(MouseEvent event) {
 
     }
 

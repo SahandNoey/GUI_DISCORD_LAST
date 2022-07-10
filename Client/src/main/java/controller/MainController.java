@@ -3,25 +3,33 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
 import model.client.Client;
 import model.other.MemberInfo;
 
-import javax.swing.text.html.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    MemberInfo me;
+    private MemberInfo me;
+
+    @FXML
+    private TextField selectFriendTxtFld;
+
+    @FXML
+    private Button selectBtn;
 
     @FXML
     private VBox serversVBox;
@@ -36,26 +44,23 @@ public class MainController implements Initializable {
     private VBox accountAndDMVBox;
 
     @FXML
-    private Accordion dmAccordion;
+    private ImageView addDMBtn;
 
     @FXML
-    private TitledPane dmTitlePane;
+    private HBox dmEachFriendHBox;
 
     @FXML
-    private AnchorPane dmAnchorPane;
+    private Circle dmEachFriendCircle;
+
+    @FXML
+    private Circle dmEachFriendStatusCircle;
+
+    @FXML
+    private Label dmEachFriendNameLabel;
 
     @FXML
     private VBox msgAndSettingsVBox;
 
-    @FXML
-    private Button changeAvatarBtn;
-
-    @FXML
-    private CheckBox emailShowCheckBox;
-
-    @FXML
-    private Button phoneNumberEditBtn;
-    
     @FXML
     private Circle profilePhotoCircle;
 
@@ -63,77 +68,31 @@ public class MainController implements Initializable {
     private Label userNameText;
 
     @FXML
-    private Label userNameText2;
-
-    @FXML
-    private Label phoneNumberText;
-
-    @FXML
-    private Label emailText;
-
-    @FXML
     private Label statusLabel;
 
     @FXML
-    private Pane statusPane;
+    private Circle myStatusCircle;
 
     @FXML
     private Label changeStatusBtn;
 
     @FXML
-    void addServerClicked(MouseEvent event) {
-
-    }
+    private Button changeAvatarBtn;
 
     @FXML
-    void changeAvatarBtnClicked(MouseEvent event) {
-
-    }
+    private Label userNameText2;
 
     @FXML
-    void changePasswordBtnClicked(MouseEvent event) {
-
-    }
+    private Label emailText;
 
     @FXML
-    void dmAccordionClicked(MouseEvent event) {
-
-    }
+    private CheckBox emailShowCheckBox;
 
     @FXML
-    void emailEditClicked(MouseEvent event) {
-
-    }
+    private Label phoneNumberText;
 
     @FXML
-    void friendsClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void homeBtnClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void logOutBtnClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void myAccountClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void phoneNumberEditClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void usernameEditClicked(MouseEvent event) {
-
-    }
+    private Button phoneNumberEditBtn;
 
     @FXML
     void emailShowCheckBoxClicked(ActionEvent event){
@@ -173,29 +132,79 @@ public class MainController implements Initializable {
         }
 
     }
+
+
+
+    @FXML
+    void addDMBtnClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void addServerClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void changeAvatarBtnClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void changePasswordBtnClicked(MouseEvent event) {
+
+    }
+
+    @FXML
     void changeStatusClicked(MouseEvent event) {
 
     }
 
-//    @Override
-////    public void initialize(URL url, ResourceBundle resourceBundle) {
-////
-////        MemberInfo me = Client.getMyMemberInfo();
-////        Client.downloadProfilePicIfDontHave(me.getPhotoName());
-//////        setProfilePic(me.getPhotoName());
-////    }
-    //    @FXML
-//    void friendsButtonClicked(MouseEvent event) throws IOException {
-//        Client.friendsController = new FriendsController();
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("addFriendspage.fxml"));
-//        FriendsController friendsController = new FriendsController();
-//        loader.setController(friendsController);
-//        Parent root = loader.load();
-//        Client.changeScene(new Scene(root));
-//    }
+    @FXML
+    void emailEditClicked(MouseEvent event) {
 
+    }
 
-//
+    @FXML
+    void friendsClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void homeBtnClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void logOutBtnClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void myAccountClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onDMFriendClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void phoneNumberEditClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void usernameEditClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void selectBtnClicked(MouseEvent event) {
+
+    }
+
     public void setProfilePic(String fileName){
         profilePhotoCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + fileName)));
     }
