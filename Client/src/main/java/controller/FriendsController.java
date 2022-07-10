@@ -1,6 +1,9 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -9,7 +12,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import model.client.Client;
+
+import java.io.IOException;
 
 public class FriendsController {
 
@@ -93,13 +100,18 @@ public class FriendsController {
     private Button sendReqAddFrndBtn;
 
     @FXML
+    private Label sendFriendRequestResultTxt;
+
+    @FXML
     void addDMBtnClicked(MouseEvent event) {
 
     }
 
     @FXML
-    void addFriendClicked(MouseEvent event) {
-
+    void addFriendClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addFriendspage.fxml"));
+        Parent root = loader.load();
+        Client.changeScene(new Scene(root));
     }
 
     @FXML
@@ -149,7 +161,20 @@ public class FriendsController {
 
     @FXML
     void sendRequestToAddFriendClicked(MouseEvent event) {
-
+        if (addFriendusernameTxtFld.getText() != null) {
+            if (!addFriendusernameTxtFld.equals("")) {
+                String res = Client.checkIfCanSendFriendRequestTo(addFriendusernameTxtFld.getText());
+                if (res.equals("yes")) {
+                    sendFriendRequestResultTxt.setText("friend request sent.");
+                    sendFriendRequestResultTxt.setTextFill(Color.GREEN);
+                    sendFriendRequestResultTxt.setOpacity(1);
+                } else {
+                    sendFriendRequestResultTxt.setText(res);
+                    sendFriendRequestResultTxt.setTextFill(Color.RED);
+                    sendFriendRequestResultTxt.setOpacity(1);
+                }
+            }
+        }
     }
 
     @FXML

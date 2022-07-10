@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FriendsController">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FriendsController">
    <children>
       <VBox fx:id="serversVBox" alignment="TOP_CENTER" prefHeight="630.0" prefWidth="81.0" spacing="10.0" style="-fx-background-color: #202225;">
          <children>
@@ -200,7 +200,7 @@
                                     <Button fx:id="sendReqAddFrndBtn" layoutX="697.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#sendRequestToAddFriendClicked" style="-fx-background-color: #5865F2;" text="Send Request" />
                                  </children>
                               </Pane>
-                              <Label text="Request sent successfully!" textFill="#58f287" />
+                              <Label fx:id="sendFriendRequestResultTxt" text="Request sent successfully!" textFill="#58f287" />
                            </children>
                         </VBox>
                      </children>
