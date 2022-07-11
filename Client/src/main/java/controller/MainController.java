@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXPasswordField;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -42,6 +43,15 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     private MemberInfo me;
+
+    @FXML
+    private JFXPasswordField currentPasswordTxtFld;
+
+    @FXML
+    private JFXPasswordField newPasswordTxtFld;
+
+    @FXML
+    private JFXPasswordField confirmPasswordTxtFld;
 
     @FXML
     private Pane uploadServerImgPane;
@@ -124,7 +134,11 @@ public class MainController implements Initializable {
     @FXML
     private Label serverNameEmptyLabel;
 
+    @FXML
+    private Label noFieldCanBeEmptyLabel;
+
     private PopupLoader addServerPopupLoader;
+    private PopupLoader changePasswordPopupLoader;
 
     @FXML
     void emailShowCheckBoxClicked(ActionEvent event){
@@ -145,7 +159,7 @@ public class MainController implements Initializable {
 
 
     @FXML
-    void addServerClicked(MouseEvent event) throws Exception {
+    void addServerClicked(MouseEvent event) {
         if (this.addServerPopupLoader == null)
         {
             this.addServerPopupLoader = new PopupLoader(this, "/fxml/addServerPopup.fxml");
@@ -160,12 +174,51 @@ public class MainController implements Initializable {
 
     @FXML
     void changeAvatarBtnClicked(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select your profile photo");
+        File file = fileChooser.showOpenDialog(new Stage());
 
+        // backend ...
+    }
+
+    @FXML
+    void cancelBtnInChangePasswordClicked(MouseEvent event) {
+        changePasswordPopupLoader.close();
+        changePasswordPopupLoader = null;
+    }
+
+    @FXML
+    void doneBtnInChangePasswordClicked(MouseEvent event) {
+        if (currentPasswordTxtFld.getText().equals("") || newPasswordTxtFld.getText().equals("")
+                || confirmPasswordTxtFld.getText().equals(""))
+        {
+            noFieldCanBeEmptyLabel.setVisible(true);
+        }else if (!currentPasswordTxtFld.getText().equals(me.getPassword()))
+        {
+            noFieldCanBeEmptyLabel.setText("Invalid Credentials");
+            noFieldCanBeEmptyLabel.setVisible(true);
+        }else if (confirmPasswordTxtFld.getText().equals(newPasswordTxtFld.getText())){
+            changePasswordPopupLoader.close();
+            changePasswordPopupLoader = null;
+
+
+
+            // backend for changing password in server and local device
+
+
+        }
     }
 
     @FXML
     void changePasswordBtnClicked(MouseEvent event) {
-
+        if (changePasswordPopupLoader == null)
+        {
+            changePasswordPopupLoader = new PopupLoader(this, "/fxml/changePasswordPopup.fxml");
+            changePasswordPopupLoader.popup(event);
+        }else {
+            changePasswordPopupLoader.close();
+            changePasswordPopupLoader = null;
+        }
     }
 
     @FXML

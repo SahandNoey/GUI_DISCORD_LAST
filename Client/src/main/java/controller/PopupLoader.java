@@ -12,11 +12,15 @@ public class PopupLoader {
     private FXMLLoader loader;
     private Stage stage;
 
-    public void popup(MouseEvent event) throws Exception {
+    public void popup(MouseEvent event){
         stage = new Stage(StageStyle.UNDECORATED);
         stage.setX(event.getScreenX());
         stage.setY(event.getScreenY());
-        stage.setScene(new Scene(loader.load()));
+        try {
+            stage.setScene(new Scene(loader.load()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         stage.show();
     }
 
