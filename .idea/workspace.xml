@@ -1,40 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="specialFileUploadedMsg.fxml and specialPinnedMsg.fxml created and a controller for fileDownloading in both DM and channel added">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/controller/PopupLoader.java" afterDir="false" />
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="conflict">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/addServerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/addServerPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/createChannelPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/createChannelPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendOptionsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendOptionsPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/giveRolePermissionsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/giveRolePermissionsPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/infoPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/infoPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/inviteFriendsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/inviteFriendsPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/kickGiveRoleInfoPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/kickGiveRoleInfoPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/pinAndReactionsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/pinAndReactionsPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/selectFriendPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/selectFriendPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/signIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/addFriendspage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/addFriendspage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/addServerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/addServerPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/createChannelPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/createChannelPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/friendDM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/friendDM.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/infoPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/infoPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/inviteFriendsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/inviteFriendsPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/kickGiveRoleInfoPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/kickGiveRoleInfoPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/serverMainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/serverMainPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/serverSettings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/serverSettings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/specialInvitationMsg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/specialInvitationMsg.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657529040909</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="conflict">
+      <created>1657546686833</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1657546686833</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,7 +260,8 @@
     <MESSAGE value="giveRolePermissionsPopup.fxml created" />
     <MESSAGE value="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created" />
     <MESSAGE value="specialFileUploadedMsg.fxml and specialPinnedMsg.fxml created and a controller for fileDownloading in both DM and channel added" />
-    <option name="LAST_COMMIT_MESSAGE" value="specialFileUploadedMsg.fxml and specialPinnedMsg.fxml created and a controller for fileDownloading in both DM and channel added" />
+    <MESSAGE value="conflict" />
+    <option name="LAST_COMMIT_MESSAGE" value="conflict" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

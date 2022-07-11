@@ -278,7 +278,11 @@ public class MainController implements Initializable {
         showServersInMainMenuList(Client.getServersForMainMenu());
 
         //Direct messages
-        showDMsInMainMenuList(Client.getFriendsWithDMForFriendsMenu());
+        try {
+            showDMsInMainMenuList(Client.getFriendsWithDMForFriendsMenu());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 
     }
@@ -331,7 +335,7 @@ public class MainController implements Initializable {
 
     }
 
-    public void showDMsInMainMenuList(ArrayList<MemberInfo> informations){
+    public void showDMsInMainMenuList(ArrayList<MemberInfo> informations) throws IOException{
         for (MemberInfo information : informations){
             String name = information.getUserNameWithToken();
             String status = information.getStatus();
@@ -394,7 +398,11 @@ public class MainController implements Initializable {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            Client.gotoDMWith(controller, id);
+                            try {
+                                Client.gotoDMWith(controller, id);
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
                         }
                     }).start();
                     Client.changeScene(new Scene(root));
