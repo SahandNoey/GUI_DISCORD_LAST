@@ -11,8 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DMController">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DMController">
    <children>
       <VBox fx:id="serversVBox" alignment="TOP_CENTER" prefHeight="630.0" prefWidth="81.0" spacing="10.0" style="-fx-background-color: #202225;">
          <children>
@@ -150,6 +151,11 @@
                                     </Label>
                                  </children>
                               </VBox>
+                              <Text fx:id="tempText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.7367467880249">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -157,9 +163,9 @@
                         </HBox>
                      </children>
                   </Pane>
-                  <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" style="-fx-background-color: #202225;">
+                  <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="418.0" prefWidth="839.0" style="-fx-background-color: #202225;">
                      <content>
-                        <VBox fx:id="dmMessagesVBox" alignment="BOTTOM_LEFT" spacing="10.0" style="-fx-background-color: #202225; -fx-border-color: #202225;">
+                        <VBox fx:id="dmMessagesVBox" alignment="BOTTOM_LEFT" prefHeight="414.0" prefWidth="843.0" spacing="10.0" style="-fx-background-color: #202225; -fx-border-color: #202225;">
                            <children>
                               <Pane fx:id="msgPane" style="-fx-background-color: #2f3136; -fx-background-radius: 10;">
                                  <children>
@@ -185,14 +191,14 @@
                               <Pane fx:id="friend1Pane11" layoutX="15.0" layoutY="394.0" style="-fx-background-color: #2f3136; -fx-background-radius: 10;" />
                            </children>
                            <padding>
-                              <Insets bottom="30.0" left="10.0" right="30.0" top="10.0" />
+                              <Insets left="10.0" right="30.0" top="10.0" />
                            </padding>
                         </VBox>
                      </content>
                   </ScrollPane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #2f3136; -fx-background-radius: 20;">
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" spacing="7.0" style="-fx-background-color: #2f3136; -fx-background-radius: 20;">
                      <children>
-                        <TextField fx:id="dmTxtFld" prefHeight="40.0" prefWidth="749.0" promptText="Type your message here!" style="-fx-background-color: #202225; -fx-text-fill: #ffffff;">
+                        <TextField fx:id="dmTxtFld" onKeyPressed="#keyPressed" prefHeight="40.0" prefWidth="749.0" promptText="Type your message here!" style="-fx-background-color: #202225; -fx-text-fill: #ffffff;">
                            <font>
                               <Font name="Comic Sans MS" size="16.0" />
                            </font>
@@ -200,6 +206,11 @@
                         <ImageView fx:id="dmSendBtn" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#dmSendBtnClicked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/icons/chatSendMessage.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="48.0" fitWidth="46.0" onMouseClicked="#uploadButtonClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/upload.png" />
                            </image>
                         </ImageView>
                      </children>

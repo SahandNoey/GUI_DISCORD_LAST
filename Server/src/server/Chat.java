@@ -19,11 +19,11 @@ public class Chat implements Serializable {
     private ArrayList<Message> files;
     private transient ArrayList<Member> isTyping;
     private ArrayList<String> limitedMemberNames;
-    transient private static int a = 0;
+    transient private static int a = 1;
     private static final long serialVersionUID = 70020325;
 
     //constructor for private chat
-    public Chat(ArrayList<Member> members){
+    public Chat(ArrayList<Member> members) throws IOException {
         this.members = members;
         membersTokens = new ArrayList<>();
         for(Member m : members){
@@ -35,6 +35,8 @@ public class Chat implements Serializable {
         isTyping = new ArrayList<>();
         id = a;
         a++;
+        Server.addNewChat(this);
+        Server.saveChats();
     }
 
     public void addMember(Member member) throws IOException {
@@ -74,10 +76,16 @@ public class Chat implements Serializable {
 
     public void addNewFile(Message message) throws IOException {
         files.add(message);
-        for(User temp : inChat){
-            InteractionWithUser.write(new Message(message.getAuthorToken() + " : sent file : " + message.getMessage()), temp);
-        }
         Server.saveChats();
+    }
+
+    public Message getFileWithName(String name){
+        for(Message m : files){
+            if(m.getMessage().equals(name) && m.getContent() != null){
+                return m;
+            }
+        }
+        return null;
     }
 
     public byte[] getFileWithIndex(int n){

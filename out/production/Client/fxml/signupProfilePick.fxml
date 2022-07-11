@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupProfilePicController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupProfilePicController">
    <children>
       <ImageView fitHeight="630.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -43,23 +43,19 @@
                </padding>
                <children>
                   <VBox alignment="CENTER" prefHeight="131.0" prefWidth="179.0" spacing="4.0">
-                     <children>
-                        <Label prefHeight="30.0" prefWidth="164.0" text="Path to Image" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
+                     <children>
+                        <Button fx:id="chooseFileBtn" defaultButton="true" mnemonicParsing="false" onMouseClicked="#chooseButtonClicked" prefHeight="26.0" prefWidth="130.0" style="-fx-background-color: #569090;" text="Choose file..." />
+                     </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="131.0" prefWidth="189.0" spacing="4.0">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
                      <children>
-                        <TextField fx:id="pathToPicTxtFld" promptText="C:\\images\\myprof.jpg">
+                        <TextField fx:id="pathToPicTxtFld" editable="false" prefHeight="31.0" prefWidth="177.0">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -78,7 +74,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </HBox>
-            <Label fx:id="invalidCredentialsTxtFld" focusTraversable="false" text="Invalid Credentials" textFill="#ed4245" visible="false">
+            <Label fx:id="invalidCredentialsTxtFld" focusTraversable="false" opacity="0.0" text="Invalid Credentials" textFill="#ed4245">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

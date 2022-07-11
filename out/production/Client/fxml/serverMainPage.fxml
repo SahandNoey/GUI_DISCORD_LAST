@@ -217,32 +217,26 @@
                      <content>
                         <VBox fx:id="onTopChannelVBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="596.0" spacing="3.0" style="-fx-background-color: #2f3136;">
                            <children>
-                              <HBox fx:id="eachChannelMsgHBox" alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="581.0" spacing="15.0" style="-fx-background-color: #202225;">
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
+                              <VBox fx:id="eachChannelMsgVBox" alignment="CENTER_LEFT" onMouseClicked="#onMsgClicked" spacing="5.0" style="-fx-background-color: #202225;">
                                  <children>
-                                    <Circle fx:id="channelMsgSenderProfileCircle" fill="DODGERBLUE" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Label fx:id="channelMsgTextField" text="Welcome to our channel." textFill="WHITE" wrapText="true">
-                                       <font>
-                                          <Font name="Comic Sans MS" size="15.0" />
-                                       </font>
-                                    </Label>
+                                    <HBox fx:id="eachChannelMsgHBox" alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="581.0" spacing="15.0" style="-fx-background-color: #202225;">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                       <children>
+                                          <Circle fx:id="channelMsgSenderProfileCircle" fill="DODGERBLUE" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Label fx:id="channelMsgTextField" text="Welcome to our channel." textFill="WHITE" wrapText="true">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
                                  </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="15.0" style="-fx-background-color: #202225;">
                                  <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    <Insets left="5.0" right="5.0" />
                                  </padding>
-                                 <children>
-                                    <Circle fill="DODGERBLUE" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Label text="This is how the channel messages will be!" textFill="WHITE" wrapText="true">
-                                       <font>
-                                          <Font name="Comic Sans MS" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
+                              </VBox>
                            </children>
                         </VBox>
                      </content>

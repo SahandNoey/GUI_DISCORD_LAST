@@ -51,7 +51,7 @@ public class Client {
                     while (true) {
                         try {
                             TimeUnit.SECONDS.sleep(3);
-                            socket = new Socket("127.0.0.1", 7878);
+                            socket = new Socket("127.0.0.1", 7880);
                             System.out.println("connected.");
                             break;
                         } catch (ConnectException ignored) {
@@ -451,7 +451,7 @@ public class Client {
         }
     }
 
-    public static void gotoDMWith(DMController dmController, int token){
+    public static void gotoDMWith(DMController dmController, int token) throws IOException {
         cOut.sendCommand("goToChatWith:::" + token);
         cIn.gotoDM(dmController);
     }

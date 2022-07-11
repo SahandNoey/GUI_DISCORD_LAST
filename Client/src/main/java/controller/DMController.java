@@ -14,6 +14,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -23,17 +25,27 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.client.Client;
 import model.client.ClientOut;
 import model.other.MemberInfo;
 import model.other.Message;
 import model.other.ServerInfo;
+import starter.ClientStarter;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class DMController implements Initializable {
 
@@ -57,6 +69,9 @@ public class DMController implements Initializable {
 
     @FXML
     private HBox dmEachFriendHBox;
+
+    @FXML
+    private Text tempText;
 
     @FXML
     private Circle dmEachFriendCircle;
@@ -187,17 +202,29 @@ public class DMController implements Initializable {
 
     }
 
+    public void setTempText(String text){
+        tempText.setText(text);
+    }
+
     public void addMessage(Message m) {
-        scrollPane.setContent(dmMessagesVBox);
         MemberInfo memberInfo;
         if (m.getAuthorToken() == Integer.parseInt(me.getUserNameWithToken().split("#")[1])) {
             memberInfo = me;
         } else {
             memberInfo = friend;
         }
-        String text = m.getMessage();
-        Image profilePic = new Image("file:Client\\profilePics\\" + memberInfo.getPhotoName());
 
+
+        String text;
+        if(m.getMessage().startsWith("%%!file:::")){
+            text = "New File :" + m.getMessage().split(":::")[1];
+        }
+        else {
+            text = m.getMessage();
+        }
+
+
+        Image profilePic = new Image("file:Client\\profilePics\\" + memberInfo.getPhotoName());
 
         Pane root;
 
@@ -209,9 +236,28 @@ public class DMController implements Initializable {
         Label label1 = new Label(text);
         label1.setPrefHeight(22);
         label1.setPrefWidth(729);
-        label1.setTextFill(Color.WHITE);
+        if(m.getMessage().startsWith("%%!file:::")){
+            System.out.println("fhf");
+            label1.setTextFill(Color.RED);
+        }
+        else {
+            label1.setTextFill(Color.WHITE);
+        }
         label1.setWrapText(true);
         label1.setFont(new Font("Comic Sans MS", 15));
+        Label label2 = null;
+        if(m.getMessage().startsWith("%%!file:::")){
+            label2 = new Label("Download");
+            label2.setFont(new Font("Comic Sans MS", 15));
+            label2.setTextFill(Color.GREEN);
+            label2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    tempText.setText("downloading a file...");
+                    ClientOut.sendCommand("%%!getFile:::" + m.getMessage());
+                }
+            });
+        }
 
         //pane1 childs
         Circle profilePicCircle = new Circle();
@@ -225,7 +271,12 @@ public class DMController implements Initializable {
         //done
         pane1 = new Pane(profilePicCircle);
         pane1.setStyle("-fx-background-radius: 100;");
-        hBox1 = new HBox(pane1, label1);
+        if(m.getMessage().startsWith("%%!file:::")){
+            hBox1 = new HBox(pane1, label2, label1);
+        }
+        else{
+            hBox1 = new HBox(pane1, label1);
+        }
         hBox1.setAlignment(Pos.CENTER_LEFT);
         hBox1.setSpacing(20);
         root = new Pane(hBox1);
@@ -243,6 +294,11 @@ public class DMController implements Initializable {
         tokenToName = x;
         this.me = me;
         this.friend = friend;
+        //friend profile
+        friendNameLabel.setText(friend.getUserNameWithToken());
+        friendStatusLabel.setText(friend.getStatus());
+        dmMsgImageCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + friend.getPhotoName())));
+        dmFriendStatusCircle.setFill(new ImagePattern(new Image("file:Client\\files\\statuspics\\" + friend.getStatus() + ".png")));
     }
 
 
@@ -320,6 +376,12 @@ public class DMController implements Initializable {
             root.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    ClientOut.sendCommand("%%!getOutOfChat");
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     int id = Integer.parseInt(information.getUserNameWithToken().split("#")[1]);
                     MemberInfo me = Client.getMyMemberInfo();
                     MemberInfo friend = Client.getInfoOfToken(id);
@@ -339,7 +401,11 @@ public class DMController implements Initializable {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            Client.gotoDMWith(controller, id);
+                            try {
+                                Client.gotoDMWith(controller, id);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }).start();
                     Client.changeScene(new Scene(root));
@@ -355,7 +421,49 @@ public class DMController implements Initializable {
         //Direct messages
         showDMsInMainMenuList(Client.getFriendsWithDMForFriendsMenu());
 
-
     }
+
+    @FXML
+    void keyPressed(KeyEvent event) {
+        if(event.getCode() == KeyCode.ENTER){
+            if (dmTxtFld.getText() != null) {
+                if (!dmTxtFld.getText().equals("")) {
+                    ClientOut.sendCommand(dmTxtFld.getText());
+                    dmTxtFld.setText("");
+                }
+            }
+        }
+    }
+    @FXML
+    void uploadButtonClicked(MouseEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(ClientStarter.stage);
+        if(file != null){
+            tempText.setText("sending a file...");
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    FileInputStream fl = null;
+                    try {
+                        fl = new FileInputStream(file);
+                        byte[] content = new byte[(int) file.length()];
+                        content = fl.readAllBytes();
+                        ClientOut.sendFile(new Message(content, file.getName(), Integer.parseInt(me.getUserNameWithToken().split("#")[1])));
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                tempText.setText("");
+                            }
+                        });
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }).start();
+
+        }
+    }
+
 }
 

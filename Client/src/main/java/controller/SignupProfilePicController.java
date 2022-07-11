@@ -8,8 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import model.client.Client;
+import starter.ClientStarter;
 
+import java.io.File;
 import java.io.IOException;
 
 public class SignupProfilePicController {
@@ -30,10 +33,21 @@ public class SignupProfilePicController {
     private Label invalidCredentialsTxtFld;
 
     @FXML
+    private Button chooseFileBtn;
+
+    @FXML
     void backClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signupPhoneConfirm.fxml"));
         Parent root = loader.load();
         Client.changeScene(new Scene(root));
+    }
+    @FXML
+    void chooseButtonClicked(MouseEvent event){
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(ClientStarter.stage);
+        if(file != null){
+            pathToPicTxtFld.setText(file.getAbsolutePath());
+        }
     }
 
     @FXML
@@ -66,5 +80,7 @@ public class SignupProfilePicController {
         Parent root = loader.load();
         Client.changeScene(new Scene(root));
     }
+
+
 
 }

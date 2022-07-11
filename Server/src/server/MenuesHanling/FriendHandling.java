@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class FriendHandling {
 
     public static void privateChat(int friendToken, User u) throws IOException, ClassNotFoundException {
-
 //        if (friend.isBlocked(u.getMember().getToken())) {
 //            InteractionWithUser.write(new Message("this user has blocked you."), u);
 //            return User.allMenues.FRIENDS;
@@ -34,12 +33,35 @@ public class FriendHandling {
             friend.addChatId(u.getMember().getToken(), target.getId());
         }
         target.newInChatMember(u);
+
+
         while (true) {
             Message m = InteractionWithUser.read(u);
-            if(m.getMessage().equals("%%!getOutOfChat")){
-                target.removeInChatMember(u);
-                InteractionWithUser.write(new Message("%%!getOut"), u);
-                return ;
+            if(m.getMessage().startsWith("%%!")) {
+                if (m.getMessage().startsWith("%%!getOutOfChat")) {
+                    target.removeInChatMember(u);
+                    InteractionWithUser.write(new Message("%%!getOut"), u);
+                    return;
+                }
+                else if(m.getMessage().startsWith("%%!getFile:::")){
+                    Message file = target.getFileWithName(m.getMessage().split(":::")[2]);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                InteractionWithUser.write(file, u);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
+                    return;
+                }
+            }
+            if(m.getContent() != null){
+                target.addNewFile(m);
+                target.addNewMessage(new Message("%%!file:::" + m.getMessage(), u.getMember().getToken()));
+                continue;
             }
             target.addNewMessage(new Message(m.getMessage(), u.getMember().getToken()));
 //            switch (InChatFuncs.getInChatChoice(target, u)) {

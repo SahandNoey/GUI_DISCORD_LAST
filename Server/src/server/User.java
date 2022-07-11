@@ -195,6 +195,10 @@ public class User implements Runnable {
         else if (m.getMessage().startsWith("cancelFriendRequest:::")) {
             cancelFriendRequest(m.getMessage().split(":::")[1]);
         }
+        //log out
+        else if (m.getMessage().startsWith("%%!logout")) {
+            member.setOffline();
+        }
 
 
     }

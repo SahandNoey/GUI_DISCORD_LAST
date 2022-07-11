@@ -294,7 +294,6 @@ public class FriendsController implements Initializable {
             btn1.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    System.out.println("in friendlist1");
                     int id = Integer.parseInt(information.getUserNameWithToken().split("#")[1]);
                     MemberInfo me = Client.getMyMemberInfo();
                     MemberInfo friend = Client.getInfoOfToken(id);
@@ -303,7 +302,6 @@ public class FriendsController implements Initializable {
                     temp.put(Integer.parseInt(friend.getUserNameWithToken().split("#")[1]), friend.getUserNameWithToken().split("#")[0]);
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendDM.fxml"));
                     Parent root = null;
-                    System.out.println("in friendlist2");
                     try {
                         root = loader.load();
                     } catch (IOException e) {
@@ -311,11 +309,14 @@ public class FriendsController implements Initializable {
                     }
                     DMController controller = loader.getController();
                     controller.completeTokenToName(temp, me, friend);
-                    System.out.println("in friendlist3");
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            Client.gotoDMWith(controller, id);
+                            try {
+                                Client.gotoDMWith(controller, id);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }).start();
                     Client.changeScene(new Scene(root));

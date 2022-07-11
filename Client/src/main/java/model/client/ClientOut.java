@@ -3,6 +3,7 @@ package model.client;
 
 import model.other.Message;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -25,6 +26,16 @@ public class ClientOut{
         try {
             fOut.writeObject(new Message(command));
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void sendFile(Message m) throws IOException {
+        try {
+            fOut.writeObject(m);
+            fOut.flush();
+        }
+        catch (Exception e){
             e.printStackTrace();
         }
     }

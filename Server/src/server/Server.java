@@ -40,7 +40,7 @@ public class Server {
             }
         }).start();
 
-        ServerSocket serverSocket = new ServerSocket(7878);
+        ServerSocket serverSocket = new ServerSocket(7880);
         while(true){
             Socket client = serverSocket.accept();
             User c = new User(client, this);
@@ -86,10 +86,12 @@ public class Server {
                 channel.setServerr(serverr);
             }
         }
-        try {
-            Serverr.setA(servers.get(servers.size() -  1).getId() + 1);
+        if(servers.size() > 0) {
+            Serverr.setA(servers.get(servers.size() - 1).getId() + 1);
+        }
+        if(chats.size() > 0) {
             Chat.setA(chats.get(chats.size() - 1).getId() + 1);
-        }catch (Exception e){};
+        }
     }
 
 
@@ -152,7 +154,7 @@ public class Server {
         return chats;
     }
 
-    public void addNewChat(Chat chat) throws IOException {
+    public static void addNewChat(Chat chat) throws IOException {
         chats.add(chat);
         f.saveChats(chats);
     }

@@ -188,11 +188,23 @@ public class ClientIn{
         }).start();
     }
 
-    public static void gotoDM(DMController dmController){
+    public static void gotoDM(DMController dmController) throws IOException {
         while(true){
             Message m = getMessage();
             if(m.getMessage().equals("%%!getOut")){
                 return;
+            }
+            if(m.getContent() != null){
+                byte[] content = m.getContent();
+                System.out.println(m.getMessage());
+                File f = new File("Client\\downloads\\" + m.getMessage());
+                f.createNewFile();
+                FileOutputStream fO = new FileOutputStream(f);
+                fO.write(content);
+                fO.flush();
+                fO.close();
+                dmController.setTempText("");
+                continue;
             }
             dmController.addMessage(m);
 

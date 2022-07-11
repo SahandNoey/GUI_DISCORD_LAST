@@ -9,10 +9,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -27,6 +24,7 @@ import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.client.Client;
+import model.client.ClientOut;
 import model.other.MemberInfo;
 import model.other.ServerInfo;
 import starter.ClientStarter;
@@ -119,6 +117,7 @@ public class MainController implements Initializable {
     @FXML
     private Circle homeButtonCircle;
 
+
     @FXML
     void emailShowCheckBoxClicked(ActionEvent event){
         if(emailShowCheckBox.isSelected()){
@@ -139,11 +138,7 @@ public class MainController implements Initializable {
 
     @FXML
     void addServerClicked(MouseEvent event) throws IOException {
-        Stage secondStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(ClientStarter.class.getResource("/fxml/addServerPopUp.fxml"));
-        Scene popUpScene = new Scene(fxmlLoader.load());
-        secondStage.setScene(popUpScene);
-        secondStage.show();
+
     }
 
     @FXML
@@ -177,14 +172,17 @@ public class MainController implements Initializable {
 
     @FXML
     void logOutBtnClicked(MouseEvent event) throws IOException {
+        ClientOut.sendCommand("%%!logout");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signIn.fxml"));
         Parent root = loader.load();
         Client.changeScene(new Scene(root));
     }
 
     @FXML
-    void myAccountClicked(MouseEvent event) {
-
+    void myAccountClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
+        Parent root = loader.load();
+        Client.changeScene(new Scene(root));
     }
 
     @FXML
@@ -376,7 +374,11 @@ public class MainController implements Initializable {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            Client.gotoDMWith(controller, id);
+                            try {
+                                Client.gotoDMWith(controller, id);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }).start();
                     Client.changeScene(new Scene(root));

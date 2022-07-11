@@ -173,6 +173,15 @@ public class ServerAndChannelController {
     private Label emojiNumberLabel;
 
     @FXML
+    private HBox specialPinnedMsgHBox;
+
+    @FXML
+    private Circle specialPinnedMsgCircle;
+
+    @FXML
+    private Label specialPinnedMsgLabel;
+
+    @FXML
     void onMsgClicked(MouseEvent event) {
 
     }
@@ -299,6 +308,11 @@ public class ServerAndChannelController {
 
     @FXML
     void pinClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onUploadFileClicked(MouseEvent event) {
 
     }
 

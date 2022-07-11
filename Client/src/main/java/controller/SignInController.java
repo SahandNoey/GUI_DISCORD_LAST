@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -7,7 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Popup;
 import model.client.Client;
+import starter.ClientStarter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -81,5 +84,7 @@ public class SignInController implements Initializable {
         passwordPassFld.visibleProperty().bind(showPassCheckBox.selectedProperty().not());
 
         passwordTxtFld.textProperty().bindBidirectional(passwordPassFld.textProperty());
+
+
     }
 }
