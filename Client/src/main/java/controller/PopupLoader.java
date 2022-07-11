@@ -24,6 +24,16 @@ public class PopupLoader {
         stage.show();
     }
 
+    public void popup(){
+        stage = new Stage(StageStyle.UNDECORATED);
+        try {
+            stage.setScene(new Scene(loader.load()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        stage.show();
+    }
+
     public void close(){
         stage.close();
     }

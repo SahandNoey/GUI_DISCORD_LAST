@@ -10,10 +10,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -45,13 +42,13 @@ public class MainController implements Initializable {
     private MemberInfo me;
 
     @FXML
-    private JFXPasswordField currentPasswordTxtFld;
+    private PasswordField currentPasswordTxtFld;
 
     @FXML
-    private JFXPasswordField newPasswordTxtFld;
+    private PasswordField newPasswordTxtFld;
 
     @FXML
-    private JFXPasswordField confirmPasswordTxtFld;
+    private PasswordField confirmPasswordTxtFld;
 
     @FXML
     private Pane uploadServerImgPane;
@@ -138,10 +135,10 @@ public class MainController implements Initializable {
     private Label noFieldCanBeEmptyLabel;
 
     @FXML
-    private JFXPasswordField currentEmailTxtFld;
+    private PasswordField currentEmailTxtFld;
 
     @FXML
-    private JFXPasswordField newEmailTxtFld;
+    private PasswordField newEmailTxtFld;
 
     private PopupLoader addServerPopupLoader;
     private File serverPhoto;
@@ -222,7 +219,7 @@ public class MainController implements Initializable {
         if (changePasswordPopupLoader == null)
         {
             changePasswordPopupLoader = new PopupLoader(this, "/fxml/changePasswordPopup.fxml");
-            changePasswordPopupLoader.popup(event);
+            changePasswordPopupLoader.popup();
         }else {
             changePasswordPopupLoader.close();
             changePasswordPopupLoader = null;
@@ -258,7 +255,7 @@ public class MainController implements Initializable {
         if (changeEmailPopupLoader == null)
         {
             changeEmailPopupLoader = new PopupLoader(this, "/fxml/changeEmailPopup.fxml");
-            changeEmailPopupLoader.popup(event);
+            changeEmailPopupLoader.popup();
         }else {
             changeEmailPopupLoader.close();
             changeEmailPopupLoader = null;
