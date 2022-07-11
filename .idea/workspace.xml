@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="dm part updated and pane and image view replaced with circle for profile photos">
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="changeEmailPopup.fxml created">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/PopupLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/PopupLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/changeEmailPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/changeEmailPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/changePasswordPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/changePasswordPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$4$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/PopupLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/PopupLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/friendDM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/friendDM.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/other/MemberInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/other/MemberInfo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,14 +32,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,14 +64,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../New folder/Client/src/main/resources/fxml/mainMenu.fxml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../JavaFX primary file/JavaFx/javafx-sdk-11.0.2/lib" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -57,23 +82,10 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.ClientStarter">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ClientStarter" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="starter.ClientStarter" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path G:\javafx-sdk-18.0.1\lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../../&quot;JavaFX primary file&quot;/javaFx/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="starter.*" />
@@ -141,6 +153,9 @@
       <workItem from="1657451677512" duration="2553000" />
       <workItem from="1657456393651" duration="5210000" />
       <workItem from="1657462499766" duration="2938000" />
+      <workItem from="1657518608759" duration="17586000" />
+      <workItem from="1657552276896" duration="2103000" />
+      <workItem from="1657554501650" duration="1963000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
@@ -184,7 +199,84 @@
       <option name="project" value="LOCAL" />
       <updated>1657441113225</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="serverSettings.fxml and kickPopup.fxml created">
+      <created>1657479693503</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657479693503</updated>
+    </task>
+    <task id="LOCAL-00008" summary="kickGiveRoleInfoPopup.fxml and its controller updated">
+      <created>1657483279140</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657483279140</updated>
+    </task>
+    <task id="LOCAL-00009" summary="infoPopup.fxml and its controller updated">
+      <created>1657485239104</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657485239104</updated>
+    </task>
+    <task id="LOCAL-00010" summary="giveRolePermissionsPopup.fxml created">
+      <created>1657522057774</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657522057774</updated>
+    </task>
+    <task id="LOCAL-00011" summary="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created">
+      <created>1657525692350</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657525692350</updated>
+    </task>
+    <task id="LOCAL-00012" summary="specialFileUploadedMsg.fxml and specialPinnedMsg.fxml created and a controller for fileDownloading in both DM and channel added">
+      <created>1657529040909</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1657529040909</updated>
+    </task>
+    <task id="LOCAL-00013" summary="conflict">
+      <created>1657546686833</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1657546686833</updated>
+    </task>
+    <task id="LOCAL-00014" summary="conflict">
+      <created>1657547435649</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1657547435649</updated>
+    </task>
+    <task id="LOCAL-00015" summary="uploadServerImageClicked implemented">
+      <created>1657548385646</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1657548385646</updated>
+    </task>
+    <task id="LOCAL-00016" summary="changePasswordPopup.fxml created">
+      <created>1657550359689</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1657550359689</updated>
+    </task>
+    <task id="LOCAL-00017" summary="changeEmailPopup.fxml created">
+      <created>1657551078706</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1657551078706</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +292,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a commit for conflict resolve" />
@@ -207,6 +300,26 @@
     <MESSAGE value="friendsListPage.fxml created" />
     <MESSAGE value="friendsListPage.fxml changed , friendOptionsPopup.fxml created , mainMenu.fxml merged and updated , selectFriendPopup.fxml created" />
     <MESSAGE value="dm part updated and pane and image view replaced with circle for profile photos" />
-    <option name="LAST_COMMIT_MESSAGE" value="dm part updated and pane and image view replaced with circle for profile photos" />
+    <MESSAGE value="serverSettings.fxml and kickPopup.fxml created" />
+    <MESSAGE value="kickGiveRoleInfoPopup.fxml and its controller updated" />
+    <MESSAGE value="infoPopup.fxml and its controller updated" />
+    <MESSAGE value="giveRolePermissionsPopup.fxml created" />
+    <MESSAGE value="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created" />
+    <MESSAGE value="specialFileUploadedMsg.fxml and specialPinnedMsg.fxml created and a controller for fileDownloading in both DM and channel added" />
+    <MESSAGE value="conflict" />
+    <MESSAGE value="uploadServerImageClicked implemented" />
+    <MESSAGE value="changePasswordPopup.fxml created" />
+    <MESSAGE value="changeEmailPopup.fxml created" />
+    <option name="LAST_COMMIT_MESSAGE" value="changeEmailPopup.fxml created" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
