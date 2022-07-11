@@ -180,16 +180,30 @@ public class Member implements Serializable {
     }
 
     public void acceptFriendRequest(Member m) throws IOException {
-        friendsTokens.add(m.getToken());
-        friendRequestsTokens.remove(m.getToken());
+        Integer x = (Integer) (m.getToken());
+        friendsTokens.add(x);
+        friendRequestsTokens.remove(x);
         m.addFriend(this.token);
         Server.saveMembers();
     }
 
+    public void rejectFriendRequest(Member m) throws IOException {
+        Integer x = (Integer) (m.getToken());
+        friendRequestsTokens.remove(x);
+        m.removeSentFriendRequest(this.token);
+        Server.saveMembers();
+    }
+
+    public void removeSentFriendRequest(Integer n){
+        sentFriendRequestsToken.remove(n);
+    }
+
     public void addFriend(int n) throws IOException {
-        if(!friendsTokens.contains(n)){
-            friendsTokens.add(n);
-            friendRequestsTokens.remove(n);
+        Integer x = (Integer) n;
+        if(!friendsTokens.contains(x)){
+            friendsTokens.add(x);
+            friendRequestsTokens.remove(x);
+            sentFriendRequestsToken.remove(x);
         }
         Server.saveMembers();
     }

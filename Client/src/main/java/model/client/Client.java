@@ -456,5 +456,19 @@ public class Client {
         cIn.gotoDM(dmController);
     }
 
+    public static void acceptFriendRequest(String nameWithToken){
+        ClientOut.sendCommand("acceptFriendRequest:::" + nameWithToken);
+    }
+
+    public static void rejectFriendRequest(String nameWithToken){
+        ClientOut.sendCommand("rejectFriendRequest:::" + nameWithToken);
+    }
+
+    public static void cancelFriendRequest(String nameWithToken){
+        ClientOut.sendCommand("cancelFriendRequest:::" + nameWithToken);
+    }
+
+
+
 
 }

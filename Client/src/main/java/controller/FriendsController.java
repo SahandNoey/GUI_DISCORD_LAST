@@ -101,6 +101,15 @@ public class FriendsController implements Initializable {
     @FXML
     private ImageView threeDotsForFriend;
 
+    @FXML
+    private VBox OnlineFriendsListVBox;
+
+    @FXML
+    private VBox blockedListVBox;
+
+    @FXML
+    private VBox pendingFriendsListVBox;
+
 
     @FXML
     private Label removeFriendBtn;
@@ -138,13 +147,17 @@ public class FriendsController implements Initializable {
     }
 
     @FXML
-    void allClicked(MouseEvent event) {
-
+    void allClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendsListPage.fxml"));
+        Parent root = loader.load();
+        Client.changeScene(new Scene(root));
     }
 
     @FXML
-    void blockedClicked(MouseEvent event) {
-
+    void blockedClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendsListPageBlocked.fxml"));
+        Parent root = loader.load();
+        Client.changeScene(new Scene(root));
     }
 
     @FXML
@@ -170,13 +183,17 @@ public class FriendsController implements Initializable {
     }
 
     @FXML
-    void onlineClicked(MouseEvent event) {
-
+    void onlineClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendsListPageOnline.fxml"));
+        Parent root = loader.load();
+        Client.changeScene(new Scene(root));
     }
 
     @FXML
-    void pendingClicked(MouseEvent event) {
-
+    void pendingClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendsListPagePending.fxml"));
+        Parent root = loader.load();
+        Client.changeScene(new Scene(root));
     }
 
     @FXML
@@ -189,7 +206,7 @@ public class FriendsController implements Initializable {
                     sendFriendRequestResultTxt.setTextFill(Color.GREEN);
                     sendFriendRequestResultTxt.setOpacity(1);
                 } else {
-                    if(res.equals("invalid username")){
+                    if (res.equals("invalid username")) {
                         Alert a = new Alert(Alert.AlertType.INFORMATION);
                         a.setTitle("FRIEND REQUEST FAILED");
                         a.setContentText("Hm,that dont work. check username.");
@@ -225,20 +242,39 @@ public class FriendsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(friendsListVBox != null) {
+        if (friendsListVBox != null) {
             ArrayList<MemberInfo> informations = Client.getFriendsForFriendsMenu();
             showFriendsInFriendsList(informations);
-            informations = Client.getFriendRequestForFriendsMenu();
-            showFriendsInFriendsList(informations);
-            informations = Client.getSentFriendRequestForFriendsMenu();
-            showFriendsInFriendsList(informations);
+        } else if (OnlineFriendsListVBox != null) {
+            ArrayList<MemberInfo> friends = Client.getFriendsForFriendsMenu();
+            ArrayList<MemberInfo> onlines = new ArrayList<>();
+            for (MemberInfo friend : friends) {
+                if (friend.getStatus().equals("online")) {
+                    onlines.add(friend);
+                }
+            }
+            showFriendsInFriendsList(onlines);
+        } else if (blockedListVBox != null) {
+            ArrayList<MemberInfo> blocks = Client.getBlocksForFriendsMenu();
+            showFriendsInFriendsList(blocks);
+        } else if (pendingFriendsListVBox != null) {
+            ArrayList<MemberInfo> requests = Client.getFriendRequestForFriendsMenu();
+            showFriendRequestsInFriendsList(requests);
+            ArrayList<MemberInfo> sentRequests = Client.getSentFriendRequestForFriendsMenu();
+            showSentFriendRequestsInFriendsList(sentRequests);
         }
 
     }
 
 
-    public void showFriendsInFriendsList(ArrayList<MemberInfo> informations){
-        for (MemberInfo information : informations){
+    public void showFriendsInFriendsList(ArrayList<MemberInfo> informations) {
+        VBox target = null;
+        if (friendsListVBox != null) {
+            target = friendsListVBox;
+        } else if (OnlineFriendsListVBox != null) {
+            target = OnlineFriendsListVBox;
+        }
+        for (MemberInfo information : informations) {
             String name = information.getUserNameWithToken();
             String status = information.getStatus();
             Image profilePic = new Image("file:Client\\profilePics\\" + information.getPhotoName());
@@ -288,7 +324,7 @@ public class FriendsController implements Initializable {
             Label statusLabel = new Label(status);
             nameLabel.setFont(new Font("System Bold", 18));
             nameLabel.setTextFill(Color.WHITE);
-            statusLabel.setFont(new Font("System Italic" , 14));
+            statusLabel.setFont(new Font("System Italic", 14));
             statusLabel.setLayoutX(10);
             statusLabel.setLayoutY(10);
             statusLabel.setTextFill(Color.web("#58f287"));
@@ -302,7 +338,7 @@ public class FriendsController implements Initializable {
             hBox1.setLayoutX(14);
             hBox1.setLayoutY(3);
             hBox1.setSpacing(30);
-            root = new Pane(hBox1, btn1,  imageView1);
+            root = new Pane(hBox1, btn1, imageView1);
             root.setLayoutX(15);
             root.setLayoutY(246);
             root.setPrefHeight(82);
@@ -310,9 +346,200 @@ public class FriendsController implements Initializable {
             root.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
             root.setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
             root.setStyle("-fx-background-color: #2f3136; -fx-background-radius: 10;");
-            friendsListVBox.getChildren().add(root);
+            target.getChildren().add(root);
         }
 
+    }
+
+    public void showSentFriendRequestsInFriendsList(ArrayList<MemberInfo> informations) {
+        VBox target = pendingFriendsListVBox;
+        for (MemberInfo information : informations) {
+            String name = information.getUserNameWithToken();
+            String status = information.getStatus();
+            Image profilePic = new Image("file:Client\\profilePics\\" + information.getPhotoName());
+            Image statusPic = new Image("file:Client\\files\\statuspics\\" + status + ".png");
+            Pane root;
+
+
+            //root childs
+            HBox hBox1;
+            ImageView imageView1 = new ImageView(new Image("file:Client\\src\\main\\resources\\assets\\icons\\close.png"));
+            imageView1.setFitHeight(30);
+            imageView1.setFitWidth(30);
+            imageView1.setLayoutX(775);
+            imageView1.setLayoutY(26);
+            imageView1.setPickOnBounds(true);
+            imageView1.setPreserveRatio(true);
+            imageView1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    Client.cancelFriendRequest(information.getUserNameWithToken());
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendsListPagePending.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Client.changeScene(new Scene(root));
+                }
+            });
+
+            //hbox1 childs
+            Pane pane1;
+            VBox vbox1;
+
+            //pane1 childs
+            Circle profilePicCircle = new Circle();
+            Circle statusCircle = new Circle();
+            profilePicCircle.setFill(new ImagePattern(profilePic));
+            statusCircle.setFill(new ImagePattern(statusPic));
+            profilePicCircle.setLayoutX(33);
+            profilePicCircle.setLayoutY(32);
+            profilePicCircle.setRadius(30);
+            profilePicCircle.setStroke(Color.BLACK);
+            profilePicCircle.setStrokeType(StrokeType.INSIDE);
+            statusCircle.setLayoutX(53);
+            statusCircle.setLayoutY(52);
+            statusCircle.setRadius(10);
+            statusCircle.setStroke(Color.BLACK);
+            statusCircle.setStrokeType(StrokeType.INSIDE);
+
+            //vbox1 childs
+            Label nameLabel = new Label(name);
+            Label statusLabel = new Label(status);
+            nameLabel.setFont(new Font("System Bold", 18));
+            nameLabel.setTextFill(Color.WHITE);
+            statusLabel.setFont(new Font("System Italic", 14));
+            statusLabel.setLayoutX(10);
+            statusLabel.setLayoutY(10);
+            statusLabel.setTextFill(Color.web("#58f287"));
+            //done
+            vbox1 = new VBox(nameLabel, statusLabel);
+            vbox1.setAlignment(Pos.CENTER);
+            pane1 = new Pane(profilePicCircle, statusCircle);
+            pane1.setStyle("-fx-background-radius: 100;");
+            hBox1 = new HBox(pane1, vbox1);
+            hBox1.setAlignment(Pos.CENTER);
+            hBox1.setLayoutX(14);
+            hBox1.setLayoutY(3);
+            hBox1.setSpacing(30);
+            root = new Pane(hBox1, imageView1);
+            root.setLayoutX(15);
+            root.setLayoutY(246);
+            root.setPrefHeight(82);
+            root.setPrefWidth(829);
+            root.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+            root.setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+            root.setStyle("-fx-background-color: #2f3136; -fx-background-radius: 10;");
+            target.getChildren().add(root);
+        }
+    }
+
+    public void showFriendRequestsInFriendsList(ArrayList<MemberInfo> informations) {
+        VBox target = pendingFriendsListVBox;
+        for (MemberInfo information : informations) {
+            String name = information.getUserNameWithToken();
+            String status = information.getStatus();
+            Image profilePic = new Image("file:Client\\profilePics\\" + information.getPhotoName());
+            Image statusPic = new Image("file:Client\\files\\statuspics\\" + status + ".png");
+            Pane root;
+
+
+            //root childs
+            HBox hBox1;
+            ImageView imageView2 = new ImageView(new Image("file:Client\\src\\main\\resources\\assets\\icons\\plus2.png"));
+            imageView2.setFitHeight(30);
+            imageView2.setFitWidth(30);
+            imageView2.setLayoutX(730);
+            imageView2.setLayoutY(26);
+            imageView2.setPickOnBounds(true);
+            imageView2.setPreserveRatio(true);
+            imageView2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    Client.acceptFriendRequest(information.getUserNameWithToken());
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendsListPagePending.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Client.changeScene(new Scene(root));
+                }
+            });
+            ImageView imageView1 = new ImageView(new Image("file:Client\\src\\main\\resources\\assets\\icons\\close.png"));
+            imageView1.setFitHeight(30);
+            imageView1.setFitWidth(30);
+            imageView1.setLayoutX(775);
+            imageView1.setLayoutY(26);
+            imageView1.setPickOnBounds(true);
+            imageView1.setPreserveRatio(true);
+            imageView1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    Client.rejectFriendRequest(information.getUserNameWithToken());
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendsListPagePending.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Client.changeScene(new Scene(root));
+                }
+            });
+
+            //hbox1 childs
+            Pane pane1;
+            VBox vbox1;
+
+            //pane1 childs
+            Circle profilePicCircle = new Circle();
+            Circle statusCircle = new Circle();
+            profilePicCircle.setFill(new ImagePattern(profilePic));
+            statusCircle.setFill(new ImagePattern(statusPic));
+            profilePicCircle.setLayoutX(33);
+            profilePicCircle.setLayoutY(32);
+            profilePicCircle.setRadius(30);
+            profilePicCircle.setStroke(Color.BLACK);
+            profilePicCircle.setStrokeType(StrokeType.INSIDE);
+            statusCircle.setLayoutX(53);
+            statusCircle.setLayoutY(52);
+            statusCircle.setRadius(10);
+            statusCircle.setStroke(Color.BLACK);
+            statusCircle.setStrokeType(StrokeType.INSIDE);
+
+            //vbox1 childs
+            Label nameLabel = new Label(name);
+            Label statusLabel = new Label(status);
+            nameLabel.setFont(new Font("System Bold", 18));
+            nameLabel.setTextFill(Color.WHITE);
+            statusLabel.setFont(new Font("System Italic", 14));
+            statusLabel.setLayoutX(10);
+            statusLabel.setLayoutY(10);
+            statusLabel.setTextFill(Color.web("#58f287"));
+            //done
+            vbox1 = new VBox(nameLabel, statusLabel);
+            vbox1.setAlignment(Pos.CENTER);
+            pane1 = new Pane(profilePicCircle, statusCircle);
+            pane1.setStyle("-fx-background-radius: 100;");
+            hBox1 = new HBox(pane1, vbox1);
+            hBox1.setAlignment(Pos.CENTER);
+            hBox1.setLayoutX(14);
+            hBox1.setLayoutY(3);
+            hBox1.setSpacing(30);
+            root = new Pane(hBox1, imageView2, imageView1);
+            root.setLayoutX(15);
+            root.setLayoutY(246);
+            root.setPrefHeight(82);
+            root.setPrefWidth(829);
+            root.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+            root.setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+            root.setStyle("-fx-background-color: #2f3136; -fx-background-radius: 10;");
+            target.getChildren().add(root);
+        }
     }
 
 }

@@ -249,12 +249,12 @@
                   </ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #2f3136; -fx-background-radius: 20;">
                      <children>
-                        <TextField fx:id="adminBroadcastTxtFld" prefHeight="40.0" prefWidth="749.0" promptText="Type your message here to broadcast!" style="-fx-background-color: #202225; -fx-cursor: #ffffff;">
+                        <TextField fx:id="channelSendMsgTxtFld" prefHeight="40.0" prefWidth="749.0" promptText="Type your message here to broadcast!" style="-fx-background-color: #202225; -fx-cursor: #ffffff;">
                            <font>
                               <Font name="Comic Sans MS" size="16.0" />
                            </font>
                         </TextField>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#adminBroadCastMsgClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#channelSendMsgClicked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/icons/chatSendMessage.png" />
                            </image>
@@ -284,7 +284,7 @@
                               <VBox fx:id="eachStatusMembersOfChannelVBox" spacing="2.0">
                                  <children>
                                     <Label fx:id="eachStatusTypeAndNumLabel" text="Online - 2" textFill="WHITE" />
-                                    <HBox fx:id="eachMemberOfChannelHBox" alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #202225;">
+                                    <HBox fx:id="eachMemberOfChannelHBox" alignment="CENTER_LEFT" onMouseClicked="#onMemberClicked" spacing="15.0" style="-fx-background-color: #202225;">
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>

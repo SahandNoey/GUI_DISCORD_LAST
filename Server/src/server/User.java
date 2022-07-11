@@ -39,7 +39,7 @@ public class User implements Runnable {
         catch (Exception ignored){
 
         }
-//        thread.stop();
+        thread.stop();
     }
 
     public Thread getThread() {
@@ -182,6 +182,21 @@ public class User implements Runnable {
         else if (m.getMessage().equals("profilepic")) {
             member.setPic(m.getContent());
         }
+        //accept friend request
+        else if (m.getMessage().startsWith("acceptFriendRequest:::")) {
+            acceptFriendRequest(m.getMessage().split(":::")[1]);
+        }
+
+        //reject friend request
+        else if (m.getMessage().startsWith("rejectFriendRequest:::")) {
+            rejectFriendRequest(m.getMessage().split(":::")[1]);
+        }
+        //cancel friend request
+        else if (m.getMessage().startsWith("cancelFriendRequest:::")) {
+            cancelFriendRequest(m.getMessage().split(":::")[1]);
+        }
+
+
     }
 
 
@@ -272,6 +287,26 @@ public class User implements Runnable {
         InteractionWithUser.write(new Message("%%!memberProfile:::" + friend.getUsername() + ":::" + friend.getToken() + ":::" + friend.getStatus() + ":::" + friend.getEmail()), this);
     }
 
+    public void acceptFriendRequest(String nameWithToken) throws IOException {
+        int token = Integer.parseInt(nameWithToken.split("#")[1]);
+        if(!getMember().isFriend(token)){
+            getMember().acceptFriendRequest(Server.getMemberWithToken(token));
+        }
+    }
+
+    public void rejectFriendRequest(String nameWithToken) throws IOException {
+        int token = Integer.parseInt(nameWithToken.split("#")[1]);
+        if(!getMember().isFriend(token)){
+            getMember().rejectFriendRequest(Server.getMemberWithToken(token));
+        }
+    }
+
+    public void cancelFriendRequest(String nameWithToken) throws IOException {
+        int token = Integer.parseInt(nameWithToken.split("#")[1]);
+        if(!getMember().isFriend(token)){
+            Server.getMemberWithToken(token).rejectFriendRequest(getMember());
+        }
+    }
 
 
     public void setMember(Member member) {
