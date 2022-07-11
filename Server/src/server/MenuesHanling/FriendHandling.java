@@ -28,7 +28,6 @@ public class FriendHandling {
             mms.add(u.getMember());
             mms.add(friend);
             target = new Chat(mms);
-            u.getServer().addNewChat(target);
             u.getMember().addChatId(friend.getToken(), target.getId());
             friend.addChatId(u.getMember().getToken(), target.getId());
         }
@@ -57,13 +56,21 @@ public class FriendHandling {
                     }).start();
                     return;
                 }
+                else if(m.getMessage().equals("%%!isTyping")){
+                    target.addNewMessage(new Message("notSelf%%!isTyping"), u);
+                    continue;
+                }
+                else if(m.getMessage().equals("%%!isNotTyping")){
+                    target.addNewMessage(new Message("notSelf%%!isNotTyping"), u);
+                    continue;
+                }
             }
             if(m.getContent() != null){
                 target.addNewFile(m);
-                target.addNewMessage(new Message("%%!file:::" + m.getMessage(), u.getMember().getToken()));
+                target.addNewMessage(new Message("%%!file:::" + m.getMessage(), u.getMember().getToken()), u);
                 continue;
             }
-            target.addNewMessage(new Message(m.getMessage(), u.getMember().getToken()));
+            target.addNewMessage(new Message(m.getMessage(), u.getMember().getToken()), u);
 //            switch (InChatFuncs.getInChatChoice(target, u)) {
 //                case 1:
 //                    target.isTyping(u);

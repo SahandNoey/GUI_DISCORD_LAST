@@ -4,10 +4,12 @@ package model.client;
 import controller.DMController;
 import model.other.MemberInfo;
 import model.other.Message;
+import starter.ClientStarter;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class ClientIn{
 
@@ -188,13 +190,13 @@ public class ClientIn{
         }).start();
     }
 
-    public static void gotoDM(DMController dmController) throws IOException {
+    public static void gotoDM(DMController dmController) throws IOException, InterruptedException {
         while(true){
             Message m = getMessage();
             if(m.getMessage().equals("%%!getOut")){
                 return;
             }
-            if(m.getContent() != null){
+            else if(m.getContent() != null){
                 byte[] content = m.getContent();
                 System.out.println(m.getMessage());
                 File f = new File("Client\\downloads\\" + m.getMessage());
@@ -206,7 +208,23 @@ public class ClientIn{
                 dmController.setTempText("");
                 continue;
             }
-            dmController.addMessage(m);
+            else if(m.getMessage().equals("notSelf%%!isTyping")){
+                dmController.setTempText("is Typing...");
+                continue;
+            }
+            else if(m.getMessage().equals("notSelf%%!isNotTyping")){
+                dmController.setTempText("");
+                continue;
+            }
+            if(ClientStarter.stage.isShowing()) {
+                dmController.addMessage(m);
+            }
+            else{
+                ClientOut.sendCommand("%%!getOutOfChat");
+                TimeUnit.MILLISECONDS.sleep(500);
+                Client.logOut();
+                return;
+            }
 
         }
     }

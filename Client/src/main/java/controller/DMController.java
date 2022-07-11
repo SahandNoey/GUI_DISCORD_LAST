@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -201,12 +202,22 @@ public class DMController implements Initializable {
     void onDMFriendClicked(MouseEvent event) {
 
     }
+    @FXML
+    void dmTxtFieldAction(MouseEvent event){
+        if(dmTxtFld.isFocused()){
+            ClientOut.sendCommand("%%!isTyping");
+        }
+        else{
+            ClientOut.sendCommand("%%!isNotTyping");
+        }
+    }
 
     public void setTempText(String text){
         tempText.setText(text);
     }
 
     public void addMessage(Message m) {
+        scrollPane.setContent(dmMessagesVBox);
         MemberInfo memberInfo;
         if (m.getAuthorToken() == Integer.parseInt(me.getUserNameWithToken().split("#")[1])) {
             memberInfo = me;
@@ -403,7 +414,7 @@ public class DMController implements Initializable {
                         public void run() {
                             try {
                                 Client.gotoDMWith(controller, id);
-                            } catch (IOException e) {
+                            } catch (IOException | InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }

@@ -4,8 +4,23 @@
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/addServerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/addServerPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendDM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendDM.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/files/chats.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/chats.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/FriendHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/FriendHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ServerMenuHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ServerMenuHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +156,7 @@
       <workItem from="1657462499766" duration="2938000" />
       <workItem from="1657518608759" duration="8024000" />
       <workItem from="1657544823077" duration="70000" />
+      <workItem from="1657545879507" duration="3175000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>

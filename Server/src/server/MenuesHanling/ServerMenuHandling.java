@@ -285,7 +285,7 @@ public class ServerMenuHandling {
                 case 1:
                     if(!target.isInLimitedList(u.getUserName())) {
                     target.isTyping(u);
-                    target.addNewMessage(InteractionWithUser.read(u, u.getMember().getToken()));
+                    target.addNewMessage(InteractionWithUser.read(u, u.getMember().getToken()),u);
                     target.endTyping(u);
                     }
                     else {

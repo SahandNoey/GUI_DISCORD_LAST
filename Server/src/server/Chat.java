@@ -64,13 +64,24 @@ public class Chat implements Serializable {
         return id;
     }
 
-    public void addNewMessage(Message m) throws IOException {
-        messages.add(m);
-        if (m.getContent() == null) {
-            for (User temp : inChat) {
-                InteractionWithUser.write(m, temp);
+    public void addNewMessage(Message m, User u) throws IOException {
+        if(!m.getMessage().startsWith("notSelf%%!")) {
+            messages.add(m);
+            if (m.getContent() == null) {
+                for (User temp : inChat) {
+                    InteractionWithUser.write(m, temp);
+                }
+            }
+        }else{
+            if (m.getContent() == null) {
+                for (User temp : inChat) {
+                    if(temp != u) {
+                        InteractionWithUser.write(m, temp);
+                    }
+                }
             }
         }
+
         Server.saveChats();
     }
 

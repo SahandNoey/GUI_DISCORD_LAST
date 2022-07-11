@@ -451,7 +451,7 @@ public class Client {
         }
     }
 
-    public static void gotoDMWith(DMController dmController, int token) throws IOException {
+    public static void gotoDMWith(DMController dmController, int token) throws IOException, InterruptedException {
         cOut.sendCommand("goToChatWith:::" + token);
         cIn.gotoDM(dmController);
     }
@@ -466,6 +466,9 @@ public class Client {
 
     public static void cancelFriendRequest(String nameWithToken){
         ClientOut.sendCommand("cancelFriendRequest:::" + nameWithToken);
+    }
+    public static void logOut(){
+        ClientOut.sendCommand("%%!logout");
     }
 
 

@@ -172,7 +172,7 @@ public class MainController implements Initializable {
 
     @FXML
     void logOutBtnClicked(MouseEvent event) throws IOException {
-        ClientOut.sendCommand("%%!logout");
+        Client.logOut();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signIn.fxml"));
         Parent root = loader.load();
         Client.changeScene(new Scene(root));
@@ -376,7 +376,7 @@ public class MainController implements Initializable {
                         public void run() {
                             try {
                                 Client.gotoDMWith(controller, id);
-                            } catch (IOException e) {
+                            } catch (IOException | InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }

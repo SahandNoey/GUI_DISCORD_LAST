@@ -314,7 +314,7 @@ public class FriendsController implements Initializable {
                         public void run() {
                             try {
                                 Client.gotoDMWith(controller, id);
-                            } catch (IOException e) {
+                            } catch (IOException | InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
