@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="dm part updated and pane and image view replaced with circle for profile photos">
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/addServerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/addServerPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendDM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendDM.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,14 +39,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../New folder/Client/src/main/resources/fxml/mainMenu.fxml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Client/src/main/resources/assets/icons" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -57,15 +57,13 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.ClientStarter">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -141,6 +139,8 @@
       <workItem from="1657451677512" duration="2553000" />
       <workItem from="1657456393651" duration="5210000" />
       <workItem from="1657462499766" duration="2938000" />
+      <workItem from="1657518608759" duration="8024000" />
+      <workItem from="1657544823077" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
@@ -184,7 +184,42 @@
       <option name="project" value="LOCAL" />
       <updated>1657441113225</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="serverSettings.fxml and kickPopup.fxml created">
+      <created>1657479693503</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657479693503</updated>
+    </task>
+    <task id="LOCAL-00008" summary="kickGiveRoleInfoPopup.fxml and its controller updated">
+      <created>1657483279140</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657483279140</updated>
+    </task>
+    <task id="LOCAL-00009" summary="infoPopup.fxml and its controller updated">
+      <created>1657485239104</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657485239104</updated>
+    </task>
+    <task id="LOCAL-00010" summary="giveRolePermissionsPopup.fxml created">
+      <created>1657522057774</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657522057774</updated>
+    </task>
+    <task id="LOCAL-00011" summary="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created">
+      <created>1657525692350</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657525692350</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +242,11 @@
     <MESSAGE value="friendsListPage.fxml created" />
     <MESSAGE value="friendsListPage.fxml changed , friendOptionsPopup.fxml created , mainMenu.fxml merged and updated , selectFriendPopup.fxml created" />
     <MESSAGE value="dm part updated and pane and image view replaced with circle for profile photos" />
-    <option name="LAST_COMMIT_MESSAGE" value="dm part updated and pane and image view replaced with circle for profile photos" />
+    <MESSAGE value="serverSettings.fxml and kickPopup.fxml created" />
+    <MESSAGE value="kickGiveRoleInfoPopup.fxml and its controller updated" />
+    <MESSAGE value="infoPopup.fxml and its controller updated" />
+    <MESSAGE value="giveRolePermissionsPopup.fxml created" />
+    <MESSAGE value="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created" />
+    <option name="LAST_COMMIT_MESSAGE" value="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created" />
   </component>
 </project>
