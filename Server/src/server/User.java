@@ -211,6 +211,11 @@ public class User implements Runnable {
             }
         }
 
+        //change password
+        else if (m.getMessage().startsWith("changePasswordTo:::")) {
+            member.setPassword(m.getMessage().split(":::")[1]);
+        }
+
 
     }
 

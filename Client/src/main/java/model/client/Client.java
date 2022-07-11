@@ -490,9 +490,9 @@ public class Client {
             ClientOut.sendFile(new Message(setServerPic(file), "createNewServer:::" + name));
         }
         else{
-            System.out.println("rr");
             ClientOut.sendCommand("createNewServer:::" + name);
         }
     }
+
 
 }

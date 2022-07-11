@@ -202,16 +202,24 @@ public class MainController implements Initializable {
         {
             noFieldCanBeEmptyLabel.setText("Invalid Credentials");
             noFieldCanBeEmptyLabel.setVisible(true);
-        }else if (confirmPasswordTxtFld.getText().equals(newPasswordTxtFld.getText())){
-            changePasswordPopupLoader.close();
-            changePasswordPopupLoader = null;
+        }else if (confirmPasswordTxtFld.getText().equals(newPasswordTxtFld.getText())) {
+            if(Client.changePassword(newPasswordTxtFld.getText())) {
+                changePasswordPopupLoader.close();
+                changePasswordPopupLoader = null;
+            }
+            else{
+                noFieldCanBeEmptyLabel.setText("new password format is invalid.");
+            }
+        }
+        else {
+            noFieldCanBeEmptyLabel.setText("new pass and confirm pass should be equal.");
+        }
 
 
 
             // backend for changing password in server and local device
 
 
-        }
     }
 
     @FXML

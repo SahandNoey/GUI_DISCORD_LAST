@@ -3,9 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="dm part updated and pane and image view replaced with circle for profile photos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/PopupLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/PopupLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/changeEmailPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/changeEmailPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/changePasswordPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/changePasswordPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,14 +45,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../New folder/Client/src/main/resources/fxml/mainMenu.fxml" />
+    <property name="last_opened_file_path" value="F:/java libraries/jar_files/jfoenix-17.0.2.jar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -56,7 +62,7 @@
       <recent name="D:\DISCORD_GUI\GUI_Discord_Final\GUI_DISCORD_LAST\Client\src\main\resources\assets\icons" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientStarter">
+  <component name="RunManager" selected="Application.ServerRun">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -103,8 +109,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientStarter" />
         <item itemvalue="Application.ServerRun" />
+        <item itemvalue="Application.ClientStarter" />
       </list>
     </recent_temporary>
   </component>
@@ -141,6 +147,7 @@
       <workItem from="1657451677512" duration="2553000" />
       <workItem from="1657456393651" duration="5210000" />
       <workItem from="1657462499766" duration="2938000" />
+      <workItem from="1657557216168" duration="762000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
