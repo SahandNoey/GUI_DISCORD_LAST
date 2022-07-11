@@ -24,11 +24,15 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import model.client.Client;
 import model.other.MemberInfo;
 import model.other.ServerInfo;
 import starter.ClientStarter;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -232,6 +236,11 @@ public class MainController implements Initializable {
 
     @FXML
     void uploadServerImageClicked(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose server photo");
+        File serverPhoto = fileChooser.showOpenDialog(new Stage());
+
+        // now handling that the file must be photo and backend for creating server
 
     }
 
