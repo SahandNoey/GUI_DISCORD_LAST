@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created">
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="specialFileUploadedMsg.fxml and specialPinnedMsg.fxml created and a controller for fileDownloading in both DM and channel added">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/controller/PopupLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/addServerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/addServerPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendDM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendDM.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/createChannelPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/createChannelPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendOptionsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendOptionsPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/giveRolePermissionsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/giveRolePermissionsPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/infoPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/infoPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/inviteFriendsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/inviteFriendsPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/kickGiveRoleInfoPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/kickGiveRoleInfoPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/pinAndReactionsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/pinAndReactionsPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/selectFriendPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/selectFriendPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/signIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/addFriendspage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/addFriendspage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/addServerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/addServerPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/createChannelPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/createChannelPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/friendDM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/friendDM.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/infoPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/infoPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/inviteFriendsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/inviteFriendsPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/kickGiveRoleInfoPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/kickGiveRoleInfoPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/serverMainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/serverMainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/serverSettings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/serverSettings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/specialInvitationMsg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/specialInvitationMsg.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,22 +85,11 @@
       <recent name="D:\DISCORD_GUI\GUI_Discord_Final\GUI_DISCORD_LAST\Client\src\main\resources\assets\icons" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientStarter">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.ServerRun">
     <configuration name="ClientStarter" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="starter.ClientStarter" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path G:\javafx-sdk-18.0.1\lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../../&quot;JavaFX primary file&quot;/javaFx/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="starter.*" />
@@ -95,14 +113,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ClientStarter" />
       <item itemvalue="Application.ServerRun" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientStarter" />
         <item itemvalue="Application.ServerRun" />
+        <item itemvalue="Application.ClientStarter" />
       </list>
     </recent_temporary>
   </component>
@@ -139,8 +168,7 @@
       <workItem from="1657451677512" duration="2553000" />
       <workItem from="1657456393651" duration="5210000" />
       <workItem from="1657462499766" duration="2938000" />
-      <workItem from="1657518608759" duration="8024000" />
-      <workItem from="1657544823077" duration="70000" />
+      <workItem from="1657518608759" duration="17586000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
@@ -219,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657525692350</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="specialFileUploadedMsg.fxml and specialPinnedMsg.fxml created and a controller for fileDownloading in both DM and channel added">
+      <created>1657529040909</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1657529040909</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +270,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a commit for conflict resolve" />
@@ -247,6 +283,17 @@
     <MESSAGE value="infoPopup.fxml and its controller updated" />
     <MESSAGE value="giveRolePermissionsPopup.fxml created" />
     <MESSAGE value="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created" />
-    <option name="LAST_COMMIT_MESSAGE" value="pinAndReactionsPopup.fxml and reactionMsgHBox.fxml created" />
+    <MESSAGE value="specialFileUploadedMsg.fxml and specialPinnedMsg.fxml created and a controller for fileDownloading in both DM and channel added" />
+    <option name="LAST_COMMIT_MESSAGE" value="specialFileUploadedMsg.fxml and specialPinnedMsg.fxml created and a controller for fileDownloading in both DM and channel added" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
