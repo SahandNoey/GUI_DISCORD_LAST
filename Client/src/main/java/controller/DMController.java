@@ -248,7 +248,6 @@ public class DMController implements Initializable {
         label1.setPrefHeight(22);
         label1.setPrefWidth(729);
         if(m.getMessage().startsWith("%%!file:::")){
-            System.out.println("fhf");
             label1.setTextFill(Color.RED);
         }
         else {
@@ -386,6 +385,12 @@ public class DMController implements Initializable {
             root.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    ClientOut.sendCommand("%%!getOutOfChat");
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     int id = Integer.parseInt(information.getUserNameWithToken().split("#")[1]);
                     MemberInfo me = Client.getMyMemberInfo();
                     MemberInfo friend = Client.getInfoOfToken(id);

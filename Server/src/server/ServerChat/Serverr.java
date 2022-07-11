@@ -41,6 +41,44 @@ public class Serverr implements Serializable {
         Server.saveServers();
     }
 
+    public String convertTextChannelsNameToAnString(){
+        StringBuilder str = new StringBuilder();
+        for (Channel channel : channels){
+            if (channel instanceof TextChannel) {
+                str.append(channel.getName()).append(",");
+            }
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        return str.toString();
+    }
+
+    public String convertMembersToAnString(){
+        StringBuilder str = new StringBuilder();
+        for (int token : membersTokens){
+            Member m = Server.getMemberWithToken(token);
+            str.append(m.getUsername()).append("#").append(m.getToken()).append("-").append(m.getStatus()).append(",");
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        return str.toString();
+    }
+
+    public String convertVoiceChannelsNameToAnString(){
+        StringBuilder str = new StringBuilder();
+        for (Channel channel : channels){
+            if (channel instanceof VoiceChannel) {
+                str.append(channel.getName()).append(",");
+            }
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        return str.toString();
+    }
+
     public static void setA(int n){
         a = n;
     }

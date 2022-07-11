@@ -1,9 +1,6 @@
 package model.client;
 
-import controller.DMController;
-import controller.FriendsController;
-import controller.SignInController;
-import controller.MainController;
+import controller.*;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -214,6 +211,57 @@ public class Client {
                 if(profilePicName != null) {
                     Client.downloadProfilePicIfDontHave(profilePicName);
                 }
+            }
+        }
+        return res;
+    }
+
+    //return name and token and status and profile pic name of friends of the member
+    public static ArrayList<MemberInfo> getServerMembers(int id) {
+        cOut.sendCommand("getServerMembers:::" + id);
+        Message m = cIn.getMessage();
+        ArrayList<MemberInfo> res = new ArrayList<>();
+        String[] temp = m.getMessage().split(":::");
+        if (temp.length > 1) {
+            String[] informations = temp[1].split(",");
+            for (String information : informations) {
+                String name = information.split("-")[0];
+                String status = information.split("-")[1];
+                String profilePicName = getProfilePicNameOf(name);
+                res.add(new MemberInfo(name, status, profilePicName));
+                if(profilePicName != null) {
+                    Client.downloadProfilePicIfDontHave(profilePicName);
+                }
+            }
+        }
+        return res;
+    }
+
+
+
+    public static ArrayList<String> getServerTextChannelNames(int id){
+        cOut.sendCommand("getServerTextChannelNames:::" + id);
+        Message m = cIn.getMessage();
+        ArrayList<String> res = new ArrayList<>();
+        String[] temp = m.getMessage().split(":::");
+        if(temp.length > 1){
+            String[] informations = temp[1].split(",");
+            for(String information : informations){
+                res.add(information);
+            }
+        }
+        return res;
+    }
+
+    public static ArrayList<String> getServerVoiceChannelNames(int id){
+        cOut.sendCommand("getServerVoiceChannelNames:::" + id);
+        Message m = cIn.getMessage();
+        ArrayList<String> res = new ArrayList<>();
+        String[] temp = m.getMessage().split(":::");
+        if(temp.length > 1){
+            String[] informations = temp[1].split(",");
+            for(String information : informations){
+                res.add(information);
             }
         }
         return res;
@@ -492,6 +540,11 @@ public class Client {
         else{
             ClientOut.sendCommand("createNewServer:::" + name);
         }
+    }
+
+    public static void gotoServer(ServerAndChannelController controller, int id) throws IOException, InterruptedException {
+        cOut.sendCommand("goToServer:::" + id);
+        cIn.gotoServer(controller);
     }
 
 

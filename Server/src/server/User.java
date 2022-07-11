@@ -143,6 +143,23 @@ public class User implements Runnable {
         else if(m.getMessage().startsWith("getFriendRequestForFriendsMenu")){
             InteractionWithUser.write(new Message("%%!friendsNamesForFriendsMenu:::" + member.convertFriendsRequestsToAnString()), this);
         }
+        //get server text channels
+        else if(m.getMessage().startsWith("getServerTextChannelNames:::")){
+            Serverr serverr = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
+            InteractionWithUser.write(new Message("%%!serverMembersWithId:::" + serverr.convertTextChannelsNameToAnString()), this);
+        }
+        //get server voice channel
+        else if(m.getMessage().startsWith("getServerVoiceChannelNames:::")){
+            Serverr serverr = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
+            InteractionWithUser.write(new Message("%%!serverMembersWithId:::" + serverr.convertVoiceChannelsNameToAnString()), this);
+        }
+
+        //go to Server
+        else if(m.getMessage().startsWith("goToServer:::")){
+            goToServer(m.getMessage().split(":::")[1]);
+        }
+
+
         //go to chat with someone
         else if(m.getMessage().startsWith("goToChatWith:::")){
             goToDMWith(m.getMessage().split(":::")[1]);
@@ -150,6 +167,11 @@ public class User implements Runnable {
         //get user servers name and pic name
         else if(m.getMessage().startsWith("getServersForMainMenu")){
             InteractionWithUser.write(new Message("%%!serversForMainMenu:::" + member.convertServersToAnString()), this);
+        }
+        //get server members name and status and pic name
+        else if(m.getMessage().startsWith("getServerMembers:::")){
+            Serverr serverr = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
+            InteractionWithUser.write(new Message("%%!serverMembers:::" + serverr.convertMembersToAnString()), this);
         }
         //get user sent friend requests names and status
         else if(m.getMessage().startsWith("getSentFriendRequestForFriendsMenu")){
@@ -298,6 +320,10 @@ public class User implements Runnable {
     public void goToDMWith(String token) throws IOException, ClassNotFoundException {
         int id = Integer.parseInt(token);
         FriendHandling.privateChat(id, this);
+    }
+    public void goToServer(String token) throws IOException, ClassNotFoundException {
+        int id = Integer.parseInt(token);
+        ServerMenuHandling.chosenServerrMenu(id, this);
     }
 
 

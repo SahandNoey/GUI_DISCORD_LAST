@@ -30,30 +30,38 @@ public class ServerMenuHandling {
         if (serverr == null) {
             return User.allMenues.SERVERS;
         }
-        return chosenServerrMenu(u, serverr);
+        return User.allMenues.SERVERS;
     }
 
 
-    public static User.allMenues chosenServerrMenu(User u, Serverr serverr) throws IOException, ClassNotFoundException {
-        int choice;
-        if (serverr.getOwnerToken() == u.getMember().getToken() || serverr.isAdmin(u.getUserName())) {
-            choice = InteractionWithUser.getChoice(1, 5, "<<name : " + serverr.getName() + ">>\n<<owner : " + Server.getMemberWithToken(serverr.getOwnerToken()).getUsername() + ">>\n1.Channels\n2.Members\n3.Add member\n4.Back\n5.admins menu", u.getfOut(), u.getfIn(), u);
-        } else {
-            choice = InteractionWithUser.getChoice(1, 4, "<<name : " + serverr.getName() + ">>\n<<owner : " + Server.getMemberWithToken(serverr.getOwnerToken()).getUsername() + ">>\n1.Channels\n2.Members\n3.Add member\n4.Back", u.getfOut(), u.getfIn(), u);
+    public static void chosenServerrMenu(int id,User u) throws IOException, ClassNotFoundException {
+        Serverr serverr = Server.getServerrWithId(id);
+        //todo:
+        while (true){
+            Message m = InteractionWithUser.read(u);
+            if(m.getMessage().equals("%%!getOutOfServer")){
+                return;
+            }
         }
-        switch (choice) {
-            case 1:
-                return channelsOfServerMenu(u, serverr);
-            case 2:
-                return membersOfServerrMenu(u, serverr);
-            case 3:
-                return addNewMemberToServerr(u,serverr);
-            case 4:
-                return User.allMenues.SERVERS;
-            case 5:
-                return adminsMenu(u, serverr);
-        }
-        return User.allMenues.MAIN;
+//        int choice;
+//        if (serverr.getOwnerToken() == u.getMember().getToken() || serverr.isAdmin(u.getUserName())) {
+//            choice = InteractionWithUser.getChoice(1, 5, "<<name : " + serverr.getName() + ">>\n<<owner : " + Server.getMemberWithToken(serverr.getOwnerToken()).getUsername() + ">>\n1.Channels\n2.Members\n3.Add member\n4.Back\n5.admins menu", u.getfOut(), u.getfIn(), u);
+//        } else {
+//            choice = InteractionWithUser.getChoice(1, 4, "<<name : " + serverr.getName() + ">>\n<<owner : " + Server.getMemberWithToken(serverr.getOwnerToken()).getUsername() + ">>\n1.Channels\n2.Members\n3.Add member\n4.Back", u.getfOut(), u.getfIn(), u);
+//        }
+//        switch (choice) {
+//            case 1:
+//                return channelsOfServerMenu(u, serverr);
+//            case 2:
+//                return membersOfServerrMenu(u, serverr);
+//            case 3:
+//                return addNewMemberToServerr(u,serverr);
+//            case 4:
+//                return User.allMenues.SERVERS;
+//            case 5:
+//                return adminsMenu(u, serverr);
+//        }
+//        return User.allMenues.MAIN;
     }
 
     public static User.allMenues adminsMenu(User u, Serverr serverr) throws IOException, ClassNotFoundException {
@@ -262,7 +270,7 @@ public class ServerMenuHandling {
         InteractionWithUser.write(new Message("" + n + ".back"), u);
         int choice = InteractionWithUser.getChoice(1, n, "", u.getfOut(), u.getfIn(), u);
         if (choice == n) {
-            return chosenServerrMenu(u, serverr);
+            return User.allMenues.MAIN;
         }
         Member member = Server.getMemberWithToken(serverr.getMemberTokenWithIndex(choice - 1));
         InteractionWithUser.write(new Message(member.profile() + "\n1.back"), u);
@@ -279,7 +287,7 @@ public class ServerMenuHandling {
         InteractionWithUser.write(new Message("" + (n + 1) + ".back"), u);
         int choice = InteractionWithUser.getChoice(1, n + 1, "", u.getfOut(), u.getfIn(), u);
         if (choice == n + 1) {
-            return chosenServerrMenu(u, serverr);
+            return User.allMenues.SERVERS;
         }
         Channel channel = serverr.getChannelWithIndex(choice - 1);
         Chat target = ((TextChannel) channel).getChat();
@@ -334,7 +342,7 @@ public class ServerMenuHandling {
         } else {
             serverr.addChannel(new VoiceChannel(name, serverr));
         }
-        return chosenServerrMenu(u, serverr);
+        return User.allMenues.SERVERS;
     }
 
 
@@ -355,7 +363,7 @@ public class ServerMenuHandling {
         } else {
             InteractionWithUser.write(new Message("there is no user with this username."), u);
         }
-        return chosenServerrMenu(u, serverr);
+        return User.allMenues.MAIN;
     }
 
 
@@ -414,7 +422,7 @@ public class ServerMenuHandling {
         } else {
             InteractionWithUser.write(new Message("there is no user with this username in this serverr."), u);
         }
-        return chosenServerrMenu(u, serverr);
+        return User.allMenues.MAIN;
     }
 
 }

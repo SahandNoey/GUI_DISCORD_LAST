@@ -307,6 +307,7 @@ public class FriendsController implements Initializable {
             btn1.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+
                     int id = Integer.parseInt(information.getUserNameWithToken().split("#")[1]);
                     MemberInfo me = Client.getMyMemberInfo();
                     MemberInfo friend = Client.getInfoOfToken(id);

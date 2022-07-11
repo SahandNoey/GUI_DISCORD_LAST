@@ -4,6 +4,7 @@ public class ServerInfo {
     private String name;
     private String picName;
     private int id;
+    private int ownerToken;
 
     public ServerInfo(String name, String picName, int id){
         this.name = name;
@@ -24,5 +25,9 @@ public class ServerInfo {
             return picName;
         }
         return "default.jpg";
+    }
+
+    public int getId() {
+        return id;
     }
 }

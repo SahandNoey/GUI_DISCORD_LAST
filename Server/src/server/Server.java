@@ -114,6 +114,15 @@ public class Server {
         return null;
     }
 
+    public static Serverr getServerWithId(int id){
+        for(Serverr serverr : servers){
+            if(serverr.getId() == id){
+                return serverr;
+            }
+        }
+        return null;
+    }
+
 
     public boolean isValidMember(String email, String password){
         for(Member m : members){
