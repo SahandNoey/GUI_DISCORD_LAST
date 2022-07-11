@@ -38,7 +38,7 @@ public class FriendHandling {
             Message m = InteractionWithUser.read(u);
             if(m.getMessage().equals("%%!getOutOfChat")){
                 target.removeInChatMember(u);
-                InteractionWithUser.write(new Message("getOut"), u);
+                InteractionWithUser.write(new Message("%%!getOut"), u);
                 return ;
             }
             target.addNewMessage(new Message(m.getMessage(), u.getMember().getToken()));
