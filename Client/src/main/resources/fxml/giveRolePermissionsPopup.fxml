@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="553.0" spacing="15.0" style="-fx-background-color: #2f3136;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServerAndChannelController">
+   <children>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Label text="ROLE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="roleTxtFld" focusColor="#5865f2" prefHeight="31.0" prefWidth="452.0" promptText="Admin for example" style="-fx-background-color: #202225;" unFocusColor="#c0bcbc" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="30.0" spacing="10.0">
+         <children>
+            <Label text="Permissions" textFill="#c0bcbc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0" />
+      <HBox alignment="CENTER" prefHeight="39.0" prefWidth="513.0" spacing="260.0">
+         <children>
+            <Label text="Able to create channel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="createChannelToggleBtn" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="69.0" toggleColor="#58f287" toggleLineColor="#58f287" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="30.0" layoutY="136.0" prefWidth="513.0" spacing="250.0">
+         <children>
+            <Label text="Able to remove channel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="removeChannelToggleBtn" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="69.0" toggleColor="#58f287" toggleLineColor="#58f287" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="30.0" layoutY="216.0" prefWidth="513.0" spacing="270.0">
+         <children>
+            <Label text="Able to kick member" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="kickMemberToggleBtn" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="69.0" toggleColor="#58f287" toggleLineColor="#58f287" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="30.0" layoutY="296.0" prefWidth="513.0" spacing="245.0">
+         <children>
+            <Label text="Limit channels members" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="limitChannelMembersToggleBtn" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="69.0" toggleColor="#58f287" toggleLineColor="#58f287" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="30.0" layoutY="376.0" prefWidth="513.0" spacing="270.0">
+         <children>
+            <Label text="Limit member access" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="limitMemberAccessToggleBtn" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="69.0" toggleColor="#58f287" toggleLineColor="#58f287" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="30.0" layoutY="456.0" prefWidth="513.0" spacing="209.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="219.0" text="Able to change server name" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="changeServerNameToggleBtn" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="69.0" toggleColor="#58f287" toggleLineColor="#58f287" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="30.0" layoutY="511.0" prefWidth="513.0" spacing="287.0">
+         <children>
+            <Label text="Access chat history" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="accessHistoryToggleBtn" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="69.0" toggleColor="#58f287" toggleLineColor="#58f287" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="30.0" layoutY="586.0" prefWidth="513.0" spacing="270.0">
+         <children>
+            <Label text="Able to pin messages" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="pinMessageToggleBtn" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="69.0" toggleColor="#58f287" toggleLineColor="#58f287" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="513.0" spacing="100.0">
+         <children>
+            <JFXButton defaultButton="true" onMouseClicked="#doneInGiveRolePermissionClicked" style="-fx-background-color: #58f287;" text="Done" />
+            <JFXButton cancelButton="true" layoutX="10.0" layoutY="10.0" onMouseClicked="#cancelInGiveRolePermissionClicked" style="-fx-background-color: #ed4245;" text="Cancel" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
