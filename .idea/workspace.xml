@@ -4,13 +4,8 @@
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="dm part updated and pane and image view replaced with circle for profile photos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,8 +141,6 @@
       <workItem from="1657451677512" duration="2553000" />
       <workItem from="1657456393651" duration="5210000" />
       <workItem from="1657462499766" duration="2938000" />
-      <workItem from="1657473901777" duration="126000" />
-      <workItem from="1657515689750" duration="4722000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>

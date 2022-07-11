@@ -166,7 +166,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="dmEachFriendHBox1" alignment="CENTER_LEFT" onMouseClicked="#onDMFriendClicked" spacing="15.0" style="-fx-background-color: #202225;">
+                        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #202225;">
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
@@ -196,7 +196,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <children>
-                  <HBox fx:id="dmEachFriendHBox2" alignment="CENTER_LEFT" onMouseClicked="#onDMFriendClicked" prefHeight="48.0" prefWidth="740.0" spacing="15.0" style="-fx-background-color: #202225;">
+                  <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="740.0" spacing="15.0" style="-fx-background-color: #202225;">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
@@ -298,7 +298,7 @@
                                           <Label fx:id="eachMemberOfChannelNameLabel" text="Member " textFill="WHITE" wrapText="true" />
                                        </children>
                                     </HBox>
-                                    <HBox fx:id="dmEachFriendHBox21111" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="15.0" style="-fx-background-color: #202225;">
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="15.0" style="-fx-background-color: #202225;">
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>
