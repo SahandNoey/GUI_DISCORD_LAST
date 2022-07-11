@@ -429,8 +429,8 @@ public class Client {
     }
 
     //change profile pic. return true if path is valid
-    public static boolean changeProfilePic(String photoPath){
-        return setUserProfilePic(photoPath);
+    public static boolean changeProfilePic(String path){
+        return setUserProfilePic(path);
     }
 
     public static ArrayList<ServerInfo> getServersForMainMenu(){

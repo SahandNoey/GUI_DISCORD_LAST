@@ -205,7 +205,9 @@ public class MainController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select your profile photo");
         File file = fileChooser.showOpenDialog(new Stage());
-
+        if(file != null) {
+            Client.changeProfilePic(file.getAbsolutePath());
+        }
         // backend ...
     }
 
