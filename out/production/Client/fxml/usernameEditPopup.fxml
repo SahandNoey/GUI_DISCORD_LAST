@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="600.0" spacing="5.0" style="-fx-background-color: #2f3136;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0" style="-fx-background-color: #202225; -fx-background-radius: 10;">
+         <children>
+            <Label text="New username" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="newUsernameTxtField" prefHeight="31.0" prefWidth="273.0" />
+         </children>
+      </HBox>
+      <Label fx:id="noFieldCanBeEmptyLabel" text="Invalid Credentials" textFill="#ed4245" visible="false">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="76.0" prefWidth="570.0" spacing="150.0">
+         <children>
+            <JFXButton onMouseClicked="#doneBtnInChangeUsernameClicked" style="-fx-background-color: #5865F2;" text="Done" />
+            <JFXButton layoutX="10.0" layoutY="10.0" onMouseClicked="#cancelBtnInChangeUsernameClicked" style="-fx-background-color: #ed4245;" text="Cancel" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+</VBox>

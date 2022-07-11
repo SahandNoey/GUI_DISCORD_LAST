@@ -369,7 +369,6 @@ public class MainController implements Initializable {
         if(serverPhoto != null){
             if(serverPhoto.getName().endsWith(".jpg")){
                 this.serverPhoto = serverPhoto;
-                System.out.println("ff");
             }
         }
 
@@ -453,12 +452,15 @@ public class MainController implements Initializable {
             noFieldCanBeEmptyLabel.setText("New username can't be empty!");
             noFieldCanBeEmptyLabel.setVisible(true);
         }else{
-            changeUsernamePopupLoader.close();
-            changeUsernamePopupLoader = null;
-
-
-            // handling other validation and backend
-
+            String res = Client.changeUsername(newUsernameTxtField.getText());
+            if(res.equals("1")){
+                changeUsernamePopupLoader.close();
+                changeUsernamePopupLoader = null;
+            }
+            else{
+                noFieldCanBeEmptyLabel.setText(res);
+                noFieldCanBeEmptyLabel.setVisible(true);
+            }
 
         }
     }
