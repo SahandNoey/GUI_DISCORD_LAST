@@ -160,7 +160,7 @@ public class Server {
     }
 
 
-    public void addServerr(Serverr serverr) throws IOException {
+    public static void addServerr(Serverr serverr) throws IOException {
         servers.add(serverr);
         f.saveServers(servers);
     }

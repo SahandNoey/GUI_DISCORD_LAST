@@ -161,6 +161,20 @@ public class Client {
         }
     }
 
+    public static byte[] setServerPic(File f) {
+        try {
+            FileInputStream fl = new FileInputStream(f);
+            byte[] content = new byte[(int) f.length()];
+            content = fl.readAllBytes();
+            fOut.writeObject(new Message(content, "serverpic"));
+            fOut.flush();
+            return content;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     //request profile pic of a member and return a message containing content
     public static Message requestProfilePicOf(String token){
         cOut.sendCommand("requestProfilePic:::" + token);
@@ -432,7 +446,7 @@ public class Client {
                 String picName = getServerPicNameOf(id);
                 res.add(new ServerInfo(name, picName, id));
                 if(picName != null) {
-                    Client.downloadProfilePicIfDontHave(picName);
+                    Client.downloadServerPicIfDontHave(picName);
                 }
             }
         }
@@ -471,7 +485,14 @@ public class Client {
         ClientOut.sendCommand("%%!logout");
     }
 
-
-
+    public static void createNewServer(File file, String name) throws IOException {
+        if(file != null) {
+            ClientOut.sendFile(new Message(setServerPic(file), "createNewServer:::" + name));
+        }
+        else{
+            System.out.println("rr");
+            ClientOut.sendCommand("createNewServer:::" + name);
+        }
+    }
 
 }

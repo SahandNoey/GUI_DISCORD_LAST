@@ -125,6 +125,7 @@ public class MainController implements Initializable {
     private Label serverNameEmptyLabel;
 
     private PopupLoader addServerPopupLoader;
+    private File serverPhoto;
 
     @FXML
     void emailShowCheckBoxClicked(ActionEvent event){
@@ -222,16 +223,15 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void createBtnClicked(MouseEvent event) {
+    void createBtnClicked(MouseEvent event) throws IOException {
         if (serverNameTxtFld.getText().equals("")){
             serverNameEmptyLabel.setVisible(true);
         }else {
             addServerPopupLoader.close();
             addServerPopupLoader = null;
             // backend for creating a new server and also adding it to gui ...
-
-
-
+            Client.createNewServer(serverPhoto, serverNameTxtFld.getText());
+            serverPhoto = null;
         }
     }
 
@@ -242,6 +242,12 @@ public class MainController implements Initializable {
         File serverPhoto = fileChooser.showOpenDialog(new Stage());
 
         // now handling that the file must be photo and backend for creating server
+        if(serverPhoto != null){
+            if(serverPhoto.getName().endsWith(".jpg")){
+                this.serverPhoto = serverPhoto;
+                System.out.println("ff");
+            }
+        }
 
     }
 

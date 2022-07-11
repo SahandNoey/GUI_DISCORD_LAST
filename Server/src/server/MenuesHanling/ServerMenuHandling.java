@@ -12,13 +12,17 @@ import java.util.ArrayList;
 
 public class ServerMenuHandling {
 
-    public static User.allMenues newServerMenu(User u) throws IOException, ClassNotFoundException {
-        InteractionWithUser.write(new Message("name : "), u);
-        String name = InteractionWithUser.read(u).getMessage();
-        Serverr serverr = new Serverr(name, u.getUserName());
+    public static void newServerWithPic(byte[] pic, String name, User u) throws IOException, ClassNotFoundException {
+        Serverr serverr = new Serverr(name, u.getMember().getToken());
         serverr.addMember(u.getMember());
-        u.getServer().addServerr(serverr);
-        return User.allMenues.MAIN;
+        if(pic != null){
+            serverr.setPic(pic);
+        }
+    }
+
+    public static void newServer(String name, User u) throws IOException, ClassNotFoundException {
+        Serverr serverr = new Serverr(name, u.getMember().getToken());
+        serverr.addMember(u.getMember());
     }
 
     public static User.allMenues allServersMenu(User u) throws IOException, ClassNotFoundException {
@@ -32,10 +36,10 @@ public class ServerMenuHandling {
 
     public static User.allMenues chosenServerrMenu(User u, Serverr serverr) throws IOException, ClassNotFoundException {
         int choice;
-        if (serverr.getOwnerName().equals(u.getUserName()) || serverr.isAdmin(u.getUserName())) {
-            choice = InteractionWithUser.getChoice(1, 5, "<<name : " + serverr.getName() + ">>\n<<owner : " + serverr.getOwnerName() + ">>\n1.Channels\n2.Members\n3.Add member\n4.Back\n5.admins menu", u.getfOut(), u.getfIn(), u);
+        if (serverr.getOwnerToken() == u.getMember().getToken() || serverr.isAdmin(u.getUserName())) {
+            choice = InteractionWithUser.getChoice(1, 5, "<<name : " + serverr.getName() + ">>\n<<owner : " + Server.getMemberWithToken(serverr.getOwnerToken()).getUsername() + ">>\n1.Channels\n2.Members\n3.Add member\n4.Back\n5.admins menu", u.getfOut(), u.getfIn(), u);
         } else {
-            choice = InteractionWithUser.getChoice(1, 4, "<<name : " + serverr.getName() + ">>\n<<owner : " + serverr.getOwnerName() + ">>\n1.Channels\n2.Members\n3.Add member\n4.Back", u.getfOut(), u.getfIn(), u);
+            choice = InteractionWithUser.getChoice(1, 4, "<<name : " + serverr.getName() + ">>\n<<owner : " + Server.getMemberWithToken(serverr.getOwnerToken()).getUsername() + ">>\n1.Channels\n2.Members\n3.Add member\n4.Back", u.getfOut(), u.getfIn(), u);
         }
         switch (choice) {
             case 1:
@@ -73,7 +77,7 @@ public class ServerMenuHandling {
                 }
                 break;
             case 3 :
-                if(serverr.getOwnerName().equals(u.getUserName())) {
+                if(serverr.getOwnerToken() == u.getMember().getToken()) {
                     return addNewAdmin(u, serverr);
                 }
                 else {
@@ -129,7 +133,7 @@ public class ServerMenuHandling {
                 }
                 break;
             case 10 :
-                if(serverr.getOwnerName().equals(u.getUserName())) {
+                if(serverr.getOwnerToken() == u.getMember().getToken()) {
                     ArrayList<Integer> membersTokens = serverr.getMembersTokens();
                     for(Integer memberToken : membersTokens){
                         Server.getMemberWithToken(memberToken).deleteServerr(serverr);
@@ -405,7 +409,7 @@ public class ServerMenuHandling {
             if (choice == 1) {
                 pinMessage = true;
             }
-            serverr.addAdmin(Server.getMemberWithToken(token).getUsername(),naghshName,createChannel,deleteChannel,deleteMembers,limitMembers,banMembers,changeName,checkHistory,pinMessage);
+            serverr.addAdmin(token,naghshName,createChannel,deleteChannel,deleteMembers,limitMembers,banMembers,changeName,checkHistory,pinMessage);
 
         } else {
             InteractionWithUser.write(new Message("there is no user with this username in this serverr."), u);

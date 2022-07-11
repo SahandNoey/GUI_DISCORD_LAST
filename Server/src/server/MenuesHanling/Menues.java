@@ -135,7 +135,8 @@ public class Menues {
             case 1:
                 return ServerMenuHandling.allServersMenu(u);
             case 2:
-                return ServerMenuHandling.newServerMenu(u);
+                ServerMenuHandling.newServer("0", u);
+                return allMenues.MAIN;
             case 3:
                 return allMenues.MAIN;
 

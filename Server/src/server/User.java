@@ -2,6 +2,7 @@ package server;
 
 import server.MenuesHanling.FriendHandling;
 import server.MenuesHanling.InteractionWithUser;
+import server.MenuesHanling.ServerMenuHandling;
 import server.MenuesHanling.Signing;
 import model.other.Message;
 import server.ServerChat.Serverr;
@@ -198,6 +199,16 @@ public class User implements Runnable {
         //log out
         else if (m.getMessage().startsWith("%%!logout")) {
             member.setOffline();
+        }
+
+        //create a new serverr
+        else if (m.getMessage().startsWith("createNewServer:::")) {
+            if(m.getContent() != null){
+                ServerMenuHandling.newServerWithPic(m.getContent(), m.getMessage().split(":::")[1], this);
+            }
+            else {
+                ServerMenuHandling.newServer(m.getMessage().split(":::")[1], this);
+            }
         }
 
 

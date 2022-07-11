@@ -12,8 +12,8 @@ public class Serverr implements Serializable {
     private int id;
     transient private static int a = 0;
     private String name;
-    private String ownerName;
-    private HashMap<String, Naghsh> adminsNames;
+    private int ownerToken;
+    private HashMap<Integer, Naghsh> adminsTokens;
     private ArrayList<Integer> membersTokens;
     private ArrayList<Channel> channels;
     private byte[] pic;
@@ -21,16 +21,17 @@ public class Serverr implements Serializable {
 
     private static final long serialVersionUID = 70020330;
 
-    public Serverr(String name ,String ownerName) throws IOException {
+    public Serverr(String name ,int ownerToken) throws IOException {
         id = a;
         a++;
         this.name = name;
-        this.ownerName = ownerName;
-        this.adminsNames = new HashMap<>();
+        this.ownerToken = ownerToken;
+        this.adminsTokens = new HashMap<>();
         this.membersTokens = new ArrayList<>();
         this.channels = new ArrayList<>();
-        adminsNames.put(ownerName, new Naghsh("Owner",true,true,true,true,true,true,true,true));
+        adminsTokens.put(ownerToken, new Naghsh("Owner",true,true,true,true,true,true,true,true));
         picNum = 0;
+        Server.addServerr(this);
         Server.saveServers();
     }
 
@@ -92,8 +93,8 @@ public class Serverr implements Serializable {
         return channels.get(n);
     }
 
-    public String getOwnerName() {
-        return ownerName;
+    public int getOwnerToken() {
+        return ownerToken;
     }
 
     public void addChannel(Channel channel) throws IOException {
@@ -122,18 +123,18 @@ public class Serverr implements Serializable {
         return membersTokens;
     }
 
-    public void addAdmin(String username,String name,boolean createChannel, boolean deleteChannel, boolean deleteMember,boolean limitMembers, boolean banMembers,boolean changeName, boolean historyChecking,boolean pinMessage) throws IOException {
-        adminsNames.remove(username);
-        adminsNames.put(username, new Naghsh(name,createChannel, deleteChannel, deleteMember, limitMembers, banMembers, changeName, historyChecking, pinMessage));
+    public void addAdmin(int token,String name,boolean createChannel, boolean deleteChannel, boolean deleteMember,boolean limitMembers, boolean banMembers,boolean changeName, boolean historyChecking,boolean pinMessage) throws IOException {
+        adminsTokens.remove(token);
+        adminsTokens.put(token, new Naghsh(name,createChannel, deleteChannel, deleteMember, limitMembers, banMembers, changeName, historyChecking, pinMessage));
         Server.saveServers();
     }
 
     public Naghsh getNaghshOf(String name){
-        return adminsNames.get(name);
+        return adminsTokens.get(name);
     }
 
     public boolean isAdmin(String name){
-        return adminsNames.containsKey(name);
+        return adminsTokens.containsKey(name);
     }
 
     public void setName(String name) throws IOException {
