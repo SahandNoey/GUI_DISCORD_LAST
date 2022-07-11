@@ -9,26 +9,30 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import model.client.Client;
-import model.client.ClientOut;
 import model.other.MemberInfo;
 import model.other.ServerInfo;
 import starter.ClientStarter;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -117,6 +121,10 @@ public class MainController implements Initializable {
     @FXML
     private Circle homeButtonCircle;
 
+    @FXML
+    private Label serverNameEmptyLabel;
+
+    private PopupLoader addServerPopupLoader;
 
     @FXML
     void emailShowCheckBoxClicked(ActionEvent event){
@@ -137,7 +145,16 @@ public class MainController implements Initializable {
 
 
     @FXML
-    void addServerClicked(MouseEvent event) throws IOException {
+    void addServerClicked(MouseEvent event) throws Exception {
+        if (this.addServerPopupLoader == null)
+        {
+            this.addServerPopupLoader = new PopupLoader(this, "/fxml/addServerPopup.fxml");
+            addServerPopupLoader.popup(event);
+        }else {
+            addServerPopupLoader.close();
+            addServerPopupLoader = null;
+        }
+
 
     }
 
@@ -179,10 +196,8 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void myAccountClicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
-        Parent root = loader.load();
-        Client.changeScene(new Scene(root));
+    void myAccountClicked(MouseEvent event) {
+
     }
 
     @FXML
@@ -202,16 +217,31 @@ public class MainController implements Initializable {
 
     @FXML
     void backBtnClicked(MouseEvent event) {
-
+        addServerPopupLoader.close();
+        addServerPopupLoader = null;
     }
 
     @FXML
     void createBtnClicked(MouseEvent event) {
+        if (serverNameTxtFld.getText().equals("")){
+            serverNameEmptyLabel.setVisible(true);
+        }else {
+            addServerPopupLoader.close();
+            addServerPopupLoader = null;
+            // backend for creating a new server and also adding it to gui ...
 
+
+
+        }
     }
 
     @FXML
     void uploadServerImageClicked(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose server photo");
+        File serverPhoto = fileChooser.showOpenDialog(new Stage());
+
+        // now handling that the file must be photo and backend for creating server
 
     }
 
@@ -258,7 +288,11 @@ public class MainController implements Initializable {
         showServersInMainMenuList(Client.getServersForMainMenu());
 
         //Direct messages
-        showDMsInMainMenuList(Client.getFriendsWithDMForFriendsMenu());
+        try {
+            showDMsInMainMenuList(Client.getFriendsWithDMForFriendsMenu());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 
     }
@@ -311,7 +345,7 @@ public class MainController implements Initializable {
 
     }
 
-    public void showDMsInMainMenuList(ArrayList<MemberInfo> informations){
+    public void showDMsInMainMenuList(ArrayList<MemberInfo> informations) throws IOException{
         for (MemberInfo information : informations){
             String name = information.getUserNameWithToken();
             String status = information.getStatus();
@@ -376,7 +410,8 @@ public class MainController implements Initializable {
                         public void run() {
                             try {
                                 Client.gotoDMWith(controller, id);
-                            } catch (IOException | InterruptedException e) {
+                            }catch (Exception e){
+
                                 e.printStackTrace();
                             }
                         }

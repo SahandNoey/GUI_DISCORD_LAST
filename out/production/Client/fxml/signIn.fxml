@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignInController">
    <children>
       <ImageView fitHeight="630.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -81,7 +81,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Button fx:id="signInBtn" mnemonicParsing="false" onMouseClicked="#signInButtonClicked" style="-fx-background-color: #5865F2;" text="Sign in" />
+            <Button fx:id="signInBtn" defaultButton="true" mnemonicParsing="false" onMouseClicked="#signInButtonClicked" style="-fx-background-color: #5865F2;" text="Sign in" />
             <Label fx:id="createAccntTxtFld" onMouseClicked="#goToSignUp" text="Don't have an account ? Click here to create one!" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
