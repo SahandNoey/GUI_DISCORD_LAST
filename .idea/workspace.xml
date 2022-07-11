@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="changeEmailPopup.fxml and changePasswordPopup.fxml debugged">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/changeStatusPopup.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/usernameEditPopup.fxml" afterDir="false" />
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="changeStatusPopup.fxml and usernameEditPopup.fxml created">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/model/other/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/editPhoneNumberPopup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657551078706</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="changeStatusPopup.fxml and usernameEditPopup.fxml created">
+      <created>1657559468217</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1657559468217</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +314,8 @@
     <MESSAGE value="uploadServerImageClicked implemented" />
     <MESSAGE value="changePasswordPopup.fxml created" />
     <MESSAGE value="changeEmailPopup.fxml created" />
-    <option name="LAST_COMMIT_MESSAGE" value="changeEmailPopup.fxml created" />
+    <MESSAGE value="changeStatusPopup.fxml and usernameEditPopup.fxml created" />
+    <option name="LAST_COMMIT_MESSAGE" value="changeStatusPopup.fxml and usernameEditPopup.fxml created" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -29,6 +29,7 @@ import javafx.stage.Window;
 import model.client.Client;
 import model.other.MemberInfo;
 import model.other.ServerInfo;
+import model.other.Status;
 import starter.ClientStarter;
 
 import java.io.File;
@@ -159,6 +160,11 @@ public class MainController implements Initializable {
     @FXML
     private JFXRadioButton invisibleStatusRadioBtn;
 
+    @FXML
+    private TextField phoneNumberTxtFldInEdit;
+
+
+
 
 
     private PopupLoader addServerPopupLoader;
@@ -167,6 +173,7 @@ public class MainController implements Initializable {
     private PopupLoader changeEmailPopupLoader;
     private PopupLoader changeUsernamePopupLoader;
     private PopupLoader changeStatusPopupLoader;
+    private PopupLoader changePhoneNumberPopupLoader;
 
     @FXML
     void emailShowCheckBoxClicked(ActionEvent event){
@@ -314,8 +321,29 @@ public class MainController implements Initializable {
 
     @FXML
     void phoneNumberEditClicked(MouseEvent event) {
-
+        if (changePhoneNumberPopupLoader == null)
+        {
+            changePhoneNumberPopupLoader = new PopupLoader(this, "/fxml/editPhoneNumberPopup.fxml");
+            changePhoneNumberPopupLoader.popup();
+        }else {
+            changePhoneNumberPopupLoader.close();
+            changePhoneNumberPopupLoader = null;
+        }
     }
+
+    @FXML
+    void onCancelClickedInPhoneEdit(MouseEvent event) {
+        changePhoneNumberPopupLoader.close();
+        changePhoneNumberPopupLoader = null;
+    }
+
+    @FXML
+    void onDoneClickedInPhoneEdit(MouseEvent event) {
+        phoneNumberText.setText(phoneNumberTxtFldInEdit.getText());
+        changePhoneNumberPopupLoader.close();
+        changePhoneNumberPopupLoader = null;
+    }
+
 
     @FXML
     void onDMFriendClicked(MouseEvent event){
@@ -459,6 +487,10 @@ public class MainController implements Initializable {
             changeStatusPopupLoader.close();
             changeStatusPopupLoader = null;
         }
+        onlineStatusRadioBtn.setUserData(new Status("Online", "#58f287"));
+        idleStatusRadioBtn.setUserData(new Status("Idle", "#faa61a"));
+        dontDisturbStatusRadioBtn.setUserData(new Status("Don't Disturb", "#ed4245"));
+        invisibleStatusRadioBtn.setUserData(new Status("Invisible", "#747f8d"));
     }
 
     @FXML
@@ -469,9 +501,14 @@ public class MainController implements Initializable {
 
     @FXML
     void onDoneInStatusPopupClicked(MouseEvent event) {
-        // set status , with toggle grouped radio buttons (gui works)
+        changeStatusPopupLoader.close();
+        changeStatusPopupLoader = null;
+        Status status = (Status)statusGroup.getSelectedToggle().getUserData();
+        statusLabel.setText(status.getStatus());
+        myStatusCircle.setFill(Color.web(status.getColor()));
+        statusLabel.setTextFill(Color.web(status.getColor()));
 
-
+        // and maybe changing in server (backend)
     }
 
     @FXML
