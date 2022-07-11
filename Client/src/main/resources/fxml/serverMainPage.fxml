@@ -219,7 +219,7 @@
                            <children>
                               <VBox fx:id="eachChannelMsgVBox" alignment="CENTER_LEFT" onMouseClicked="#onMsgClicked" spacing="5.0" style="-fx-background-color: #202225;">
                                  <children>
-                                    <HBox fx:id="eachChannelMsgHBox" alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="581.0" spacing="15.0" style="-fx-background-color: #202225;">
+                                    <HBox fx:id="eachChannelMsgHBox" alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="27.0" prefWidth="581.0" spacing="15.0" style="-fx-background-color: #202225;">
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>
@@ -241,7 +241,7 @@
                         </VBox>
                      </content>
                   </ScrollPane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #2f3136; -fx-background-radius: 20;">
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" spacing="7.0" style="-fx-background-color: #2f3136; -fx-background-radius: 20;">
                      <children>
                         <TextField fx:id="channelSendMsgTxtFld" prefHeight="40.0" prefWidth="749.0" promptText="Type your message here to broadcast!" style="-fx-background-color: #202225; -fx-cursor: #ffffff;">
                            <font>
@@ -252,6 +252,14 @@
                            <image>
                               <Image url="@../assets/icons/chatSendMessage.png" />
                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="558.0" layoutY="30.0" onMouseClicked="#onUploadFileClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/attach.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="7.0" />
+                           </HBox.margin>
                         </ImageView>
                      </children>
                      <padding>
