@@ -158,6 +158,26 @@ public class ServerAndChannelController {
     private Pane infoBtnPopup;
 
     @FXML
+    private VBox eachChannelMsgVBox;
+
+    @FXML
+    private ImageView pinImgViewInReactionsPopup;
+
+    @FXML
+    private HBox emojiHBox;
+
+    @FXML
+    private ImageView emojiImgView;
+
+    @FXML
+    private Label emojiNumberLabel;
+
+    @FXML
+    void onMsgClicked(MouseEvent event) {
+
+    }
+
+    @FXML
     void addServerClicked(MouseEvent event) {
 
     }
@@ -259,6 +279,26 @@ public class ServerAndChannelController {
 
     @FXML
     void doneInGiveRolePermissionClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void dislikeClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void laughClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void likeClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void pinClicked(MouseEvent event) {
 
     }
 
