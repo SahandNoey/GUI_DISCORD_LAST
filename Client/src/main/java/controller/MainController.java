@@ -209,10 +209,12 @@ public class MainController implements Initializable {
             }
             else{
                 noFieldCanBeEmptyLabel.setText("new password format is invalid.");
+                noFieldCanBeEmptyLabel.setVisible(true);
             }
         }
         else {
             noFieldCanBeEmptyLabel.setText("new pass and confirm pass should be equal.");
+            noFieldCanBeEmptyLabel.setVisible(true);
         }
 
 
@@ -248,12 +250,15 @@ public class MainController implements Initializable {
             noFieldCanBeEmptyLabel.setText("Invalid Credentials");
             noFieldCanBeEmptyLabel.setVisible(true);
         }else {
-            changeEmailPopupLoader.close();
-            changeEmailPopupLoader = null;
-
-            // now backend for changing email
-
-
+            String res = Client.changeEmail(newEmailTxtFld.getText());
+            if(res.equals("1")){
+                changeEmailPopupLoader.close();
+                changeEmailPopupLoader = null;
+            }
+            else{
+                noFieldCanBeEmptyLabel.setText(res);
+                noFieldCanBeEmptyLabel.setVisible(true);
+            }
 
         }
     }
