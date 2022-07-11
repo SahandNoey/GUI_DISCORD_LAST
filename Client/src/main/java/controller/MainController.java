@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXPasswordField;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -42,6 +43,15 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     private MemberInfo me;
+
+    @FXML
+    private JFXPasswordField currentPasswordTxtFld;
+
+    @FXML
+    private JFXPasswordField newPasswordTxtFld;
+
+    @FXML
+    private JFXPasswordField confirmPasswordTxtFld;
 
     @FXML
     private Pane uploadServerImgPane;
@@ -124,8 +134,19 @@ public class MainController implements Initializable {
     @FXML
     private Label serverNameEmptyLabel;
 
+    @FXML
+    private Label noFieldCanBeEmptyLabel;
+
+    @FXML
+    private JFXPasswordField currentEmailTxtFld;
+
+    @FXML
+    private JFXPasswordField newEmailTxtFld;
+
     private PopupLoader addServerPopupLoader;
     private File serverPhoto;
+    private PopupLoader changePasswordPopupLoader;
+    private PopupLoader changeEmailPopupLoader;
 
     @FXML
     void emailShowCheckBoxClicked(ActionEvent event){
@@ -146,7 +167,7 @@ public class MainController implements Initializable {
 
 
     @FXML
-    void addServerClicked(MouseEvent event) throws Exception {
+    void addServerClicked(MouseEvent event) {
         if (this.addServerPopupLoader == null)
         {
             this.addServerPopupLoader = new PopupLoader(this, "/fxml/addServerPopup.fxml");
@@ -161,17 +182,87 @@ public class MainController implements Initializable {
 
     @FXML
     void changeAvatarBtnClicked(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select your profile photo");
+        File file = fileChooser.showOpenDialog(new Stage());
 
+        // backend ...
+    }
+
+    @FXML
+    void cancelBtnInChangePasswordClicked(MouseEvent event) {
+        changePasswordPopupLoader.close();
+        changePasswordPopupLoader = null;
+    }
+
+    @FXML
+    void doneBtnInChangePasswordClicked(MouseEvent event) {
+        if (currentPasswordTxtFld.getText().equals("") || newPasswordTxtFld.getText().equals("")
+                || confirmPasswordTxtFld.getText().equals(""))
+        {
+            noFieldCanBeEmptyLabel.setVisible(true);
+        }else if (!currentPasswordTxtFld.getText().equals(me.getPassword()))
+        {
+            noFieldCanBeEmptyLabel.setText("Invalid Credentials");
+            noFieldCanBeEmptyLabel.setVisible(true);
+        }else if (confirmPasswordTxtFld.getText().equals(newPasswordTxtFld.getText())){
+            changePasswordPopupLoader.close();
+            changePasswordPopupLoader = null;
+
+
+
+            // backend for changing password in server and local device
+
+
+        }
     }
 
     @FXML
     void changePasswordBtnClicked(MouseEvent event) {
+        if (changePasswordPopupLoader == null)
+        {
+            changePasswordPopupLoader = new PopupLoader(this, "/fxml/changePasswordPopup.fxml");
+            changePasswordPopupLoader.popup(event);
+        }else {
+            changePasswordPopupLoader.close();
+            changePasswordPopupLoader = null;
+        }
+    }
 
+    @FXML
+    void cancelBtnInChangeEmailClicked(MouseEvent event) {
+        changeEmailPopupLoader.close();
+        changeEmailPopupLoader = null;
+    }
+
+    @FXML
+    void doneBtnInChangeEmailClicked(MouseEvent event) {
+        if ((!currentEmailTxtFld.getText().equals(me.getEmail())) || currentEmailTxtFld.getText().equals("")
+        || newEmailTxtFld.getText().equals(""))
+        {
+            noFieldCanBeEmptyLabel.setText("Invalid Credentials");
+            noFieldCanBeEmptyLabel.setVisible(true);
+        }else {
+            changeEmailPopupLoader.close();
+            changeEmailPopupLoader = null;
+
+            // now backend for changing email
+
+
+
+        }
     }
 
     @FXML
     void emailEditClicked(MouseEvent event) {
-
+        if (changeEmailPopupLoader == null)
+        {
+            changeEmailPopupLoader = new PopupLoader(this, "/fxml/changeEmailPopup.fxml");
+            changeEmailPopupLoader.popup(event);
+        }else {
+            changeEmailPopupLoader.close();
+            changeEmailPopupLoader = null;
+        }
     }
 
     @FXML

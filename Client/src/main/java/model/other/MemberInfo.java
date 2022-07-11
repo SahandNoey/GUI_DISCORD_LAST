@@ -25,6 +25,10 @@ public class MemberInfo {
         return photoName;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public String getUserNameWithToken() {
         return userNameWithToken;
     }
