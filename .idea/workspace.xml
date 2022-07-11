@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="changeEmailPopup.fxml created">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="changeEmailPopup.fxml and changePasswordPopup.fxml debugged">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/changeStatusPopup.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/usernameEditPopup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/PopupLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/PopupLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/changeEmailPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/changeEmailPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/changePasswordPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/changePasswordPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$4$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/PopupLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/PopupLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/friendDM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/friendDM.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/other/MemberInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/other/MemberInfo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +88,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
