@@ -354,7 +354,10 @@ public class MainController implements Initializable {
 
     @FXML
     void onDoneClickedInPhoneEdit(MouseEvent event) {
-        phoneNumberText.setText(phoneNumberTxtFldInEdit.getText());
+        String res = Client.changePhoneNumber(phoneNumberTxtFldInEdit.getText());
+        if(res.equals("1")) {
+            phoneNumberText.setText(phoneNumberTxtFldInEdit.getText());
+        }
         changePhoneNumberPopupLoader.close();
         changePhoneNumberPopupLoader = null;
     }
@@ -527,6 +530,7 @@ public class MainController implements Initializable {
         statusLabel.setText(status.getStatus());
         myStatusCircle.setFill(Color.web(status.getColor()));
         statusLabel.setTextFill(Color.web(status.getColor()));
+        Client.changeStatus(status.getStatus());
 
         // and maybe changing in server (backend)
     }

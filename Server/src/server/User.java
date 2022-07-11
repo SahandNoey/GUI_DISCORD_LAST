@@ -273,7 +273,7 @@ public class User implements Runnable {
 
     public void phoneChange(String phone) throws IOException {
         try{
-            Validation.emailValidation(phone, server.getMembers());
+            Validation.phoneValidation(phone, server.getMembers());
             member.setPhoneNumber(phone);
             InteractionWithUser.write(new Message("1"), this);
         } catch (Exception e) {

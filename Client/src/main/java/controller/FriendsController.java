@@ -252,7 +252,7 @@ public class FriendsController implements Initializable {
             ArrayList<MemberInfo> friends = Client.getFriendsForFriendsMenu();
             ArrayList<MemberInfo> onlines = new ArrayList<>();
             for (MemberInfo friend : friends) {
-                if (friend.getStatus().equals("online")) {
+                if (friend.getStatus().equals("Online")) {
                     onlines.add(friend);
                 }
             }

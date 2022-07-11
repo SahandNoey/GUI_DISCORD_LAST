@@ -43,7 +43,7 @@ public class Member implements Serializable {
         blocksTokens = new ArrayList<>();
         serversIDs = new ArrayList<>();
         chatsId = new HashMap<>();
-        status = "online";
+        status = "Online";
         isOnline = false;
         sentFriendRequestsToken = new ArrayList<>();
         blockedBy = new ArrayList<>();
