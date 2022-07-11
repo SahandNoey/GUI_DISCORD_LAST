@@ -20,7 +20,6 @@ public class FriendHandling {
 //        }
 
 //        ArrayList<Chat> chats = u.getServer().getChats();
-
         Chat target = null;
         Member friend = Server.getMemberWithToken(friendToken);
         if (u.getMember().isInMembersOfChat(friend.getToken())) {
@@ -38,6 +37,7 @@ public class FriendHandling {
         while (true) {
             Message m = InteractionWithUser.read(u);
             if(m.getMessage().equals("%%!getOutOfChat")){
+                target.removeInChatMember(u);
                 InteractionWithUser.write(new Message("getOut"), u);
                 return ;
             }

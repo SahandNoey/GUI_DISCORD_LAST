@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -138,9 +139,10 @@ public class DMController {
 
     @FXML
     void dmSendBtnClicked(MouseEvent event) {
-        if(msgTxtField.getText() != null) {
-            if(!msgTxtField.getText().equals("")) {
-                ClientOut.sendCommand(msgTxtField.getText());
+        if(dmTxtFld.getText() != null) {
+            if(!dmTxtFld.getText().equals("")) {
+                ClientOut.sendCommand(dmTxtFld.getText());
+                dmTxtFld.setText("");
             }
         }
     }
@@ -211,8 +213,13 @@ public class DMController {
         hBox1.setSpacing(20);
         root = new Pane(hBox1);
         root.setStyle("-fx-background-color: #2f3136; -fx-background-radius: 10;");
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                dmMessagesVBox.getChildren().add(root);
+            }
+        });
 
-        dmMessagesVBox.getChildren().add(root);
 
     }
 

@@ -31,6 +31,7 @@ import model.other.MemberInfo;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class FriendsController implements Initializable {
@@ -290,6 +291,36 @@ public class FriendsController implements Initializable {
             btn1.setLayoutY(26);
             btn1.setLayoutX(638);
             btn1.setMnemonicParsing(false);
+            btn1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    System.out.println("in friendlist1");
+                    int id = Integer.parseInt(information.getUserNameWithToken().split("#")[1]);
+                    MemberInfo me = Client.getMyMemberInfo();
+                    MemberInfo friend = Client.getInfoOfToken(id);
+                    HashMap<Integer,String > temp = new HashMap<>();
+                    temp.put(Integer.parseInt(me.getUserNameWithToken().split("#")[1]), me.getUserNameWithToken().split("#")[0]);
+                    temp.put(Integer.parseInt(friend.getUserNameWithToken().split("#")[1]), friend.getUserNameWithToken().split("#")[0]);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendDM.fxml"));
+                    Parent root = null;
+                    System.out.println("in friendlist2");
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    DMController controller = loader.getController();
+                    controller.completeTokenToName(temp, me, friend);
+                    System.out.println("in friendlist3");
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Client.gotoDMWith(controller, id);
+                        }
+                    }).start();
+                    Client.changeScene(new Scene(root));
+                }
+            });
             btn1.setStyle("-fx-background-color: #5865F2;");
             ImageView imageView1 = new ImageView(new Image("file:Client\\src\\main\\resources\\assets\\icons\\threeDots.png"));
             imageView1.setFitHeight(30);

@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DMController">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DMController">
    <children>
       <VBox fx:id="serversVBox" alignment="TOP_CENTER" prefHeight="630.0" prefWidth="81.0" spacing="10.0" style="-fx-background-color: #202225;">
          <children>
@@ -192,7 +192,7 @@
                   </ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #2f3136; -fx-background-radius: 20;">
                      <children>
-                        <TextField fx:id="dmTxtFld" prefHeight="40.0" prefWidth="749.0" promptText="Type your message here!" style="-fx-background-color: #202225; -fx-cursor: #ffffff;">
+                        <TextField fx:id="dmTxtFld" prefHeight="40.0" prefWidth="749.0" promptText="Type your message here!" style="-fx-background-color: #202225; -fx-text-fill: #ffffff;">
                            <font>
                               <Font name="Comic Sans MS" size="16.0" />
                            </font>

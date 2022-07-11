@@ -378,7 +378,7 @@ public class MainController implements Initializable {
                         public void run() {
                             Client.gotoDMWith(controller, id);
                         }
-                    });
+                    }).start();
                     Client.changeScene(new Scene(root));
                 }
             });
