@@ -1,6 +1,7 @@
 package controller;
 
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXRadioButton;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -40,6 +41,9 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     private MemberInfo me;
+
+    @FXML
+    private TextField newUsernameTxtField;
 
     @FXML
     private PasswordField currentPasswordTxtFld;
@@ -140,10 +144,29 @@ public class MainController implements Initializable {
     @FXML
     private PasswordField newEmailTxtFld;
 
+    @FXML
+    private JFXRadioButton onlineStatusRadioBtn;
+
+    @FXML
+    private ToggleGroup statusGroup;
+
+    @FXML
+    private JFXRadioButton idleStatusRadioBtn;
+
+    @FXML
+    private JFXRadioButton dontDisturbStatusRadioBtn;
+
+    @FXML
+    private JFXRadioButton invisibleStatusRadioBtn;
+
+
+
     private PopupLoader addServerPopupLoader;
     private File serverPhoto;
     private PopupLoader changePasswordPopupLoader;
     private PopupLoader changeEmailPopupLoader;
+    private PopupLoader changeUsernamePopupLoader;
+    private PopupLoader changeStatusPopupLoader;
 
     @FXML
     void emailShowCheckBoxClicked(ActionEvent event){
@@ -408,10 +431,62 @@ public class MainController implements Initializable {
     }
     @FXML
     void usernameEditClicked(MouseEvent event) {
-
+        if (changeUsernamePopupLoader == null)
+        {
+            changeUsernamePopupLoader = new PopupLoader(this, "/fxml/usernameEditPopup.fxml");
+            changeUsernamePopupLoader.popup();
+        }else {
+            changeUsernamePopupLoader.close();
+            changeUsernamePopupLoader = null;
+        }
     }
+
+    @FXML
+    void cancelBtnInChangeUsernameClicked(MouseEvent event) {
+        changeUsernamePopupLoader.close();
+        changeUsernamePopupLoader = null;
+    }
+
+    @FXML
+    void doneBtnInChangeUsernameClicked(MouseEvent event) {
+        if (newUsernameTxtField.getText().equals("")){
+            noFieldCanBeEmptyLabel.setText("New username can't be empty!");
+            noFieldCanBeEmptyLabel.setVisible(true);
+        }else{
+            changeUsernamePopupLoader.close();
+            changeUsernamePopupLoader = null;
+
+
+            // handling other validation and backend
+
+
+        }
+    }
+
+
+
     @FXML
     void changeStatusClicked(MouseEvent event){
+        if (changeStatusPopupLoader == null)
+        {
+            changeStatusPopupLoader = new PopupLoader(this, "/fxml/changeStatusPopup.fxml");
+            changeStatusPopupLoader.popup(event);
+        }else {
+            changeStatusPopupLoader.close();
+            changeStatusPopupLoader = null;
+        }
+    }
+
+    @FXML
+    void onCancelInStatusPopupClicked(MouseEvent event) {
+        changeStatusPopupLoader.close();
+        changeStatusPopupLoader = null;
+    }
+
+    @FXML
+    void onDoneInStatusPopupClicked(MouseEvent event) {
+        // set status , with toggle grouped radio buttons (gui works)
+
 
     }
 
