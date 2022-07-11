@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,6 +29,9 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class DMController {
+
+    @FXML
+    private ScrollPane scrollPane;
 
     @FXML
     private VBox serversVBox;
@@ -171,6 +175,7 @@ public class DMController {
     }
 
     public void addMessage(Message m){
+        scrollPane.setContent(dmMessagesVBox);
         MemberInfo memberInfo;
         if(m.getAuthorToken() == Integer.parseInt(me.getUserNameWithToken().split("#")[1])){
             memberInfo = me;
@@ -217,10 +222,9 @@ public class DMController {
             @Override
             public void run() {
                 dmMessagesVBox.getChildren().add(root);
+                scrollPane.setVvalue(1);
             }
         });
-
-
     }
 
     public void completeTokenToName(HashMap<Integer, String > x, MemberInfo me, MemberInfo friend){

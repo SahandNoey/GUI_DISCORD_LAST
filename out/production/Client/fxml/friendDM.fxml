@@ -157,9 +157,9 @@
                         </HBox>
                      </children>
                   </Pane>
-                  <ScrollPane hbarPolicy="NEVER" style="-fx-background-color: #202225;">
+                  <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" style="-fx-background-color: #202225;">
                      <content>
-                        <VBox fx:id="dmMessagesVBox" alignment="BOTTOM_LEFT" minHeight="-Infinity" prefHeight="460.0" spacing="10.0" style="-fx-background-color: #202225; -fx-border-color: #202225;">
+                        <VBox fx:id="dmMessagesVBox" alignment="BOTTOM_LEFT" spacing="10.0" style="-fx-background-color: #202225; -fx-border-color: #202225;">
                            <children>
                               <Pane fx:id="msgPane" style="-fx-background-color: #2f3136; -fx-background-radius: 10;">
                                  <children>

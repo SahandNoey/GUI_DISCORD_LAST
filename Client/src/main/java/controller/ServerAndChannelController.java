@@ -1,7 +1,7 @@
 package controller;
 
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXToggleButton;
+//import com.jfoenix.controls.JFXTextField;
+//import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -16,32 +16,32 @@ import javafx.scene.shape.Circle;
 
 public class ServerAndChannelController {
 
-    @FXML
-    private JFXTextField roleTxtFld;
-
-    @FXML
-    private JFXToggleButton createChannelToggleBtn;
-
-    @FXML
-    private JFXToggleButton removeChannelToggleBtn;
-
-    @FXML
-    private JFXToggleButton kickMemberToggleBtn;
-
-    @FXML
-    private JFXToggleButton limitChannelMembersToggleBtn;
-
-    @FXML
-    private JFXToggleButton limitMemberAccessToggleBtn;
-
-    @FXML
-    private JFXToggleButton changeServerNameToggleBtn;
-
-    @FXML
-    private JFXToggleButton accessHistoryToggleBtn;
-
-    @FXML
-    private JFXToggleButton pinMessageToggleBtn;
+//    @FXML
+//    private JFXTextField roleTxtFld;
+//
+//    @FXML
+//    private JFXToggleButton createChannelToggleBtn;
+//
+//    @FXML
+//    private JFXToggleButton removeChannelToggleBtn;
+//
+//    @FXML
+//    private JFXToggleButton kickMemberToggleBtn;
+//
+//    @FXML
+//    private JFXToggleButton limitChannelMembersToggleBtn;
+//
+//    @FXML
+//    private JFXToggleButton limitMemberAccessToggleBtn;
+//
+//    @FXML
+//    private JFXToggleButton changeServerNameToggleBtn;
+//
+//    @FXML
+//    private JFXToggleButton accessHistoryToggleBtn;
+//
+//    @FXML
+//    private JFXToggleButton pinMessageToggleBtn;
 
     @FXML
     private Label infoUsernameLabel;
