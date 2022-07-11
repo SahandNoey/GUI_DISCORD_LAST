@@ -382,10 +382,13 @@ public class MainController implements Initializable {
         }
 
         //servers
-        showServersInMainMenuList(Client.getServersForMainMenu());
+        if(serversVBox.getChildren().size() < 3) {
+            showServersInMainMenuList(Client.getServersForMainMenu());
+        }
 
         //Direct messages
         try {
+            if(accountAndDMVBox.getChildren().size() < 5)
             showDMsInMainMenuList(Client.getFriendsWithDMForFriendsMenu());
         }catch (Exception e){
             e.printStackTrace();

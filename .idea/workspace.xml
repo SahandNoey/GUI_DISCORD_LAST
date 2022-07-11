@@ -3,9 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="dm part updated and pane and image view replaced with circle for profile photos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/addFriendspage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/addFriendspage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendDM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendDM.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendsListPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendsListPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendsListPageBlocked.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendsListPageBlocked.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendsListPageOnline.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendsListPageOnline.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendsListPagePending.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendsListPagePending.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/mainMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/PopupLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/PopupLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/other/MemberInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/other/MemberInfo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +70,7 @@
       <recent name="D:\DISCORD_GUI\GUI_Discord_Final\GUI_DISCORD_LAST\Client\src\main\resources\assets\icons" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientStarter">
+  <component name="RunManager" selected="Application.ServerRun">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -103,8 +117,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientStarter" />
         <item itemvalue="Application.ServerRun" />
+        <item itemvalue="Application.ClientStarter" />
       </list>
     </recent_temporary>
   </component>
@@ -141,6 +155,8 @@
       <workItem from="1657451677512" duration="2553000" />
       <workItem from="1657456393651" duration="5210000" />
       <workItem from="1657462499766" duration="2938000" />
+      <workItem from="1657553614977" duration="955000" />
+      <workItem from="1657554738790" duration="1429000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>

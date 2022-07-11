@@ -313,8 +313,8 @@ public class DMController implements Initializable {
     }
 
 
-    public void showServersInMainMenuList(ArrayList<ServerInfo> informations) {
-        for (ServerInfo information : informations) {
+    public void showServersInMainMenuList(ArrayList<ServerInfo> informations){
+        for (ServerInfo information : informations){
             String name;
             String picName = information.getPicName();
             ImagePattern profilePic = new ImagePattern(new Image("file:Client\\serverPics\\" + picName));
@@ -340,11 +340,10 @@ public class DMController implements Initializable {
             serversVBox.getChildren().add(root);
         }
 
-
     }
 
-    public void showDMsInMainMenuList(ArrayList<MemberInfo> informations) {
-        for (MemberInfo information : informations) {
+    public void showDMsInMainMenuList(ArrayList<MemberInfo> informations) throws IOException{
+        for (MemberInfo information : informations){
             String name = information.getUserNameWithToken();
             String status = information.getStatus();
             Image profilePic = new Image("file:Client\\profilePics\\" + information.getPhotoName());
@@ -380,23 +379,17 @@ public class DMController implements Initializable {
             pane1.setStyle("-fx-background-color: #202225; -fx-background-radius: 100;");
             root = new HBox(pane1, nameLabel);
             root.setStyle("-fx-background-color: #202225;");
-            root.setPadding(new Insets(10, 10, 10, 10));
+            root.setPadding(new Insets(10,10,10,10));
             root.setSpacing(15);
             root.setAlignment(Pos.CENTER_LEFT);
 
             root.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    ClientOut.sendCommand("%%!getOutOfChat");
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                     int id = Integer.parseInt(information.getUserNameWithToken().split("#")[1]);
                     MemberInfo me = Client.getMyMemberInfo();
                     MemberInfo friend = Client.getInfoOfToken(id);
-                    HashMap<Integer, String> temp = new HashMap<>();
+                    HashMap<Integer,String > temp = new HashMap<>();
                     temp.put(Integer.parseInt(me.getUserNameWithToken().split("#")[1]), me.getUserNameWithToken().split("#")[0]);
                     temp.put(Integer.parseInt(friend.getUserNameWithToken().split("#")[1]), friend.getUserNameWithToken().split("#")[0]);
 
@@ -414,7 +407,8 @@ public class DMController implements Initializable {
                         public void run() {
                             try {
                                 Client.gotoDMWith(controller, id);
-                            } catch (IOException | InterruptedException e) {
+                            }catch (Exception e){
+
                                 e.printStackTrace();
                             }
                         }
@@ -428,10 +422,17 @@ public class DMController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //servers
-        showServersInMainMenuList(Client.getServersForMainMenu());
+        if(serversVBox.getChildren().size() < 3) {
+            showServersInMainMenuList(Client.getServersForMainMenu());
+        }
         //Direct messages
-        showDMsInMainMenuList(Client.getFriendsWithDMForFriendsMenu());
-
+        if(accountAndDMVBox.getChildren().size() < 5) {
+            try {
+                showDMsInMainMenuList(Client.getFriendsWithDMForFriendsMenu());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML

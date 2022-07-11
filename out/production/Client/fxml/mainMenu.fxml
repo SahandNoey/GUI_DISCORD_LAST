@@ -95,24 +95,6 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-            <HBox fx:id="dmEachFriendHBox" alignment="CENTER_LEFT" onMouseClicked="#onDMFriendClicked" spacing="15.0" style="-fx-background-color: #202225;">
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <children>
-                  <Pane style="-fx-background-color: #202225; -fx-background-radius: 100;">
-                     <children>
-                        <Circle fx:id="dmEachFriendCircle" fill="DODGERBLUE" layoutX="25.0" layoutY="25.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fx:id="dmEachFriendStatusCircle" fill="#58f287" layoutX="42.0" layoutY="43.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-                     </children>
-                  </Pane>
-                  <Label fx:id="dmEachFriendNameLabel" text="My Friend" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
          </children></VBox>
       <VBox fx:id="msgAndSettingsVBox" alignment="TOP_CENTER" prefHeight="630.0" prefWidth="852.0" spacing="5.0" style="-fx-background-color: #40444b;">
          <padding>

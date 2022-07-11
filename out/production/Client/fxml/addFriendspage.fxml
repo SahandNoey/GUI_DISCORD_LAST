@@ -9,10 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FriendsController">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FriendsController">
    <children>
       <VBox fx:id="serversVBox" alignment="TOP_CENTER" prefHeight="630.0" prefWidth="93.0" spacing="10.0" style="-fx-background-color: #202225;">
          <children>
@@ -98,24 +97,6 @@
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-            </HBox>
-            <HBox fx:id="dmEachFriendHBox" alignment="CENTER_LEFT" onMouseClicked="#onDMFriendClicked" spacing="15.0" style="-fx-background-color: #202225;">
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <children>
-                  <Pane style="-fx-background-color: #202225; -fx-background-radius: 100;">
-                     <children>
-                        <Circle fx:id="dmEachFriendCircle" fill="DODGERBLUE" layoutX="25.0" layoutY="25.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fx:id="dmEachFriendStatusCircle" fill="#58f287" layoutX="42.0" layoutY="43.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-                     </children>
-                  </Pane>
-                  <Label fx:id="dmEachFriendNameLabel" text="My Friend" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-               </children>
             </HBox>
          </children>
       </VBox>

@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DMController">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DMController">
    <children>
       <VBox fx:id="serversVBox" alignment="TOP_CENTER" prefHeight="630.0" prefWidth="81.0" spacing="10.0" style="-fx-background-color: #202225;">
          <children>
@@ -100,24 +100,6 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-            <HBox fx:id="dmEachFriendHBox" alignment="CENTER_LEFT" onMouseClicked="#onDMFriendClicked" spacing="15.0" style="-fx-background-color: #202225;">
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <children>
-                  <Pane style="-fx-background-color: #202225; -fx-background-radius: 100;">
-                     <children>
-                        <Circle fx:id="dmEachFriendCircle" fill="DODGERBLUE" layoutX="25.0" layoutY="25.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fx:id="dmEachFriendStatusCircle" fill="#58f287" layoutX="42.0" layoutY="43.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-                     </children>
-                  </Pane>
-                  <Label fx:id="dmEachFriendNameLabel" text="My Friend" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
          </children>
       </VBox>
       <VBox fx:id="msgAndSettingsVBox" alignment="TOP_CENTER" onMouseClicked="#dmTxtFieldAction" prefHeight="630.0" prefWidth="852.0" spacing="5.0" style="-fx-background-color: #40444b;">
@@ -170,18 +152,6 @@
                               <Pane fx:id="msgPane" style="-fx-background-color: #2f3136; -fx-background-radius: 10;">
                                  <children>
                                     <HBox fx:id="msgHBox" alignment="CENTER_LEFT" spacing="20.0">
-                                       <children>
-                                          <Pane style="-fx-background-radius: 100;">
-                                             <children>
-                                                <Circle fx:id="msgImageCircle" fill="#ff571f" layoutX="20.0" layoutY="22.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                                             </children>
-                                          </Pane>
-                                          <Label fx:id="msgTxtField" prefHeight="22.0" prefWidth="729.0" text="Hi, How are you?" textFill="WHITE" wrapText="true">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="15.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>

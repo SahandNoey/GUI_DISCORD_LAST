@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,6 +28,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import model.client.Client;
 import model.other.MemberInfo;
+import model.other.ServerInfo;
 
 import java.io.IOException;
 import java.net.URL;
@@ -263,6 +265,17 @@ public class FriendsController implements Initializable {
             showFriendRequestsInFriendsList(requests);
             ArrayList<MemberInfo> sentRequests = Client.getSentFriendRequestForFriendsMenu();
             showSentFriendRequestsInFriendsList(sentRequests);
+        }
+        if(serversVBox.getChildren().size() < 3) {
+            showServersInMainMenuList(Client.getServersForMainMenu());
+        }
+
+        if(accountAndDMVBox.getChildren().size() < 5) {
+            try {
+                showDMsInMainMenuList(Client.getFriendsWithDMForFriendsMenu());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -574,4 +587,111 @@ public class FriendsController implements Initializable {
         }
     }
 
+
+    public void showServersInMainMenuList(ArrayList<ServerInfo> informations){
+        for (ServerInfo information : informations){
+            String name;
+            String picName = information.getPicName();
+            ImagePattern profilePic = new ImagePattern(new Image("file:Client\\serverPics\\" + picName));
+            Pane root;
+
+
+            //root childs
+            Circle picCircle = new Circle();
+            picCircle.setFill(profilePic);
+            picCircle.setLayoutX(34);
+            picCircle.setLayoutY(38);
+            picCircle.setRadius(32);
+            picCircle.setStroke(Color.BLACK);
+            picCircle.setStrokeType(StrokeType.INSIDE);
+
+
+            //done
+            root = new Pane(picCircle);
+            root.setPrefWidth(78);
+            root.setPrefHeight(75);
+            root.setStyle("-fx-background-color: #2f3136; -fx-background-radius: 100;");
+
+            serversVBox.getChildren().add(root);
+        }
+
+    }
+
+    public void showDMsInMainMenuList(ArrayList<MemberInfo> informations) throws IOException{
+        for (MemberInfo information : informations){
+            String name = information.getUserNameWithToken();
+            String status = information.getStatus();
+            Image profilePic = new Image("file:Client\\profilePics\\" + information.getPhotoName());
+            Image statusPic = new Image("file:Client\\files\\statuspics\\" + status + ".png");
+
+            HBox root;
+
+            //root childs
+            Pane pane1;
+            Label nameLabel = new Label(name);
+            nameLabel.setTextFill(Color.WHITE);
+            nameLabel.setFont(new Font("System Bold", 16));
+
+            //pane1 childs
+            Circle profilePicCircle = new Circle();
+            profilePicCircle.setFill(new ImagePattern(profilePic));
+            profilePicCircle.setLayoutX(25);
+            profilePicCircle.setLayoutY(25);
+            profilePicCircle.setRadius(24);
+            profilePicCircle.setStroke(Color.BLACK);
+            profilePicCircle.setStrokeType(StrokeType.INSIDE);
+
+            Circle statusPicCircle = new Circle();
+            statusPicCircle.setFill(new ImagePattern(statusPic));
+            statusPicCircle.setLayoutX(42);
+            statusPicCircle.setLayoutY(43);
+            statusPicCircle.setRadius(7);
+            profilePicCircle.setStroke(Color.BLACK);
+            profilePicCircle.setStrokeType(StrokeType.INSIDE);
+
+            //done
+            pane1 = new Pane(profilePicCircle, statusPicCircle);
+            pane1.setStyle("-fx-background-color: #202225; -fx-background-radius: 100;");
+            root = new HBox(pane1, nameLabel);
+            root.setStyle("-fx-background-color: #202225;");
+            root.setPadding(new Insets(10,10,10,10));
+            root.setSpacing(15);
+            root.setAlignment(Pos.CENTER_LEFT);
+
+            root.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    int id = Integer.parseInt(information.getUserNameWithToken().split("#")[1]);
+                    MemberInfo me = Client.getMyMemberInfo();
+                    MemberInfo friend = Client.getInfoOfToken(id);
+                    HashMap<Integer,String > temp = new HashMap<>();
+                    temp.put(Integer.parseInt(me.getUserNameWithToken().split("#")[1]), me.getUserNameWithToken().split("#")[0]);
+                    temp.put(Integer.parseInt(friend.getUserNameWithToken().split("#")[1]), friend.getUserNameWithToken().split("#")[0]);
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendDM.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    DMController controller = loader.getController();
+                    controller.completeTokenToName(temp, me, friend);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Client.gotoDMWith(controller, id);
+                            }catch (Exception e){
+
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
+                    Client.changeScene(new Scene(root));
+                }
+            });
+            accountAndDMVBox.getChildren().add(root);
+        }
+    }
 }
