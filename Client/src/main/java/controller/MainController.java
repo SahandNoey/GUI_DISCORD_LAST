@@ -137,8 +137,15 @@ public class MainController implements Initializable {
     @FXML
     private Label noFieldCanBeEmptyLabel;
 
+    @FXML
+    private JFXPasswordField currentEmailTxtFld;
+
+    @FXML
+    private JFXPasswordField newEmailTxtFld;
+
     private PopupLoader addServerPopupLoader;
     private PopupLoader changePasswordPopupLoader;
+    private PopupLoader changeEmailPopupLoader;
 
     @FXML
     void emailShowCheckBoxClicked(ActionEvent event){
@@ -222,8 +229,39 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void emailEditClicked(MouseEvent event) {
+    void cancelBtnInChangeEmailClicked(MouseEvent event) {
+        changeEmailPopupLoader.close();
+        changeEmailPopupLoader = null;
+    }
 
+    @FXML
+    void doneBtnInChangeEmailClicked(MouseEvent event) {
+        if ((!currentEmailTxtFld.getText().equals(me.getEmail())) || currentEmailTxtFld.getText().equals("")
+        || newEmailTxtFld.getText().equals(""))
+        {
+            noFieldCanBeEmptyLabel.setText("Invalid Credentials");
+            noFieldCanBeEmptyLabel.setVisible(true);
+        }else {
+            changeEmailPopupLoader.close();
+            changeEmailPopupLoader = null;
+
+            // now backend for changing email
+
+
+
+        }
+    }
+
+    @FXML
+    void emailEditClicked(MouseEvent event) {
+        if (changeEmailPopupLoader == null)
+        {
+            changeEmailPopupLoader = new PopupLoader(this, "/fxml/changeEmailPopup.fxml");
+            changeEmailPopupLoader.popup(event);
+        }else {
+            changeEmailPopupLoader.close();
+            changeEmailPopupLoader = null;
+        }
     }
 
     @FXML

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="uploadServerImageClicked implemented">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/changePasswordPopup.fxml" afterDir="false" />
+    <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="changePasswordPopup.fxml created">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/changeEmailPopup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/PopupLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/PopupLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/other/MemberInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/other/MemberInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657548385646</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="changePasswordPopup.fxml created">
+      <created>1657550359689</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1657550359689</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +292,8 @@
     <MESSAGE value="specialFileUploadedMsg.fxml and specialPinnedMsg.fxml created and a controller for fileDownloading in both DM and channel added" />
     <MESSAGE value="conflict" />
     <MESSAGE value="uploadServerImageClicked implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="uploadServerImageClicked implemented" />
+    <MESSAGE value="changePasswordPopup.fxml created" />
+    <option name="LAST_COMMIT_MESSAGE" value="changePasswordPopup.fxml created" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
