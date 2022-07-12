@@ -245,9 +245,11 @@ public class Client {
         ArrayList<String> res = new ArrayList<>();
         String[] temp = m.getMessage().split(":::");
         if(temp.length > 1){
-            String[] informations = temp[1].split(",");
-            for(String information : informations){
-                res.add(information);
+            if(!temp[1].equals("%")) {
+                String[] informations = temp[1].split(",");
+                for (String information : informations) {
+                    res.add(information);
+                }
             }
         }
         return res;
@@ -259,9 +261,11 @@ public class Client {
         ArrayList<String> res = new ArrayList<>();
         String[] temp = m.getMessage().split(":::");
         if(temp.length > 1){
-            String[] informations = temp[1].split(",");
-            for(String information : informations){
-                res.add(information);
+            if(!temp[1].equals("%")) {
+                String[] informations = temp[1].split(",");
+                for (String information : informations) {
+                    res.add(information);
+                }
             }
         }
         return res;

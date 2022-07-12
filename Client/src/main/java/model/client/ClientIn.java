@@ -303,8 +303,8 @@ public class ClientIn {
 
 
                 ArrayList<AdminInfo> admins = new ArrayList<>();
-                if(!membersTemp.equals("%")) {
-                    informations = membersTemp.split(",");
+                if(!adminsTemp.equals("%")) {
+                    informations = adminsTemp.split(",");
                     for (String information : informations) {
                         String[] temp1 = information.split("-");
                         String name = temp1[0];

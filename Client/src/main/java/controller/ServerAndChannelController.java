@@ -308,12 +308,12 @@ public class ServerAndChannelController implements Initializable {
         if(name != null){
             if(!name.equals("")){
                 Client.changeServerName(name);
-                TimeUnit.MILLISECONDS.sleep(70);
+                TimeUnit.MILLISECONDS.sleep(50);
             }
         }
         if(pic != null){
             Client.changeServerPic(pic);
-            TimeUnit.MILLISECONDS.sleep(100);
+            TimeUnit.MILLISECONDS.sleep(70);
         }
     }
 
@@ -401,7 +401,7 @@ public class ServerAndChannelController implements Initializable {
         }
         ServerAndChannelController controller = loader.getController();
         Client.updateInfosInServer(id);
-        TimeUnit.MILLISECONDS.sleep(300);
+        TimeUnit.MILLISECONDS.sleep(100);
         controller.updateInfos(textChannels, voiceChannels, members, allServers, id);
         Client.changeScene(new Scene(root));
     }
@@ -580,7 +580,7 @@ public class ServerAndChannelController implements Initializable {
                     public void handle(MouseEvent event) {
                         Client.serverLogout();
                         try {
-                            TimeUnit.MILLISECONDS.sleep(200);
+                            TimeUnit.MILLISECONDS.sleep(50);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -595,7 +595,7 @@ public class ServerAndChannelController implements Initializable {
                         ServerAndChannelController controller = loader.getController();
                         Client.updateInfosInServer(id);
                         try {
-                            TimeUnit.MILLISECONDS.sleep(300);
+                            TimeUnit.MILLISECONDS.sleep(100);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
