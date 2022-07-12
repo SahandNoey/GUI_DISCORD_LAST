@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="250.0" style="-fx-background-color: #202225; -fx-border-color: #202225;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="250.0" style="-fx-background-color: #202225; -fx-border-color: #202225;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FriendsController">
    <children>
       <Label fx:id="removeFriendBtn" onMouseClicked="#removeFriendClicked" prefHeight="88.0" prefWidth="285.0" text="Remove Friend" textFill="#ed4245">
          <font>

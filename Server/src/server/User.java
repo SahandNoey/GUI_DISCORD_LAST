@@ -56,13 +56,13 @@ public class User implements Runnable {
         while (true) {
             try {
                 getCommands();
-            } catch (IOException | ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException | InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void getCommands() throws IOException, ClassNotFoundException {
+    public void getCommands() throws IOException, ClassNotFoundException, InterruptedException {
         Message m = InteractionWithUser.read(this);
         //get profile pic of a member
         if(m.getMessage().startsWith("requestProfilePic:::")){
@@ -242,6 +242,14 @@ public class User implements Runnable {
             Serverr serverr = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
             InteractionWithUser.write(new Message("%%!updateInfosInServer:::" + serverr.convertInfosTostring() + ":::"  + getMember().convertServersWithPicNameToAnString()), this);
         }
+        //block a user
+        else if(m.getMessage().startsWith("block:::")){
+            getMember().block(Integer.parseInt(m.getMessage().split(":::")[1]));
+        }
+        //remove a friend
+        else if(m.getMessage().startsWith("removeFriend:::")){
+            getMember().removeFriend(Integer.parseInt(m.getMessage().split(":::")[1]));
+        }
 
     }
 
@@ -321,7 +329,7 @@ public class User implements Runnable {
         member.setStatus(status);
     }
 
-    public void goToDMWith(String token) throws IOException, ClassNotFoundException {
+    public void goToDMWith(String token) throws IOException, ClassNotFoundException, InterruptedException {
         int id = Integer.parseInt(token);
         FriendHandling.privateChat(id, this);
     }

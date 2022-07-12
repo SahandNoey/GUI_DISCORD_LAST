@@ -3,6 +3,7 @@ package model.client;
 
 import controller.DMController;
 import controller.ServerAndChannelController;
+import model.other.AdminInfo;
 import model.other.MemberInfo;
 import model.other.Message;
 import model.other.ServerInfo;
@@ -262,23 +263,24 @@ public class ClientIn {
                 }
                 String[] informations;
                 String membersTemp = temp[1];
-                String textChannelsTemp = temp[2];
-                String voiceChannelsTemp = temp[3];
+                String adminsTemp = temp[2];
+                String textChannelsTemp = temp[3];
+                String voiceChannelsTemp = temp[4];
+                String allServersTemp = temp[5];
+
+
                 ArrayList<ServerInfo> allServers = new ArrayList<>();
-                if (temp.length > 4) {
-                    String allServersTemp = temp[4];
-                    informations = allServersTemp.split(",");
-                    for (String information : informations) {
-                        String name = information.split("#")[0];
-                        int id = Integer.parseInt(information.split("#")[1]);
-                        String picName = information.split("#")[2];
-                        if(picName.endsWith("0.jpg")){
-                            picName = null;
-                        }
-                        allServers.add(new ServerInfo(name, picName, id));
-                        if(picName != null) {
-                            Client.downloadServerPicIfDontHave(picName);
-                        }
+                informations = allServersTemp.split(",");
+                for (String information : informations) {
+                    String name = information.split("#")[0];
+                    int id = Integer.parseInt(information.split("#")[1]);
+                    String picName = information.split("#")[2];
+                    if (picName.endsWith("0.jpg")) {
+                        picName = null;
+                    }
+                    allServers.add(new ServerInfo(name, picName, id));
+                    if (picName != null) {
+                        Client.downloadServerPicIfDontHave(picName);
                     }
                 }
 
@@ -299,6 +301,28 @@ public class ClientIn {
                     }
                 }
 
+
+                ArrayList<AdminInfo> admins = new ArrayList<>();
+                if(!membersTemp.equals("%")) {
+                    informations = membersTemp.split(",");
+                    for (String information : informations) {
+                        String[] temp1 = information.split("-");
+                        String name = temp1[0];
+                        String status = temp1[1];
+                        String profilePicName = temp1[2];
+                        if (profilePicName.endsWith("0.jpg")) {
+                            profilePicName = null;
+                        }
+                        int access = Integer.parseInt(temp1[3]);
+                        admins.add(new AdminInfo(name, status, profilePicName, access));
+                        if (profilePicName != null) {
+                            Client.downloadProfilePicIfDontHave(profilePicName);
+                        }
+                    }
+                }
+
+
+
                 ArrayList<MemberInfo> members = new ArrayList<>();
                 informations = membersTemp.split(",");
                 for (String information : informations) {
@@ -313,7 +337,9 @@ public class ClientIn {
                         Client.downloadProfilePicIfDontHave(profilePicName);
                     }
                 }
-                controller.updateInfosFromClientIn(textChannels, voiceChannels, members, allServers);
+
+
+                controller.updateInfosFromClientIn(textChannels, voiceChannels, members, admins, allServers);
 
             }
         }

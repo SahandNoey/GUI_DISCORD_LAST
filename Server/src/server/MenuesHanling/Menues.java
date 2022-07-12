@@ -67,7 +67,7 @@ public class Menues {
     }
 
 
-    public static allMenues friendsMenu(User u) throws IOException, ClassNotFoundException {
+    public static allMenues friendsMenu(User u) throws IOException, ClassNotFoundException, InterruptedException {
         //todo:
         Member friend = ShowLists.showFriendsAndChooseOne(u);
         if(friend == null){

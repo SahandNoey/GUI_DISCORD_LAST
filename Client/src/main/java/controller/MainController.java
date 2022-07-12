@@ -175,6 +175,7 @@ public class MainController implements Initializable {
     private PopupLoader changeStatusPopupLoader;
     private PopupLoader changePhoneNumberPopupLoader;
 
+
     @FXML
     void emailShowCheckBoxClicked(ActionEvent event){
         if(emailShowCheckBox.isSelected()){

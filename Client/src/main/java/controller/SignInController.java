@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Popup;
 import model.client.Client;
@@ -85,6 +87,23 @@ public class SignInController implements Initializable {
 
         passwordTxtFld.textProperty().bindBidirectional(passwordPassFld.textProperty());
 
+
+    }
+
+    @FXML
+    void keyPressed(KeyEvent event) throws IOException {
+        if(event.getCode() == KeyCode.ENTER){
+            if(EmailTxtFld.getText() != null && passwordTxtFld.getText() != null) {
+                if(!EmailTxtFld.getText().equals("") && !passwordTxtFld.getText().equals("")) {
+                    if(Client.checkUserSignIn(EmailTxtFld.getText(), passwordTxtFld.getText())){
+                        signInAccepted();
+                    }
+                    else {
+                        signInNotAccepted();
+                    }
+                }
+            }
+        }
 
     }
 }

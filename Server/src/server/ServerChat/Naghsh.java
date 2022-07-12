@@ -60,4 +60,8 @@ public class Naghsh implements Serializable {
     public boolean canPinMessage(){
         return acessability % 19 == 0;
     }
+
+    public int getAcessability() {
+        return acessability;
+    }
 }

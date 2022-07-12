@@ -256,6 +256,19 @@ public class Member implements Serializable {
 
     public void block(int token) throws IOException {
         blocksTokens.add(token);
+        friendsTokens.remove((Integer) token);
+        Server.getMemberWithToken(token).blockBy(this);
+        Server.saveMembers();
+    }
+
+    public void blockBy(Member m){
+        blockedBy.add(m.getToken());
+        friendsTokens.remove((Integer) m.getToken());
+    }
+
+    public void removeFriend(int token) throws IOException {
+        friendsTokens.remove((Integer)token);
+        Server.getMemberWithToken(token).removeFriend(this.token);
         Server.saveMembers();
     }
 

@@ -24,7 +24,6 @@ public class ClientOut{
 
     public static void sendCommand(String command){
         try {
-            System.out.println(command);
             fOut.writeObject(new Message(command));
         } catch (IOException e) {
             e.printStackTrace();

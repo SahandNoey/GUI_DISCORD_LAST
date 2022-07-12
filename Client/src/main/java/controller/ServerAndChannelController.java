@@ -29,6 +29,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.client.Client;
 import model.client.ClientOut;
+import model.other.AdminInfo;
 import model.other.MemberInfo;
 import model.other.ServerInfo;
 
@@ -219,6 +220,7 @@ public class ServerAndChannelController implements Initializable {
     private int id;
     private File pic;
     private ArrayList<ServerInfo> allServers;
+    private ArrayList<AdminInfo> admins;
 
 
     @FXML
@@ -407,11 +409,12 @@ public class ServerAndChannelController implements Initializable {
         }
     }
 
-    public void updateInfosFromClientIn(ArrayList<String> textChannels, ArrayList<String> voiceChannels, ArrayList<MemberInfo> members,ArrayList<ServerInfo> allServers){
+    public void updateInfosFromClientIn(ArrayList<String> textChannels, ArrayList<String> voiceChannels, ArrayList<MemberInfo> members, ArrayList<AdminInfo> admins, ArrayList<ServerInfo> allServers){
         this.textChannels = textChannels;
         this.voiceChannels = voiceChannels;
         this.members = members;
         this.allServers = allServers;
+        this.admins = admins;
     }
 
     public void setPicName(String name){

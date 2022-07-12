@@ -222,9 +222,25 @@ public class Serverr implements Serializable {
         return picNum;
     }
 
+    public String convertAdminsToString(){
+        StringBuilder str = new StringBuilder();
+        for (int token : adminsTokens.keySet()){
+            Member m = Server.getMemberWithToken(token);
+            str.append(m.getUsername()).append("#").append(m.getToken()).append("-").append(m.getStatus()).append("-").append(m.getToken()).append("_").append(m.getPicNum()).append(".jpg").append("-").append(adminsTokens.get(token).getAcessability()).append(",");
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        else{
+            str.append("%");
+        }
+        return str.toString();
+    }
+
     public String convertInfosTostring(){
         StringBuilder str = new StringBuilder();
         str.append(convertMembersWithPicNameToAnString()).append(":::");
+        str.append(convertAdminsToString()).append(":::");
         str.append(convertTextChannelsNameToAnString()).append(":::");
         str.append(convertVoiceChannelsNameToAnString());
         return str.toString();

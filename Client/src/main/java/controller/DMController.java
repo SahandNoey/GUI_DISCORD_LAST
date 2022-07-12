@@ -336,6 +336,44 @@ public class DMController implements Initializable {
             root.setPrefHeight(75);
             root.setStyle("-fx-background-color: #2f3136; -fx-background-radius: 100;");
 
+            root.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    ClientOut.sendCommand("%%!getOutOfChat");
+                    int id = information.getId();
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    ArrayList<String> textChannels = Client.getServerTextChannelNames(id);
+                    ArrayList<String> voiceChannels = Client.getServerVoiceChannelNames(id);
+                    ArrayList<MemberInfo> members = Client.getServerMembers(id);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/serverMainPage.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    ServerAndChannelController controller = loader.getController();
+                    controller.updateInfos(textChannels, voiceChannels, members, Client.getServersForMainMenu(), id);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Client.gotoServer(controller, id);
+                            }catch (Exception e){
+
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
+                    Client.changeScene(new Scene(root));
+
+                }
+            });
+
             serversVBox.getChildren().add(root);
         }
 

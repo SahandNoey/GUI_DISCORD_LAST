@@ -563,5 +563,13 @@ public class Client {
         ClientOut.sendCommand("%%!updateInfosInServer:::" + id);
     }
 
+    public static void block(int token){
+        ClientOut.sendCommand("block:::" + token);
+    }
+
+    public static void removeFriend(int token){
+        ClientOut.sendCommand("removeFriend:::" + token);
+    }
+
 
 }

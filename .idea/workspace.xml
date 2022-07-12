@@ -2,25 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="dm part updated and pane and image view replaced with circle for profile photos">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/model/other/AdminInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/serverPics/0_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/serverPics/0_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/serverPics/1_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/profilePics/1_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/FriendsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/SignInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/addFriendspage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/addFriendspage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendOptionsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/friendOptionsPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/signIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/files/chats.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/chats.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/files/servers.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/servers.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/server/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ServerMenuHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ServerMenuHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/Menues.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/Menues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/ServerChat/Naghsh.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/ServerChat/Naghsh.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/server/ServerChat/Serverr.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/ServerChat/Serverr.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/FriendsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/SignInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/signIn.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientOut.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +184,7 @@
       <workItem from="1657568222309" duration="7268000" />
       <workItem from="1657601387134" duration="5719000" />
       <workItem from="1657607823014" duration="6830000" />
+      <workItem from="1657615672709" duration="6971000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>

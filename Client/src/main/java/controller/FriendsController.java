@@ -15,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -132,6 +134,9 @@ public class FriendsController implements Initializable {
     @FXML
     private VBox friendsListVBox;
 
+    private PopupLoader friendThreeDotPopUpLoader;
+    private int chosenFriendToken;
+
     @FXML
     void addDMBtnClicked(MouseEvent event) {
 
@@ -225,12 +230,22 @@ public class FriendsController implements Initializable {
 
     @FXML
     void blockFriendClicked(MouseEvent event) {
-
+        if(chosenFriendToken  != 0){
+            Client.block(chosenFriendToken);
+            friendThreeDotPopUpLoader.close();
+            friendThreeDotPopUpLoader = null;
+            chosenFriendToken = 0;
+        }
     }
 
     @FXML
     void removeFriendClicked(MouseEvent event) {
-
+        if(chosenFriendToken  != 0){
+            Client.removeFriend(chosenFriendToken);
+            friendThreeDotPopUpLoader.close();
+            friendThreeDotPopUpLoader = null;
+            chosenFriendToken = 0;
+        }
     }
 
     @FXML
@@ -241,6 +256,33 @@ public class FriendsController implements Initializable {
     @FXML
     void onFriendThreeDotsClicked(MouseEvent event) {
 
+    }
+
+
+    @FXML
+    void keyPressed(KeyEvent event) {
+        if(event.getCode() == KeyCode.ENTER){
+            if (addFriendusernameTxtFld.getText() != null) {
+                if (!addFriendusernameTxtFld.equals("")) {
+                    String res = Client.checkIfCanSendFriendRequestTo(addFriendusernameTxtFld.getText());
+                    if (res.equals("yes")) {
+                        sendFriendRequestResultTxt.setText("friend request sent.");
+                        sendFriendRequestResultTxt.setTextFill(Color.GREEN);
+                        sendFriendRequestResultTxt.setOpacity(1);
+                    } else {
+                        if (res.equals("invalid username")) {
+                            Alert a = new Alert(Alert.AlertType.INFORMATION);
+                            a.setTitle("FRIEND REQUEST FAILED");
+                            a.setContentText("Hm,that dont work. check username.");
+                            a.show();
+                        }
+                        sendFriendRequestResultTxt.setText(res);
+                        sendFriendRequestResultTxt.setTextFill(Color.RED);
+                        sendFriendRequestResultTxt.setOpacity(1);
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -279,6 +321,8 @@ public class FriendsController implements Initializable {
         }
 
     }
+
+
 
 
     public void showFriendsInFriendsList(ArrayList<MemberInfo> informations) {
@@ -344,6 +388,20 @@ public class FriendsController implements Initializable {
             imageView1.setLayoutY(26);
             imageView1.setPickOnBounds(true);
             imageView1.setPreserveRatio(true);
+            imageView1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (friendThreeDotPopUpLoader == null)
+                    {
+                        friendThreeDotPopUpLoader = new PopupLoader(this, "/fxml/friendOptionsPopup.fxml");
+                        chosenFriendToken = Integer.parseInt(information.getUserNameWithToken().split("#")[1]);
+                        friendThreeDotPopUpLoader.popup(event);
+                    }else {
+                        friendThreeDotPopUpLoader.close();
+                        friendThreeDotPopUpLoader = null;
+                    }
+                }
+            });
 
             //hbox1 childs
             Pane pane1;
@@ -590,7 +648,7 @@ public class FriendsController implements Initializable {
 
 
     public void showServersInMainMenuList(ArrayList<ServerInfo> informations){
-        for (ServerInfo information : informations){
+        for (ServerInfo information : informations) {
             String name;
             String picName = information.getPicName();
             ImagePattern profilePic = new ImagePattern(new Image("file:Client\\serverPics\\" + picName));
@@ -612,6 +670,38 @@ public class FriendsController implements Initializable {
             root.setPrefWidth(78);
             root.setPrefHeight(75);
             root.setStyle("-fx-background-color: #2f3136; -fx-background-radius: 100;");
+
+            root.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    int id = information.getId();
+                    ArrayList<String> textChannels = Client.getServerTextChannelNames(id);
+                    ArrayList<String> voiceChannels = Client.getServerVoiceChannelNames(id);
+                    ArrayList<MemberInfo> members = Client.getServerMembers(id);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/serverMainPage.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    ServerAndChannelController controller = loader.getController();
+                    controller.updateInfos(textChannels, voiceChannels, members, Client.getServersForMainMenu(), id);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Client.gotoServer(controller, id);
+                            } catch (Exception e) {
+
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
+                    Client.changeScene(new Scene(root));
+
+                }
+            });
 
             serversVBox.getChildren().add(root);
         }
