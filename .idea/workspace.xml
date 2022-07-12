@@ -2,25 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="dm part updated and pane and image view replaced with circle for profile photos">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MessageViewCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/controller/ReactionViewCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/msgVBox.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_1_32_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_1_32_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_17_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_17_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_23_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_8_2022_3_23_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/serverPics/0_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/serverPics/0_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/serverPics/1_1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/disLike.png" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/dislike.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/laugh4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/assets/icons/laugh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/pinAndReactionsPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/pinAndReactionsPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/reactionMsgHBox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/reactionMsgHBox.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/fxml/serverMainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/fxml/serverMainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/files/servers.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/servers.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ServerMenuHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ServerMenuHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/ServerChat/Serverr.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/ServerChat/Serverr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/fxml/serverMainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/fxml/serverMainPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -70,7 +75,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -80,24 +85,16 @@
       <recent name="D:\DISCORD_GUI\GUI_Discord_Final\GUI_DISCORD_LAST\Client\src\main\resources\assets\icons" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerRun">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="font" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.ClientStarter">
     <configuration name="ClientStarter" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="starter.ClientStarter" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path G:\javafx-sdk-18.0.1\lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../../&quot;JavaFX primary file&quot;/javaFx/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="starter.*" />
@@ -121,14 +118,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ClientStarter" />
       <item itemvalue="Application.ServerRun" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerRun" />
         <item itemvalue="Application.ClientStarter" />
+        <item itemvalue="Application.ServerRun" />
       </list>
     </recent_temporary>
   </component>
@@ -168,8 +178,6 @@
       <workItem from="1657565555053" duration="14000" />
       <workItem from="1657567178748" duration="911000" />
       <workItem from="1657568222309" duration="7268000" />
-      <workItem from="1657601387134" duration="5719000" />
-      <workItem from="1657607823014" duration="6830000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
@@ -229,6 +237,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a commit for conflict resolve" />
@@ -237,5 +246,16 @@
     <MESSAGE value="friendsListPage.fxml changed , friendOptionsPopup.fxml created , mainMenu.fxml merged and updated , selectFriendPopup.fxml created" />
     <MESSAGE value="dm part updated and pane and image view replaced with circle for profile photos" />
     <option name="LAST_COMMIT_MESSAGE" value="dm part updated and pane and image view replaced with circle for profile photos" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java</url>
+          <line>218</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

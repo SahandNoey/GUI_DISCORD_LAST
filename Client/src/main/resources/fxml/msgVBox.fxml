@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="msgVBox" alignment="CENTER_LEFT" onMouseClicked="#onMsgClicked" spacing="5.0" style="-fx-background-color: #202225;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MessageViewCreator">
+   <children>
+      <HBox fx:id="msgHBox" alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="27.0" prefWidth="581.0" spacing="15.0" style="-fx-background-color: #202225;">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <Circle fx:id="channelMsgSenderProfileCircle" fill="DODGERBLUE" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="msgContentLabel" text="Welcome to our channel." textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="msgReactionsHBox" alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0" />
+   </children>
+   <padding>
+      <Insets left="5.0" right="5.0" />
+   </padding>
+</VBox>

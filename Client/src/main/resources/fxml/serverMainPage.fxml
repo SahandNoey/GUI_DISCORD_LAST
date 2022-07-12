@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServerAndChannelController">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServerAndChannelController">
    <children>
       <VBox fx:id="serversVBox" alignment="TOP_CENTER" prefHeight="630.0" prefWidth="81.0" spacing="10.0" style="-fx-background-color: #202225;">
          <children>
@@ -215,30 +215,7 @@
                   </HBox>
                   <ScrollPane hbarPolicy="NEVER" style="-fx-background-color: #2f3136;">
                      <content>
-                        <VBox fx:id="onTopChannelVBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="596.0" spacing="3.0" style="-fx-background-color: #2f3136;">
-                           <children>
-                              <VBox fx:id="eachChannelMsgVBox" alignment="CENTER_LEFT" onMouseClicked="#onMsgClicked" spacing="5.0" style="-fx-background-color: #202225;">
-                                 <children>
-                                    <HBox fx:id="eachChannelMsgHBox" alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="27.0" prefWidth="581.0" spacing="15.0" style="-fx-background-color: #202225;">
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                       <children>
-                                          <Circle fx:id="channelMsgSenderProfileCircle" fill="DODGERBLUE" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <Label fx:id="channelMsgTextField" text="Welcome to our channel." textFill="WHITE" wrapText="true">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="15.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </VBox>
-                           </children>
-                        </VBox>
+                        <VBox fx:id="onTopChannelVBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="596.0" spacing="3.0" style="-fx-background-color: #2f3136;" />
                      </content>
                   </ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" spacing="7.0" style="-fx-background-color: #2f3136; -fx-background-radius: 20;">

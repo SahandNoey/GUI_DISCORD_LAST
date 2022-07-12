@@ -41,7 +41,7 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    private MemberInfo me;
+    private static MemberInfo me;
 
     @FXML
     private TextField newUsernameTxtField;
@@ -658,7 +658,7 @@ public class MainController implements Initializable {
                     temp.put(Integer.parseInt(me.getUserNameWithToken().split("#")[1]), me.getUserNameWithToken().split("#")[0]);
                     temp.put(Integer.parseInt(friend.getUserNameWithToken().split("#")[1]), friend.getUserNameWithToken().split("#")[0]);
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/friendDM.fxml"));
+                    FXMLLoader loader = new FXMLLoader(DMController.class.getResource("/fxml/friendDM.fxml"));
                     Parent root = null;
                     try {
                         root = loader.load();
@@ -685,6 +685,10 @@ public class MainController implements Initializable {
         }
     }
 
+
+    public static MemberInfo getMe() {
+        return me;
+    }
 }
 
 

@@ -5,6 +5,7 @@ package controller;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -25,6 +26,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
+import model.client.Client;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.client.Client;
@@ -233,7 +235,18 @@ public class ServerAndChannelController implements Initializable {
 
     @FXML
     void channelSendMsgClicked(MouseEvent event) {
-
+        if (!channelSendMsgTxtFld.getText().equals("")){
+            FXMLLoader msgLoader = new FXMLLoader();
+            msgLoader.setLocation(MessageViewCreator.class.getResource("/fxml/msgVBox.fxml"));
+            try {
+                msgLoader.load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            MessageViewCreator msgController = msgLoader.getController();
+            msgController.setInfo(MainController.getMe(), channelSendMsgTxtFld.getText());
+            onTopChannelVBox.getChildren().add(msgLoader.getRoot());
+        }
     }
 
     @FXML
@@ -243,6 +256,7 @@ public class ServerAndChannelController implements Initializable {
 
     @FXML
     void homeBtnClicked(MouseEvent event) {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/fxml/mainMenu.fxml"));
 
     }
 
