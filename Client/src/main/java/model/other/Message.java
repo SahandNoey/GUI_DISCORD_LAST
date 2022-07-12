@@ -16,6 +16,7 @@ public class Message implements Serializable {
     public Message(String message){
         this.message = message;
         this.reactionMemberNames = new HashMap<>();
+        this.date = new Date(LocalDateTime.now());
     }
 
 
@@ -30,11 +31,13 @@ public class Message implements Serializable {
         this.content = content;
         this.message = message;
         this.authorToken = authorToken;
+        this.date = new Date(LocalDateTime.now());
     }
     public Message(byte[] content, String message){
         this.content = content;
         this.message = message;
         this.authorToken = 0;
+        this.date = new Date(LocalDateTime.now());
     }
 
 

@@ -183,8 +183,9 @@ public class DMController implements Initializable {
     }
 
     @FXML
-    void homeBtnClicked(MouseEvent event) throws IOException {
+    void homeBtnClicked(MouseEvent event) throws IOException, InterruptedException {
         ClientOut.sendCommand("%%!getOutOfChat");
+        TimeUnit.MILLISECONDS.sleep(30);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
         Parent root = loader.load();
         Client.changeScene(new Scene(root));
@@ -428,7 +429,7 @@ public class DMController implements Initializable {
                 public void handle(MouseEvent event) {
                     ClientOut.sendCommand("%%!getOutOfChat");
                     try {
-                        TimeUnit.MILLISECONDS.sleep(500);
+                        TimeUnit.MILLISECONDS.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

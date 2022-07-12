@@ -674,7 +674,6 @@ public class MainController implements Initializable {
                             try {
                                 Client.gotoDMWith(controller, id);
                             }catch (Exception e){
-
                                 e.printStackTrace();
                             }
                         }

@@ -44,7 +44,7 @@ public class FriendHandling {
                             }
                         }
                     }).start();
-                    return;
+                    continue;
                 }
                 else if(m.getMessage().equals("%%!isTyping")){
                     target.addNewMessage(new Message("notSelf%%!isTyping"), u);
