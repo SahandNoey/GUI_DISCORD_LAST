@@ -520,6 +520,11 @@ public class ServerAndChannelController implements Initializable {
                 String picName = information.getPicName();
                 ImagePattern profilePic = new ImagePattern(new Image("file:Client\\serverPics\\" + picName));
                 Pane root;
+                if(information.getId() == id){
+                    if(serverImgCircleInSettings != null){
+                        serverImgCircleInSettings.setFill(profilePic);
+                    }
+                }
 
 
                 //root childs
@@ -550,5 +555,6 @@ public class ServerAndChannelController implements Initializable {
         if(serversVBox.getChildren().size() < 3) {
             showServersInMainMenuList(Client.getServersForMainMenu());
         }
+
     }
 }
