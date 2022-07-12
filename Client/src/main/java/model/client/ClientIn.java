@@ -244,6 +244,45 @@ public class ClientIn {
     }
 
 
+    public static void gotoTextChannel(ServerAndChannelController controller) throws IOException, InterruptedException {
+        while (true) {
+            Message m = getMessage();
+            if (m.getMessage().equals("%%!getOutOfChannel")) {
+                return;
+            }
+            else if(m.getMessage().equals("%%!getOutOfServer")){
+                return;
+            }
+            else if (m.getContent() != null) {
+                byte[] content = m.getContent();
+                File f = new File("Client\\downloads\\" + m.getMessage());
+                f.createNewFile();
+                FileOutputStream fO = new FileOutputStream(f);
+                fO.write(content);
+                fO.flush();
+                fO.close();
+                controller.setTempText("");
+                continue;
+            } else if (m.getMessage().equals("notSelf%%!isTyping")) {
+                controller.setTempText("is Typing...");
+                continue;
+            } else if (m.getMessage().equals("notSelf%%!isNotTyping")) {
+                controller.setTempText("");
+                continue;
+            }
+            if (ClientStarter.stage.isShowing()) {
+                controller.addMessage(m);
+            } else {
+                ClientOut.sendCommand("%%!getOutOfChannel");
+                TimeUnit.MILLISECONDS.sleep(500);
+                Client.logOut();
+                return;
+            }
+
+        }
+    }
+
+
     public static void gotoServer(ServerAndChannelController controller) throws IOException, InterruptedException {
         while (true) {
             Message m = getMessage();

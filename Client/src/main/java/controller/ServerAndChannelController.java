@@ -2,6 +2,7 @@ package controller;
 
 //import com.jfoenix.controls.JFXTextField;
 //import com.jfoenix.controls.JFXToggleButton;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +12,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -26,6 +24,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import model.client.Client;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -33,6 +32,7 @@ import model.client.Client;
 import model.client.ClientOut;
 import model.other.AdminInfo;
 import model.other.MemberInfo;
+import model.other.Message;
 import model.other.ServerInfo;
 
 import java.io.File;
@@ -216,6 +216,12 @@ public class ServerAndChannelController implements Initializable {
     @FXML
     private Label specialPinnedMsgLabel;
 
+    @FXML
+    private Text tempText;
+
+    @FXML
+    private ScrollPane scrollPane;
+
     private ArrayList<String> textChannels;
     private ArrayList<String> voiceChannels;
     private ArrayList<MemberInfo> members;
@@ -257,7 +263,12 @@ public class ServerAndChannelController implements Initializable {
     }
 
     @FXML
-    void homeBtnClicked(MouseEvent event) {
+    void homeBtnClicked(MouseEvent event) throws InterruptedException, IOException {
+        Client.serverLogout();
+        TimeUnit.MILLISECONDS.sleep(30);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
+        Parent root = loader.load();
+        Client.changeScene(new Scene(root));
     }
 
     @FXML
@@ -386,6 +397,51 @@ public class ServerAndChannelController implements Initializable {
 
     }
 
+    public void setTempText(String text){
+        tempText.setText(text);
+    }
+
+
+    public MemberInfo getMemberInfoWithToken(int token){
+        for(MemberInfo memberInfo : members){
+            if(token == Integer.parseInt(memberInfo.getUserNameWithToken().split("#")[1])){
+                return memberInfo;
+            }
+        }
+        return new MemberInfo("anonymous#0", "Online", null);
+    }
+
+    public void addMessage(Message m) {
+        scrollPane.setContent(onTopChannelVBox);
+        MemberInfo memberInfo = getMemberInfoWithToken(m.getAuthorToken());
+
+        if(!m.getMessage().startsWith("%%!file:::")) {
+            FXMLLoader msgLoader = new FXMLLoader();
+            msgLoader.setLocation(MessageViewCreator.class.getResource("/fxml/msgVBox.fxml"));
+            try {
+                msgLoader.load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            MessageViewCreator msgController = msgLoader.getController();
+            msgController.setInfo(memberInfo, m.getMessage());
+            onTopChannelVBox.getChildren().add(msgLoader.getRoot());
+        }
+        else{
+            FXMLLoader msgLoader = new FXMLLoader();
+            msgLoader.setLocation(MessageViewCreator.class.getResource("/fxml/msgVBox.fxml"));
+            try {
+                msgLoader.load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            MessageViewCreator msgController = msgLoader.getController();
+            msgController.setInfo(memberInfo, "New File : " + m.getMessage().split(":::")[1]);
+            onTopChannelVBox.getChildren().add(msgLoader.getRoot());
+        }
+
+    }
+
 
 
 
@@ -456,9 +512,18 @@ public class ServerAndChannelController implements Initializable {
                 root.setStyle("-fx-background-color: #202225;");
                 root.setPadding(new Insets(5, 5, 5, 5));
 
+                ServerAndChannelController controller = this;
                 root.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
+                        Client.channelLogout();
+                        try {
+                            TimeUnit.MILLISECONDS.sleep(100);
+                            Client.goToTextChannel(name , id, controller);
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        onTopChannelVBox.getChildren().clear();
 
                     }
                 });

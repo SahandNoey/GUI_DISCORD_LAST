@@ -575,5 +575,14 @@ public class Client {
         ClientOut.sendCommand("removeFriend:::" + token);
     }
 
+    public static void goToTextChannel(String channelName, int serverId, ServerAndChannelController controller) throws IOException, InterruptedException {
+        cOut.sendCommand("goToTextChannel:::" + serverId + ":::" + channelName);
+        cIn.gotoTextChannel(controller);
+    }
+
+    public static void channelLogout(){
+        ClientOut.sendCommand("%%!getOutOfChannel");
+    }
+
 
 }

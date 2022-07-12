@@ -1,5 +1,6 @@
 package server.ServerChat;
 
+import server.Chat;
 import server.Member;
 import server.Server;
 
@@ -244,5 +245,16 @@ public class Serverr implements Serializable {
         str.append(convertTextChannelsNameToAnString()).append(":::");
         str.append(convertVoiceChannelsNameToAnString());
         return str.toString();
+    }
+
+    public Chat getTextChannelWithName(String name){
+        for (Channel channel : channels){
+            if(channel instanceof TextChannel){
+                if(name.equals(channel.getName())){
+                    return ((TextChannel) channel).getChat();
+                }
+            }
+        }
+        return null;
     }
 }

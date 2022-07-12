@@ -60,6 +60,53 @@ public class ServerMenuHandling {
                 serverr = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
                 InteractionWithUser.write(new Message("%%!updateInfosInServer:::" + serverr.convertInfosTostring() + ":::" + u.getMember().convertServersWithPicNameToAnString()), u);
             }
+
+
+            else if(m.getMessage().startsWith("goToTextChannel:::")){
+                String channelName = m.getMessage().split(":::")[2];
+                int serverId = Integer.parseInt(m.getMessage().split(":::")[1]);
+                Chat target = Server.getServerrWithId(id).getTextChannelWithName(channelName);
+                target.newInChatMember(u);
+                while (true) {
+                    Message m1 = InteractionWithUser.read(u);
+                    if (m1.getMessage().startsWith("%%!")) {
+                        if (m1.getMessage().startsWith("%%!getOutOfChannel")) {
+                            target.removeInChatMember(u);
+                            InteractionWithUser.write(new Message("%%!getOutOfChannel"), u);
+                            break;
+                        } else if(m1.getMessage().startsWith("%%!getOutOfServer")){
+                            target.removeInChatMember(u);
+                            InteractionWithUser.write(new Message("%%!getOutOfServer"), u);
+                            return;
+                        }
+                        else if (m1.getMessage().startsWith("%%!getFile:::")) {
+                            Message file = target.getFileWithName(m1.getMessage().split(":::")[2]);
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        InteractionWithUser.write(file, u);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }).start();
+                            return;
+                        } else if (m1.getMessage().equals("%%!isTyping")) {
+                            target.addNewMessage(new Message("notSelf%%!isTyping"), u);
+                            continue;
+                        } else if (m1.getMessage().equals("%%!isNotTyping")) {
+                            target.addNewMessage(new Message("notSelf%%!isNotTyping"), u);
+                            continue;
+                        }
+                    }
+                    if (m.getContent() != null) {
+                        target.addNewFile(m1);
+                        target.addNewMessage(new Message("%%!file:::" + m.getMessage(), u.getMember().getToken()), u);
+                        continue;
+                    }
+                }
+            }
         }
 //        int choice;
 //        if (serverr.getOwnerToken() == u.getMember().getToken() || serverr.isAdmin(u.getUserName())) {
