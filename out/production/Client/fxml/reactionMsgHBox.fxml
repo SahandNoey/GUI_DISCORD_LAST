@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="emojiHBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="87.0" spacing="20.0" style="-fx-background-color: #2f3136;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServerAndChannelController">
+<HBox fx:id="reactHBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="87.0" spacing="20.0" style="-fx-background-color: #2f3136;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReactionViewCreator">
    <children>
-      <ImageView fx:id="emojiImgView" fitHeight="31.0" fitWidth="27.0" layoutX="157.0" layoutY="33.0" onMouseClicked="#dislikeClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="reactImgView" fitHeight="31.0" fitWidth="27.0" layoutX="157.0" layoutY="33.0" onMouseClicked="#onReactionClicked" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/icons/disLike.png" />
+            <Image url="@../assets/icons/dislike.png" />
          </image>
          <HBox.margin>
-            <Insets top="10.0" />
+            <Insets />
          </HBox.margin>
       </ImageView>
-      <Label fx:id="emojiNumberLabel" text="5" textFill="WHITE">
+      <Label fx:id="reactLabel" text="1" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

@@ -22,7 +22,7 @@
       <Pane layoutX="93.0" layoutY="15.0" prefHeight="64.0" prefWidth="5.0" style="-fx-background-color: #202225;" />
       <ImageView fitHeight="31.0" fitWidth="27.0" layoutX="157.0" layoutY="33.0" onMouseClicked="#dislikeClicked" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/icons/disLike.png" />
+            <Image url="@../assets/icons/dislike.png" />
          </image>
          <HBox.margin>
             <Insets top="10.0" />
@@ -31,7 +31,7 @@
       <Pane layoutX="168.0" layoutY="15.0" prefHeight="64.0" prefWidth="5.0" style="-fx-background-color: #202225;" />
       <ImageView fitHeight="37.0" fitWidth="44.0" layoutX="171.0" layoutY="33.0" onMouseClicked="#laughClicked" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/icons/laugh4.png" />
+            <Image url="@../assets/icons/laugh.png" />
          </image>
       </ImageView>
    </children>
