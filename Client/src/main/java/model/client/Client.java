@@ -547,5 +547,17 @@ public class Client {
         cIn.gotoServer(controller);
     }
 
+    public static void changeServerName(String name){
+        ClientOut.sendCommand("changeServerName:::" + name);
+    }
+
+    public static void changeServerPic(File file) throws IOException {
+        ClientOut.sendFile(new Message(setServerPic(file), "changeServerPic"));
+    }
+
+    public static void serverLogout(){
+        ClientOut.sendCommand("%%!getOutOfServer");
+    }
+
 
 }

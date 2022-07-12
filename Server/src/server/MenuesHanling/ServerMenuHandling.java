@@ -40,7 +40,19 @@ public class ServerMenuHandling {
         while (true){
             Message m = InteractionWithUser.read(u);
             if(m.getMessage().equals("%%!getOutOfServer")){
+                InteractionWithUser.write(m, u);
                 return;
+            }
+            //change server name
+            else if (m.getMessage().startsWith("changeServerName:::")) {
+                serverr.setName(m.getMessage().split(":::")[1]);
+            }
+            //change server pic
+            else if(m.getMessage().equals("changeServerPic")){
+                serverr.setPic(m.getContent());
+            }
+            else if(m.getMessage().startsWith("getServersForMainMenu")){
+                InteractionWithUser.write(new Message("%%!serversForMainMenu:::" + u.getMember().convertServersToAnString()), u);
             }
         }
 //        int choice;

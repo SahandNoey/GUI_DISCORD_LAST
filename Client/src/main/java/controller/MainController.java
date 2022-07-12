@@ -585,7 +585,7 @@ public class MainController implements Initializable {
                         e.printStackTrace();
                     }
                     ServerAndChannelController controller = loader.getController();
-                    controller.setChannels(textChannels, voiceChannels, members);
+                    controller.setChannels(textChannels, voiceChannels, members, id);
                     new Thread(new Runnable() {
                         @Override
                         public void run() {

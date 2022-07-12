@@ -238,7 +238,6 @@ public class User implements Runnable {
             member.setPassword(m.getMessage().split(":::")[1]);
         }
 
-
     }
 
 
