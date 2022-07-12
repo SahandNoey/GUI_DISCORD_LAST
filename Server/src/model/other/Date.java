@@ -82,6 +82,9 @@ public class Date implements Serializable {
             return -1;
         }
         return 0;
+    }
 
+    public String toString(){
+        return "" + day + "/" + month + "/" + year + "    " + hour + ":" + minute;
     }
 }

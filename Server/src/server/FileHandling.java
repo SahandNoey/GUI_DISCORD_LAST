@@ -6,9 +6,9 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class FileHandling {
-    private String membersPath;
-    private String serversPath;
-    private String chatsPath;
+    private final String membersPath;
+    private final String serversPath;
+    private final String chatsPath;
 
     public FileHandling(String membersPath, String serversPath,String chatsPath){
         this.membersPath = membersPath;
@@ -20,8 +20,7 @@ public class FileHandling {
     public ArrayList<Member> getMembers() throws IOException, ClassNotFoundException {
         try(ObjectInputStream fIn = new ObjectInputStream(new FileInputStream(membersPath))) {
             Object temp = fIn.readObject();
-            ArrayList<Member> members = (ArrayList<Member>) temp;
-            return members;
+            return (ArrayList<Member>) temp;
         }
         catch (EOFException e){
             return new ArrayList<Member>();
@@ -37,8 +36,7 @@ public class FileHandling {
     public ArrayList<Serverr> getServers() throws IOException, ClassNotFoundException {
         try(ObjectInputStream fIn = new ObjectInputStream(new FileInputStream(serversPath))) {
             Object temp = fIn.readObject();
-            ArrayList<Serverr> serverrs = (ArrayList<Serverr>) temp;
-            return serverrs;
+            return (ArrayList<Serverr>) temp;
         }
         catch(EOFException e){
             return new ArrayList<Serverr>();
@@ -53,8 +51,7 @@ public class FileHandling {
     public ArrayList<Chat> getChats() throws IOException, ClassNotFoundException {
         try(ObjectInputStream fIn = new ObjectInputStream(new FileInputStream(chatsPath))) {
             Object temp = fIn.readObject();
-            ArrayList<Chat> chats = (ArrayList<Chat>) temp;
-            return chats;
+            return (ArrayList<Chat>) temp;
         }
         catch(EOFException e){
             System.out.println(e.getMessage());

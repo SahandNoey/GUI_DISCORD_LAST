@@ -99,12 +99,6 @@ public class Chat implements Serializable {
         return null;
     }
 
-    public byte[] getFileWithIndex(int n){
-        return files.get(n).getContent();
-    }
-    public String getFileNameIndex(int n){
-        return files.get(n).getMessage();
-    }
 
     public void addWelcomeMessage(String name) throws IOException {
         messages.add(new Message("new member (" + name + ") joined.\n" + firstMessage));
@@ -114,30 +108,7 @@ public class Chat implements Serializable {
     public ArrayList<Integer> getMembersTokens() {
         return membersTokens;
     }
-    public String showFiles(){
-        int i = 1;
-        StringBuilder str = new StringBuilder("");
-        for(Message file : files){
-            str.append(i).append(".").append(file.getMessage()).append("\n");
-            i++;
-        }
-        return str.toString();
-    }
 
-    public int filesSize(){
-        return files.size();
-    }
-
-
-
-    public boolean isFor(ArrayList<Member> members1){
-        for(Member m : members){
-            if(!members1.contains(m)){
-                return false;
-            }
-        }
-        return true;
-    }
 
     public void newInChatMember(User u) throws IOException {
         if(membersTokens.contains(u.getMember().getToken()) && !inChat.contains(u)){
@@ -197,24 +168,6 @@ public class Chat implements Serializable {
             return null;
         }
         return messages.get(pinnedMessageIndex);
-    }
-
-    public void isTyping(User u) throws IOException {
-        isTyping.add(u.getMember());
-        for(User online : inChat){
-            if(online != u){
-                InteractionWithUser.write(new Message(u.getUserName() + " is typing..."), online);
-            }
-        }
-    }
-
-    public void endTyping(User u) throws IOException {
-        isTyping.remove(u.getMember());
-        for(User online : inChat){
-            if(online != u){
-                InteractionWithUser.write(new Message(u.getUserName() + " is not typing anymore."), online);
-            }
-        }
     }
 
     public void addToLimitedList(String username){

@@ -3,10 +3,12 @@ package server.ServerChat;
 import server.Member;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public abstract class Channel implements Serializable {
+    @Serial
     private static final long serialVersionUID = 70020380;
     private String name;
     private transient Serverr serverr;

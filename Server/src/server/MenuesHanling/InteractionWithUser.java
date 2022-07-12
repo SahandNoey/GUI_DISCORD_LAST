@@ -55,22 +55,4 @@ public class InteractionWithUser {
         return null;
     }
 
-    public static int getChoice(int l, int h, String matn, ObjectOutputStream fOut, ObjectInputStream fIn, User u) throws IOException {
-        int choice = 0;
-        while (true) {
-            try {
-                InteractionWithUser.write(new Message(matn), u);
-                String m = InteractionWithUser.read(u).getMessage();
-                choice = Integer.parseInt(m);
-                if (choice <= h && choice >= l - 1) {
-                    break;
-                }
-                InteractionWithUser.write(new Message("invalid input"), u);
-            } catch (Exception e) {
-                InteractionWithUser.write(new Message("invalid input"), u);
-            }
-        }
-        return choice;
-    }
-
 }

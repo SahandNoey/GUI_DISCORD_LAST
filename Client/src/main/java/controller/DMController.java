@@ -268,6 +268,9 @@ public class DMController implements Initializable {
                 }
             });
         }
+        Label label3 = new Label(m.getDate().toString());
+        label3.setTextFill(Color.BLUE);
+        label3.setFont(new Font(12));
 
         //pane1 childs
         Circle profilePicCircle = new Circle();
@@ -282,10 +285,10 @@ public class DMController implements Initializable {
         pane1 = new Pane(profilePicCircle);
         pane1.setStyle("-fx-background-radius: 100;");
         if(m.getMessage().startsWith("%%!file:::")){
-            hBox1 = new HBox(pane1, label2, label1);
+            hBox1 = new HBox(pane1, label2, label3, label1);
         }
         else{
-            hBox1 = new HBox(pane1, label1);
+            hBox1 = new HBox(pane1, label3, label1);
         }
         hBox1.setAlignment(Pos.CENTER_LEFT);
         hBox1.setSpacing(20);

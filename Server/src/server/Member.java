@@ -2,34 +2,32 @@ package server;
 
 import server.ServerChat.Serverr;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Member implements Serializable {
+    @Serial
     private static final long serialVersionUID = 70020312;
 
     private String username;
     private String password;
-    private ArrayList<Integer> friendsTokens;
-    private HashMap<Integer, Integer> chatsId;
+    private final ArrayList<Integer> friendsTokens;
+    private final HashMap<Integer, Integer> chatsId;
     private String email;
     private String phoneNumber;
     private String status;
-    private ArrayList<Integer> friendRequestsTokens;
-    private ArrayList<Integer> sentFriendRequestsToken;
-    private ArrayList<Integer> blocksTokens;
+    private final ArrayList<Integer> friendRequestsTokens;
+    private final ArrayList<Integer> sentFriendRequestsToken;
+    private final ArrayList<Integer> blocksTokens;
     transient private ArrayList<Serverr> servers;
-    private ArrayList<Integer> serversIDs;
+    private final ArrayList<Integer> serversIDs;
     private boolean isOnline;
     private byte[] pic;
-    private int token;
+    private final int token;
     transient private static int a = 1;
     private int picNum = 0;
-    private ArrayList<Integer> blockedBy;
+    private final ArrayList<Integer> blockedBy;
 
     public Member(String username, String password, String email){
         token = a;
@@ -112,10 +110,6 @@ public class Member implements Serializable {
         return token;
     }
 
-    public void addBlock(Member friend) throws IOException {
-        blocksTokens.add(friend.getToken());
-        Server.saveMembers();
-    }
     public void addServerr(Serverr serverr) throws IOException {
         servers.add(serverr);
         serversIDs.add(serverr.getId());
@@ -145,32 +139,13 @@ public class Member implements Serializable {
     }
 
     public boolean isFriend(int token){
-        if(friendsTokens.contains(token)){
-            return true;
-        }
-        return false;
+        return friendsTokens.contains(token);
     }
 
     public boolean isInFriendRequest(int token){
-        if(friendRequestsTokens.contains(token)){
-            return true;
-        }
-        return false;
+        return friendRequestsTokens.contains(token);
     }
 
-    public String showFriendRequests(){
-        StringBuilder res = new StringBuilder("");
-        int i = 1;
-        for(int n : friendRequestsTokens){
-            res.append(i).append(".").append(Server.getMemberWithToken(n).getPassword()).append("\n");
-            i++;
-        }
-        return res.toString();
-    }
-
-    public int friendRequestsSize(){
-        return friendRequestsTokens.size();
-    }
 
     public boolean haveFriendRequestFrom(int n){
         if(friendRequestsTokens.contains(n)){
@@ -208,23 +183,13 @@ public class Member implements Serializable {
         Server.saveMembers();
     }
 
-    public int friendRequestWithNumber(int n){
-        return friendRequestsTokens.get(n);
-    }
 
     public void addChatId(int n, int chatId) throws IOException {
         chatsId.put(n, chatId);
         Server.saveMembers();
     }
 
-    public boolean isInMembersOfChat(int n){
-        if(chatsId.containsKey(n)){
-            return true;
-        }
-        return false;
-    }
-
-    public Chat getChatWithName(int token, ArrayList<Chat> chats){
+    public Chat getChatWithToken(int token, ArrayList<Chat> chats){
         int n = chatsId.get(token);
         for(Chat chat : chats){
             if(chat.getId() == n){
@@ -273,10 +238,7 @@ public class Member implements Serializable {
     }
 
      public boolean isBlocked(int token){
-        if(blocksTokens.contains(token)){
-            return true;
-        }
-        return false;
+         return blocksTokens.contains(token);
      }
 
      public void unblock(int token) throws IOException {
@@ -284,9 +246,6 @@ public class Member implements Serializable {
          Server.saveMembers();
      }
 
-     public String profile(){
-         return "Username : " + username + "\nEmail : " + email + "\nPhone number : " + phoneNumber;
-     }
 
      public void deleteServerr(Serverr serverr) throws IOException {
         servers.remove(serverr);
@@ -399,16 +358,6 @@ public class Member implements Serializable {
         return str.toString();
     }
 
-    public String convertServersToAnStringWithPicName(){
-        StringBuilder str = new StringBuilder();
-        for (Serverr serverr : servers){
-            str.append(serverr.getName()).append("#").append(serverr.getId()).append(",").append(token).append("_").append(picNum).append(".jpg");
-        }
-        if(str.length() > 0) {
-            str.deleteCharAt(str.length() - 1);
-        }
-        return str.toString();
-    }
 
     public Serverr getServerrWithId(int id){
         for(Serverr serverr : servers){
@@ -419,4 +368,20 @@ public class Member implements Serializable {
         return null;
     }
 
+    public boolean isInMembersOfChat(int n){
+        if(chatsId.containsKey(n)){
+            return true;
+        }
+        return false;
+    }
+
+    public Chat getChatWithName(int token, ArrayList<Chat> chats){
+        int n = chatsId.get(token);
+        for(Chat chat : chats){
+            if(chat.getId() == n){
+                return chat;
+            }
+        }
+        return null;
+    }
 }

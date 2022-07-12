@@ -9,16 +9,6 @@ import java.util.ArrayList;
 public class FriendHandling {
 
     public static void privateChat(int friendToken, User u) throws IOException, ClassNotFoundException {
-//        if (friend.isBlocked(u.getMember().getToken())) {
-//            InteractionWithUser.write(new Message("this user has blocked you."), u);
-//            return User.allMenues.FRIENDS;
-//        }
-//        if (u.getMember().isBlocked(friend.getToken())) {
-//            InteractionWithUser.write(new Message("you have blocked this user."), u);
-//            return User.allMenues.FRIENDS;
-//        }
-
-//        ArrayList<Chat> chats = u.getServer().getChats();
         Chat target = null;
         Member friend = Server.getMemberWithToken(friendToken);
         if (u.getMember().isInMembersOfChat(friend.getToken())) {
@@ -71,15 +61,7 @@ public class FriendHandling {
                 continue;
             }
             target.addNewMessage(new Message(m.getMessage(), u.getMember().getToken()), u);
-//            switch (InChatFuncs.getInChatChoice(target, u)) {
-//                case 1:
-//                    target.isTyping(u);
-//                    target.addNewMessage(InteractionWithUser.read(u, u.getUserName()));
-//                    target.endTyping(u);
-//                    break;
-//                case 2:
-//                    InChatFuncs.reactToAMessageIn(u,target.getMessages());
-//                    break;
+//          InChatFuncs.reactToAMessageIn(u,target.getMessages());
 //                case 3 :
 //                    Message temp = target.getPinnedMessage();
 //                    if(temp == null){
@@ -87,40 +69,13 @@ public class FriendHandling {
 //                    }
 //                    else{
 //                        InteractionWithUser.write(temp, u);
-//                    }
+
 //                    break;
-//                case 4 :
-//                    InChatFuncs.sendFile(u,target);
-//                    break;
-//                case 5 :
-//                    InChatFuncs.downloadFile(u,target);
-//                    break;
-//                case 6:
-//                    target.removeInChatMember(u);
-//                    return User.allMenues.FRIENDS;
-//            }
         }
     }
 
-    public static int showProfileAndChoose(Member friend, User u) throws IOException {
-        String matn = "";
-        if (u.getMember().isBlocked(friend.getToken())) {
-            matn = friend.profile() + "\n1.profile pic\n2.Private chat\n3.Unblock\n4.Back";
-        } else {
-            matn = friend.profile() + "\n1.profile pic\n2.Private chat\n3.Block\n4.Back";
-        }
-        return InteractionWithUser.getChoice(1, 4, matn, u.getfOut(), u.getfIn(), u);
-    }
 
-    public static void blockUnblock(Member friend, User u) throws IOException {
-        if (u.getMember().isBlocked(friend.getToken())) {
-            u.getMember().unblock(friend.getToken());
-        } else {
-            u.getMember().block(friend.getToken());
-        }
-    }
-
-    public static void sendFriendRequest(String nameWithTag, User u) throws IOException, ClassNotFoundException {
+    public static void sendFriendRequest(String nameWithTag, User u) throws IOException{
         String name = "";
         int token = 0;
         try {
@@ -157,17 +112,5 @@ public class FriendHandling {
                 InteractionWithUser.write(new Message("you are friends."), u);
             }
         }
-    }
-
-
-    public static User.allMenues recievedFriendRequests(User u) throws IOException {
-        int n = u.getMember().friendRequestsSize() + 1;
-        int choice = InteractionWithUser.getChoice(1, n, u.getMember().showFriendRequests() + "\n" + n + ".back", u.getfOut(), u.getfIn(), u);
-        if (choice == n) {
-            return User.allMenues.FRIENDREQUESTS;
-        }
-        u.getMember().acceptFriendRequest(Server.getMemberWithToken(u.getMember().friendRequestWithNumber(choice - 1)));
-        InteractionWithUser.write(new Message("friend added."), u);
-        return User.allMenues.FRIENDREQUESTS;
     }
 }

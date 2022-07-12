@@ -5,6 +5,7 @@ import server.Member;
 import server.Server;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ public class Serverr implements Serializable {
     private byte[] pic;
     private int picNum;
 
+    @Serial
     private static final long serialVersionUID = 70020330;
 
     public Serverr(String name ,int ownerToken) throws IOException {
@@ -114,41 +116,6 @@ public class Serverr implements Serializable {
         return name;
     }
 
-    public String membersToString(Server server){
-        StringBuilder str = new StringBuilder("");
-        int i = 1;
-        for(Integer member : membersTokens){
-            str.append("\n").append(i).append(".").append(member).append("   ").append(Server.getMemberWithToken(member).getStatus());
-            i++;
-        }
-        return str.toString();
-    }
-
-    public int membersSize(){
-        return membersTokens.size();
-    }
-
-    public String channelsToString(){
-        StringBuilder str = new StringBuilder("");
-        int i = 1;
-        for(Channel channel: channels){
-            str.append("\n").append(i).append(".").append(channel.getName());
-            i++;
-        }
-        return str.toString();
-    }
-
-    public int channelsSize(){
-        return channels.size();
-    }
-
-    public int getMemberTokenWithIndex(int n){
-        return membersTokens.get(n);
-    }
-
-    public Channel getChannelWithIndex(int n){
-        return channels.get(n);
-    }
 
     public int getOwnerToken() {
         return ownerToken;

@@ -24,6 +24,9 @@ public class Server {
 
     public void run() throws IOException, ClassNotFoundException, UnsupportedAudioFileException, LineUnavailableException {
         addSavedInformations();
+
+        //not important. sth for manual saving
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -41,6 +44,8 @@ public class Server {
         }).start();
 
         ServerSocket serverSocket = new ServerSocket(7880);
+        //accepting users
+
         while(true){
             Socket client = serverSocket.accept();
             User c = new User(client, this);
@@ -97,13 +102,14 @@ public class Server {
 
     public void removeUser(User user){
         users.remove(user);
-
     }
 
     public void addNewMember(Member m) throws IOException {
         members.add(m);
         f.saveMembers(members);
     }
+
+    //add new user and connect a user to member
     public Member logIn(User c, String email) {
         users.add(c);
         for(Member m : members){
@@ -114,16 +120,7 @@ public class Server {
         return null;
     }
 
-    public static Serverr getServerWithId(int id){
-        for(Serverr serverr : servers){
-            if(serverr.getId() == id){
-                return serverr;
-            }
-        }
-        return null;
-    }
-
-
+    //check user login
     public boolean isValidMember(String email, String password){
         for(Member m : members){
             if(m.getEmail().equals(email) && m.getPassword().equals(password)){
@@ -133,6 +130,7 @@ public class Server {
         return false;
     }
 
+    //reeturn a server with given id
     public static Serverr getServerrWithId(int id){
         for(Serverr serverr : servers){
             if(serverr.getId() == id){
@@ -142,10 +140,13 @@ public class Server {
         return null;
     }
 
+    //return all members
     public ArrayList<Member> getMembers() {
         return members;
     }
 
+
+    //return member with given name
     public Member getMember(String name){
         for(Member m : members){
             if(m.getUsername().equals(name)){
@@ -155,25 +156,30 @@ public class Server {
         return null;
     }
 
+    //return all servers
     public ArrayList<Serverr> getServers() {
         return servers;
     }
 
+    //return all chats
     public ArrayList<Chat> getChats() {
         return chats;
     }
 
+    //add new chat to database and save
     public static void addNewChat(Chat chat) throws IOException {
         chats.add(chat);
         f.saveChats(chats);
     }
 
 
+    //add new serverr and save
     public static void addServerr(Serverr serverr) throws IOException {
         servers.add(serverr);
         f.saveServers(servers);
     }
 
+    //save
     public static void saveServers() throws IOException {
         f.saveServers(servers);
     }

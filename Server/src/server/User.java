@@ -23,8 +23,6 @@ public class User implements Runnable {
     private Thread thread;
 
 
-    public enum allMenues{SIGN, MAIN, PROFILE, FRIENDS, FRIENDREQUESTS, SERVERS, SETTING, Music};
-
 
     public User(Socket socket, Server server) throws IOException, ClassNotFoundException {
         this.socket = socket;
