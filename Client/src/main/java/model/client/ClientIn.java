@@ -5,10 +5,12 @@ import controller.DMController;
 import controller.ServerAndChannelController;
 import model.other.MemberInfo;
 import model.other.Message;
+import model.other.ServerInfo;
 import starter.ClientStarter;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -170,6 +172,24 @@ public class ClientIn {
         }
     }
 
+    public static void saveServerPicWithByteArray(byte[] pic, String picName){
+        try {
+            File f = new File("Client\\serverPics\\" + picName);
+            FileInputStream fl = new FileInputStream(f);
+        } catch (FileNotFoundException e) {
+            try {
+                File f = new File("Client\\serverPics\\" + picName);
+                f.createNewFile();
+                FileOutputStream fO = new FileOutputStream(f);
+                fO.write(pic);
+                fO.flush();
+                fO.close();
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+        }
+    }
+
     public void downloadPPic(Message m) throws IOException {
         new Thread(new Runnable() {
             @Override
@@ -228,6 +248,73 @@ public class ClientIn {
             Message m = getMessage();
             if (m.getMessage().equals("%%!getOutOfServer")) {
                 return;
+            }
+            else if (m.getMessage().startsWith("%%!changeServerPic:::")){
+                saveServerPicWithByteArray(m.getContent(), m.getMessage().split(":::")[1]);
+                controller.setPicName(m.getMessage().split(":::")[1]);
+            }
+            //update information of a server
+            else if(m.getMessage().startsWith("%%!updateInfosInServer:::")){
+                System.out.println(m.getMessage());
+                String[] temp = m.getMessage().split(":::");
+                for(String s : temp){
+                    System.out.println(s);
+                }
+                String[] informations;
+                String membersTemp = temp[1];
+                String textChannelsTemp = temp[2];
+                String voiceChannelsTemp = temp[3];
+                ArrayList<ServerInfo> allServers = new ArrayList<>();
+                if (temp.length > 4) {
+                    String allServersTemp = temp[4];
+                    informations = allServersTemp.split(",");
+                    for (String information : informations) {
+                        String name = information.split("#")[0];
+                        int id = Integer.parseInt(information.split("#")[1]);
+                        String picName = information.split("#")[2];
+                        if(picName.endsWith("0.jpg")){
+                            picName = null;
+                        }
+                        allServers.add(new ServerInfo(name, picName, id));
+                        if(picName != null) {
+                            Client.downloadServerPicIfDontHave(picName);
+                        }
+                    }
+                }
+
+
+                ArrayList<String> voiceChannels = new ArrayList<>();
+                if(!voiceChannelsTemp.equals("%")) {
+                    informations = voiceChannelsTemp.split(",");
+                    for (String information : informations) {
+                        voiceChannels.add(information);
+                    }
+                }
+
+                ArrayList<String> textChannels = new ArrayList<>();
+                if(!textChannelsTemp.equals("%")) {
+                    informations = textChannelsTemp.split(",");
+                    for (String information : informations) {
+                        textChannels.add(information);
+                    }
+                }
+
+                ArrayList<MemberInfo> members = new ArrayList<>();
+                informations = membersTemp.split(",");
+                for (String information : informations) {
+                    String name = information.split("-")[0];
+                    String status = information.split("-")[1];
+                    String profilePicName = information.split("-")[2];
+                    if(profilePicName.endsWith("0.jpg")){
+                        profilePicName = null;
+                    }
+                    members.add(new MemberInfo(name, status, profilePicName));
+                    if(profilePicName != null) {
+                        Client.downloadProfilePicIfDontHave(profilePicName);
+                    }
+                }
+                controller.updateInfosFromClientIn(textChannels, voiceChannels, members, allServers);
+
             }
         }
 

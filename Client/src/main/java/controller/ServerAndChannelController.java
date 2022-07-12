@@ -218,6 +218,7 @@ public class ServerAndChannelController implements Initializable {
     private ArrayList<MemberInfo> members;
     private int id;
     private File pic;
+    private ArrayList<ServerInfo> allServers;
 
 
     @FXML
@@ -286,15 +287,17 @@ public class ServerAndChannelController implements Initializable {
     }
 
     @FXML
-    void onDoneInSettingsClicked(MouseEvent event) throws IOException {
+    void onDoneInSettingsClicked(MouseEvent event) throws IOException, InterruptedException {
         String name = newServerNameInSettings.getText();
         if(name != null){
             if(!name.equals("")){
                 Client.changeServerName(name);
+                TimeUnit.MILLISECONDS.sleep(70);
             }
         }
         if(pic != null){
             Client.changeServerPic(pic);
+            TimeUnit.MILLISECONDS.sleep(100);
         }
     }
 
@@ -370,12 +373,9 @@ public class ServerAndChannelController implements Initializable {
     }
 
 
+
+
     public void gotoServerMenu(String menu) throws InterruptedException {
-        Client.serverLogout();
-        TimeUnit.MILLISECONDS.sleep(200);
-        ArrayList<String> textChannels = Client.getServerTextChannelNames(id);
-        ArrayList<String> voiceChannels = Client.getServerVoiceChannelNames(id);
-        ArrayList<MemberInfo> members = Client.getServerMembers(id);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + menu + ".fxml"));
         Parent root = null;
         try {
@@ -384,34 +384,42 @@ public class ServerAndChannelController implements Initializable {
             e.printStackTrace();
         }
         ServerAndChannelController controller = loader.getController();
-        controller.setChannels(textChannels, voiceChannels, members, id);
+        Client.updateInfosInServer(id);
+        TimeUnit.MILLISECONDS.sleep(300);
+        controller.updateInfos(textChannels, voiceChannels, members, allServers, id);
         Client.changeScene(new Scene(root));
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Client.gotoServer(controller, id);
-                }catch (Exception e){
-
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-
     }
 
 
 
 
-    public void setChannels(ArrayList<String> textChannels, ArrayList<String> voiceChannels, ArrayList<MemberInfo> members, int id){
+    public void updateInfos(ArrayList<String> textChannels, ArrayList<String> voiceChannels, ArrayList<MemberInfo> members,ArrayList<ServerInfo> allServers, int id){
         this.textChannels = textChannels;
         this.voiceChannels = voiceChannels;
         this.members = members;
+        this.allServers = allServers;
         showTextChannels();
         showVoiceChannels();
         showMembers();
-        this.id = id;
+        showServersInMainMenuList(allServers);
+        if(id != -1) {
+            this.id = id;
+        }
+    }
 
+    public void updateInfosFromClientIn(ArrayList<String> textChannels, ArrayList<String> voiceChannels, ArrayList<MemberInfo> members,ArrayList<ServerInfo> allServers){
+        this.textChannels = textChannels;
+        this.voiceChannels = voiceChannels;
+        this.members = members;
+        this.allServers = allServers;
+    }
+
+    public void setPicName(String name){
+        for(ServerInfo serverInfo : allServers){
+            if(serverInfo.getId() == id){
+                serverInfo.setPicName(name);
+            }
+        }
     }
 
     public void showTextChannels(){
@@ -432,6 +440,13 @@ public class ServerAndChannelController implements Initializable {
                 root.setSpacing(35);
                 root.setStyle("-fx-background-color: #202225;");
                 root.setPadding(new Insets(5, 5, 5, 5));
+
+                root.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+
+                    }
+                });
 
 
                 textChannelsVBox.getChildren().add(root);
@@ -543,6 +558,47 @@ public class ServerAndChannelController implements Initializable {
                 root.setPrefHeight(75);
                 root.setStyle("-fx-background-color: #2f3136; -fx-background-radius: 100;");
 
+                root.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        Client.serverLogout();
+                        try {
+                            TimeUnit.MILLISECONDS.sleep(200);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        int id = information.getId();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/serverMainPage.fxml"));
+                        Parent root = null;
+                        try {
+                            root = loader.load();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        ServerAndChannelController controller = loader.getController();
+                        Client.updateInfosInServer(id);
+                        try {
+                            TimeUnit.MILLISECONDS.sleep(300);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        controller.updateInfos(textChannels, voiceChannels, members, allServers, id);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Client.gotoServer(controller, id);
+                                }catch (Exception e){
+
+                                    e.printStackTrace();
+                                }
+                            }
+                        }).start();
+                        Client.changeScene(new Scene(root));
+
+                    }
+                });
+
                 serversVBox.getChildren().add(root);
             }
         }
@@ -551,10 +607,7 @@ public class ServerAndChannelController implements Initializable {
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //servers
-        if(serversVBox.getChildren().size() < 3) {
-            showServersInMainMenuList(Client.getServersForMainMenu());
-        }
+
 
     }
 }

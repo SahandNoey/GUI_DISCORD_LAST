@@ -552,11 +552,15 @@ public class Client {
     }
 
     public static void changeServerPic(File file) throws IOException {
-        ClientOut.sendFile(new Message(setServerPic(file), "changeServerPic"));
+        ClientOut.sendFile(new Message(setServerPic(file), "%%!changeServerPic"));
     }
 
     public static void serverLogout(){
         ClientOut.sendCommand("%%!getOutOfServer");
+    }
+
+    public static void updateInfosInServer(int id){
+        ClientOut.sendCommand("%%!updateInfosInServer:::" + id);
     }
 
 

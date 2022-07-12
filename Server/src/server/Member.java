@@ -375,6 +375,28 @@ public class Member implements Serializable {
         return str.toString();
     }
 
+    public String convertServersWithPicNameToAnString(){
+        StringBuilder str = new StringBuilder();
+        for (Serverr serverr : servers){
+            str.append(serverr.getName()).append("#").append(serverr.getId()).append("#").append(serverr.getId()).append("_").append(serverr.getPicNum()).append(".jpg,");
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        return str.toString();
+    }
+
+    public String convertServersToAnStringWithPicName(){
+        StringBuilder str = new StringBuilder();
+        for (Serverr serverr : servers){
+            str.append(serverr.getName()).append("#").append(serverr.getId()).append(",").append(token).append("_").append(picNum).append(".jpg");
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        return str.toString();
+    }
+
     public Serverr getServerrWithId(int id){
         for(Serverr serverr : servers){
             if(serverr.getId() == id){

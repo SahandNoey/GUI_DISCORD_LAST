@@ -48,11 +48,17 @@ public class ServerMenuHandling {
                 serverr.setName(m.getMessage().split(":::")[1]);
             }
             //change server pic
-            else if(m.getMessage().equals("changeServerPic")){
+            else if(m.getMessage().equals("%%!changeServerPic")){
                 serverr.setPic(m.getContent());
+                InteractionWithUser.write(new Message(m.getContent(), m.getMessage() + ":::" + serverr.getId() + "_" + serverr.getPicNum() + ".jpg"), u);
             }
             else if(m.getMessage().startsWith("getServersForMainMenu")){
                 InteractionWithUser.write(new Message("%%!serversForMainMenu:::" + u.getMember().convertServersToAnString()), u);
+            }
+            //update information of a server
+            else if(m.getMessage().startsWith("%%!updateInfosInServer:::")){
+                serverr = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
+                InteractionWithUser.write(new Message("%%!updateInfosInServer:::" + serverr.convertInfosTostring() + ":::" + u.getMember().convertServersWithPicNameToAnString()), u);
             }
         }
 //        int choice;

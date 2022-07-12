@@ -237,6 +237,11 @@ public class User implements Runnable {
         else if (m.getMessage().startsWith("changePasswordTo:::")) {
             member.setPassword(m.getMessage().split(":::")[1]);
         }
+        //update information of a server
+        else if(m.getMessage().startsWith("%%!updateInfosInServer:::")){
+            Serverr serverr = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
+            InteractionWithUser.write(new Message("%%!updateInfosInServer:::" + serverr.convertInfosTostring() + ":::"  + getMember().convertServersWithPicNameToAnString()), this);
+        }
 
     }
 

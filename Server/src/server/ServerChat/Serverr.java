@@ -51,6 +51,9 @@ public class Serverr implements Serializable {
         if(str.length() > 0) {
             str.deleteCharAt(str.length() - 1);
         }
+        else{
+            str.append("%");
+        }
         return str.toString();
     }
 
@@ -59,6 +62,18 @@ public class Serverr implements Serializable {
         for (int token : membersTokens){
             Member m = Server.getMemberWithToken(token);
             str.append(m.getUsername()).append("#").append(m.getToken()).append("-").append(m.getStatus()).append(",");
+        }
+        if(str.length() > 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
+        return str.toString();
+    }
+
+    public String convertMembersWithPicNameToAnString(){
+        StringBuilder str = new StringBuilder();
+        for (int token : membersTokens){
+            Member m = Server.getMemberWithToken(token);
+            str.append(m.getUsername()).append("#").append(m.getToken()).append("-").append(m.getStatus()).append("-").append(m.getToken()).append("_").append(m.getPicNum()).append(".jpg,");
         }
         if(str.length() > 0) {
             str.deleteCharAt(str.length() - 1);
@@ -75,6 +90,9 @@ public class Serverr implements Serializable {
         }
         if(str.length() > 0) {
             str.deleteCharAt(str.length() - 1);
+        }
+        else{
+            str.append("%");
         }
         return str.toString();
     }
@@ -202,5 +220,13 @@ public class Serverr implements Serializable {
 
     public int getPicNum() {
         return picNum;
+    }
+
+    public String convertInfosTostring(){
+        StringBuilder str = new StringBuilder();
+        str.append(convertMembersWithPicNameToAnString()).append(":::");
+        str.append(convertTextChannelsNameToAnString()).append(":::");
+        str.append(convertVoiceChannelsNameToAnString());
+        return str.toString();
     }
 }
