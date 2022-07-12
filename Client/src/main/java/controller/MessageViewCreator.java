@@ -47,7 +47,7 @@ public class MessageViewCreator implements Initializable {
     public void setInfo(MemberInfo memberInfo, String msgContent){
         this.senderInfo = memberInfo;
         msgContentLabel.setText(msgContent);
-//        channelMsgSenderProfileCircle.setFill(new ImagePattern(new Image(senderInfo.getPhotoName())));
+        channelMsgSenderProfileCircle.setFill(new ImagePattern(new Image("file:Client\\profilePics\\" + senderInfo.getPhotoName())));
     }
 
 

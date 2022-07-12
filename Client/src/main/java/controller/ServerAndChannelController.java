@@ -258,8 +258,6 @@ public class ServerAndChannelController implements Initializable {
 
     @FXML
     void homeBtnClicked(MouseEvent event) {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/fxml/mainMenu.fxml"));
-
     }
 
     @FXML
