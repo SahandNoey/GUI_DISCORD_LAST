@@ -46,12 +46,12 @@ public class Chat implements Serializable {
     }
 
     //constructor for channels chat
-    public Chat(String firstMessage){
+    public Chat(){
         this.membersTokens = new ArrayList<>();
         this.members = new ArrayList<>();
         this.messages = new ArrayList<>();
         this.inChat = new HashSet<>();
-        this.firstMessage = firstMessage;
+        this.firstMessage = "hello ";
         isTyping = new ArrayList<>();
         limitedMemberNames = new ArrayList<>();
     }
@@ -83,11 +83,13 @@ public class Chat implements Serializable {
         }
 
         Server.saveChats();
+        Server.saveServers();
     }
 
     public void addNewFile(Message message) throws IOException {
         files.add(message);
         Server.saveChats();
+        Server.saveServers();
     }
 
     public Message getFileWithName(String name){
@@ -111,7 +113,9 @@ public class Chat implements Serializable {
 
 
     public void newInChatMember(User u) throws IOException {
+        System.out.println(messages.size());
         if(membersTokens.contains(u.getMember().getToken()) && !inChat.contains(u)){
+            System.out.println("ff");
             inChat.add(u);
             if(messages.size() <= 15) {
                 for (Message message : messages) {

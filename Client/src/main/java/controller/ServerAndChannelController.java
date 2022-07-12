@@ -229,6 +229,8 @@ public class ServerAndChannelController implements Initializable {
     private File pic;
     private ArrayList<ServerInfo> allServers;
     private ArrayList<AdminInfo> admins;
+    private PopupLoader createChannelPopUp;
+    private int ownerToken;
 
 
     @FXML
@@ -244,22 +246,33 @@ public class ServerAndChannelController implements Initializable {
     @FXML
     void channelSendMsgClicked(MouseEvent event) {
         if (!channelSendMsgTxtFld.getText().equals("")){
-            FXMLLoader msgLoader = new FXMLLoader();
-            msgLoader.setLocation(MessageViewCreator.class.getResource("/fxml/msgVBox.fxml"));
-            try {
-                msgLoader.load();
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-            MessageViewCreator msgController = msgLoader.getController();
-            msgController.setInfo(MainController.getMe(), channelSendMsgTxtFld.getText());
-            onTopChannelVBox.getChildren().add(msgLoader.getRoot());
+            ClientOut.sendCommand(channelSendMsgTxtFld.getText());
+            channelSendMsgTxtFld.setText("");
         }
     }
 
     @FXML
     void createChannelClicked(MouseEvent event) {
-
+        boolean flag = false;
+        if(ownerToken == Integer.parseInt(MainController.getMe().getUserNameWithToken().split("#")[1])){
+            flag =true;
+        }
+        for(AdminInfo adminInfo : admins){
+            if(adminInfo.getUserNameWithToken().equals(MainController.getMe().getUserNameWithToken())){
+                if(adminInfo.canCreateChanel()){
+                    flag = true;
+                }
+            }
+        }
+        if(flag) {
+            if (createChannelPopUp == null) {
+                createChannelPopUp = new PopupLoader(this, "/fxml/createChannelPopup.fxml");
+                createChannelPopUp.popup();
+            } else {
+                createChannelPopUp.close();
+                createChannelPopUp = null;
+            }
+        }
     }
 
     @FXML
@@ -340,11 +353,23 @@ public class ServerAndChannelController implements Initializable {
 
     @FXML
     void cancelBtnInCreateChannelPopupClicked(MouseEvent event) throws IOException {
+        createChannelPopUp.close();
+        createChannelPopUp = null;
     }
 
     @FXML
     void createChannelBtnInPopupClicked(MouseEvent event) {
-
+        String name = channelNameTxtFld.getText();
+        if(!name.equals("")) {
+            if(textChannelRadioBtn.isSelected()) {
+                Client.createNewChannel(id, name, 1);
+            }else{
+                Client.createNewChannel(id, name, 2);
+            }
+            Client.updateInfosInServer(id);
+        }
+        createChannelPopUp.close();
+        createChannelPopUp = null;
     }
 
     @FXML
@@ -425,7 +450,13 @@ public class ServerAndChannelController implements Initializable {
             }
             MessageViewCreator msgController = msgLoader.getController();
             msgController.setInfo(memberInfo, m.getMessage());
-            onTopChannelVBox.getChildren().add(msgLoader.getRoot());
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    onTopChannelVBox.getChildren().add(msgLoader.getRoot());
+                }
+            });
+
         }
         else{
             FXMLLoader msgLoader = new FXMLLoader();
@@ -477,12 +508,13 @@ public class ServerAndChannelController implements Initializable {
         }
     }
 
-    public void updateInfosFromClientIn(ArrayList<String> textChannels, ArrayList<String> voiceChannels, ArrayList<MemberInfo> members, ArrayList<AdminInfo> admins, ArrayList<ServerInfo> allServers){
+    public void updateInfosFromClientIn(ArrayList<String> textChannels, ArrayList<String> voiceChannels, ArrayList<MemberInfo> members, ArrayList<AdminInfo> admins, ArrayList<ServerInfo> allServers, int ownerToken){
         this.textChannels = textChannels;
         this.voiceChannels = voiceChannels;
         this.members = members;
         this.allServers = allServers;
         this.admins = admins;
+        this.ownerToken =ownerToken;
     }
 
     public void setPicName(String name){
@@ -519,12 +551,11 @@ public class ServerAndChannelController implements Initializable {
                         Client.channelLogout();
                         try {
                             TimeUnit.MILLISECONDS.sleep(100);
-                            Client.goToTextChannel(name , id, controller);
+                            Client.goToTextChannel(name, id, controller);
                         } catch (IOException | InterruptedException e) {
                             e.printStackTrace();
                         }
                         onTopChannelVBox.getChildren().clear();
-
                     }
                 });
 

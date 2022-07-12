@@ -245,41 +245,7 @@ public class ClientIn {
 
 
     public static void gotoTextChannel(ServerAndChannelController controller) throws IOException, InterruptedException {
-        while (true) {
-            Message m = getMessage();
-            if (m.getMessage().equals("%%!getOutOfChannel")) {
-                return;
-            }
-            else if(m.getMessage().equals("%%!getOutOfServer")){
-                return;
-            }
-            else if (m.getContent() != null) {
-                byte[] content = m.getContent();
-                File f = new File("Client\\downloads\\" + m.getMessage());
-                f.createNewFile();
-                FileOutputStream fO = new FileOutputStream(f);
-                fO.write(content);
-                fO.flush();
-                fO.close();
-                controller.setTempText("");
-                continue;
-            } else if (m.getMessage().equals("notSelf%%!isTyping")) {
-                controller.setTempText("is Typing...");
-                continue;
-            } else if (m.getMessage().equals("notSelf%%!isNotTyping")) {
-                controller.setTempText("");
-                continue;
-            }
-            if (ClientStarter.stage.isShowing()) {
-                controller.addMessage(m);
-            } else {
-                ClientOut.sendCommand("%%!getOutOfChannel");
-                TimeUnit.MILLISECONDS.sleep(500);
-                Client.logOut();
-                return;
-            }
 
-        }
     }
 
 
@@ -293,19 +259,64 @@ public class ClientIn {
                 saveServerPicWithByteArray(m.getContent(), m.getMessage().split(":::")[1]);
                 controller.setPicName(m.getMessage().split(":::")[1]);
             }
+
+
+
+
+            else if(m.getMessage().startsWith("goToTextChannel:::")){
+                while (true) {
+                    Message m1 = getMessage();
+                    if (m1.getMessage().equals("%%!getOutOfChannel")) {
+                        break;
+                    }
+                    else if(m1.getMessage().equals("%%!getOutOfServer")){
+                        return;
+                    }
+                    else if (m1.getContent() != null) {
+                        byte[] content = m1.getContent();
+                        File f = new File("Client\\downloads\\" + m1.getMessage());
+                        f.createNewFile();
+                        FileOutputStream fO = new FileOutputStream(f);
+                        fO.write(content);
+                        fO.flush();
+                        fO.close();
+                        controller.setTempText("");
+                        continue;
+                    } else if (m1.getMessage().equals("notSelf%%!isTyping")) {
+                        controller.setTempText("is Typing...");
+                        continue;
+                    } else if (m1.getMessage().equals("notSelf%%!isNotTyping")) {
+                        controller.setTempText("");
+                        continue;
+                    }
+                    if (ClientStarter.stage.isShowing()) {
+                        controller.addMessage(m1);
+                    } else {
+                        ClientOut.sendCommand("%%!getOutOfChannel");
+                        TimeUnit.MILLISECONDS.sleep(500);
+                        Client.logOut();
+                        return;
+                    }
+
+                }
+            }
+
+
+
+
             //update information of a server
             else if(m.getMessage().startsWith("%%!updateInfosInServer:::")){
-                System.out.println(m.getMessage());
                 String[] temp = m.getMessage().split(":::");
                 for(String s : temp){
                     System.out.println(s);
                 }
                 String[] informations;
-                String membersTemp = temp[1];
-                String adminsTemp = temp[2];
-                String textChannelsTemp = temp[3];
-                String voiceChannelsTemp = temp[4];
-                String allServersTemp = temp[5];
+                int ownerToken = Integer.parseInt(temp[1]);
+                String membersTemp = temp[2];
+                String adminsTemp = temp[3];
+                String textChannelsTemp = temp[4];
+                String voiceChannelsTemp = temp[5];
+                String allServersTemp = temp[6];
 
 
                 ArrayList<ServerInfo> allServers = new ArrayList<>();
@@ -378,7 +389,7 @@ public class ClientIn {
                 }
 
 
-                controller.updateInfosFromClientIn(textChannels, voiceChannels, members, admins, allServers);
+                controller.updateInfosFromClientIn(textChannels, voiceChannels, members, admins, allServers,ownerToken);
 
             }
         }

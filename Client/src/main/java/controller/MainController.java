@@ -593,7 +593,6 @@ public class MainController implements Initializable {
                             try {
                                 Client.gotoServer(controller, id);
                             }catch (Exception e){
-
                                 e.printStackTrace();
                             }
                         }

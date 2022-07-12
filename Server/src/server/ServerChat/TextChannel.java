@@ -13,9 +13,9 @@ public class TextChannel extends Channel implements Serializable {
 
     Chat chat;
 
-    public TextChannel(String name, Serverr serverr, String firstMesasge) {
+    public TextChannel(String name, Serverr serverr) {
         super(name,serverr);
-        chat = new Chat(firstMesasge);
+        chat = new Chat();
     }
 
     public Chat getChat() {

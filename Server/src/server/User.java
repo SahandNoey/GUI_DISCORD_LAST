@@ -6,6 +6,8 @@ import server.MenuesHanling.ServerMenuHandling;
 import server.MenuesHanling.Signing;
 import model.other.Message;
 import server.ServerChat.Serverr;
+import server.ServerChat.TextChannel;
+import server.ServerChat.VoiceChannel;
 import server.ValidationPackage.Validation;
 import server.ValidationPackage.invalidPasswordFormatException;
 
@@ -248,6 +250,24 @@ public class User implements Runnable {
         else if(m.getMessage().startsWith("removeFriend:::")){
             getMember().removeFriend(Integer.parseInt(m.getMessage().split(":::")[1]));
         }
+        //create text channel
+        else if(m.getMessage().startsWith("%%!createNewTextChannel:::")){
+            System.out.println("fhf");
+            Serverr serverr = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
+            System.out.println(serverr.getId());
+            serverr.addChannel(new TextChannel(m.getMessage().split(":::")[2], serverr));
+        }
+
+        //create voice channel
+        else if(m.getMessage().startsWith("%%!createNewVoiceChannel:::")){
+            Serverr serverr = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
+            serverr.addChannel(new VoiceChannel(m.getMessage().split(":::")[2], serverr));
+        }
+
+
+
+
+
 
     }
 

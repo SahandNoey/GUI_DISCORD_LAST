@@ -52,9 +52,21 @@ public class ServerMenuHandling {
                 serverr = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
                 InteractionWithUser.write(new Message("%%!updateInfosInServer:::" + serverr.convertInfosTostring() + ":::" + u.getMember().convertServersWithPicNameToAnString()), u);
             }
+            //create text channel
+            else if(m.getMessage().startsWith("%%!createNewTextChannel:::")){
+                Serverr serverr1 = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
+                serverr1.addChannel(new TextChannel(m.getMessage().split(":::")[2], serverr1));
+            }
+
+            //create voice channel
+            else if(m.getMessage().startsWith("%%!createNewVoiceChannel:::")){
+                Serverr serverr1 = Server.getServerrWithId(Integer.parseInt(m.getMessage().split(":::")[1]));
+                serverr1.addChannel(new VoiceChannel(m.getMessage().split(":::")[2], serverr1));
+            }
 
 
             else if(m.getMessage().startsWith("goToTextChannel:::")){
+                InteractionWithUser.write(m, u);
                 String channelName = m.getMessage().split(":::")[2];
                 int serverId = Integer.parseInt(m.getMessage().split(":::")[1]);
                 Chat target = Server.getServerrWithId(id).getTextChannelWithName(channelName);
@@ -66,7 +78,21 @@ public class ServerMenuHandling {
                             target.removeInChatMember(u);
                             InteractionWithUser.write(new Message("%%!getOutOfChannel"), u);
                             break;
-                        } else if(m1.getMessage().startsWith("%%!getOutOfServer")){
+                        }
+                        //create text channel
+                        else if(m1.getMessage().startsWith("%%!createNewTextChannel:::")){
+                            Serverr serverr1 = Server.getServerrWithId(Integer.parseInt(m1.getMessage().split(":::")[1]));
+                            serverr1.addChannel(new TextChannel(m1.getMessage().split(":::")[2], serverr1));
+                        }
+
+                        //create voice channel
+                        else if(m1.getMessage().startsWith("%%!createNewVoiceChannel:::")){
+                            Serverr serverr1 = Server.getServerrWithId(Integer.parseInt(m1.getMessage().split(":::")[1]));
+                            serverr1.addChannel(new VoiceChannel(m1.getMessage().split(":::")[2], serverr1));
+                        }
+
+
+                        else if(m1.getMessage().startsWith("%%!getOutOfServer")){
                             target.removeInChatMember(u);
                             InteractionWithUser.write(new Message("%%!getOutOfServer"), u);
                             return;
@@ -92,11 +118,12 @@ public class ServerMenuHandling {
                             continue;
                         }
                     }
-                    if (m.getContent() != null) {
+                    if (m1.getContent() != null) {
                         target.addNewFile(m1);
-                        target.addNewMessage(new Message("%%!file:::" + m.getMessage(), u.getMember().getToken()), u);
+                        target.addNewMessage(new Message("%%!file:::" + m1.getMessage(), u.getMember().getToken()), u);
                         continue;
                     }
+                    target.addNewMessage(new Message(m1.getMessage(), u.getMember().getToken()), u);
                 }
             }
         }

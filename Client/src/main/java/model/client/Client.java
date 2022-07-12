@@ -577,11 +577,19 @@ public class Client {
 
     public static void goToTextChannel(String channelName, int serverId, ServerAndChannelController controller) throws IOException, InterruptedException {
         cOut.sendCommand("goToTextChannel:::" + serverId + ":::" + channelName);
-        cIn.gotoTextChannel(controller);
     }
 
     public static void channelLogout(){
         ClientOut.sendCommand("%%!getOutOfChannel");
+    }
+
+    public static void createNewChannel(int serverId, String name, int type){
+        if(type==1) {
+            ClientOut.sendCommand("%%!createNewTextChannel:::" + serverId + ":::" + name);
+        }
+        else{
+            ClientOut.sendCommand("%%!createNewVoiceChannel:::" + serverId + ":::" + name);
+        }
     }
 
 

@@ -206,7 +206,8 @@ public class Serverr implements Serializable {
     }
 
     public String convertInfosTostring(){
-        StringBuilder str = new StringBuilder();
+        StringBuilder str = new StringBuilder(ownerToken);
+        str.append(":::");
         str.append(convertMembersWithPicNameToAnString()).append(":::");
         str.append(convertAdminsToString()).append(":::");
         str.append(convertTextChannelsNameToAnString()).append(":::");

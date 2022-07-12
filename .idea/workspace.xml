@@ -3,23 +3,38 @@
   <component name="ChangeListManager">
     <list default="true" id="8e35a931-f14f-4f8a-ac8f-cdccfaf3c5f9" name="Default Changelist" comment="dm part updated and pane and image view replaced with circle for profile photos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/DMController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/downloads/20220507_123334.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/downloads/20220617_192151.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/downloads/photo_389@23-04-2022_12-43-55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/downloads/photo_406@29-04-2022_03-05-16.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/other/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/other/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/files/chats.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/chats.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/model/other/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/model/other/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/FriendHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/FriendHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$4$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$5$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/DMController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/DMController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/controller/ServerAndChannelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/model/client/ClientIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/files/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/members.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/files/servers.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Server/files/servers.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ServerMenuHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/MenuesHanling/ServerMenuHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/ServerChat/Serverr.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/ServerChat/Serverr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/ServerChat/TextChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/ServerChat/TextChannel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/server/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/model/other/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/other/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/controller/ServerAndChannelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/model/client/ClientOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/model/client/ClientOut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/Chat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/ServerMenuHandling$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/ServerMenuHandling$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/ServerMenuHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/MenuesHanling/ServerMenuHandling.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/ServerChat/TextChannel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/ServerChat/TextChannel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/server/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/server/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +173,8 @@
       <workItem from="1657625010840" duration="2939000" />
       <workItem from="1657631441210" duration="3141000" />
       <workItem from="1657634906428" duration="894000" />
+      <workItem from="1657636105270" duration="6045000" />
+      <workItem from="1657642220034" duration="95000" />
     </task>
     <task id="LOCAL-00001" summary="a commit for conflict resolve">
       <created>1657278273255</created>
